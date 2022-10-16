@@ -1,0 +1,18 @@
+{
+  "providers": [
+    {
+        "type":"bitmap",
+        "file":"minecraft:custom/zinc.png",
+        "ascent":7,
+        "height":7,
+        "chars":["ꐆ"]
+    },
+    {
+      "type":"bitmap",
+      "file":"minecraft:custom/crystaline.png",
+      "ascent":7,
+      "height":7,
+      "chars":["的"]
+    }
+  ]
+}

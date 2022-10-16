@@ -101,7 +101,7 @@ public class DMComputerScreen extends Screen {
         }
         for(int i = computerTileEntity.TERMINAL_HISTORY.size() - 15; i < computerTileEntity.TERMINAL_HISTORY.size(); i++){
             if(i >= 0){
-                drawString(p_96562_, this.font, computerTileEntity.TERMINAL_HISTORY.get(i),this.width / 2 - 100, this.height / 2 + 75 - i*16, ColorUtils.getWhite());
+                drawString(p_96562_, this.font, computerTileEntity.TERMINAL_HISTORY.get(i),this.width / 2 - 100, this.height / 2 - 43 + (i*9 - (int)(computerTileEntity.TERMINAL_HISTORY.size() / 14F - i*18)), ColorUtils.getWhite());
             }
         }
         super.render(p_96562_, p_96563_, p_96564_, p_96565_);

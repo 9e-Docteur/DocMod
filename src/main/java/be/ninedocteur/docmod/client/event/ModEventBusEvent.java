@@ -97,6 +97,7 @@ public class ModEventBusEvent {
         event.put(DMEntityType.ADIPOSE.get(), AdiposeEntity.createAttributes().build());
     }
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
         Minecraft.getInstance().particleEngine.register(DMParticles.MAGIC_PARTICLES.get(), MagicParticles.Provider::new);

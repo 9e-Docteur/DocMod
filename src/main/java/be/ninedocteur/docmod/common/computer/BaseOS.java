@@ -124,7 +124,7 @@ public abstract class BaseOS /*implements ICommand*/ {
                     }
                 }
             } else {
-                command1.answer("Unknown Command", BaseCommand.AnswerType.FAILED);
+                //command1.answer("Unknown Command", BaseCommand.AnswerType.FAILED);
             }
         }
         computerTileEntity.TERMINAL_HISTORY.add(">" + command);

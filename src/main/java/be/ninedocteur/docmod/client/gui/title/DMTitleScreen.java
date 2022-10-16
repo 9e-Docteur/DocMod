@@ -187,7 +187,7 @@ public class DMTitleScreen extends Screen {
             }));
 
             serverButton = new ImageButton(this.width / 2 + 190, this.height / 4 + 48 -106, 16, 16, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/server.png"), (button -> {
-                //ScreenUtils.openScreen(new DMCommunityServerScreen());
+                //ScreenUtils.openScreen(new DMCommunityMainScreen(this));
             }));
 
             infoButton = new ImageButton(this.width / 2 - 150, this.height / 4 + 48 -106, 16, 16, 0, 129, new ResourceLocation(DocMod.MOD_ID, "textures/gui/widgets.png"), (button -> {

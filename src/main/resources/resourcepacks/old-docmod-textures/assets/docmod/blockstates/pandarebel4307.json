@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "docmod:block/pandarebel4307",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "docmod:block/pandarebel4307"
+    },
+    "facing=south": {
+      "model": "docmod:block/pandarebel4307",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "docmod:block/pandarebel4307",
+      "y": 270
+    }
+  }
+}

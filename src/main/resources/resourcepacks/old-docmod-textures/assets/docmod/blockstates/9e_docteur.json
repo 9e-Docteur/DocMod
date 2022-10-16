@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "docmod:block/9e_docteur",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "docmod:block/9e_docteur"
+    },
+    "facing=south": {
+      "model": "docmod:block/9e_docteur",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "docmod:block/9e_docteur",
+      "y": 270
+    }
+  }
+}
