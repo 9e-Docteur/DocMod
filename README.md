@@ -3,7 +3,7 @@
 [![Curseforge](http://cf.way2muchnoise.eu/versions/540006.svg)](https://www.curseforge.com/minecraft/mc-mods/docmod) [![Curseforge](http://cf.way2muchnoise.eu/full_540006_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/docmod)
 [![Github License](https://img.shields.io/badge/liscence-All%20Right%20Reserved-red)]()
 [![Github Release](https://img.shields.io/github/v/release/9e-Docteur/docmod)]()
-[![Github Repo Size](https://img.shields.io/github/repo-size/9e-docteur/docmod)]()
+[![Github Repo Size](https://img.shields.io/github/repo-size/9e-docteur/DocMod-New)]()
 [![Github Repo Issues](https://img.shields.io/github/issues/9e-docteur/docmod)]()
 [![Github Repo Stars](https://img.shields.io/github/stars/9e-Docteur/docmod)]()
 <a href="https://discord.gg/7VA9X67xRB"><img src="https://img.shields.io/discord/910285401770573835?color=5865f2&label=Discord&style=flat" alt="Discord"></a>
