@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "docmod:zinc_ore",
+    "docmod:zinc_block",
+    "docmod:cryolite_ore",
+    "docmod:halfinum_ore",
+    "docmod:killer_block",
+    "docmod:circle_glass",
+    "docmod:glass_tube",
+    "docmod:red_glass_tube",
+    "docmod:green_glass_tube",
+    "docmod:smoke_block",
+    "docmod:toyota_rotor",
+    "docmod:toyota_rotor_red",
+    "docmod:deepslate_zinc_ore",
+    "docmod:steel_ore",
+    "docmod:9e_docteur",
+    "docmod:josia50",
+    "docmod:pandarebel4307",
+    "docmod:crystal_ore",
+    "docmod:steel_ore",
+    "docmod:nether_zinc_ore",
+    "docmod:crystaline_ore"
+  ]
+}

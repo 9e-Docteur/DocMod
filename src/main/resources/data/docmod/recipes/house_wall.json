@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#/#",
+    "/#/",
+    "#/#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:magenta_dye"
+    },
+    "/": {
+      "item": "minecraft:purple_dye"
+    }
+  },
+  "result": {
+    "item": "docmod:house_wall"
+  }
+}

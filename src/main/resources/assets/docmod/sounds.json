@@ -1,0 +1,80 @@
+{
+  "entity.cyberman.ambient" : {
+    "sounds": [
+      "docmod:cyberman_you_will_become_like_us"
+    ]
+  },
+
+  "entity.cyberman.hurt" : {
+    "sounds": [
+      "docmod:cyberman_hurt"
+    ]
+  },
+
+  "entity.oldsteve.hurt" : {
+    "sounds": [
+      "docmod:oldsteve_hurt"
+    ]
+  },
+
+  "item.dalek_gun.shoot":{
+    "sounds": [
+      "docmod:dalek_gun"
+    ]
+  },
+
+  "item.cyberman_gun.shoot":{
+    "sounds": [
+      "docmod:cyberman_gun"
+    ]
+  },
+
+  "entity.cyberman.step":{
+    "sounds": [
+      "docmod:cyberman_step"
+    ]
+  },
+
+  "item.sonic.use":{
+    "sounds": [
+      "docmod:sonicscrewdriver"
+    ]
+  },
+
+  "gun.rpg.shoot":{
+    "sounds": [
+      "docmod:rpg"
+    ]
+  },
+
+  "entity.dalek.exterminate":{
+  "sounds": [
+    "docmod:dalek_exterminate"
+  ]
+},
+  "item.garatim_sonic.use":{
+    "sounds": [
+      "docmod:garatim_sonic"
+    ]
+  },
+  "item.magic_wand.shoot":{
+    "sounds": [
+      "docmod:magic_wand"
+    ]
+  },
+  "block.lever.off":{
+    "sounds": [
+      "docmod:lever_off"
+    ]
+  },
+  "block.lever.on":{
+    "sounds": [
+      "docmod:lever_on"
+    ]
+  },
+  "gun.dalek.special_weapon":{
+    "sounds": [
+      "docmod:special_weapons"
+    ]
+  }
+}

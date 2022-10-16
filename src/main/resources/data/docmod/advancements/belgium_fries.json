@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "docmod:belgium_fries"
+    },
+    "title": "It's from Belgium!",
+    "description": "Get a hold of the best food ever."
+  },
+  "parent": "docmod:food",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "docmod:belgium_fries"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  }
+}

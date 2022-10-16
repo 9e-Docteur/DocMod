@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "(-(",
+    " *+",
+    " * "
+  ],
+  "key": {
+    "*": {
+      "item": "docmod:electronic_circuit"
+    },
+    "(": {
+      "item": "docmod:crystal"
+    },
+    "+": {
+      "item": "minecraft:stone_button"
+    },
+    "-": {
+      "item": "docmod:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "docmod:sonic_screwdriver_10"
+  }
+}

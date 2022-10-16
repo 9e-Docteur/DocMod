@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "docmod:block/decoration/light_blue_bricks"
+  }
+}

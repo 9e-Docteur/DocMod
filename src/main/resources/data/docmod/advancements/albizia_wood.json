@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "docmod:albizia_planks"
+    },
+    "title": "Do you want to make the Panda angry?",
+    "description": "Craft albizia planks"
+  },
+  "parent": "docmod:albizia_log",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "docmod:albizia_planks"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+

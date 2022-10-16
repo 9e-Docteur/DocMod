@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#*#",
+    "*#*",
+    "#*#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:yellow_wool"
+    },
+    "*": {
+      "item": "minecraft:orange_wool"
+    }
+  },
+  "result": {
+    "item": "docmod:yellow_orange_wallpaper"
+  }
+}
