@@ -10,6 +10,7 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'maven-publish'
 
 version = '5.0'
 group = 'be.ninedocteur.docmod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -97,3 +98,16 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
