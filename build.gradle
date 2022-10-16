@@ -2,19 +2,14 @@ buildscript {
     repositories {
         // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://maven.minecraftforge.net' }
-        maven { url = 'https://maven.parchmentmc.org' }
         mavenCentral()
         jcenter()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath 'org.parchmentmc:librarian:1.+'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
 
 version = '5.0'
 group = 'be.ninedocteur.docmod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -24,7 +19,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'parchment', version: "2022.08.14-1.19.2"
+    mappings channel: 'official', version: '1.19.2'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -102,16 +97,3 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
-        }
-    }
-}
