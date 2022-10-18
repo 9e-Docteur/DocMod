@@ -6,6 +6,7 @@ import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.common.item.laser.item.MagicLaserGunItem;
 import be.ninedocteur.docmod.common.item.laser.item.MagicLaserItem;
 import be.ninedocteur.docmod.common.sound.DMSound;
+import be.ninedocteur.docmod.utils.DMMath;
 import be.ninedocteur.docmod.utils.GunUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.sounds.SoundSource;
@@ -130,9 +131,9 @@ public class MagicWand extends MagicLaserGunItem {
         Map<Enchantment, Integer> enchantments = EnchantmentHelper.getEnchantments(itemstack);
         int level = EnchantmentHelper.getItemEnchantmentLevel(DMEnchantements.COOLDOWN_REDUCER.get(), itemstack);
         if(level < 1) {
-            pPlayer.getCooldowns().addCooldown(this, 40); //WITH NO ENCHANT
+            pPlayer.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(2)); //WITH NO ENCHANT
         } else {
-            pPlayer.getCooldowns().addCooldown(this, 20); //WITH ENCHANT
+            pPlayer.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(1)); //WITH ENCHANT
         }
         boolean flag = !GunUtils.getMagicLaserProjectile(itemstack, pPlayer).isEmpty();
         InteractionResultHolder<ItemStack> ret = ForgeEventFactory.onArrowNock(itemstack, pLevel, pPlayer, pHand, flag);

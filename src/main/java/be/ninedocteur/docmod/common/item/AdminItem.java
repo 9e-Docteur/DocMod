@@ -28,7 +28,7 @@ public class AdminItem extends Item {
                 if(teamMember == teamMember){
 
                 } else {
-                    pPlayer.getInventory().clearOrCountMatchingItems(p -> new ItemStack(DMItems.POINTER.get()).getItem() == p.getItem(), 1, pPlayer.inventoryMenu.getCraftSlots());
+                    pPlayer.getInventory().clearOrCountMatchingItems(p -> new ItemStack(this).getItem() == p.getItem(), 1, pPlayer.inventoryMenu.getCraftSlots());
                     pPlayer.sendSystemMessage(Component.literal(ChatFormatting.RED + "You are not allowed to use this item."));
                 }
             }

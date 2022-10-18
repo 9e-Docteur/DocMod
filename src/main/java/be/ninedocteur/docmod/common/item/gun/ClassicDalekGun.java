@@ -5,6 +5,7 @@ import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.common.item.laser.item.ClassicDalekLaserGunItem;
 import be.ninedocteur.docmod.common.item.laser.item.ClassicDalekLaserItem;
 import be.ninedocteur.docmod.common.sound.DMSound;
+import be.ninedocteur.docmod.utils.DMMath;
 import be.ninedocteur.docmod.utils.GunUtils;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -117,7 +118,7 @@ public class ClassicDalekGun extends ClassicDalekLaserGunItem {
     }
 
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
-        pPlayer.getCooldowns().addCooldown(this, 40);
+        pPlayer.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(2));
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         boolean flag = !GunUtils.getMagicLaserProjectile(itemstack, pPlayer).isEmpty();
         InteractionResultHolder<ItemStack> ret = ForgeEventFactory.onArrowNock(itemstack, pLevel, pPlayer, pHand, flag);

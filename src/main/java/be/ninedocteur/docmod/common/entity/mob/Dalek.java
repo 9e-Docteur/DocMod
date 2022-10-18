@@ -23,11 +23,13 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.function.Predicate;
@@ -111,7 +113,6 @@ public class Dalek extends Monster implements RangedAttackMob {
     public float getSteeringSpeed() {
         return (float)this.getAttributeValue(Attributes.MOVEMENT_SPEED) * 0.225F;
     }
-
 
 
     public void reassessWeaponGoal() {

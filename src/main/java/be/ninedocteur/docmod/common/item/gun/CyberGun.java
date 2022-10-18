@@ -5,6 +5,7 @@ import be.ninedocteur.docmod.common.item.laser.item.LaserGunItem;
 import be.ninedocteur.docmod.common.item.laser.item.LaserItem;
 import be.ninedocteur.docmod.common.sound.DMSound;
 import be.ninedocteur.docmod.common.entity.projectile.AbstractLaser;
+import be.ninedocteur.docmod.utils.DMMath;
 import be.ninedocteur.docmod.utils.TeamUtils;
 import be.ninedocteur.docmod.utils.GunUtils;
 import net.minecraft.client.Minecraft;
@@ -98,7 +99,7 @@ public class CyberGun extends LaserGunItem {
                     if(teamMember == teamMember){
 
                     }else {
-                        player.getCooldowns().addCooldown(this, 10);
+                        player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(1));
                     }
                 }
             }

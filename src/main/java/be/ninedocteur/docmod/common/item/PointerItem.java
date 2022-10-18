@@ -41,8 +41,7 @@ public class PointerItem extends AdminItem {
         final ItemStack stack = player.getItemInHand(hand);
         final BlockHitResult result = Item.getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY);
         final BlockState state = level.getBlockState(result.getBlockPos());
-        if (!canInteract(player, result.getBlockPos()) || !state.isAir()
-                || !state.canBeReplaced(new BlockPlaceContext(player, hand, stack, result)))
+        if (!canInteract(player, result.getBlockPos()) || !state.isAir())
             return InteractionResultHolder.fail(stack);
 
         if (!stack.getOrCreateTag().contains(DocMod.MOD_ID, Tag.TAG_COMPOUND)) {

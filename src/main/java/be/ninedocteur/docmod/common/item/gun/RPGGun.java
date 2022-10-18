@@ -6,6 +6,7 @@ import be.ninedocteur.docmod.common.item.laser.item.RPGItem;
 import be.ninedocteur.docmod.common.item.laser.item.RPGGunItem;
 import be.ninedocteur.docmod.common.sound.DMSound;
 import be.ninedocteur.docmod.common.entity.projectile.AbstractRPGLaser;
+import be.ninedocteur.docmod.utils.DMMath;
 import be.ninedocteur.docmod.utils.TeamUtils;
 import be.ninedocteur.docmod.utils.GunUtils;
 import net.minecraft.client.Minecraft;
@@ -102,9 +103,9 @@ public class RPGGun extends RPGGunItem {
                     User user = Minecraft.getInstance().getUser();
                     TeamUtils.TeamMember teamMember = TeamUtils.getTeamMembers().get(user.getUuid());
                     if(teamMember != null){
-                        player.getCooldowns().addCooldown(this, 0);
+                        player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(1));
                     }else {
-                        player.getCooldowns().addCooldown(this, 10);
+                        player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(1));
                     }
 
                 }
