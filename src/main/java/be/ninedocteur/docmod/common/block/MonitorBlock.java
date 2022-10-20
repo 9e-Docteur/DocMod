@@ -16,6 +16,8 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 public class MonitorBlock extends BaseEntityBlock {
@@ -51,16 +53,19 @@ public class MonitorBlock extends BaseEntityBlock {
         return new MonitorTileEntity(p_155268_, p_155269_);
     }
 
+    @OnlyIn(Dist.CLIENT)
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-        if(blockEntity instanceof MonitorTileEntity monitorTileEntity){
-            BlockPos computerTileEntityPos = BlockPos.of(monitorTileEntity.compoundTag.getLong("computerPos"));
-            BlockEntity computerTileEntity = pLevel.getBlockEntity(computerTileEntityPos);
-            if(monitorTileEntity.isLinkedToComputer){
-                Minecraft.getInstance().setScreen(new DMComputerScreen((ComputerTileEntity) computerTileEntity));
-            } else {
-                pPlayer.sendSystemMessage(Component.literal(ChatFormatting.RED + "This monitor is not linked to a computer."));
+        if (pLevel.isClientSide()) {
+            if (blockEntity instanceof MonitorTileEntity monitorTileEntity) {
+                BlockPos computerTileEntityPos = BlockPos.of(monitorTileEntity.compoundTag.getLong("computerPos"));
+                BlockEntity computerTileEntity = pLevel.getBlockEntity(computerTileEntityPos);
+                if (monitorTileEntity.isLinkedToComputer) {
+                    Minecraft.getInstance().setScreen(new DMComputerScreen((ComputerTileEntity) computerTileEntity));
+                } else {
+                    pPlayer.sendSystemMessage(Component.literal(ChatFormatting.RED + "This monitor is not linked to a computer."));
+                }
             }
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);

@@ -40,6 +40,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.levelgen.WorldGenSettings;
 import net.minecraft.world.level.storage.LevelStorageSource;
 import net.minecraft.world.level.storage.LevelSummary;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -50,6 +52,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 
+@OnlyIn(Dist.CLIENT)
 public class DMBetaTitleScreen  extends TitleScreen {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final CubeMap CUBE_MAP = new CubeMap(new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/background/panorama"));

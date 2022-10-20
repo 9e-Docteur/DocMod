@@ -12,7 +12,10 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class ComputerHarwareMenu extends AbstractContainerMenu {
     private static final int SLOT_COUNT = 9;
     private static final int INV_SLOT_START = 9;

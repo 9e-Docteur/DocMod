@@ -25,6 +25,9 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import org.apache.commons.compress.archivers.sevenz.CLI;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -156,6 +159,7 @@ public class ComputerTileEntity extends RandomizableContainerBlockEntity /*Block
         this.items = p_59243_;
     }
 
+    @OnlyIn(Dist.CLIENT)
     protected AbstractContainerMenu createMenu(int p_59235_, Inventory p_59236_) {
         return new ComputerHarwareMenu(p_59235_, p_59236_, this);
     }

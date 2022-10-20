@@ -79,7 +79,7 @@ repositories {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:1.19.2-43.1.25"
+    minecraft "net.minecraftforge:forge:1.19.2-43.1.43"
 }
 
 

@@ -1,6 +1,8 @@
 package be.ninedocteur.docmod;
 
+import be.ninedocteur.docmod.client.containers.DMContainers;
 import be.ninedocteur.docmod.client.gui.screens.DMReportBug;
+import be.ninedocteur.docmod.common.init.DMMenu;
 import be.ninedocteur.docmod.proxy.ClientProxy;
 import be.ninedocteur.docmod.common.init.DMWoodTypes;
 import be.ninedocteur.docmod.registry.ClassRegistry;
@@ -48,6 +50,8 @@ public class DocMod {
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DMConfig.Server.SERVER_SPEC, "docmod-server.toml");
         LOGGER.info("Start initializing DocMod Events.");
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientProxy.doClientEvents(eventBus, MinecraftForge.EVENT_BUS));
+        DocMod.LOGGER.info("Init DocMod Containers...");
+        DMContainers.CONTAINERS.register(eventBus);
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::onLaunch);
         MinecraftForge.EVENT_BUS.register(this);

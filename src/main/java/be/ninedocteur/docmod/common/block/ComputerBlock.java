@@ -13,6 +13,8 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 public class ComputerBlock extends BaseEntityBlock {
@@ -24,25 +26,28 @@ public class ComputerBlock extends BaseEntityBlock {
         isRunning = false;
     }
 
+    @OnlyIn(Dist.CLIENT)
     @Override
     public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
-        BlockEntity blockentity = p_60504_.getBlockEntity(p_60505_);
-        if(Screen.hasShiftDown()){
-            if (blockentity instanceof ComputerTileEntity) {
-                p_60506_.openMenu((ComputerTileEntity) blockentity);
-            }
-        } else{
-           // final MenuProvider container = new SimpleMenuProvider(ComputerHarwareMenu, Component.literal("Computer Harware"));
-            //NetworkHooks.openScreen((ServerPlayer) p_60506_, container, p_60505_);
-            if(p_60504_.isClientSide && blockentity instanceof ComputerTileEntity computerTileEntity) {
-                Minecraft.getInstance().setScreen(new DMComputerScreen(computerTileEntity));
-                if(isRunning){
-                    isRunning = false;
-                    computerTileEntity.TERMINAL_HISTORY.clear();
-                } else {
-                    isRunning = true;
-                }
-            }
+        if(p_60504_.isClientSide()){
+            BlockEntity blockentity = p_60504_.getBlockEntity(p_60505_);
+            if(Screen.hasShiftDown()){
+             if (blockentity instanceof ComputerTileEntity) {
+                    p_60506_.openMenu((ComputerTileEntity) blockentity);
+              }
+         } else {
+              // final MenuProvider container = new SimpleMenuProvider(ComputerHarwareMenu, Component.literal("Computer Harware"));
+              //NetworkHooks.openScreen((ServerPlayer) p_60506_, container, p_60505_);
+             if (blockentity instanceof ComputerTileEntity computerTileEntity) {
+                    Minecraft.getInstance().setScreen(new DMComputerScreen(computerTileEntity));
+                 if (isRunning) {
+                      isRunning = false;
+                       computerTileEntity.TERMINAL_HISTORY.clear();
+                  } else {
+                      isRunning = true;
+                   }
+             }
+         }
         }
         return super.use(p_60503_, p_60504_, p_60505_, p_60506_, p_60507_, p_60508_);
     }

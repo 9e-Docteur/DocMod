@@ -1,6 +1,7 @@
 package be.ninedocteur.docmod.proxy;
 
 import be.ninedocteur.docmod.DMConfig;
+import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.TileRenders;
 import be.ninedocteur.docmod.client.containers.DMContainers;
 import be.ninedocteur.docmod.client.event.ClientEventHandler;
@@ -36,6 +37,8 @@ public class ClientProxy {
         forgeBus.addListener(DMLoadingTitleScreen::loadDMTitleScreen);
         forgeBus.addListener(DMListeners::onPLayerLevelJoin);
         forgeBus.addListener(DMReportBug::initScreen);
+        DocMod.LOGGER.info("Init DocMod Menus...");
+        DMMenu.register(modBus);
         //forgeBus.addListener(DMOreFeatures::addFeatures);
         forgeBus.register(new ClientEventHandler());
     }

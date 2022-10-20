@@ -20,7 +20,7 @@ public class TileRenders {
         BlockEntityRenderers.register(DMTileEntity.GreenGlassTile.get(), GreenGlassTubeRenderer::new);
         BlockEntityRenderers.register(DMTileEntity.DeathSign.get(), SignRenderer::new);
         BlockEntityRenderers.register(DMTileEntity.AlbiziaSign.get(), SignRenderer::new);
-        BlockEntityRenderers.register(DMTileEntity.item_shower.get(), ItemShowerBlockRender::new);
+        //BlockEntityRenderers.register(DMTileEntity.item_shower.get(), ItemShowerBlockRender::new);
         BlockEntityRenderers.register(DMTileEntity.red_toyota.get(), RedToyotaRotorBlockRender::new);
         BlockEntityRenderers.register(DMTileEntity.DAMAGED_DALEK_TILE_ENTITY.get(), DamagedDalekBlockRender::new);
         BlockEntityRenderers.register(DMTileEntity.COMPUTER_TILE_ENTITY.get(), ComputerBlockRender::new);

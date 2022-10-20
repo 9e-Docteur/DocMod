@@ -42,15 +42,15 @@ public class ItemShowerBlock extends BaseEntityBlock {
         }
     }
 
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new ItemShowerTile(pPos, pState);
-    }
-
-    public BlockEntity create(BlockPos p_155268_, BlockState p_155269_) {
-        return new ItemShowerTile(p_155268_, p_155269_);
-    }
+//    @Nullable
+//    @Override
+//    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+//        return new ItemShowerTile(pPos, pState);
+//    }
+//
+//    public BlockEntity create(BlockPos p_155268_, BlockState p_155269_) {
+//        return new ItemShowerTile(p_155268_, p_155269_);
+//    }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -61,5 +61,11 @@ public class ItemShowerBlock extends BaseEntityBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(BlockStateProperties.FACING, context.getHorizontalDirection().getOpposite());
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
+        return null;
     }
 }

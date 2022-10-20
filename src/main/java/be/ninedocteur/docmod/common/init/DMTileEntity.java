@@ -59,9 +59,9 @@ public class DMTileEntity {
             TILE_ENTITIES.register("panda_tile", () -> BlockEntityType.Builder.of(
                     PandaTileEntity::new, DMBlocks.PANDAREBEL.get()).build(null));
 
-    public static RegistryObject<BlockEntityType<ItemShowerTile>> item_shower =
-            TILE_ENTITIES.register("item_shower", () -> BlockEntityType.Builder.of(
-                    ItemShowerTile::new, DMBlocks.ITEM_SHOWER.get()).build(null));
+//    public static RegistryObject<BlockEntityType<ItemShowerTile>> item_shower =
+//            TILE_ENTITIES.register("item_shower", () -> BlockEntityType.Builder.of(
+//                    ItemShowerTile::new, DMBlocks.ITEM_SHOWER.get()).build(null));
 
     public static RegistryObject<BlockEntityType<RedToyotaRotorTileEntity>> red_toyota =
             TILE_ENTITIES.register("red_toyota", () -> BlockEntityType.Builder.of(

@@ -9,6 +9,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fluids.FluidStack;
 
 import javax.imageio.ImageIO;
@@ -97,6 +99,7 @@ public class IOUtils {
         return resourceLocation;
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static ResourceLocation readImage(final String url){
         if(DOWNLOADED_TEXTURES.containsKey(url)){
             return DOWNLOADED_TEXTURES.get(url);

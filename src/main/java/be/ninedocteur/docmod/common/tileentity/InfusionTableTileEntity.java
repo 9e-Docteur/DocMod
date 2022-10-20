@@ -21,6 +21,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -102,6 +104,7 @@ public class InfusionTableTileEntity extends BlockEntity implements MenuProvider
     private LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.empty();
 
     @Nullable
+    @OnlyIn(Dist.CLIENT)
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
         return new InfusionMenu(id, inventory, this, this.data);

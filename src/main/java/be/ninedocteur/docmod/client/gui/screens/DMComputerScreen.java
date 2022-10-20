@@ -18,8 +18,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FormattedText;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.checkerframework.checker.units.qual.C;
-
+@OnlyIn(Dist.CLIENT)
 public class DMComputerScreen extends Screen {
     public static ResourceLocation COMPUTER_GUI = new ResourceLocation(DocMod.MOD_ID, "textures/gui/computer_screen.png");
 
@@ -31,7 +33,7 @@ public class DMComputerScreen extends Screen {
     private ComputerTileEntity computerTileEntity;
 
     private BaseOS currentOS;
-
+    @OnlyIn(Dist.CLIENT)
     public DMComputerScreen(ComputerTileEntity computerTileEntity) {
         super(Component.literal("none"));
         this.computerTileEntity = computerTileEntity;

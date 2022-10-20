@@ -47,11 +47,12 @@ public class ClientEventHandler {
 
      */
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onKeyRegister(RegisterKeyMappingsEvent event){
         event.register(KeyBinds.DEV_MODE_KEY);
     }
-
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onKeyInput(InputEvent.Key event){
         if(KeyBinds.DEV_MODE_KEY.consumeClick()){

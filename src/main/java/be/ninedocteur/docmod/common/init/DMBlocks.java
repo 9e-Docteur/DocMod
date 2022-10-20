@@ -140,8 +140,6 @@ public class DMBlocks {
     public static final RegistryObject<Block> LIGHT_BLOCK = registerBlock("light_block", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).noCollission().lightLevel((p_152686_) -> {
         return 15;
     })));
-    public static final RegistryObject<Block> COMPUTER = registerComputerBlock("computer", () -> new ComputerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> MONITOR = registerComputerBlock("monitor", () -> new MonitorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     public static final RegistryObject<Block> INFUSION_TABLE = registerBlock("infusion_table", () -> new InfusionBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     public static final RegistryObject<Block> REDSTONE_LAMP_ON = registerHidenBlock("redstone_lamp_on", () -> new DMRedstoneLampOn(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).noCollission().lightLevel((p_152686_) -> {
@@ -156,12 +154,18 @@ public class DMBlocks {
     public static final RegistryObject<Block> HANDBRAKE = registerHidenBlock("handbrake", () -> new HandBrakeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     public static final RegistryObject<Block> TARDIS_DOOR = registerHidenBlock("tardis_door", () -> new TardisDoor(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     public static final RegistryObject<Block> DALEK_DAMAGED = registerHidenBlock("dalek_damaged", () -> new DalekDamagedBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> ZINC_CRAFTING_TABLE = registerBlock("zinc_crafting_table", () -> new ZincCraftingTable(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     /*
     ANNIVERSARY
      */
     public static final RegistryObject<Block> CAKE = registerAnnivairsaryBlock("cake", () -> new AnnivairsaryCakeBlock(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()));
 
+    /*
+    COMPUTER
+     */
+    public static final RegistryObject<Block> COMPUTER = registerComputerBlock("computer", () -> new ComputerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> MONITOR = registerComputerBlock("monitor", () -> new MonitorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     /*
     ROUNDEL
