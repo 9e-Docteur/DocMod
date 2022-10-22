@@ -49,8 +49,10 @@ public class DMListeners {
     }
 
     private void renderCape(){
-        for(PlayerRenderer renderer : Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap().values()){
-            renderer.addLayer(new Cape(renderer));
+        for(EntityRenderer<? extends Player> renderer : Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap().values()){
+             if(renderer instanceof PlayerRenderer playerRenderer) {
+                 playerRenderer.addLayer(new Cape(playerRenderer));
+             }
         }
     }
 
