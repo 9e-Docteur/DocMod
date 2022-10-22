@@ -12,7 +12,7 @@ public class TeamUtils {
     public static final TeamMember NINEDOCTEUR = new TeamMember("0f471df5e6e44bf39f2235c2d7e6a4bb", Title.FOUNDER);
     public static final TeamMember PANDAREBEL = new TeamMember("45949380580d4dd385266ee05dd75c22", Title.ADMIN, Title.ASSETS_MANAGER);
     public static final TeamMember JOSIA = new TeamMember("a0b89882850942b2921b14facddfb5dc", Title.ADMIN, Title.DEVELOPER);
-    public static final TeamMember KILLAR = new TeamMember("5ff408b588514303afe8e14f3e91c613", Title.ADMIN, Title.DEVELOPER);
+    public static final TeamMember KILLAR = new TeamMember("1ca7ce7d08b843b69df5d4752b81dfb4", Title.ADMIN, Title.DEVELOPER);
     //BETA
     public static final TeamMember ITSAYKOW = new TeamMember("2ec82b3fdb754b95a79d47f6d51db13c", Title.CONTRIBUTOR, Title.BETA);
     public static final TeamMember BALISTO = new TeamMember("03d113767fb442a89a7c8db28faaac3f", Title.CONTRIBUTOR, Title.BETA);
