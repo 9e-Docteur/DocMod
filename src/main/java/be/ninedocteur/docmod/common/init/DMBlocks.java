@@ -144,7 +144,7 @@ public class DMBlocks {
     })));
     public static final RegistryObject<Block> INFUSION_TABLE = registerBlock("infusion_table", () -> new InfusionBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
-    public static final RegistryObject<Block> REDSTONE_LAMP_ON = registerHidenBlock("redstone_lamp_on", () -> new DMRedstoneLampOn(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).noCollission().lightLevel((p_152686_) -> {
+    public static final RegistryObject<Block> REDSTONE_LAMP_ON = registerHidenBlock("redstone_lamp_on", () -> new DMRedstoneLampOn(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).lightLevel((p_152686_) -> {
         return 15;
     })));
     //public static final RegistryObject<LiquidBlock> GAZOLINE_BLOCK = registerBlock("gazoline_block", () -> new LiquidBlock(DMFluids.SOURCE_GAZOLINE, BlockBehaviour.Properties.copy(Blocks.WATER)));
