@@ -38,17 +38,11 @@ public class DMListeners {
                         isMessageSend = true;
                     }
                 }
+                renderCape();
         }
     }
 
-    @SubscribeEvent
-    public void onPlayerRender(RenderLivingEvent.Pre event){
-        if(event.getEntity() instanceof Player player){
-
-        }
-    }
-
-    private void renderCape(){
+    private static void renderCape(){
         for(EntityRenderer<? extends Player> renderer : Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap().values()){
              if(renderer instanceof PlayerRenderer playerRenderer) {
                  playerRenderer.addLayer(new Cape(playerRenderer));

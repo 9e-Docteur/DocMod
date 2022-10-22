@@ -21,13 +21,13 @@ public class CapeHandler {
 
     private static HashMap<UUID, CapeHandler> capes = new HashMap<>();
     private UUID playerUUID = Minecraft.getInstance().player.getUUID();
-    private static final Map<String, ResourceLocation> DOWNLOADED_TEXTURES = new HashMap<>();
+    public static final Map<String, ResourceLocation> DOWNLOADED_TEXTURES = new HashMap<>();
 
 
-    public static CapeHandler getCape(Player player){
-        CapeHandler capeHandler = capes.get(player.getUUID());
-        return getCape(player);
-    }
+//    public static CapeHandler getCape(Player player){
+//        CapeHandler capeHandler = capes.get(player.getUUID());
+//        return getCape(player);
+//    }
 
     public ResourceLocation getCapeLocation(){
         return new ResourceLocation("docmod", "capes/" + playerUUID);
@@ -37,20 +37,21 @@ public class CapeHandler {
     public static ResourceLocation readCapeTexture(final String url){
         if(DOWNLOADED_TEXTURES.containsKey(url)){
             return DOWNLOADED_TEXTURES.get(url);
+        } else {
+            ResourceLocation resourceLocation = new ResourceLocation("docmod", "capes/");
+            DOWNLOADED_TEXTURES.put(url, resourceLocation);
+            try {
+                InputStream inputStream = new URL(url).openStream();
+                NativeImage image = NativeImage.read(inputStream);
+                DynamicTexture texture = new DynamicTexture(image);
+                inputStream.close();
+                Minecraft.getInstance().getTextureManager().register(resourceLocation, texture);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return resourceLocation;
         }
-        ResourceLocation resourceLocation = new ResourceLocation("docmod", "capes/");
-        DOWNLOADED_TEXTURES.put(url, resourceLocation);
-        try{
-            InputStream inputStream = new URL(url).openStream();
-            NativeImage image = NativeImage.read(inputStream);
-            DynamicTexture texture = new DynamicTexture(image);
-            inputStream.close();
-            Minecraft.getInstance().getTextureManager().register(resourceLocation, texture);
-        }catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return resourceLocation;
     }
 }
