@@ -63,7 +63,7 @@ public class IOUtils {
         if(DOWNLOADED_TEXTURES.containsKey(url)){
             return DOWNLOADED_TEXTURES.get(url);
         }
-        ResourceLocation resourceLocation = new ResourceLocation("downloads", "textures/" + name.toLowerCase());
+        ResourceLocation resourceLocation = new ResourceLocation("docmod", "textures/" + name.toLowerCase());
         DOWNLOADED_TEXTURES.put(url, resourceLocation);
         try{
             InputStream inputStream = new URL(url).openStream();
@@ -83,7 +83,7 @@ public class IOUtils {
         if(DOWNLOADED_TEXTURES.containsKey(url)){
             return DOWNLOADED_TEXTURES.get(url);
         }
-        ResourceLocation resourceLocation = new ResourceLocation("downloads", "textures/" + name.toLowerCase());
+        ResourceLocation resourceLocation = new ResourceLocation("docmod", "textures/" + name.toLowerCase());
         DOWNLOADED_TEXTURES.put(url, resourceLocation);
         try{
             InputStream inputStream = new URL(url).openStream();
@@ -104,7 +104,7 @@ public class IOUtils {
         if(DOWNLOADED_TEXTURES.containsKey(url)){
             return DOWNLOADED_TEXTURES.get(url);
         }
-        ResourceLocation resourceLocation = new ResourceLocation("downloads", "textures/");
+        ResourceLocation resourceLocation = new ResourceLocation("docmod", "textures/");
         DOWNLOADED_TEXTURES.put(url, resourceLocation);
         try{
             InputStream inputStream = new URL(url).openStream();

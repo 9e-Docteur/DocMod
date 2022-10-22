@@ -79,6 +79,10 @@ public class DMFeature {
         public static final Holder<PlacedFeature> HALFINUM_ORE_PLACED = PlacementUtils.register("halfinum_ore_placed",
                 Raw.HALFINUM_ORE, commonOrePlacement(1,
                         HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(5))));
+
+        public static final Holder<PlacedFeature> XP_ORE_PLACED = PlacementUtils.register("xp_ore_placed",
+                Raw.XP_ORE, commonOrePlacement(6,
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(64))));
     }
 
     public static class Checked{
@@ -110,28 +114,31 @@ public class DMFeature {
 
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ZINC_ORE = FeatureUtils.register("zinc_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.ZINC_ORE.get().defaultBlockState(), 8));
+                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.ZINC_ORE.get().defaultBlockState(), 9));
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> DEEP_ZINC_ORE = FeatureUtils.register("deep_zinc_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_DEEPSLATE, DMBlocks.DEEPSLATE_ZINC_ORE.get().defaultBlockState(), 6));
+                Feature.ORE, new OreConfiguration(NATURAL_DEEPSLATE, DMBlocks.DEEPSLATE_ZINC_ORE.get().defaultBlockState(), 12));
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> NETHER_ZINC_ORE = FeatureUtils.register("nether_zinc_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_NETHERRACK, DMBlocks.NETHER_ZINC_ORE.get().defaultBlockState(), 8));
+                Feature.ORE, new OreConfiguration(NATURAL_NETHERRACK, DMBlocks.NETHER_ZINC_ORE.get().defaultBlockState(), 10));
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> STEEL_ORE = FeatureUtils.register("steel_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.STEEL_ORE.get().defaultBlockState(), 8));
+                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.STEEL_ORE.get().defaultBlockState(), 10));
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> crystaline_ORE = FeatureUtils.register("crystaline_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.CRYSTALINE_ORE.get().defaultBlockState(), 8));
+                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.CRYSTALINE_ORE.get().defaultBlockState(), 10));
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> CRYSTAL_ORE = FeatureUtils.register("crystal_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.CRYSTAL_ORE.get().defaultBlockState(), 8));
+                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.CRYSTAL_ORE.get().defaultBlockState(), 11));
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> CRYOLITE_ORE = FeatureUtils.register("cryolite_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.CRYOLITE_ORE.get().defaultBlockState(), 8));
+                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.CRYOLITE_ORE.get().defaultBlockState(), 10));
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> HALFINUM_ORE = FeatureUtils.register("halfinum_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.HALFINUM_ORE.get().defaultBlockState(), 1));
+                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.HALFINUM_ORE.get().defaultBlockState(), 5));
+
+        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> XP_ORE = FeatureUtils.register("xp_ore",
+                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.XP_ORE.get().defaultBlockState(), 12));
     }
     
     public static class Spawn{

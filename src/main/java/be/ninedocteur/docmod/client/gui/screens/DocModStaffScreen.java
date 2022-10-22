@@ -77,7 +77,7 @@ public class DocModStaffScreen extends Screen {
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             blit(pPoseStack, width / 2 + 120, height / 2 -60, 0, 0, 70, 64, 70, 64);
             drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Name: " + ChatFormatting.WHITE + "Josia50"), width / 2 + 120, height / 2 + 8, 0xffffff);
-            drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Rank: " + ChatFormatting.AQUA + "Developer"), width / 2 + 120, height / 2 + 18, 0xffffff);
+            drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Rank: " + ChatFormatting.RED + "Admin" + ChatFormatting.WHITE + ", " + ChatFormatting.AQUA + "Developer"), width / 2 + 120, height / 2 + 18, 0xffffff);
 
             //KILLAR
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -85,7 +85,7 @@ public class DocModStaffScreen extends Screen {
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             blit(pPoseStack, width / 2 - 30, height / 2 + 30, 0, 0, 70, 64, 70, 64);
             drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Name: " + ChatFormatting.WHITE + "Neoxos"), width / 2 - 30, height / 2 + 100, 0xffffff);
-            drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Rank: " + ChatFormatting.AQUA + "Developer"), width / 2 - 30, height / 2 + 110, 0xffffff);
+            drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Rank: " + ChatFormatting.RED + "Admin" + ChatFormatting.WHITE + ", " + ChatFormatting.AQUA + "Developer"), width / 2 - 30, height / 2 + 110, 0xffffff);
 
         }else{
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -109,7 +109,7 @@ public class DocModStaffScreen extends Screen {
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             blit(pPoseStack, width / 2 + 120, height / 2 -60, 0, 0, 64, 64, 64, 64);
             drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Name: " + ChatFormatting.WHITE + "Josia50"), width / 2 + 120, height / 2 + 8, 0xffffff);
-            drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Rank: " + ChatFormatting.AQUA + "Developer"), width / 2 + 120, height / 2 + 18, 0xffffff);
+            drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Rank: " + ChatFormatting.RED + "Admin" + ChatFormatting.WHITE + ", " + ChatFormatting.AQUA + "Developer"), width / 2 + 120, height / 2 + 18, 0xffffff);
 
             //KILLAR
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -117,7 +117,7 @@ public class DocModStaffScreen extends Screen {
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             blit(pPoseStack, width / 2 - 30, height / 2 + 30, 0, 0, 64, 64, 64, 64);
             drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Name: " + ChatFormatting.WHITE + "Neoxos"), width / 2 - 30, height / 2 + 100, 0xffffff);
-            drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Rank: " + ChatFormatting.AQUA + "Developer"), width / 2 - 30, height / 2 + 110, 0xffffff);
+            drawString(pPoseStack, font, Component.translatable(ChatFormatting.GOLD + "Rank: " + ChatFormatting.RED + "Admin" + ChatFormatting.WHITE + ", " + ChatFormatting.AQUA + "Developer"), width / 2 - 30, height / 2 + 110, 0xffffff);
 
         }
     }

@@ -27,17 +27,19 @@ public class DMBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DocMod.MOD_ID);
 
     public static final RegistryObject<Block> KILLER_BLOCK = registerBlock("killer_block", () -> new TestBlockEvent(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(5)));
-    public static final RegistryObject<Block> HEAL_BLOCK = registerBlock("heal_block", () -> new HealBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(5)));
+    public static final RegistryObject<Block> HEAL_BLOCK = registerBlock("heal_block", () -> new HealBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(3)));
     public static final RegistryObject<Block> ZINC_ORE = DMOreBlock("zinc_ore", Material.STONE, MaterialColor.COLOR_BLUE, 4, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
     public static final RegistryObject<Block> DEEPSLATE_ZINC_ORE = DMOreBlock("deepslate_zinc_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
     public static final RegistryObject<Block> STEEL_ORE = DMOreBlock("steel_ore", Material.STONE, MaterialColor.COLOR_BLACK, 4, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
     public static final RegistryObject<Block> DEEPSLATE_STEEL_ORE = DMOreBlock("deepslate_steel_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
-    public static final RegistryObject<Block> ZINC_BLOCK = registerBlock("zinc_block", () -> new Block(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5)));
-    public static final RegistryObject<Block> STEEL_BLOCK = registerBlock("steel_block", () -> new Block(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5)));
+    public static final RegistryObject<Block> ZINC_BLOCK = registerBlock("zinc_block", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> STEEL_BLOCK = registerBlock("steel_block", () -> new Block(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3)));
     public static final RegistryObject<Block> CRYSTALINE_BLOCK = registerBlock("crystaline_block", () -> new Block(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> CRYSTALINE_ORE = DMOreBlock("crystaline_ore", Material.STONE, MaterialColor.COLOR_RED, 4, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
     public static final RegistryObject<Block> CRYSTAL_ORE = DMOreBlock("crystal_ore", Material.STONE, MaterialColor.COLOR_BLUE, 4, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
     public static final RegistryObject<Block> DEEPSLATE_CRYSTAL_ORE = DMOreBlock("deepslate_crystal_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
+    public static final RegistryObject<Block> XP_ORE = registerBlock("xp_ore", () -> new XpOreBlock(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(0.5f).noOcclusion()));
+
     public static final RegistryObject<Block> CIRCLE_GLASS = registerBlock("circle_glass", () -> new CircleGlass(Block.Properties.of(Material.GLASS).noOcclusion().requiresCorrectToolForDrops().strength(5)));
     public static final RegistryObject<Block> DEATH_LOG = registerBlock("death_log", () -> new Block(Block.Properties.of(Material.WOOD).requiresCorrectToolForDrops().strength(3)));
     //public static final RegistryObject<Block> DEATH_PLANKS = registerBlock("death_planks", () -> new Block(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));

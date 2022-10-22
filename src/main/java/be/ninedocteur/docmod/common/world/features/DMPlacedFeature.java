@@ -24,6 +24,7 @@ public class DMPlacedFeature {
     public static final RegistryObject<PlacedFeature> CRYSTALINE_ORE_PLACED = PLACED_FEATURE.register("crystaline_ore_placed", () -> new PlacedFeature(DMConfiguredFeature.CRYSTALINE_ORE.getHolder().get(), commonOrePlacement(8, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80)))));
     public static final RegistryObject<PlacedFeature> STEEL_ORE_PLACED = PLACED_FEATURE.register("steel_ore_placed", () -> new PlacedFeature(DMConfiguredFeature.STEEL_ORE.getHolder().get(), commonOrePlacement(7, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(60)))));
     public static final RegistryObject<PlacedFeature> CRYSTAL_ORE_PLACED = PLACED_FEATURE.register("crystal_ore_placed", () -> new PlacedFeature(DMConfiguredFeature.CRYSTAL_ORE.getHolder().get(), commonOrePlacement(7, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(40)))));
+    public static final RegistryObject<PlacedFeature> XP_ORE_PLACED = PLACED_FEATURE.register("xp_ore_placed", () -> new PlacedFeature(DMConfiguredFeature.XP_ORE.getHolder().get(), commonOrePlacement(8 /*Ore per chunk*/, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80)))));
 
     //GEODES
     public static final RegistryObject<PlacedFeature> CRYSTALINE_GEODE_PLACED = PLACED_FEATURE.register("crystaline_geode_placed",

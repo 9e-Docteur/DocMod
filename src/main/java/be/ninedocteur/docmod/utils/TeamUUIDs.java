@@ -9,6 +9,7 @@ public class TeamUUIDs {
     public class Team{
 
     public static String Ninedocteur = "0f471df5e6e44bf39f2235c2d7e6a4bb";
+    public static String NINEDOCTEUR_DEV_MULTIPLAYER = "0f471df5-e6e4-4bf3-9f22-35c2d7e6a4bb";
     public static String DEV = "380df991-f603-344c-a090-369bad2a924a";
 
     }

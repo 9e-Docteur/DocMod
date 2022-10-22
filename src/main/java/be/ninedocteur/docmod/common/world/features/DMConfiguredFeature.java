@@ -64,12 +64,17 @@ public class DMConfiguredFeature {
             OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, DMBlocks.DEEPSLATE_STEEL_ORE.get().defaultBlockState())
     ));
 
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_XP_ORE = Suppliers.memoize(() -> List.of(
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, DMBlocks.XP_ORE.get().defaultBlockState())
+    ));
+
     public static final RegistryObject<ConfiguredFeature<?, ?>> ZINC_ORE = CONFIGURED_FEATURE.register("zinc_ore_configured", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_ZINC_ORE.get(), 4))); //4 = vein size
     public static final RegistryObject<ConfiguredFeature<?, ?>> HALFINUM_ORE = CONFIGURED_FEATURE.register("halfinum_ore_configured", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_HALFINUM_ORE.get(), 1)));
     public static final RegistryObject<ConfiguredFeature<?, ?>> CRYOLITE_ORE = CONFIGURED_FEATURE.register("cryolite_ore_configured", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_CRYOLITE_ORE.get(), 6)));
     public static final RegistryObject<ConfiguredFeature<?, ?>> CRYSTAL_ORE = CONFIGURED_FEATURE.register("crystal_ore_configured", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_CRYSTAL_ORE.get(), 4)));
     public static final RegistryObject<ConfiguredFeature<?, ?>> CRYSTALINE_ORE = CONFIGURED_FEATURE.register("crystaline_ore_configured", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_CRYSTALINE_ORE.get(), 6)));
     public static final RegistryObject<ConfiguredFeature<?, ?>> STEEL_ORE = CONFIGURED_FEATURE.register("steel_ore_configured", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_STEEL_ORE.get(), 6)));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> XP_ORE = CONFIGURED_FEATURE.register("xp_ore_configured", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_XP_ORE.get(), 8)));
 
     //GEODE
     public static final RegistryObject<ConfiguredFeature<?, ?>> CRYSTALINE_GEODE = CONFIGURED_FEATURE.register("crystaline_geode",

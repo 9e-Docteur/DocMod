@@ -19,6 +19,6 @@ description='''Mod Created By 9e_Docteur, Textures by 9e_Docteur and PandaRebel4
 [[dependencies.docmod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,1.19.1,1.19.2]"
+    versionRange="[1.19,1.19.1,1.19.2, 1.20]"
     ordering="NONE"
     side="BOTH"
