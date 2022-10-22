@@ -30,24 +30,22 @@ public class CapeHandler {
 //    }
 
     public ResourceLocation getCapeLocation(){
-        return new ResourceLocation("docmod", "capes/" + playerUUID);
+        return new ResourceLocation("docmod", "capes/" + playerUUID.toString());
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static ResourceLocation readCapeTexture(final String url){
+    public static ResourceLocation readCapeTexture(final String url, UUID uuid){
         if(DOWNLOADED_TEXTURES.containsKey(url)){
             return DOWNLOADED_TEXTURES.get(url);
         } else {
-            ResourceLocation resourceLocation = new ResourceLocation("docmod", "capes/");
-            DOWNLOADED_TEXTURES.put(url, resourceLocation);
+            ResourceLocation resourceLocation = new ResourceLocation("docmod", "capes/" + uuid.toString());
             try {
                 InputStream inputStream = new URL(url).openStream();
                 NativeImage image = NativeImage.read(inputStream);
                 DynamicTexture texture = new DynamicTexture(image);
                 inputStream.close();
                 Minecraft.getInstance().getTextureManager().register(resourceLocation, texture);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
+                DOWNLOADED_TEXTURES.put(url, resourceLocation);
             } catch (IOException e) {
                 e.printStackTrace();
             }

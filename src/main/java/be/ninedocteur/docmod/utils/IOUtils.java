@@ -1,6 +1,7 @@
 package be.ninedocteur.docmod.utils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mojang.blaze3d.platform.NativeImage;
@@ -24,8 +25,12 @@ import java.util.Map;
 
 public class IOUtils {
 
+    private static final Gson GSON = new GsonBuilder().create();
+
     private static final Map<String, ResourceLocation> DOWNLOADED_TEXTURES = new HashMap<>();
     public static final String ERROR_WHEN_CONNECTING = ChatFormatting.RED + "No Internet Connection.";
+
+    private static String CAPE_USERS = readURLContent("https://api.docteam.tk/docmod/cape/");
 
     public static String readURLContent(String stringurl) {
         try {
@@ -97,6 +102,10 @@ public class IOUtils {
             readTexture("http://docteam.capmine.tk/docteamdatabase/server/Community/Icon/default.png", "DefaultServerIcon");
         }
         return resourceLocation;
+    }
+
+    public static String getCapeUsers() {
+        return CAPE_USERS;
     }
 
     @OnlyIn(Dist.CLIENT)
