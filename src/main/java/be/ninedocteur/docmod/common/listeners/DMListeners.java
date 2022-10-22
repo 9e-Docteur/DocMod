@@ -48,10 +48,10 @@ public class DMListeners {
         }
     }
 
-//    private void renderCape(){
-//        for(PlayerRenderer renderer : Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap().values()){
-//            renderer.addLayer(new Cape(renderer));
-//        }
-//    }
+    private void renderCape(){
+        for(PlayerRenderer renderer : Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap().values()){
+            renderer.addLayer(new Cape(renderer));
+        }
+    }
 
 }
