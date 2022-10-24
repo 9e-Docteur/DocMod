@@ -7,10 +7,17 @@ import be.ninedocteur.docmod.proxy.ClientProxy;
 import be.ninedocteur.docmod.common.init.DMWoodTypes;
 import be.ninedocteur.docmod.registry.ClassRegistry;
 import be.ninedocteur.docmod.utils.DMUtils;
+import be.ninedocteur.docmod.utils.IOUtils;
 import be.ninedocteur.docmod.utils.LaunchUtils;
 import be.ninedocteur.docmod.utils.TeamUUIDs;
+import be.ninedocteur.docteam.api.DMLogin;
+import be.ninedocteur.docteam.api.DocTeamAPI;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,6 +28,10 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,10 +44,10 @@ public class DocMod {
     public static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
     public static final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
     public static final String VERSION = "5.0";
-    public static final String BUILD = "";
+    public static final String BUILD = "32";
     public static final String CODENAME = "Redstone";
     public static final String MODNAME = "DocMod";
-    public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION + BUILD;
+    public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
 
 
     public DocMod() {
@@ -78,5 +89,16 @@ public class DocMod {
             isRunningInDev = false;
         }
         LOGGER.info("Welcome to DocMod " + DMUtils.CODENAME);
+    }
+    
+    private void closeGameForBannedPeople() {
+    	if(getBannedPeople()) {
+    		System.exit(1);
+    	}
+    }
+    
+    public static boolean getBannedPeople() {
+    	//TODO: Change to UUID to avoid player changing name are unbanned
+    	return Minecraft.getInstance().player.getName().contains(Component.literal(IOUtils.readURLContent(DocTeamAPI.getAPI() + "docmod/ban/banned_players.txt")));
     }
 }

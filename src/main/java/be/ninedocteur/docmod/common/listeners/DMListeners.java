@@ -2,6 +2,7 @@ package be.ninedocteur.docmod.common.listeners;
 
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.capes.Cape;
+import be.ninedocteur.docmod.common.capes.CapeHandler;
 import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.utils.LaunchUtils;
 import be.ninedocteur.docmod.utils.TeamUUIDs;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -48,6 +50,15 @@ public class DMListeners {
                  playerRenderer.addLayer(new Cape(playerRenderer));
              }
         }
+    }
+    
+    @SubscribeEvent
+    public static void onPlayerLevelLeave(EntityLeaveLevelEvent event) {
+    	if(event.getEntity() instanceof Player player) {
+    		//CapeHandler.DOWNLOADED_TEXTURES.clear();
+    		//CapeHandler.DOWNLOADED_TEXTURES.remove("https://api.docteam.tk/docmod/cape/" + player.getUUID() + ".png");
+    		DocMod.LOGGER.warn("Cache Cleared For Cape For " + player.getUUID());
+    	}
     }
 
 }

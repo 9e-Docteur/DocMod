@@ -5,7 +5,7 @@
     {
       "weight": 10,
       "element": {
-        "location": "docmod:boss_room",
+        "location": "docmod:bossroom",
         "processors": "minecraft:empty",
 		"projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -32,6 +32,24 @@
     {
       "weight": 10,
       "element": {
+        "location": "docmod:main_hallway",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "docmod:boss_hallway",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
         "location": "docmod:room",
         "processors": "minecraft:empty",
         "projection": "rigid",
@@ -42,6 +60,15 @@
       "weight": 10,
       "element": {
         "location": "docmod:corridor",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "docmod:hallway",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

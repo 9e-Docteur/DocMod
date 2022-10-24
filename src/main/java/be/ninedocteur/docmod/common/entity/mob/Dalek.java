@@ -180,7 +180,7 @@ public class Dalek extends Monster implements RangedAttackMob {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return DMSound.DALEK_EXTERMINATE.get();
+        return DMSound.DALEK_AMBIANT.get();
     }
 
     @Override

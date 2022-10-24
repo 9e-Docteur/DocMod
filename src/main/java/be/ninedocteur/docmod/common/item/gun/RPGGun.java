@@ -9,6 +9,7 @@ import be.ninedocteur.docmod.common.entity.projectile.AbstractRPGLaser;
 import be.ninedocteur.docmod.utils.DMMath;
 import be.ninedocteur.docmod.utils.TeamUtils;
 import be.ninedocteur.docmod.utils.GunUtils;
+import be.ninedocteur.docmod.utils.TeamUUIDs;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.User;
 import net.minecraft.sounds.SoundSource;
@@ -104,10 +105,10 @@ public class RPGGun extends RPGGunItem {
                     TeamUtils.TeamMember teamMember = TeamUtils.getTeamMembers().get(user.getUuid());
                     if(teamMember != null){
                         player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(1));
-                    } else if (player.getUUID().equals(TeamUtils.getTeamMembers())){
+                    } else if (player.getUUID().equals(TeamUtils.DEV)){
                         player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(0));
                     } else {
-                        player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(1));
+                        player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(0));
                     }
 
                 }

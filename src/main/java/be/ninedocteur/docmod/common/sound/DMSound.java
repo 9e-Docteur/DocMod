@@ -20,7 +20,7 @@ public class DMSound {
     public static final RegistryObject<SoundEvent> CYBERMAN_STEP = SOUNDS.register("entity.cyberman.step", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "entity.cyberman.step")));
     public static final RegistryObject<SoundEvent> SONIC = SOUNDS.register("item.sonic.use", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "item.sonic.use")));
     public static final RegistryObject<SoundEvent> RPG = SOUNDS.register("gun.rpg.shoot", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "gun.rpg.shoot")));
-    public static final RegistryObject<SoundEvent> DALEK_EXTERMINATE = SOUNDS.register("entity.dalek.exterminate", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "entity.dalek.exterminate")));
+    public static final RegistryObject<SoundEvent> DALEK_AMBIANT = SOUNDS.register("entity.dalek.ambiant", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "entity.dalek.ambiant")));
     public static final RegistryObject<SoundEvent> GARATIM_SONIC = SOUNDS.register("item.garatim_sonic.use", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "item.garatim_sonic.use")));
     public static final RegistryObject<SoundEvent> MAGIC_WAND = SOUNDS.register("item.magic_wand.shoot", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "item.magic_wand.shoot")));
     public static final RegistryObject<SoundEvent> LEVER_ON = SOUNDS.register("block.lever.on", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "block.lever.on")));

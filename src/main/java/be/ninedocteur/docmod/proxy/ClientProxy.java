@@ -36,6 +36,7 @@ public class ClientProxy {
         forgeBus.addListener(DocModVersionOverlay::render);
         forgeBus.addListener(DMLoadingTitleScreen::loadDMTitleScreen);
         forgeBus.addListener(DMListeners::onPLayerLevelJoin);
+        forgeBus.addListener(DMListeners::onPlayerLevelLeave);
         forgeBus.addListener(DMReportBug::initScreen);
         DocMod.LOGGER.info("Init DocMod Menus...");
         DMMenu.register(modBus);

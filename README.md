@@ -7,6 +7,7 @@
 [![Github Repo Issues](https://img.shields.io/github/issues/9e-docteur/docmod)]()
 [![Github Repo Stars](https://img.shields.io/github/stars/9e-Docteur/docmod)]()
 <a href="https://discord.gg/7VA9X67xRB"><img src="https://img.shields.io/discord/910285401770573835?color=5865f2&label=Discord&style=flat" alt="Discord"></a>
+[![API VERSION](https://img.shields.io/badge/API%20VERSION-1.0-blue)]()
 ------
 ## Author
 DocMod has been created in October 2021 by [9e_Docteur](https://github.com/9e-Docteur/).

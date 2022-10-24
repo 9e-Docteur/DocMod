@@ -47,9 +47,11 @@
     ]
   },
 
-  "entity.dalek.exterminate":{
+  "entity.dalek.ambiant":{
   "sounds": [
-    "docmod:dalek_exterminate"
+    "docmod:dalek_exterminate",
+    "docmod:dalek_destroy",
+    "docmod:dalek_stay"
   ]
 },
   "item.garatim_sonic.use":{
@@ -76,5 +78,6 @@
     "sounds": [
       "docmod:special_weapons"
     ]
-  }
+  		}
+	}
 }

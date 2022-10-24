@@ -227,9 +227,9 @@ public class DMTitleScreen extends Screen {
             this.addRenderableWidget(staffButton);
             this.addRenderableWidget(serverButton);
 
-            if(!LaunchUtils.isRunningInDev()){
-                serverButton.active = false;
-            }
+            //if(!LaunchUtils.isRunningInDev()){
+              //  serverButton.active = false;
+            //}
         }
 
         Quit = new Button(this.width / 2 - 100, p_96764_ + p_96765_ * 1, 200, 20, Component.translatable("menu.options"), (p_213094_1_) -> {
@@ -254,7 +254,7 @@ public class DMTitleScreen extends Screen {
 
         this.addRenderableWidget(Quit);
         this.addRenderableWidget(dmServerButton);
-        dmServerButton.active = false;
+        dmServerButton.active = true;
 
 
     }

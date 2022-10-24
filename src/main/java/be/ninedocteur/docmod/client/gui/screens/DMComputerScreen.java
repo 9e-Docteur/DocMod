@@ -33,7 +33,7 @@ public class DMComputerScreen extends Screen {
     private ComputerTileEntity computerTileEntity;
 
     private BaseOS currentOS;
-    @OnlyIn(Dist.CLIENT)
+   // @OnlyIn(Dist.CLIENT)
     public DMComputerScreen(ComputerTileEntity computerTileEntity) {
         super(Component.literal("none"));
         this.computerTileEntity = computerTileEntity;
@@ -42,7 +42,7 @@ public class DMComputerScreen extends Screen {
 
     @Override
     protected void init() {
-        terminal = new EditBox(this.font, this.width / 2 - 100, this.height / 2 + 90, 220, 20, Component.literal(""));
+        terminal = new EditBox(this.font, this.width / 2 - 110, this.height / 2 + 60, 220, 20, Component.literal(""));
         addRenderableWidget(terminal);
         this.isEnterPressed = false;
         setInitialFocus(terminal);
@@ -95,7 +95,7 @@ public class DMComputerScreen extends Screen {
         int i2 = (this.width - 229) / 2; //x
         int j = (this.height - 156) / 2; //y
         RenderSystem.setShaderTexture(0, COMPUTER_GUI);
-        blit(p_96562_, terminal.x - 5, terminal.y - 140, 0, 0, 256, 196);
+        blit(p_96562_, terminal.x - 4, terminal.y - 140, 0, 0, 256, 198);
         if(isEnterPressed){
             currentOS.execute(terminal.getValue());
             isEnterPressed = false;
