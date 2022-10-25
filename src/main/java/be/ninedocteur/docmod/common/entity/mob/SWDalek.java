@@ -59,7 +59,6 @@ public class SWDalek extends Monster implements RangedAttackMob {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EnderMan.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Mob.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, CybermanEntity.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, CyberBossEntity.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, CyberHumanEntity.class, true));

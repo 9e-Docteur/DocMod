@@ -27,7 +27,7 @@ public class ClassRegistry {
         DocMod.LOGGER.info("Init DocMod Entity Types...");
         DMEntityType.register(eventBus);
         DocMod.LOGGER.info("Init DocMod Biomes...");
-        //DMBiomes.registerBiomes(eventBus);
+        DMBiomes.BIOMES.register(eventBus);
         DocMod.LOGGER.info("Init DocMod Sounds...");
         DMSound.registerSounds();
         DocMod.LOGGER.info("Init DocMod Gen...");

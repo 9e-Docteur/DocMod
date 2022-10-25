@@ -3,15 +3,21 @@ package be.ninedocteur.docmod.sonic;
 import be.ninedocteur.docmod.common.init.DMBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CandleBlock;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.gameevent.GameEvent;
 
 public class SonicInteractionItem extends Item {
 
@@ -99,5 +105,14 @@ public class SonicInteractionItem extends Item {
     }
     public interface IDoorInteraction{
         void blockInteraction(Level pLevel, Player pPlayer, ItemStack pStack, BlockPos pos, BlockState state);
+    }
+    
+    public class GlassInteraction implements IDoorInteraction {
+    	@Override
+        public void blockInteraction(Level pLevel, Player pPlayer, ItemStack pStack, BlockPos pos, BlockState state) {
+            if(state.getBlock() instanceof GlassBlock glassBlock){
+            	pLevel.destroyBlock(pos, false);
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 package be.ninedocteur.docmod.client.gui.title;
 
 import be.ninedocteur.docmod.DMConfig;
+import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.gui.screens.DMLoginScreen;
 
 import com.mojang.blaze3d.platform.Window;
@@ -27,9 +28,12 @@ public class DMLoadingTitleScreen extends TitleScreen{
         }
 
         if(event.getScreen() instanceof DMLoadingTitleScreen) {
+        	DocMod.prepareDownload();
         	if(LaunchUtils.isRunningInDev()) {
         		if(DocTeamAPI.isDevLoginEnabled) {
-        			event.getScreen().getMinecraft().setScreen(new DMLoginScreen());
+        			if(!DocTeamAPI.isConnected()) {
+        				event.getScreen().getMinecraft().setScreen(new DMLoginScreen());
+        			}
         		} else {
             		final Window window = Minecraft.getInstance().getWindow();
                     window.setTitle("DocMod " + DMUtils.VERSION);

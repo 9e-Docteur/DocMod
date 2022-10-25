@@ -54,6 +54,8 @@ public class OldSteve extends Animal {
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, CyberBossEntity.class, 6.0F, 0.5D, 0.5D));
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Zombie.class, 6.0F, 0.5D, 0.5D));
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Skeleton.class, 6.0F, 0.5D, 0.5D));
+        this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Dalek.class, 6.0F, 0.5D, 0.5D));
+        this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, SWDalek.class, 6.0F, 0.5D, 0.5D));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EnderMan.class, true));
     }
 

@@ -51,6 +51,7 @@ public class GaratimSonicOff extends SonicInteractionItem {
         OreSmelting.CoalOre coalOreSmelt = new OreSmelting.CoalOre();
         OreSmelting.GoldOre goldOreSmelt = new OreSmelting.GoldOre();
         OreSmelting.DiamondOre diamondOreSmelt = new OreSmelting.DiamondOre();
+        GlassInteraction glassInteraction = new GlassInteraction();
 
         if(state.getBlock() instanceof DoorBlock) {
             interaction.blockInteraction(pLevel, pPlayer, ItemStack.EMPTY, pos, pLevel.getBlockState(pos));
@@ -103,6 +104,11 @@ public class GaratimSonicOff extends SonicInteractionItem {
             pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), DMSound.GARATIM_SONIC.get(), SoundSource.AMBIENT, 1.0F, 3.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) * 0.5F);
             //if (!pPlayer.isCreative())
             //pPlayer.giveExperienceLevels(-4);
+        } else if(state.getBlock() instanceof GlassBlock) {
+            glassInteraction.blockInteraction(pLevel, pPlayer, ItemStack.EMPTY, pos, pLevel.getBlockState(pos));
+            pPlayer.getCooldowns().addCooldown(this, 2);
+            pLevel.playSound((Player) null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), DMSound.GARATIM_SONIC.get(), SoundSource.AMBIENT, 1.0F, 3.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) * 0.5F);
+          
         }
         pLevel.playSound((Player)null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), DMSound.GARATIM_SONIC.get(), SoundSource.AMBIENT, 1.0F, 3.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) * 0.5F);
         if(KeyUtils.hasShiftDown()){

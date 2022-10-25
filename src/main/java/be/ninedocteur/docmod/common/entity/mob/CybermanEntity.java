@@ -68,6 +68,8 @@ public class CybermanEntity extends Monster implements RangedAttackMob {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EnderMan.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
         this.targetSelector.addGoal(9, new NearestAttackableTargetGoal<>(this, Zurbitris.class, true));
+        this.targetSelector.addGoal(9, new NearestAttackableTargetGoal<>(this, Dalek.class, true));
+        this.targetSelector.addGoal(9, new NearestAttackableTargetGoal<>(this, SWDalek.class, true));
         this.targetSelector.addGoal(9, new RangedAttackGoal(this, 0.25, 20, 5));
     }
 

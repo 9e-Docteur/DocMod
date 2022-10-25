@@ -21,4 +21,9 @@ public class ColorUtils {
         int yellow = 0xffff00;
         return yellow;
     }
+    
+    public static int getOrange(){
+    	int orange = 0xffa500;
+    	return orange;
+    }
 }

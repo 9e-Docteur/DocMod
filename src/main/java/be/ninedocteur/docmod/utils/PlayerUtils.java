@@ -19,4 +19,8 @@ public class PlayerUtils {
     public static ResourceLocation getSkin(final String UUID){
         return IOUtils.readTexture("https://crafatar.com/skins/", UUID);
     }
+    
+    public static String getUserUUID(String playerName) {
+    	return IOUtils.readURLContent("https://minecraft-api.com/api/uuid/" + playerName);
+    }
 }

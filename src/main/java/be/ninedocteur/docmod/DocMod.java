@@ -2,6 +2,7 @@ package be.ninedocteur.docmod;
 
 import be.ninedocteur.docmod.client.containers.DMContainers;
 import be.ninedocteur.docmod.client.gui.screens.DMReportBug;
+import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
 import be.ninedocteur.docmod.common.init.DMMenu;
 import be.ninedocteur.docmod.proxy.ClientProxy;
 import be.ninedocteur.docmod.common.init.DMWoodTypes;
@@ -28,6 +29,8 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+import java.util.UUID;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -91,7 +94,7 @@ public class DocMod {
         LOGGER.info("Welcome to DocMod " + DMUtils.CODENAME);
     }
     
-    private void closeGameForBannedPeople() {
+    private void closeGameForBannedPeopleRunningTheMod() {
     	if(getBannedPeople()) {
     		System.exit(1);
     	}
@@ -99,6 +102,12 @@ public class DocMod {
     
     public static boolean getBannedPeople() {
     	//TODO: Change to UUID to avoid player changing name are unbanned
-    	return Minecraft.getInstance().player.getName().contains(Component.literal(IOUtils.readURLContent(DocTeamAPI.getAPI() + "docmod/ban/banned_players.txt")));
+    	UUID playerUUID = Minecraft.getInstance().player.getUUID();
+    	return playerUUID.toString().contains((CharSequence) Component.literal(IOUtils.readURLContent(DocTeamAPI.getAPI() + "docmod/ban/banned_players.txt")));
     }
+    
+    public static void prepareDownload() {
+    	AnimatedCapeHandler.readCapeTexture(DocTeamAPI.getAPI() + "docmod/cape/ninety/" + AnimatedCapeHandler.i + ".png", AnimatedCapeHandler.i);
+    }
+    
 }

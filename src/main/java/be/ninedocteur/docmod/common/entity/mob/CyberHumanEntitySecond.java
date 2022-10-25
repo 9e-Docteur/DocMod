@@ -63,6 +63,8 @@ public class CyberHumanEntitySecond extends Monster {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EnderMan.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
         this.targetSelector.addGoal(9, new NearestAttackableTargetGoal<>(this, Zurbitris.class, true));
+        this.targetSelector.addGoal(9, new NearestAttackableTargetGoal<>(this, Dalek.class, true));
+        this.targetSelector.addGoal(9, new NearestAttackableTargetGoal<>(this, SWDalek.class, true));
     }
 
     public static AttributeSupplier.Builder createAttributes() {

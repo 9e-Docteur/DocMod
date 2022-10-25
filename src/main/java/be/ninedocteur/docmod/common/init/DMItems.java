@@ -126,7 +126,7 @@ public class DMItems {
     public static final RegistryObject<Item> CYBER_LASER = ITEMS.register("cyber_laser", () -> new LaserItem(new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> DALEK_LASER = ITEMS.register("dalek_laser", () -> new DalekLaserItem(new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> RPG_LASER = ITEMS.register("rpg_laser", () -> new RPGItem(new Item.Properties().tab(DMCreativeTabs.TOOLS)));
-    public static final RegistryObject<Item> MAGIC_LASER = ITEMS.register("magic_laser", () -> new MagicLaserItem(new Item.Properties().tab(DMCreativeTabs.TOOLS)));
+    public static final RegistryObject<Item> MAGIC_LASER = ITEMS.register("magic_ammo", () -> new MagicLaserItem(new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> CLASSIC_DALEK_LASER = ITEMS.register("classic_dalek_laser", () -> new ClassicDalekLaserItem(new Item.Properties().tab(DMCreativeTabs.TOOLS)));
 
     //GUN

@@ -178,5 +178,91 @@
   "docmod.tooltip.liquid.amount.with.capacity": "%s / %s mB",
   "docmod.tooltip.liquid.amount": "%s mB",
   "button.docmod.report_bug": "Report a bug",
-  "block.docmod.cake": "DocMod Fist Birthday Cake"
+  "block.docmod.cake": "DocMod Fist Birthday Cake",
+  "block.docmod.deepslate_steel_ore": "Deepslate Steel Ore",
+  "block.docmod.crystaline_block": "Cystaline Block",
+  "block.docmod.deepslate_crystal_ore": "Deepslate Crystal Ore",
+  "block.docmod.xp_ore": "XP Ore",
+  "block.docmod.deepslate_halfinum_ore": "Deepslate Halfinum Ore",
+  "block.docmod.glass_tube": "Blue Glass Tube",
+  "block.docmod.red_glass_tube": "Red Glass Tube",
+  "block.docmod.green_glass_tube": "Green Glass Tube",
+  "block.docmod.orange_glass_tube": "Orange Glass Tube",
+  "item.docmod.halfinum_helmet": "Halfinum Helmet",
+  "item.docmod.halfinum_chestplate": "Halfinum Chestplate",
+  "item.docmod.halfinum_leggings": "Halfinum Leggings",
+  "item.docmod.halfinum_boots": "Halfinum Boots",
+  "item.docmod.copper_sword": "Copper Sword",
+  "item.docmod.copper_pickaxe": "Copper Pickaxe",
+  "item.docmod.copper_axe": "Copper Axe",
+  "item.docmod.docteam_cola": "DocTeam Cola",
+  "item.docmod.hamburger": "Hamburger",
+  "item.docmod.ice_cream": "Ice Cream",
+  "item.docmod.cyberboss_spawn": "Spawn Cyberboss",
+  "item.docmod.cyberhuman_spawn": "Spawn Cyberhuman",
+  "item.docmod.cyberhuman_2_spawn": "Spawn Cyberhuman",
+  "item.docmod.cyberhuman_3_spawn": "Spawn Cyberhuman",
+  "item.docmod.dalek_spawn": "Spawn Dalek",
+  "item.docmod.swdalek_spawn": "Spawn Special Weapons Dalek",
+    "block.docmod.dark_roundel": "Dark Roundel",
+  "block.docmod.dark_roundel_2": "Dark Roundel",
+
+  "block.docmod.red_roundel": "Red Roundel",
+  "block.docmod.red_roundel_2": "Red Roundel",
+
+  "block.docmod.green_roundel": "Green Roundel",
+  "block.docmod.green_roundel_2": "Green Roundel",
+
+  "block.docmod.blue_roundel": "Blue Roundel",
+  "block.docmod.blue_roundel_2": "Blue Roundel",
+
+  "block.docmod.yellow_roundel": "Yellow Roundel",
+  "block.docmod.yellow_roundel_2": "Yellow Roundel",
+
+  "block.docmod.copper_roundel_2": "Copper Roundel",
+  "block.docmod.coral_roundel_2": "Coral Roundel",
+
+  "block.docmod.red_roundel_custom" : "Red Roundel",
+
+  "block.docmod.blue_roundel_custom" : "Blue Roundel",
+
+  "block.docmod.lime_roundel_custom" : "Lime Roundel",
+
+  "block.docmod.green_roundel_custom" : "Green Roundel",
+
+  "block.docmod.cyan_roundel_custom" : "Cyan Roundel",
+
+  "block.docmod.light_blue_roundel_custom" : "Light Blue Roundel",
+
+  "block.docmod.magenta_roundel_custom" : "Magenta Roundel",
+
+  "block.docmod.orange_roundel_custom" : "Orange Roundel",
+
+  "block.docmod.purple_roundel_custom" : "Purple Roundel",
+
+  "block.docmod.yellow_roundel_custom" : "Yellow Roundel",
+
+  "block.docmod.lava_roundel" : "Lava Roundel",
+  "block.docmod.lava_roundel_2" : "Lava Roundel",
+
+  "block.docmod.wooden_dark_roundel": "Wooden Dark Roundel",
+  "block.docmod.wooden_dark_roundel_2": "Wooden Dark Roundel",
+  "block.docmod.wooden_green_roundel": "Wooden Green Roundel",
+  "block.docmod.wooden_green_roundel_2": "Wooden Green Roundel",
+  "block.docmod.wooden_red_roundel": "Wooden Red Roundel",
+  "block.docmod.wooden_red_roundel_2": "Wooden Red Roundel",
+  "block.docmod.wooden_blue_roundel": "Wooden Blue Roundel",
+  "block.docmod.wooden_blue_roundel_2": "Wooden Blue Roundel",
+  "block.docmod.wooden_yellow_roundel": "Wooden Yellow Roundel",
+  "block.docmod.wooden_yellow_roundel_2": "Wooden Yellow Roundel",
+
+
+  "item.docmod.round_thing_frame" : "Rond Thing Frame",
+  "item.docmod.red_round_thing_frame" : "Red Rond Thing Frame",
+  "item.docmod.blue_round_thing_frame" : "Blue Rond Thing Frame",
+  "item.docmod.green_round_thing_frame" : "Green Rond Thing Frame",
+  "item.docmod.yellow_round_thing_frame" : "Yellow Rond Thing Frame",
+  "item.docmod.dark_round_thing_frame" : "Dark Rond Thing Frame",
+
+  "block.docmod.hartnell_roundel": "Hartnell Roundel"
 }

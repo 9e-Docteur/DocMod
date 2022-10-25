@@ -24,6 +24,3 @@ And so you can use DocMod as an API, and code your own OS, command, etc..
 ## What is DocMod?
 DocMod is a Minecraft mod made by [9e_Docteur](https://github.com/9e-Docteur/).
 The goal of the mod is to enchance Minecraft with more adventure, and content. 
-
-## Team Projects:
-You can see other projects in [github profile](https://github.com/DocTeam).

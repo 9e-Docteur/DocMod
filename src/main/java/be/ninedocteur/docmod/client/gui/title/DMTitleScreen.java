@@ -104,6 +104,7 @@ public class DMTitleScreen extends Screen {
         if (this.realmsNotificationsEnabled()) {
             this.realmsNotificationsScreen.tick();
         }
+        Minecraft.getInstance().getWindow().setTitle("Minecraft " + SharedConstants.getCurrentVersion().getName() + " | " + DocMod.MODNAME + " " + DocMod.VERSION);
 
     }
 
@@ -424,7 +425,7 @@ public class DMTitleScreen extends Screen {
 
             //drawString(p_96739_, this.font, "Page : 1 / " + TitleScreenUtils.getMaxTitleScreen(), singlePlayer.x + 14, this.height - 50, 16777215 | l);
 
-
+/*
             if(LaunchUtils.checkLaunchedVersion()){
                 //drawString(p_96739_, this.font, ChatFormatting.GREEN + "DocMod Dev is activated", singlePlayer.x -14, this.height -40, 16777215 | l);
                 MemoryUsage heapMemoryUsage = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage();
@@ -433,6 +434,9 @@ public class DMTitleScreen extends Screen {
                 final int MegaBytes = 10241024;
                 drawString(p_96739_, this.font, "Java Runtime: " + usedMB + "MB/" + maxMB + "MB", 0, this.height - 30, 16777215 | l);
             }
+            */
+            
+            drawString(p_96739_, this.font, DocMod.MODNAME + " " + DocMod.VERSION, 0, this.height - 30, 16777215 | l);
             }
             
             
