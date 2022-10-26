@@ -1,11 +1,7 @@
 package be.ninedocteur.docmod.common.capes;
 
-import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.utils.IOUtils;
-import be.ninedocteur.docmod.utils.LaunchUtils;
-import be.ninedocteur.docmod.utils.TeamUUIDs;
 import be.ninedocteur.docteam.api.DocTeamAPI;
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Vector3f;
@@ -20,12 +16,12 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-import java.util.Arrays;
-import java.util.Objects;
-
+@OnlyIn(Dist.CLIENT)
 public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
-	public static AnimatedCapeHandler NINETY_CAPE = new AnimatedCapeHandler(10, 10);
+    public static AnimatedCapeHandler NINETY_CAPE = new AnimatedCapeHandler(10, 10);
 
     public Cape(RenderLayerParent<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> p_117346_) {
         super(p_117346_);
@@ -38,17 +34,17 @@ public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<Abstract
         if (!itemstack.is(Items.ELYTRA)) {
             p_116615_.pushPose();
             p_116615_.translate(0.0D, 0.0D, 0.125D);
-            double d0 = Mth.lerp((double)p_116621_, p_116618_.xCloakO, p_116618_.xCloak) - Mth.lerp((double)p_116621_, p_116618_.xo, p_116618_.getX());
-            double d1 = Mth.lerp((double)p_116621_, p_116618_.yCloakO, p_116618_.yCloak) - Mth.lerp((double)p_116621_, p_116618_.yo, p_116618_.getY());
-            double d2 = Mth.lerp((double)p_116621_, p_116618_.zCloakO, p_116618_.zCloak) - Mth.lerp((double)p_116621_, p_116618_.zo, p_116618_.getZ());
+            double d0 = Mth.lerp((double) p_116621_, p_116618_.xCloakO, p_116618_.xCloak) - Mth.lerp((double) p_116621_, p_116618_.xo, p_116618_.getX());
+            double d1 = Mth.lerp((double) p_116621_, p_116618_.yCloakO, p_116618_.yCloak) - Mth.lerp((double) p_116621_, p_116618_.yo, p_116618_.getY());
+            double d2 = Mth.lerp((double) p_116621_, p_116618_.zCloakO, p_116618_.zCloak) - Mth.lerp((double) p_116621_, p_116618_.zo, p_116618_.getZ());
             float f = p_116618_.yBodyRotO + (p_116618_.yBodyRot - p_116618_.yBodyRotO);
-            double d3 = (double)Mth.sin(f * ((float)Math.PI / 180F));
-            double d4 = (double)(-Mth.cos(f * ((float)Math.PI / 180F)));
-            float f1 = (float)d1 * 10.0F;
+            double d3 = (double) Mth.sin(f * ((float) Math.PI / 180F));
+            double d4 = (double) (-Mth.cos(f * ((float) Math.PI / 180F)));
+            float f1 = (float) d1 * 10.0F;
             f1 = Mth.clamp(f1, -6.0F, 32.0F);
-            float f2 = (float)(d0 * d3 + d2 * d4) * 100.0F;
+            float f2 = (float) (d0 * d3 + d2 * d4) * 100.0F;
             f2 = Mth.clamp(f2, 0.0F, 150.0F);
-            float f3 = (float)(d0 * d4 - d2 * d3) * 100.0F;
+            float f3 = (float) (d0 * d4 - d2 * d3) * 100.0F;
             f3 = Mth.clamp(f3, -20.0F, 20.0F);
             if (f2 < 0.0F) {
                 f2 = 0.0F;
@@ -68,30 +64,30 @@ public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<Abstract
             p_116615_.popPose();
         }
     }
-   
 
-    private void checkCapeAndApply(PoseStack poseStack, MultiBufferSource multiBufferSource, AbstractClientPlayer abstractClientPlayer, int integer){
-    	if(abstractClientPlayer.getUUID().toString().equals("0f471df5-e6e4-4bf3-9f22-35c2d7e6a4bb")) {
-        	VertexConsumer vertexconsumer = multiBufferSource.getBuffer(RenderType.entitySolid(NINETY_CAPE.getTexture()));
-        	this.getParentModel().renderCloak(poseStack, vertexconsumer, integer, OverlayTexture.NO_OVERLAY);
-       } else {	
-    	   if(IOUtils.getCapeUsers().contains(abstractClientPlayer.getUUID().toString())) {
-            	if(CapeHandler.DOWNLOADED_TEXTURES.containsKey("https://api.docteam.tk/docmod/cape/" + abstractClientPlayer.getUUID() + ".png")) {
-            		VertexConsumer vertexconsumer = multiBufferSource.getBuffer(RenderType.entitySolid(CapeHandler.DOWNLOADED_TEXTURES.get("https://api.docteam.tk/docmod/cape/" + abstractClientPlayer.getUUID() + ".png")));
-                	this.getParentModel().renderCloak(poseStack, vertexconsumer, integer, OverlayTexture.NO_OVERLAY);
-            	} else {
-                	VertexConsumer vertexconsumer = multiBufferSource.getBuffer(RenderType.entitySolid(CapeHandler.readCapeTexture(getCape(abstractClientPlayer), abstractClientPlayer.getUUID())));
-                	this.getParentModel().renderCloak(poseStack, vertexconsumer, integer, OverlayTexture.NO_OVERLAY);
-            	}
-    		}
+
+    private void checkCapeAndApply(PoseStack poseStack, MultiBufferSource multiBufferSource, AbstractClientPlayer abstractClientPlayer, int integer) {
+        if (abstractClientPlayer.getUUID().toString().equals("0f471df5-e6e4-4bf3-9f22-35c2d7e6a4bb")) {
+            VertexConsumer vertexconsumer = multiBufferSource.getBuffer(RenderType.entitySolid(NINETY_CAPE.getTexture()));
+            this.getParentModel().renderCloak(poseStack, vertexconsumer, integer, OverlayTexture.NO_OVERLAY);
+        } else {
+            if (IOUtils.getCapeUsers().contains(abstractClientPlayer.getUUID().toString())) {
+                if (CapeHandler.DOWNLOADED_TEXTURES.containsKey("https://api.docteam.tk/docmod/cape/" + abstractClientPlayer.getUUID() + ".png")) {
+                    VertexConsumer vertexconsumer = multiBufferSource.getBuffer(RenderType.entitySolid(CapeHandler.DOWNLOADED_TEXTURES.get("https://api.docteam.tk/docmod/cape/" + abstractClientPlayer.getUUID() + ".png")));
+                    this.getParentModel().renderCloak(poseStack, vertexconsumer, integer, OverlayTexture.NO_OVERLAY);
+                } else {
+                    VertexConsumer vertexconsumer = multiBufferSource.getBuffer(RenderType.entitySolid(CapeHandler.readCapeTexture(getCape(abstractClientPlayer), abstractClientPlayer.getUUID())));
+                    this.getParentModel().renderCloak(poseStack, vertexconsumer, integer, OverlayTexture.NO_OVERLAY);
+                }
+            }
         }
     }
 
-    private String getCape(AbstractClientPlayer abstractClientPlayer){
+    private String getCape(AbstractClientPlayer abstractClientPlayer) {
         return DocTeamAPI.getAPI() + "docmod/cape/" + abstractClientPlayer.getUUID() + ".png";
     }
-    
-    private String getDevCape(AbstractClientPlayer abstractClientPlayer){
+
+    private String getDevCape(AbstractClientPlayer abstractClientPlayer) {
         return DocTeamAPI.getAPI() + "docmod/dev/cape/" + abstractClientPlayer.getUUID() + ".png";
     }
 }

@@ -36,6 +36,8 @@ public class DMListeners {
     }
     @SubscribeEvent
     public static void onPLayerLevelJoin(EntityJoinLevelEvent e){
+        if(!e.getLevel().isClientSide()) return;
+
         if(e.getEntity() instanceof Player player){
                 if (LaunchUtils.isRunningInDev()) {
                     if(!isMessageSend) { // AVOID TO SEND 2 TIME THE MESSAGE

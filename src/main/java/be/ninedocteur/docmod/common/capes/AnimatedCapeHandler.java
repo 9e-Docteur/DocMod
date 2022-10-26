@@ -37,7 +37,7 @@ public class AnimatedCapeHandler {
         for(int i = 0; i < frames; i++) {
             textures[i] = readCapeTexture(DocTeamAPI.getAPI() + "docmod/cape/ninety/" + i + ".png", i);
         	//textures[i] = new ResourceLocation("docmod:textures/models/anm/" + i + ".png");
-            this.i = i;
+            AnimatedCapeHandler.i = i;
         }
 
     }
@@ -50,7 +50,7 @@ public class AnimatedCapeHandler {
         if(currentTick > 40) {
             currentTick = 0;
             currentFrame++;
-            if(currentFrame > textures.length - 1) {
+            if(currentFrame >= textures.length - 1) {
                 currentFrame = 0;
             }
         }
@@ -64,8 +64,8 @@ public class AnimatedCapeHandler {
                 InputStream inputStream = new URL(url).openStream();
                 NativeImage image = NativeImage.read(inputStream);
                 DynamicTexture texture = new DynamicTexture(image);
-                inputStream.close();
                 Minecraft.getInstance().getTextureManager().register(resourceLocation, texture);
+                inputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
