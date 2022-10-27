@@ -52,13 +52,13 @@ public class ComputerHarwareMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(p_39437_, l, 8 + l * 18, 142));
         }
 
-        getSlot(0).mayPlace(new ItemStack(DMItems.RAM.get()));
-        getSlot(1).mayPlace(new ItemStack(DMItems.CPU.get()));
-        getSlot(2).mayPlace(new ItemStack(DMItems.MOTHERBOARD.get()));
-        getSlot(3).mayPlace(new ItemStack(DMItems.GPU.get()));
-        getSlot(4).mayPlace(new ItemStack(DMItems.DISK.get()));
-        getSlot(5).mayPlace(new ItemStack(DMItems.DISK.get()));
-        getSlot(6).mayPlace(new ItemStack(DMItems.VENTIRAD.get()));
+//        getSlot(0).mayPlace(new ItemStack(DMItems.RAM.get()));
+//        getSlot(1).mayPlace(new ItemStack(DMItems.CPU.get()));
+//        getSlot(2).mayPlace(new ItemStack(DMItems.MOTHERBOARD.get()));
+//        getSlot(3).mayPlace(new ItemStack(DMItems.GPU.get()));
+//        getSlot(4).mayPlace(new ItemStack(DMItems.DISK.get()));
+//        getSlot(5).mayPlace(new ItemStack(DMItems.DISK.get()));
+//        getSlot(6).mayPlace(new ItemStack(DMItems.VENTIRAD.get()));
         //getSlot(7).mayPlace(new ItemStack(DMItems.RAM.get()));
         //getSlot(8).mayPlace(new ItemStack(DMItems.RAM.get()));
 

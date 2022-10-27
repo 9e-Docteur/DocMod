@@ -31,7 +31,7 @@ public class LaunchUtils {
         return false;
     }
 
-    public static boolean isBeta = true;
+    public static boolean isBeta = false;
     public static boolean isPreRelease = false;
 
     public static boolean checkVersionState(){

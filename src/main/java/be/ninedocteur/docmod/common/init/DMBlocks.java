@@ -166,8 +166,8 @@ public class DMBlocks {
     /*
     COMPUTER
      */
-    public static final RegistryObject<Block> COMPUTER = registerComputerBlock("computer", () -> new ComputerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> MONITOR = registerComputerBlock("monitor", () -> new MonitorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    //public static final RegistryObject<Block> COMPUTER = registerComputerBlock("computer", () -> new ComputerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    //public static final RegistryObject<Block> MONITOR = registerComputerBlock("monitor", () -> new MonitorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     /*
     ROUNDEL
@@ -335,11 +335,11 @@ public class DMBlocks {
         return toReturn;
     }
 
-    private static <T extends Block> RegistryObject<T> registerComputerBlock(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerComputerBlockItem(name, toReturn);
-        return toReturn;
-    }
+//    private static <T extends Block> RegistryObject<T> registerComputerBlock(String name, Supplier<T> block) {
+//        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+//        registerComputerBlockItem(name, toReturn);
+//        return toReturn;
+//    }
 
     private static <T extends Block> RegistryObject<T> registerBlockOnly(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
@@ -372,10 +372,10 @@ public class DMBlocks {
                 new Item.Properties().tab(DMCreativeTabs.ROUNDEL)));
     }
 
-    private static <T extends Block> void registerComputerBlockItem(String name, RegistryObject<T> block) {
-        DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(DMCreativeTabs.COMPUTER)));
-    }
+//    private static <T extends Block> void registerComputerBlockItem(String name, RegistryObject<T> block) {
+//        DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+//                new Item.Properties().tab(DMCreativeTabs.COMPUTER)));
+//    }
 
     private static RegistryObject<Block> DMOreBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float strength, SoundType sound, CreativeModeTab itemGroup){
         RegistryObject<Block> block = BLOCKS.register(id, () -> new DropExperienceBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(strength).sound(sound)));

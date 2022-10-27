@@ -43,8 +43,12 @@ public class ComputerTileEntity extends RandomizableContainerBlockEntity /*Block
     private List<BaseCommand> installedApps = new ArrayList();
 
 
+//    public ComputerTileEntity(BlockPos p_155229_, BlockState p_155230_) {
+//        super(DMTileEntity.COMPUTER_TILE_ENTITY.get(), p_155229_, p_155230_);
+//    }
+
     public ComputerTileEntity(BlockPos p_155229_, BlockState p_155230_) {
-        super(DMTileEntity.COMPUTER_TILE_ENTITY.get(), p_155229_, p_155230_);
+        super(null, p_155229_, p_155230_);
     }
 
     public void installApp(BaseCommand app){

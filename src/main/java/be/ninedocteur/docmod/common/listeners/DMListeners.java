@@ -45,8 +45,6 @@ public class DMListeners {
                         isMessageSend = true;
                     }
                 }
-                DocMod.prepareDownload();
-            	AnimatedCapeHandler.readCapeTexture(DocTeamAPI.getAPI() + "docmod/cape/ninety/" + AnimatedCapeHandler.i + ".png", AnimatedCapeHandler.i);
             	renderCape();
         }
     }

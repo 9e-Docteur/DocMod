@@ -75,13 +75,13 @@ public class DMTileEntity {
             TILE_ENTITIES.register("damaged_dalek_tile", () -> BlockEntityType.Builder.of(
                     DamagedDalekTileEntity::new, DMBlocks.DALEK_DAMAGED.get()).build(null));
 
-    public static RegistryObject<BlockEntityType<ComputerTileEntity>> COMPUTER_TILE_ENTITY =
-            TILE_ENTITIES.register("computer_tile", () -> BlockEntityType.Builder.of(
-                    ComputerTileEntity::new, DMBlocks.COMPUTER.get()).build(null));
-
-    public static RegistryObject<BlockEntityType<MonitorTileEntity>> MONITOR_TILE_ENTITY =
-            TILE_ENTITIES.register("monitor_tile", () -> BlockEntityType.Builder.of(
-                    MonitorTileEntity::new, DMBlocks.MONITOR.get()).build(null));
+//    public static RegistryObject<BlockEntityType<ComputerTileEntity>> COMPUTER_TILE_ENTITY =
+//            TILE_ENTITIES.register("computer_tile", () -> BlockEntityType.Builder.of(
+//                    ComputerTileEntity::new, DMBlocks.COMPUTER.get()).build(null));
+//
+//    public static RegistryObject<BlockEntityType<MonitorTileEntity>> MONITOR_TILE_ENTITY =
+//            TILE_ENTITIES.register("monitor_tile", () -> BlockEntityType.Builder.of(
+//                    MonitorTileEntity::new, DMBlocks.MONITOR.get()).build(null));
 
     public static RegistryObject<BlockEntityType<InfusionTableTileEntity>> INFUSION_TILE_ENTITY =
             TILE_ENTITIES.register("infusion_tile", () -> BlockEntityType.Builder.of(

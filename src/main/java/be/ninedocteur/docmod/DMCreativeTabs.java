@@ -61,13 +61,13 @@ public class DMCreativeTabs {
         }
     };
 
-    public static final CreativeModeTab COMPUTER = new CreativeModeTab("DocMod - Computers") {
-        @Override
-        public ItemStack makeIcon() {
-
-            return new ItemStack(DMBlocks.COMPUTER.get());
-        }
-    };
+//    public static final CreativeModeTab COMPUTER = new CreativeModeTab("DocMod - Computers") {
+//        @Override
+//        public ItemStack makeIcon() {
+//
+//            return new ItemStack(DMBlocks.COMPUTER.get());
+//        }
+//    };
     public static final CreativeModeTab ANNIVERSARY = new CreativeModeTab("DocMod - Anniversary Update") {
         @Override
         public ItemStack makeIcon() {

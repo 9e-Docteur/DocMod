@@ -49,18 +49,18 @@ public class DMComputerScreen extends Screen {
         //if(!checkComposant()){
             //return;
         //}
-        for(BaseOS baseOS : OSRegistry.OSes){
-            for(ItemStack itemStack : computerTileEntity.getItems()){
-                if(itemStack.is(DMItems.DISK.get())){
-                    if(baseOS.getName().equals(itemStack.getTag().getString("OS"))){
-                        currentOS = baseOS;
-                        break;
-                    }
-                    currentOS = OSRegistry.MOTHERBOARD;
-                }
-            }
-            break;
-        }
+//        for(BaseOS baseOS : OSRegistry.OSes){
+//            for(ItemStack itemStack : computerTileEntity.getItems()){
+//                if(itemStack.is(DMItems.DISK.get())){
+//                    if(baseOS.getName().equals(itemStack.getTag().getString("OS"))){
+//                        currentOS = baseOS;
+//                        break;
+//                    }
+//                    currentOS = OSRegistry.MOTHERBOARD;
+//                }
+//            }
+//            break;
+//        }
         if(currentOS == null){
             currentOS = OSRegistry.MOTHERBOARD;
         }
@@ -73,14 +73,14 @@ public class DMComputerScreen extends Screen {
         super.init();
     }
 
-    private boolean checkComposant(){
-        if(computerTileEntity.getItems().contains(DMItems.CPU.get()) && computerTileEntity.getItems().contains(DMItems.ALIMENTATION.get()) &&
-                computerTileEntity.getItems().contains(DMItems.MOTHERBOARD.get()) && computerTileEntity.getItems().contains(DMItems.RAM.get()) &&
-                computerTileEntity.getItems().contains(DMItems.DISK.get())){
-            return true;
-        }
-        return false;
-    }
+//    private boolean checkComposant(){
+//        if(computerTileEntity.getItems().contains(DMItems.CPU.get()) && computerTileEntity.getItems().contains(DMItems.ALIMENTATION.get()) &&
+//                computerTileEntity.getItems().contains(DMItems.MOTHERBOARD.get()) && computerTileEntity.getItems().contains(DMItems.RAM.get()) &&
+//                computerTileEntity.getItems().contains(DMItems.DISK.get())){
+//            return true;
+//        }
+//        return false;
+//    }
 
     @Override
     public boolean keyPressed(int p_96552_, int p_96553_, int p_96554_) {

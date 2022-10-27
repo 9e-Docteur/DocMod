@@ -137,14 +137,14 @@ public class DMItems {
     public static final RegistryObject<Item> CLASSIC_DALEK_GUN = ITEMS.register("classic_dalek_gun", () -> new ClassicDalekGun(new Item.Properties().durability(2500)));
 
     //COMPUTER
-    public static final RegistryObject<Item> CPU = ITEMS.register("cpu", () -> new Item(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
-    public static final RegistryObject<Item> GPU = ITEMS.register("gpu", () -> new GraphicsUnit(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
-    public static final RegistryObject<Item> RAM = ITEMS.register("ram", () -> new RAM(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
-    public static final RegistryObject<Item> MOTHERBOARD = ITEMS.register("motherboard", () -> new Motherboard(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
-    public static final RegistryObject<Item> VENTIRAD = ITEMS.register("ventirad", () -> new Ventirad(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
-    public static final RegistryObject<Item> DISK = ITEMS.register("disk", () -> new Disks(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
-    public static final RegistryObject<Item> ALIMENTATION = ITEMS.register("alimentation", () -> new Alimentation(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
-    public static final RegistryObject<Item> HDMI_CABLE = ITEMS.register("hdmi_cable", () -> new HDMICable(new Item.Properties().tab(DMCreativeTabs.COMPUTER)));
+    //public static final RegistryObject<Item> CPU = ITEMS.register("cpu", () -> new Item(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
+    //public static final RegistryObject<Item> GPU = ITEMS.register("gpu", () -> new GraphicsUnit(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
+   // public static final RegistryObject<Item> RAM = ITEMS.register("ram", () -> new RAM(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
+   // public static final RegistryObject<Item> MOTHERBOARD = ITEMS.register("motherboard", () -> new Motherboard(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
+   // public static final RegistryObject<Item> VENTIRAD = ITEMS.register("ventirad", () -> new Ventirad(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
+    //public static final RegistryObject<Item> DISK = ITEMS.register("disk", () -> new Disks(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
+    //public static final RegistryObject<Item> ALIMENTATION = ITEMS.register("alimentation", () -> new Alimentation(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
+    //public static final RegistryObject<Item> HDMI_CABLE = ITEMS.register("hdmi_cable", () -> new HDMICable(new Item.Properties().tab(DMCreativeTabs.COMPUTER)));
 
     public static final RegistryObject<Item> ROUND_THING_FRAME = ITEMS.register("round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
     public static final RegistryObject<Item> RED_ROUND_THING_FRAME = ITEMS.register("red_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));

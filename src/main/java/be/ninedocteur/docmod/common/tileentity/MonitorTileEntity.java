@@ -12,7 +12,7 @@ public class MonitorTileEntity extends BlockEntity {
     public boolean isLinkedToComputer;
 
     public MonitorTileEntity(BlockPos pos, BlockState state) {
-        super(DMTileEntity.MONITOR_TILE_ENTITY.get(), pos, state);
+        super(null, pos, state);
     }
 
     @Override

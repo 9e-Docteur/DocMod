@@ -33,11 +33,11 @@ public class ShopCommand extends BaseCommand {
             }
             this.computerTileEntity = this.currentOS.getComputerTileEntity();
             for(ItemStack itemStack : computerTileEntity.getItems()){
-                if(itemStack.is(DMItems.DISK.get())){
-                    if(baseOS.getName().equals(itemStack.getTag().getString("OS"))){
-                        break;
-                    }
-                }
+//                if(itemStack.is(DMItems.DISK.get())){
+//                    if(baseOS.getName().equals(itemStack.getTag().getString("OS"))){
+//                        break;
+//                    }
+//                }
             }
             break;
         }
@@ -84,10 +84,10 @@ public class ShopCommand extends BaseCommand {
                         CompoundTag compoundTag = new CompoundTag();
                         compoundTag.putString("OS", currentOS.getName());
                         for(ItemStack itemStack : computerTileEntity.getItems()){
-                            if(itemStack.is(DMItems.DISK.get())){
-                                itemStack.setTag(compoundTag);
-                                break;
-                            }
+//                            if(itemStack.is(DMItems.DISK.get())){
+//                                itemStack.setTag(compoundTag);
+//                                break;
+//                            }
                         }
                     }
                     computerTileEntity.TERMINAL_HISTORY.add("Downloaded " + pkg + " !");

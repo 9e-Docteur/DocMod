@@ -16,12 +16,12 @@ public class Computer {
     }
 
     public class Process{
-        public static boolean checkComposant(ComputerHarwareMenu menu){
-            if(menu.getItems().contains(DMItems.CPU.get()) && menu.getItems().contains(DMItems.ALIMENTATION.get()) && menu.getItems().contains(DMItems.MOTHERBOARD.get()) && menu.getItems().contains(DMItems.RAM.get()) && menu.getItems().contains(DMItems.DISK.get())){
-                return true;
-            }
-            return false;
-        }
+//        public static boolean checkComposant(ComputerHarwareMenu menu){
+//            if(menu.getItems().contains(DMItems.CPU.get()) && menu.getItems().contains(DMItems.ALIMENTATION.get()) && menu.getItems().contains(DMItems.MOTHERBOARD.get()) && menu.getItems().contains(DMItems.RAM.get()) && menu.getItems().contains(DMItems.DISK.get())){
+//                return true;
+//            }
+//            return false;
+//        }
 
 
 

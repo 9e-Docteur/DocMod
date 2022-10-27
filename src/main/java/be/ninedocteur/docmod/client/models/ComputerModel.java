@@ -199,41 +199,41 @@ public class ComputerModel<T extends Entity> extends EntityModel<T> {
 		fan2.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
 		base.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
 		glass.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-		if(computerTileEntity.getItems().contains(DMItems.CPU.get())){
-			CPU.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-		}
-		if(computerTileEntity.getItems().contains(DMItems.GPU.get())){
-			GPU.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-		}
-		if(computerTileEntity.getItems().contains(DMItems.VENTIRAD.get())){
-			Ventirad.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-		}
-		if(computerTileEntity.getItems().contains(DMItems.ALIMENTATION.get())){
-			Alimentation.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-		}
-		if(computerTileEntity.getItems().contains(DMItems.MOTHERBOARD.get())){
-			motherboard.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-		}
-		if(computerTileEntity.getItems().contains(DMItems.RAM.get())){
-			RAM.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-		}
-		if(computerTileEntity.getItems().contains(DMItems.DISK.get())){
-			Disks.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-		}
-		if(computerTileEntity.getBlockState().getBlock() instanceof ComputerBlock computerBlock){
-			if(computerBlock.isRunning){
-				front_lightmap.render(poseStack, buffer, ModelUtils.getModelGlow(1F), packedOverlay, red, green, blue, alpha);
-				motherboard_lightmap.render(poseStack, buffer, ModelUtils.getModelGlow(1F), packedOverlay, red, green, blue, alpha);
-				Disk_Station.render(poseStack, buffer, ModelUtils.getModelGlow(1F), packedOverlay, red, green, blue, alpha);
-				case_lightmap.render(poseStack, buffer, ModelUtils.getModelGlow(1F), packedOverlay, red, green, blue, alpha);
-			}
-			if(!computerBlock.isRunning){
-				front_lightmap.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-				motherboard_lightmap.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-				Disk_Station.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-				case_lightmap.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-			}
-		}
+//		if(computerTileEntity.getItems().contains(DMItems.CPU.get())){
+//			CPU.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//		}
+//		if(computerTileEntity.getItems().contains(DMItems.GPU.get())){
+//			GPU.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//		}
+//		if(computerTileEntity.getItems().contains(DMItems.VENTIRAD.get())){
+//			Ventirad.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//		}
+//		if(computerTileEntity.getItems().contains(DMItems.ALIMENTATION.get())){
+//			Alimentation.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//		}
+//		if(computerTileEntity.getItems().contains(DMItems.MOTHERBOARD.get())){
+//			motherboard.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//		}
+//		if(computerTileEntity.getItems().contains(DMItems.RAM.get())){
+//			RAM.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//		}
+//		if(computerTileEntity.getItems().contains(DMItems.DISK.get())){
+//			Disks.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//		}
+//		if(computerTileEntity.getBlockState().getBlock() instanceof ComputerBlock computerBlock){
+//			if(computerBlock.isRunning){
+//				front_lightmap.render(poseStack, buffer, ModelUtils.getModelGlow(1F), packedOverlay, red, green, blue, alpha);
+//				motherboard_lightmap.render(poseStack, buffer, ModelUtils.getModelGlow(1F), packedOverlay, red, green, blue, alpha);
+//				Disk_Station.render(poseStack, buffer, ModelUtils.getModelGlow(1F), packedOverlay, red, green, blue, alpha);
+//				case_lightmap.render(poseStack, buffer, ModelUtils.getModelGlow(1F), packedOverlay, red, green, blue, alpha);
+//			}
+//			if(!computerBlock.isRunning){
+//				front_lightmap.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//				motherboard_lightmap.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//				Disk_Station.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//				case_lightmap.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+//			}
+//		}
 	}
 
 

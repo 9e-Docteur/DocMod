@@ -23,8 +23,8 @@ public class TileRenders {
         //BlockEntityRenderers.register(DMTileEntity.item_shower.get(), ItemShowerBlockRender::new);
         BlockEntityRenderers.register(DMTileEntity.red_toyota.get(), RedToyotaRotorBlockRender::new);
         BlockEntityRenderers.register(DMTileEntity.DAMAGED_DALEK_TILE_ENTITY.get(), DamagedDalekBlockRender::new);
-        BlockEntityRenderers.register(DMTileEntity.COMPUTER_TILE_ENTITY.get(), ComputerBlockRender::new);
-        BlockEntityRenderers.register(DMTileEntity.MONITOR_TILE_ENTITY.get(), MonitorBlockRender::new);
+       // BlockEntityRenderers.register(DMTileEntity.COMPUTER_TILE_ENTITY.get(), ComputerBlockRender::new);
+        //BlockEntityRenderers.register(DMTileEntity.MONITOR_TILE_ENTITY.get(), MonitorBlockRender::new);
         BlockEntityRenderers.register(DMTileEntity.CHAIR_TILE_ENTITY.get(), ChairBlockRender::new);
 
     }
