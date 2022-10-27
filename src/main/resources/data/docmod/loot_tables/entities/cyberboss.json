@@ -28,7 +28,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "docmod:cybergun"
+          "name": "docmod:cyber_gun"
         }
       ],
       "conditions": [

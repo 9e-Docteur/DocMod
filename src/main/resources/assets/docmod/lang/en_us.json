@@ -264,5 +264,13 @@
   "item.docmod.yellow_round_thing_frame" : "Yellow Rond Thing Frame",
   "item.docmod.dark_round_thing_frame" : "Dark Rond Thing Frame",
 
-  "block.docmod.hartnell_roundel": "Hartnell Roundel"
+  "block.docmod.hartnell_roundel": "Hartnell Roundel",
+
+  "block.docmod.zurb_teleporter": "Zurb Teleporter",
+
+  "itemGroup.DocMod - Roundels": "DocMod - Roundels",
+  "itemGroup.DocMod - Computers": "DocMod - Computers",
+  "itemGroup.DocMod - Anniversary Update": "DocMod - Anniversary Update",
+
+  "item.docmod.magic_ammo" : "Magic Wand Ammo"
 }

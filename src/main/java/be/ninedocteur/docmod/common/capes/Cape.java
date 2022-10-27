@@ -1,7 +1,6 @@
 package be.ninedocteur.docmod.common.capes;
 
 import be.ninedocteur.docmod.utils.IOUtils;
-import be.ninedocteur.docmod.utils.LaunchUtils;
 import be.ninedocteur.docteam.api.DocTeamAPI;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -31,6 +30,7 @@ public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<Abstract
     @Override
     public void render(PoseStack p_116615_, MultiBufferSource p_117350_, int p_117351_, AbstractClientPlayer p_116618_, float p_117353_, float p_117354_, float p_116621_, float p_117356_, float p_117357_, float p_117358_) {
         ItemStack itemstack = p_116618_.getItemBySlot(EquipmentSlot.CHEST);
+        //CapeHandler capeHandler = CapeHandler.getCape(p_116618_);
         if (!itemstack.is(Items.ELYTRA)) {
             p_116615_.pushPose();
             p_116615_.translate(0.0D, 0.0D, 0.125D);
@@ -49,8 +49,6 @@ public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<Abstract
             if (f2 < 0.0F) {
                 f2 = 0.0F;
             }
-            
-            
             NINETY_CAPE.update(p_116621_);
 
             float f4 = Mth.lerp(p_116621_, p_116618_.oBob, p_116618_.bob);
