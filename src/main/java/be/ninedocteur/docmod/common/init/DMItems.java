@@ -146,6 +146,13 @@ public class DMItems {
     public static final RegistryObject<Item> ALIMENTATION = ITEMS.register("alimentation", () -> new Alimentation(new Item.Properties().durability(2500).tab(DMCreativeTabs.COMPUTER)));
     public static final RegistryObject<Item> HDMI_CABLE = ITEMS.register("hdmi_cable", () -> new HDMICable(new Item.Properties().tab(DMCreativeTabs.COMPUTER)));
 
+    public static final RegistryObject<Item> ROUND_THING_FRAME = ITEMS.register("round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
+    public static final RegistryObject<Item> RED_ROUND_THING_FRAME = ITEMS.register("red_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
+    public static final RegistryObject<Item> BLUE_ROUND_THING_FRAME = ITEMS.register("blue_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
+    public static final RegistryObject<Item> GREEN_ROUND_THING_FRAME = ITEMS.register("green_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
+    public static final RegistryObject<Item> YELLOW_ROUND_THING_FRAME = ITEMS.register("yellow_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
+    public static final RegistryObject<Item> DARK_ROUND_THING_FRAME = ITEMS.register("dark_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

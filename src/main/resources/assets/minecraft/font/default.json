@@ -13,6 +13,20 @@
       "ascent":7,
       "height":7,
       "chars":["的"]
+    },
+    {
+      "type":"bitmap",
+      "file":"minecraft:custom/halfinum.png",
+      "ascent":7,
+      "height":7,
+      "chars":["是"]
+    },
+    {
+      "type":"bitmap",
+      "file":"minecraft:custom/steel.png",
+      "ascent":7,
+      "height":7,
+      "chars":["这"]
     }
   ]
 }
