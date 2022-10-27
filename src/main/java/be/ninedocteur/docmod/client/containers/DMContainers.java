@@ -1,11 +1,8 @@
 package be.ninedocteur.docmod.client.containers;
 
 import be.ninedocteur.docmod.DocMod;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;

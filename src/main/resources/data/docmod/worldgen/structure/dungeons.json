@@ -3,7 +3,7 @@
   "type": "minecraft:jigsaw",
 
   // the path to the template pool json file to use
-  "start_pool": "docmod:dungeons",
+  "start_pool": "docmod:dungeons/boss",
 
   // This is how many pieces away from the starting piece a piece of the structure can spawn
   // Think of it like the length of the branch of the structure
