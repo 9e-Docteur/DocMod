@@ -38,7 +38,7 @@ public class DMBlocks {
     public static final RegistryObject<Block> CRYSTALINE_ORE = DMOreBlock("crystaline_ore", Material.STONE, MaterialColor.COLOR_RED, 4, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
     public static final RegistryObject<Block> CRYSTAL_ORE = DMOreBlock("crystal_ore", Material.STONE, MaterialColor.COLOR_BLUE, 4, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
     public static final RegistryObject<Block> DEEPSLATE_CRYSTAL_ORE = DMOreBlock("deepslate_crystal_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
-    public static final RegistryObject<Block> XP_ORE = registerBlock("xp_ore", () -> new XpOreBlock(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(0.5f).noOcclusion()));
+    public static final RegistryObject<Block> XP_ORE = registerBlock("xp_ore", () -> new XpOreBlock(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5f).noOcclusion()));
 
     public static final RegistryObject<Block> CIRCLE_GLASS = registerBlock("circle_glass", () -> new CircleGlass(Block.Properties.of(Material.GLASS).noOcclusion().requiresCorrectToolForDrops().strength(5)));
     public static final RegistryObject<Block> DEATH_LOG = registerBlock("death_log", () -> new Block(Block.Properties.of(Material.WOOD).requiresCorrectToolForDrops().strength(3)));
@@ -83,8 +83,8 @@ public class DMBlocks {
     public static final RegistryObject<Block> ALBIZIA_SIGN = registerBlockOnly("albizia_sign", () -> new AlbiziaStandingSign(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), DMWoodTypes.ALBIZIA));
     public static final RegistryObject<Block> ALBIZIA_WALL_SIGN = registerBlockOnly("albizia_wall_sign", () -> new AlbiziaWallSign(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), DMWoodTypes.ALBIZIA));
     public static final RegistryObject<Block> ALBIZIA_LEAVES = registerBlock("albizia_leaves", () -> new LeavesBlock(Block.Properties.of(Material.LEAVES).noOcclusion().requiresCorrectToolForDrops().strength(5).sound(SoundType.AZALEA_LEAVES)));
-    public static final RegistryObject<Block> CRYOLITE_ORE = registerBlock("cryolite_ore", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
-    public static final RegistryObject<Block> HALFINUM_ORE = registerBlock("halfinum_ore", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(5)));
+    public static final RegistryObject<Block> CRYOLITE_ORE = registerBlock("cryolite_ore", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(3)));
+    public static final RegistryObject<Block> HALFINUM_ORE = registerBlock("halfinum_ore", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(8)));
     public static final RegistryObject<Block> DEEPSLATE_HALFINUM_ORE = DMOreBlock("deepslate_halfinum_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
     public static final RegistryObject<Block> Tardis = registerHidenBlock("tardis", () -> new TardisBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
     public static final RegistryObject<Block> GLASS_TUBE = registerBlock("glass_tube", () -> new GlassTubeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));

@@ -221,7 +221,7 @@ public class InfusionTableTileEntity extends BlockEntity implements MenuProvider
         if(hasRecipe(pEntity)) {
             pEntity.FLUID_TANK.drain(500, IFluidHandler.FluidAction.EXECUTE);
             pEntity.itemHandler.extractItem(1, 1, false);
-            pEntity.itemHandler.setStackInSlot(2, new ItemStack(DMItems.SAPHIR.get(),
+            pEntity.itemHandler.setStackInSlot(2, new ItemStack(DMItems.ZINC_INGOT.get(),
                     pEntity.itemHandler.getStackInSlot(2).getCount() + 1));
 
             pEntity.resetProgress();
@@ -234,10 +234,10 @@ public class InfusionTableTileEntity extends BlockEntity implements MenuProvider
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        boolean hasRawGemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == DMItems.RAW_SAPHIR.get();
+        boolean hasRawGemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() == DMItems.ZINC_INGOT.get();
 
         return hasRawGemInFirstSlot && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, new ItemStack(DMItems.SAPHIR.get(), 1));
+                canInsertItemIntoOutputSlot(inventory, new ItemStack(DMItems.ZINC_INGOT.get(), 1));
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {

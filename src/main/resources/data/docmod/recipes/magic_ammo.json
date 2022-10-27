@@ -3,7 +3,7 @@
   "pattern": [
     " # ",
     " * ",
-    " * "
+    " - "
   ],
   "key": {
     "#": {
@@ -11,9 +11,12 @@
     },
     "*": {
       "item": "minecraft:stick"
+    },
+    "-": {
+      "item": "minecraft:feather"
     }
   },
   "result": {
-    "item": "docmod:magic_wand"
+    "item": "docmod:magic_ammo"
   }
 }

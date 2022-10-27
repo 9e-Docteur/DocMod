@@ -70,7 +70,8 @@
     "docmod:crystal_ore",
     "docmod:xp_ore",
     "docmod:deepslate_crystal_ore",
-    "docmod:steel_ore",
+    "docmod:deepslate_halfinum_ore",
+    "docmod:steel_block",
     "docmod:nether_zinc_ore",
     "docmod:classic_grass",
     "docmod:crystaline_ore"

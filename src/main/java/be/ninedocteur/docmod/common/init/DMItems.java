@@ -28,8 +28,8 @@ public class DMItems {
     public static final RegistryObject<Item> ZINC_INGOT = ITEMS.register("zinc_ingot", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> CRYSTALINE = ITEMS.register("crystaline", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> CRYSTAL = ITEMS.register("crystal", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> RAW_SAPHIR = ITEMS.register("raw_saphir", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.EPIC)));
-    public static final RegistryObject<Item> SAPHIR = ITEMS.register("saphir", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.EPIC)));
+    //public static final RegistryObject<Item> RAW_SAPHIR = ITEMS.register("raw_saphir", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.EPIC)));
+    //public static final RegistryObject<Item> SAPHIR = ITEMS.register("saphir", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> ZINC_NUGGET = ITEMS.register("zinc_nugget", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS)));
     public static final RegistryObject<Item> HALFINUM_NUGGET = ITEMS.register("halfinum_nugget", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS)));
     public static final RegistryObject<Item> CRYOLITE = ITEMS.register("cryolite", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS)));
