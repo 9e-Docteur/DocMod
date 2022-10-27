@@ -29,12 +29,12 @@ public class DMLoadingTitleScreen extends TitleScreen{
 
         if(event.getScreen() instanceof DMLoadingTitleScreen) {
         	DocMod.prepareDownload();
-        	if(LaunchUtils.isRunningInDev()) {
-        		if(DocTeamAPI.isDevLoginEnabled) {
-        			if(!DocTeamAPI.isConnected()) {
-        				event.getScreen().getMinecraft().setScreen(new DMLoginScreen());
-        			}
-        		} else {
+        	//if(LaunchUtils.isRunningInDev()) {
+        	//	if(DocTeamAPI.isDevLoginEnabled) {
+        		//	if(!DocTeamAPI.isConnected()) {
+        		//		event.getScreen().getMinecraft().setScreen(new DMLoginScreen());
+        			//}
+        		/*} else {*/
             		final Window window = Minecraft.getInstance().getWindow();
                     window.setTitle("DocMod " + DMUtils.VERSION);
                     /*
@@ -55,9 +55,9 @@ public class DMLoadingTitleScreen extends TitleScreen{
                     //event.getScreen().addRenderableWidget(screen_button);
             	}
         	}
-        	else {
-        		final Window window = Minecraft.getInstance().getWindow();
-                window.setTitle("DocMod " + DMUtils.VERSION);
+        	//else {
+        		//final Window window = Minecraft.getInstance().getWindow();
+               // window.setTitle("DocMod " + DMUtils.VERSION);
                 /*
                 Button docMod_server = new Button(325, 156, 100, 20, Component.translatable("button." + DocMod.MOD_ID + ".server_button"), (p_96781_) -> {
                     ConnectScreen.startConnecting(event.getScreen(), event.getScreen().getMinecraft(), new ServerAddress(Servers.HOST, Servers.PORT), new ServerData("DocMod Server", Servers.HOST, false));
@@ -70,11 +70,11 @@ public class DMLoadingTitleScreen extends TitleScreen{
                 });
 
                  */
-                event.getScreen().getMinecraft().setScreen(new DMTitleScreen(true)); //Bring us to the custom main title
+               // event.getScreen().getMinecraft().setScreen(new DMTitleScreen(true)); //Bring us to the custom main title
                 //event.getScreen().addRenderableWidget(docMod_server);
                 //event.getScreen().addRenderableWidget(discord_button);
                 //event.getScreen().addRenderableWidget(screen_button);
-        	}
-        }
-       }
+        	//}
+        //}
+       //}
 }

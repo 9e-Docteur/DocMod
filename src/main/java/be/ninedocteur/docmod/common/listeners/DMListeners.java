@@ -46,7 +46,6 @@ public class DMListeners {
                     }
                 }
                 DocMod.prepareDownload();
-            	Cape.NINETY_CAPE.update();
             	AnimatedCapeHandler.readCapeTexture(DocTeamAPI.getAPI() + "docmod/cape/ninety/" + AnimatedCapeHandler.i + ".png", AnimatedCapeHandler.i);
             	renderCape();
         }

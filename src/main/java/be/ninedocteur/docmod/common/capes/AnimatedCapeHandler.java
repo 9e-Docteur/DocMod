@@ -22,7 +22,7 @@ public class AnimatedCapeHandler {
     private final int frames;
     private final int fpt;
 
-    private int currentTick = 0;
+    private float currentTick = 0;
     private int currentFrame = 0;
     public static int i;
 
@@ -46,15 +46,15 @@ public class AnimatedCapeHandler {
         return textures[currentFrame];
     }
 
-    public void update() {
-        if(currentTick > 40) {
-            currentTick = 0;
-            currentFrame++;
-            if(currentFrame >= textures.length - 1) {
-                currentFrame = 0;
-            }
-        }
-        currentTick++;
+    public void update(float deltaTime) {
+    	 if(currentTick > 6) {
+             currentTick = 0;
+             currentFrame++;
+             if(currentFrame >= textures.length - 1) {
+                 currentFrame = 0;
+             }
+         }
+         currentTick++;
     }
     
     @OnlyIn(Dist.CLIENT)
