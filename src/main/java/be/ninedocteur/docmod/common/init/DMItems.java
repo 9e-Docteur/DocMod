@@ -25,8 +25,8 @@ public class DMItems {
 
 
     public static final RegistryObject<Item> AMETHYST = ITEMS.register("amethyst", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS)));
-    public static final RegistryObject<Item> ZINC_INGOT = ITEMS.register("zinc_ingot", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> CRYSTALINE = ITEMS.register("crystaline", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> ZINC_INGOT = ITEMS.register("zinc_ingot", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS)));
+    public static final RegistryObject<Item> CRYSTALINE = ITEMS.register("crystaline", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS)));
     public static final RegistryObject<Item> CRYSTAL = ITEMS.register("crystal", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.UNCOMMON)));
     //public static final RegistryObject<Item> RAW_SAPHIR = ITEMS.register("raw_saphir", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.EPIC)));
     //public static final RegistryObject<Item> SAPHIR = ITEMS.register("saphir", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS).rarity(Rarity.EPIC)));
