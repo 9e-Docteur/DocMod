@@ -18,8 +18,7 @@ It mean that you cannot take/copy our code.**
 The liscence is [here](https://github.com/9e-Docteur/docmod/blob/main/LICENCE).
 
 ## Developer
-Since version 5.0 of DocMod, we have added computer. 
-And so you can use DocMod as an API, and code your own OS, command, etc..
+Since version 5.0 of DocMod you can use DocMod as an API, and code your own addon.
 
 ## What is DocMod?
 DocMod is a Minecraft mod made by [9e_Docteur](https://github.com/9e-Docteur/).
