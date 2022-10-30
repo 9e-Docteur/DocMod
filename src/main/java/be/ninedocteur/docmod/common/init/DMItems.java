@@ -9,6 +9,7 @@ import be.ninedocteur.docmod.common.item.computer.parts.*;
 import be.ninedocteur.docmod.common.item.gun.*;
 import be.ninedocteur.docmod.common.item.laser.item.*;
 import be.ninedocteur.docmod.common.item.sonic.*;
+import be.ninedocteur.docmod.common.item.space.SpaceSuitHelmet;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -83,6 +84,10 @@ public class DMItems {
     public static final RegistryObject<Item> HALFINUM_CHESTPLATE = ITEMS.register("halfinum_chestplate", () -> new ArmorItem(ModArmorMaterial.HALFINUM, EquipmentSlot.CHEST, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> HALFINUM_LEGGINGS = ITEMS.register("halfinum_leggings", () -> new ArmorItem(ModArmorMaterial.HALFINUM, EquipmentSlot.LEGS, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> HALFINUM_BOOTS = ITEMS.register("halfinum_boots", () -> new ArmorItem(ModArmorMaterial.HALFINUM, EquipmentSlot.FEET, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
+    public static final RegistryObject<Item> SPACE_HELMET = ITEMS.register("space_helmet", () -> new SpaceSuitHelmet(ModArmorMaterial.SPACE_SUIT, EquipmentSlot.HEAD, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
+    public static final RegistryObject<Item> SPACE_CHESTPLATE = ITEMS.register("space_chestplate", () -> new ArmorItem(ModArmorMaterial.SPACE_SUIT, EquipmentSlot.CHEST, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
+    public static final RegistryObject<Item> SPACE_LEGGINGS = ITEMS.register("space_leggings", () -> new ArmorItem(ModArmorMaterial.SPACE_SUIT, EquipmentSlot.LEGS, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
+    public static final RegistryObject<Item> SPACE_BOOTS = ITEMS.register("space_boots", () -> new ArmorItem(ModArmorMaterial.SPACE_SUIT, EquipmentSlot.FEET, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> COPPER_SWORD = ITEMS.register("copper_sword", () -> new SwordItem(ModItemTier.COPPER, 6, 3f, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> COPPER_PICKAXE = ITEMS.register("copper_pickaxe", () -> new PickaxeItem(ModItemTier.COPPER, 0, -1f, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> COPPER_AXE = ITEMS.register("copper_axe", () -> new AxeItem(ModItemTier.COPPER, 0, -1f, new Item.Properties().tab(DMCreativeTabs.TOOLS)));

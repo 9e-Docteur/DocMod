@@ -29,7 +29,7 @@ public class DocModVersionOverlay {
 
     public static void render(RenderGuiOverlayEvent.Pre event){
 //        ResourceLocation zincIcon = IOUtils.readImage("http://docteamwebsite.tk/modinfoio/Assets/zinc.png");
-        if (DMConfig.Client.DEV_MODE.get() || LaunchUtils.isRunningInDev()) {
+        if (DMConfig.Client.DEV_MODE.get() || LaunchUtils.isRunningInDev() && !DocModDebugOverlay.showDebugOverlay) {
             int w = event.getWindow().getGuiScaledWidth();
             int h = event.getWindow().getGuiScaledHeight();
             int posX = 22;

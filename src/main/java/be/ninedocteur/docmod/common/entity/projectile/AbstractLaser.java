@@ -287,6 +287,7 @@ public abstract class AbstractLaser extends Projectile {
 
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
+        this.discard();
         Entity entity = pResult.getEntity();
         float f = (float)this.getDeltaMovement().length();
         int i = Mth.ceil(Mth.clamp((double)f * this.baseDamage, 0.0D, 2.147483647E9D));
@@ -406,6 +407,7 @@ public abstract class AbstractLaser extends Projectile {
         this.setSoundEvent(SoundEvents.ARROW_HIT);
         this.setShotFromCrossbow(false);
         this.resetPiercedEntities();
+        this.discard();
     }
 
     protected SoundEvent getDefaultHitGroundSoundEvent() {

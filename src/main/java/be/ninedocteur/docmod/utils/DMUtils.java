@@ -1,14 +1,12 @@
 package be.ninedocteur.docmod.utils;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docteam.Servers;
+import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docteam.website.Database;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.renderer.LightTexture;
-import net.minecraft.util.Mth;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.Vec3;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -64,4 +62,5 @@ public class DMUtils {
     public static String getChangelog(){
         return Database.CHANGELOG;
     }
+
 }

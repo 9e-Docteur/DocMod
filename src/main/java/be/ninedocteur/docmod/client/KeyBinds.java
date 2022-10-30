@@ -11,7 +11,13 @@ public class KeyBinds {
 
     public static final String KEY_ENTER = "key.docmod.enter";
 
+    public static final String KEY_DEBUG = "key.docmod.debug";
+
+
     public static final KeyMapping DEV_MODE_KEY = new KeyMapping(KEY_DEVMODE, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_U, KEY_CATEGORY);
 
     public static final KeyMapping ENTER_KEY = new KeyMapping(KEY_ENTER, KeyConflictContext.UNIVERSAL, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_ENTER, KEY_CATEGORY);
+
+    public static final KeyMapping DEBUG_MODE_KEY = new KeyMapping(KEY_DEBUG, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F4, KEY_CATEGORY);
+
 }

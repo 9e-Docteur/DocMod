@@ -3,6 +3,7 @@ package be.ninedocteur.docmod.client.event;
 import be.ninedocteur.docmod.DMConfig;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.KeyBinds;
+import be.ninedocteur.docmod.client.gui.overlay.DocModDebugOverlay;
 import be.ninedocteur.docmod.client.gui.screens.DMConnectScreen;
 import be.ninedocteur.docmod.utils.DMUtils;
 import net.minecraft.ChatFormatting;
@@ -51,6 +52,7 @@ public class ClientEventHandler {
     @SubscribeEvent
     public static void onKeyRegister(RegisterKeyMappingsEvent event){
         event.register(KeyBinds.DEV_MODE_KEY);
+        event.register(KeyBinds.DEBUG_MODE_KEY);
     }
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
@@ -62,6 +64,13 @@ public class ClientEventHandler {
             } else {
                 Minecraft.getInstance().player.sendSystemMessage(Component.literal("Dev Mode :" + ChatFormatting.GREEN + " ON"));
                 DMConfig.Client.DEV_MODE.set(true);
+            }
+        }
+        if(KeyBinds.DEBUG_MODE_KEY.consumeClick()){
+            if(DocModDebugOverlay.showDebugOverlay){
+                DocModDebugOverlay.showDebugOverlay = false;
+            } else {
+                DocModDebugOverlay.showDebugOverlay = true;
             }
         }
     }

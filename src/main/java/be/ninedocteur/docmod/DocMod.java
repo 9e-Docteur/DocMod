@@ -4,6 +4,7 @@ import be.ninedocteur.docmod.client.containers.DMContainers;
 import be.ninedocteur.docmod.client.gui.screens.DMReportBug;
 import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
 import be.ninedocteur.docmod.common.init.DMMenu;
+import be.ninedocteur.docmod.common.listeners.DMListeners;
 import be.ninedocteur.docmod.proxy.ClientProxy;
 import be.ninedocteur.docmod.common.init.DMWoodTypes;
 import be.ninedocteur.docmod.registry.ClassRegistry;
@@ -17,6 +18,7 @@ import be.ninedocteur.docteam.api.DocTeamAPI;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import com.mojang.blaze3d.platform.GlUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
@@ -46,9 +48,9 @@ public class DocMod {
     public static boolean isRunningInDev = false;
     public static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
     public static final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-    public static final String VERSION = "5.0";
-    public static final String BUILD = "32";
-    public static final String CODENAME = "Redstone";
+    public static final String VERSION = "6.0";
+    public static final String BUILD = "0";
+    public static final String CODENAME = "Longhorn";
     public static final String MODNAME = "DocMod";
     public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
 
@@ -87,6 +89,8 @@ public class DocMod {
         }
         else if(LaunchUtils.isRunningInDev()){
             LOGGER.info("Welcome back DocTeam Developper. Successfuly launched DocMod in Dev Mode.");
+            LOGGER.info("Running on:");
+            LOGGER.info("CPU: " + GlUtil.getCpuInfo());
             isRunningInDev = true;
         } else{
             isRunningInDev = false;

@@ -126,7 +126,6 @@ public class DMTitleScreen extends Screen {
             this.splash = Minecraft.getInstance().getSplashManager().getSplash();
         }
 
-        this.minecraft.getWindow().setTitle("DocMod " + DMUtils.VERSION + " " + DMUtils.CODENAME);
         preloadResources(this.minecraft.getTextureManager(), this.minecraft);
         DMSecondTitleScreen.preloadResources(this.minecraft.getTextureManager(), this.minecraft);
 
@@ -238,7 +237,7 @@ public class DMTitleScreen extends Screen {
         });
 
         dmServerButton = new Button(this.width / 2 - 100, p_96764_ + p_96765_ * 0, 100, 20, Component.translatable("DocMod Servers"), (p_96781_) -> {
-            ConnectScreen.startConnecting(this, this.getMinecraft(), new ServerAddress(Servers.HOST, Servers.PORT), new ServerData("DocMod Server", Servers.HOST, false));
+            ConnectScreen.startConnecting(this, this.getMinecraft(), new ServerAddress(Servers.HOST), new ServerData("DocMod Server", Servers.HOST, false));
         });
 
         this.addRenderableWidget(new Button(this.width / 2 - 100, p_96764_ + p_96765_ * 2, 200, 20, Component.translatable("menu.quit"), (p_96781_) -> {

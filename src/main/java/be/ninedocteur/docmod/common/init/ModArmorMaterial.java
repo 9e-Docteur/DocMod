@@ -40,6 +40,11 @@ public enum ModArmorMaterial implements ArmorMaterial {
     MASK("mask", 1, new int[] { 10, 10, 10, 10 }, 5,
     SoundEvents.ARMOR_EQUIP_IRON, 2.0f, 1.0f, () -> {
         return null;
+    }),
+
+    SPACE_SUIT("space_suit", 60, new int[] { 2, 5, 6, 2 }, 0,
+            SoundEvents.ARMOR_EQUIP_LEATHER, 2.0f, 1.0f, () -> {
+        return null;
     }),;
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};

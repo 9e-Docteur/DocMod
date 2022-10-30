@@ -1,31 +1,22 @@
 package be.ninedocteur.docmod.common.listeners;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
+import be.ninedocteur.docmod.client.gui.overlay.DMSpaceSuitOverlay;
 import be.ninedocteur.docmod.common.capes.Cape;
-import be.ninedocteur.docmod.common.capes.CapeHandler;
 import be.ninedocteur.docmod.common.init.DMItems;
-import be.ninedocteur.docmod.utils.LaunchUtils;
-import be.ninedocteur.docmod.utils.TeamUUIDs;
-import be.ninedocteur.docteam.api.DocTeamAPI;
+import be.ninedocteur.docmod.utils.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.ExperienceOrb;
-import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.event.TickEvent;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class DMListeners {
@@ -38,6 +29,7 @@ public class DMListeners {
     public static void onPLayerLevelJoin(EntityJoinLevelEvent e){
         if(!e.getLevel().isClientSide()) return;
 
+        //CAPE
         if(e.getEntity() instanceof Player player){
                 if (LaunchUtils.isRunningInDev()) {
                     if(!isMessageSend) { // AVOID TO SEND 2 TIME THE MESSAGE
@@ -56,13 +48,15 @@ public class DMListeners {
              }
         }
     }
-    
+
     @SubscribeEvent
-    public static void onPlayerLevelLeave(EntityLeaveLevelEvent event) {
-    	if(event.getEntity() instanceof Player player) {
-    		//CapeHandler.DOWNLOADED_TEXTURES.clear();
-    		//CapeHandler.DOWNLOADED_TEXTURES.remove("https://api.docteam.tk/docmod/cape/" + player.getUUID() + ".png");
-    		//DocMod.LOGGER.warn("Cache Cleared For Cape For " + player.getUUID());
-    	}
+    public static void onPlayerUpdate(LivingEvent.LivingTickEvent event){
+        if(event.getEntity() instanceof Player player){
+            if(player.getInventory().getArmor(3).is(DMItems.SPACE_HELMET.get())){
+                DMSpaceSuitOverlay.showSpaceSuitOverlay = true;
+            } else {
+                DMSpaceSuitOverlay.showSpaceSuitOverlay = false;
+            }
+        }
     }
 }
