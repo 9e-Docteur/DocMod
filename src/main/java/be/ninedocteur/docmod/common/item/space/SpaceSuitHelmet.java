@@ -36,12 +36,12 @@ public class SpaceSuitHelmet extends ArmorItem {
     public void inventoryTick(ItemStack p_41404_, Level p_41405_, Entity p_41406_, int p_41407_, boolean p_41408_) {
         super.inventoryTick(p_41404_, p_41405_, p_41406_, p_41407_, p_41408_);
         if(p_41406_ instanceof Player player){
-            if(PlanetUtils.getDimension("moon") && PlanetUtils.isHelmetPresent(player)){
-                if(!p_41404_.hasTag()){
-                    p_41404_.setTag(new CompoundTag());
-                    p_41404_.getTag().putInt("air", 100);
-                }
-            }
+//            if(PlanetUtils.getDimension("moon") && PlanetUtils.isHelmetPresent(player)){
+//                if(!p_41404_.hasTag()){
+//                    p_41404_.setTag(new CompoundTag());
+//                    p_41404_.getTag().putInt("air", 100);
+//                }
+//            }
         }
         if(air != 0){
             update(p_41404_);

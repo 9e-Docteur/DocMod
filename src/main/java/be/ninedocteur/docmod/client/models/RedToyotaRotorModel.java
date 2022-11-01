@@ -3,7 +3,9 @@ package be.ninedocteur.docmod.client.models;// Made with Blockbench 4.1.3
 // Paste this class into your mod and generate all required imports
 
 
+import be.ninedocteur.docmod.common.tileentity.TardisTileEntity;
 import be.ninedocteur.docmod.utils.ModelUtils;
+import be.ninedocteur.docmod.utils.PlanetUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
@@ -19,7 +21,7 @@ public class RedToyotaRotorModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 //	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "textures/block/hartnell_rotor.png"));
 	private final ModelPart Rotor;
-	private final ModelPart MainRods;
+	public final ModelPart MainRods;
 
 	public RedToyotaRotorModel(ModelPart root) {
 		this.Rotor = root.getChild("Rotor");
@@ -89,7 +91,7 @@ public class RedToyotaRotorModel<T extends Entity> extends EntityModel<T> {
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		Rotor.render(poseStack, buffer, packedLight, packedOverlay);
-		MainRods.render(poseStack, buffer, ModelUtils.getModelGlow(2F), packedOverlay);
+		MainRods.render(poseStack, buffer, packedLight, packedOverlay);
 	}
 
 

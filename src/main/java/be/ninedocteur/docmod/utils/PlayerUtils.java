@@ -2,6 +2,8 @@ package be.ninedocteur.docmod.utils;
 
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.UUID;
+
 public class PlayerUtils {
 
     public static ResourceLocation getPlayerHead(final String name){
@@ -22,5 +24,9 @@ public class PlayerUtils {
     
     public static String getUserUUID(String playerName) {
     	return IOUtils.readURLContent("https://minecraft-api.com/api/uuid/" + playerName);
+    }
+
+    public static String getUserNameByUUID(UUID playerUUID) {
+        return IOUtils.readURLContent("https://minecraft-api.com/api/pseudo/" + playerUUID);
     }
 }

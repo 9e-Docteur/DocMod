@@ -5,11 +5,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class DoorTileEntity extends BlockEntity {
+public class TardisDoorTileEntity extends BlockEntity {
 
-    public DoorTileEntity(BlockPos pos, BlockState state) {
+    public TardisDoorTileEntity(BlockPos pos, BlockState state) {
         super(DMTileEntity.TARDIS_DOOR.get(), pos, state);
     }
-
-
 }

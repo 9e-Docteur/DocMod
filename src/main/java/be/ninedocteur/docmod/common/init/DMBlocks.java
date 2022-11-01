@@ -4,6 +4,7 @@ import be.ninedocteur.docmod.common.block.*;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.DMCreativeTabs;
 import be.ninedocteur.docmod.common.block.cupdate.*;
+import be.ninedocteur.docmod.common.block.tardis.TardisLightBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -86,7 +87,7 @@ public class DMBlocks {
     public static final RegistryObject<Block> CRYOLITE_ORE = registerBlock("cryolite_ore", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(3)));
     public static final RegistryObject<Block> HALFINUM_ORE = registerBlock("halfinum_ore", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(8)));
     public static final RegistryObject<Block> DEEPSLATE_HALFINUM_ORE = DMOreBlock("deepslate_halfinum_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
-    public static final RegistryObject<Block> Tardis = registerHidenBlock("tardis", () -> new TardisBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
+    public static final RegistryObject<Block> Tardis = registerBlockTardis("tardis", () -> new TardisBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
     public static final RegistryObject<Block> GLASS_TUBE = registerBlock("glass_tube", () -> new GlassTubeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
     public static final RegistryObject<Block> ZURBTELEPORTER = registerBlock("zurb_teleporter", () -> new ZurbTeleporterBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
     public static final RegistryObject<Block> RED_GLASS_TUBE = registerBlock("red_glass_tube", () -> new RedGlassTubeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
@@ -153,8 +154,10 @@ public class DMBlocks {
    // public static final RegistryObject<Block> PIG_FARMER = registerHidenBlock("pig_farmer", () -> new PigFarmerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     public static final RegistryObject<Block> ITEM_SHOWER = registerHidenBlock("item_shower", () -> new ItemShowerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).noCollission()));
     public static final RegistryObject<Block> EXPLOSIVE_DEVICE = registerHidenBlock("explosive_device", () -> new ExplosiveDevice(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> HANDBRAKE = registerHidenBlock("handbrake", () -> new HandBrakeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> TARDIS_DOOR = registerHidenBlock("tardis_door", () -> new TardisDoor(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> HANDBRAKE = registerBlockTardis("handbrake", () -> new HandBrakeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> TARDIS_DOOR = registerBlockTardis("tardis_door", () -> new TardisDoor(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> TARDIS_MONITOR = registerBlockTardis("tardis_monitor", () -> new TardisMonitorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+
     public static final RegistryObject<Block> DALEK_DAMAGED = registerHidenBlock("dalek_damaged", () -> new DalekDamagedBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     public static final RegistryObject<Block> ZINC_CRAFTING_TABLE = registerBlock("zinc_crafting_table", () -> new ZincCraftingTable(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
@@ -275,6 +278,22 @@ public class DMBlocks {
     public static final RegistryObject<Block> ROUNDEL_LAVA_2 = registerRoundelBlock("lava_roundel_2",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
+
+    public static final RegistryObject<Block> TOYOTA_LOWER_ROUNDEL = registerRoundelBlock("toyota_lower_roundel",
+            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+                    .requiresCorrectToolForDrops().strength(2)));
+
+    public static final RegistryObject<Block> TOYOTA_UPPER_ROUNDEL = registerRoundelBlock("toyota_upper_roundel",
+            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+                    .requiresCorrectToolForDrops().strength(2)));
+
+    public static final RegistryObject<Block> TOYOTA_MID_LIGHT = registerRoundelBlock("toyota_lower_light",
+            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+                    .requiresCorrectToolForDrops().strength(2)));
+
+    public static final RegistryObject<Block> TOYOTA_UPPER_LIGHT = registerRoundelBlock("toyota_upper_light",
+            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+                    .requiresCorrectToolForDrops().strength(2)));
     
     
 
@@ -308,6 +327,12 @@ public class DMBlocks {
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
+        return toReturn;
+    }
+
+    private static <T extends Block> RegistryObject<T> registerBlockTardis(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerTardisBlockItem(name, toReturn);
         return toReturn;
     }
 
@@ -349,6 +374,11 @@ public class DMBlocks {
     private static <T extends Block> void registerAnnivairsaryBlockItem(String name, RegistryObject<T> block) {
         DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
                 new Item.Properties().tab(DMCreativeTabs.ANNIVERSARY)));
+    }
+
+    private static <T extends Block> void registerTardisBlockItem(String name, RegistryObject<T> block) {
+        DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+                new Item.Properties().tab(DMCreativeTabs.TARDIS)));
     }
 
 

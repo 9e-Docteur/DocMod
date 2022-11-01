@@ -8,10 +8,7 @@ import be.ninedocteur.docmod.common.listeners.DMListeners;
 import be.ninedocteur.docmod.proxy.ClientProxy;
 import be.ninedocteur.docmod.common.init.DMWoodTypes;
 import be.ninedocteur.docmod.registry.ClassRegistry;
-import be.ninedocteur.docmod.utils.DMUtils;
-import be.ninedocteur.docmod.utils.IOUtils;
-import be.ninedocteur.docmod.utils.LaunchUtils;
-import be.ninedocteur.docmod.utils.TeamUUIDs;
+import be.ninedocteur.docmod.utils.*;
 import be.ninedocteur.docteam.api.DMLogin;
 import be.ninedocteur.docteam.api.DocTeamAPI;
 
@@ -70,6 +67,8 @@ public class DocMod {
         DMContainers.CONTAINERS.register(eventBus);
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::onLaunch);
+        MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
+        MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("DocMod is fully Initialized.");
     }

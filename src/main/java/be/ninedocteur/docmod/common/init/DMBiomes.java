@@ -3,6 +3,7 @@ package be.ninedocteur.docmod.common.init;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.world.biome.ClassicBiome;
 import be.ninedocteur.docmod.common.world.biome.MoonBiome;
+import be.ninedocteur.docmod.common.world.biome.SpaceBiome;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -20,6 +21,9 @@ public class DMBiomes {
     
     public static final RegistryObject<Biome> MOON_BIOME = BIOMES.register("moon_biome", MoonBiome::get);
     public static final ResourceKey<Biome> MOON_BIOME_KEY = registerBiome("moon_biome", 10);
+
+    public static final RegistryObject<Biome> SPACE_BIOME = BIOMES.register("space_biome", SpaceBiome::get);
+    public static final ResourceKey<Biome> SPACE_BIOME_KEY = registerBiome("space_biome", 10);
 
     private static ResourceKey<Biome> registerBiome(String name, int weight){
         ResourceKey<Biome> biome = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DocMod.MOD_ID, name));

@@ -1,15 +1,14 @@
 package be.ninedocteur.docmod.common.block;
 
-import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.tileentity.DoorTileEntity;
+import be.ninedocteur.docmod.common.tileentity.TardisDoorTileEntity;
 import be.ninedocteur.docmod.common.tileentity.TardisTileEntity;
-import be.ninedocteur.docmod.common.world.dimension.DMDimension;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.network.protocol.game.ClientboundLevelEventPacket;
 import net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket;
 import net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -25,8 +24,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -62,11 +59,11 @@ public class TardisDoor extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new DoorTileEntity(pPos, pState);
+        return new TardisDoorTileEntity(pPos, pState);
     }
 
     public BlockEntity create(BlockPos p_155268_, BlockState p_155269_) {
-        return new DoorTileEntity(p_155268_, p_155269_);
+        return new TardisDoorTileEntity(p_155268_, p_155269_);
     }
 
     @Override
@@ -79,4 +76,33 @@ public class TardisDoor extends BaseEntityBlock {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(BlockStateProperties.FACING, context.getHorizontalDirection().getOpposite());
     }
+
+    @Override
+    public InteractionResult use(BlockState p_60503_, Level pLevel, BlockPos pos, Player player, InteractionHand p_60507_, BlockHitResult p_60508_) {
+        if(!pLevel.isClientSide && pLevel instanceof ServerLevel serverLevel) {
+            ServerPlayer serverPlayer = (ServerPlayer) player;
+            ServerLevel nextLevel = serverPlayer.server.getLevel(Level.OVERWORLD);
+
+            TardisTileEntity tardisTileEntity = TardisTileEntity.getOrCreateTardis(pos.getX() / 1000);
+
+            if(tardisTileEntity.isLocked){
+                if(tardisTileEntity.getOwnerUUID() != player.getUUID()){
+                    player.sendSystemMessage(Component.literal(ChatFormatting.RED + "THIS IS NOT YOUR TARDIS"));
+                }
+            }
+
+            if (nextLevel != null) {
+                serverPlayer.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
+                serverPlayer.teleportTo(nextLevel, tardisTileEntity.getBlockPos().getX(), tardisTileEntity.getBlockPos().getY() + 1, tardisTileEntity.getBlockPos().getZ() - 1, serverPlayer.getYRot(), serverPlayer.getXRot());
+                serverPlayer.connection.send(new ClientboundPlayerAbilitiesPacket(serverPlayer.getAbilities()));
+                for (MobEffectInstance effectinstance : serverPlayer.getActiveEffects())
+                    serverPlayer.connection.send(new ClientboundUpdateMobEffectPacket(serverPlayer.getId(), effectinstance));
+                serverPlayer.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
+            }
+        }
+        return InteractionResult.SUCCESS;
+
+    }
+
+
 }

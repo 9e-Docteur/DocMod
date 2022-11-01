@@ -95,6 +95,7 @@ public class DMItems {
     public static final RegistryObject<Item> ZINC_PICKAXE = ITEMS.register("zinc_pickaxe", () -> new PickaxeItem(ModItemTier.ZINC, 0, -1f, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> ZINC_AXE = ITEMS.register("zinc_axe", () -> new AxeItem(ModItemTier.ZINC, 0, -1f, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> STAFF = ITEMS.register("staff", () -> new StaffItem(ModItemTier.ZINC, 0, -1f, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
+    public static final RegistryObject<Item> TARDIS_KEY = ITEMS.register("tardis_key", () -> new TardisKeyItem(new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> ALBIZIA_STICK = ITEMS.register("albizia_stick", () -> new Item(new Item.Properties().tab(DMCreativeTabs.MATERIALS)));
     public static final RegistryObject<Item> HALFINUM_AXE = ITEMS.register("halfinum_axe", () -> new AxeItem(ModItemTier.HALFINUM, 0, -1f, new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> HALFINUM_PICKAXE = ITEMS.register("halfinum_pickaxe", () -> new PickaxeItem(ModItemTier.HALFINUM, 0, -1f, new Item.Properties().tab(DMCreativeTabs.TOOLS)));

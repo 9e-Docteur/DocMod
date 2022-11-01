@@ -26,6 +26,9 @@ public class DMSound {
     public static final RegistryObject<SoundEvent> LEVER_ON = SOUNDS.register("block.lever.on", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "block.lever.on")));
     public static final RegistryObject<SoundEvent> LEVER_OFF = SOUNDS.register("block.lever.off", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "block.lever.off")));
     public static final RegistryObject<SoundEvent> SPECIAL_WEAPON = SOUNDS.register("gun.dalek.special_weapon", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "gun.dalek.special_weapon")));
+    public static final RegistryObject<SoundEvent> TARDIS_DEMAT = SOUNDS.register("block.tardis.demat", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "block.tardis.demat")));
+    public static final RegistryObject<SoundEvent> TARDIS_REMAT = SOUNDS.register("block.tardis.remat", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "block.tardis.remat")));
+    public static final RegistryObject<SoundEvent> REFUSED_TAKEOFF = SOUNDS.register("block.tardis.refused", () -> new SoundEvent(new ResourceLocation(DMUtils.MOD_ID, "block.tardis.refused")));
 
     public static void registerSounds(){
         IEventBus eventBus = DocMod.bus;

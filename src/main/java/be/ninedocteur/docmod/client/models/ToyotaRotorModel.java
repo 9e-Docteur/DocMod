@@ -20,7 +20,7 @@ public class ToyotaRotorModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 //	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "textures/block/hartnell_rotor.png"));
 	private final ModelPart Rotor;
-	private final ModelPart MainRods;
+	public final ModelPart MainRods;
 
 	public ToyotaRotorModel(ModelPart root) {
 		this.Rotor = root.getChild("Rotor");
@@ -90,8 +90,9 @@ public class ToyotaRotorModel<T extends Entity> extends EntityModel<T> {
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		Rotor.render(poseStack, buffer, packedLight, packedOverlay);
-		MainRods.render(poseStack, buffer, ModelUtils.getModelGlow(2F), packedOverlay);
 	}
 
-
+	public void renderMainRods(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		MainRods.render(poseStack, buffer, packedLight, packedOverlay);
+	}
 }

@@ -42,7 +42,8 @@ public class IOUtils {
             bufferedReader.close();
             return stringBuffer.toString();
         } catch (Exception e) {
-            return ERROR_WHEN_CONNECTING;
+            e.printStackTrace();
+            return ChatFormatting.RED + "Cannot get information";
         }
     }
 

@@ -1,9 +1,9 @@
 {
-  "type": "docmod:moon",
+  "type": "docmod:tardis",
   "generator": {
     "type": "minecraft:noise",
     "seed": -485105919,
-    "settings": "minecraft:overworld",
+    "settings": "docmod:tardis",
     "biome_source": {
       "type": "minecraft:fixed",
       "biome": "minecraft:the_void"

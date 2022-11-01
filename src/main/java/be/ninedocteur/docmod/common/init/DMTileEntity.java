@@ -67,9 +67,9 @@ public class DMTileEntity {
             TILE_ENTITIES.register("red_toyota", () -> BlockEntityType.Builder.of(
                     RedToyotaRotorTileEntity::new, DMBlocks.RedToyota.get()).build(null));
 
-    public static RegistryObject<BlockEntityType<DoorTileEntity>> TARDIS_DOOR =
+    public static RegistryObject<BlockEntityType<TardisDoorTileEntity>> TARDIS_DOOR =
             TILE_ENTITIES.register("tardis_door_tile", () -> BlockEntityType.Builder.of(
-                    DoorTileEntity::new, DMBlocks.TARDIS_DOOR.get()).build(null));
+                    TardisDoorTileEntity::new, DMBlocks.TARDIS_DOOR.get()).build(null));
 
     public static RegistryObject<BlockEntityType<DamagedDalekTileEntity>> DAMAGED_DALEK_TILE_ENTITY =
             TILE_ENTITIES.register("damaged_dalek_tile", () -> BlockEntityType.Builder.of(

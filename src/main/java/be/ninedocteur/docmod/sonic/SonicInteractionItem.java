@@ -3,12 +3,19 @@ package be.ninedocteur.docmod.sonic;
 import be.ninedocteur.docmod.common.init.DMBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.Blocks;
@@ -18,11 +25,38 @@ import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class SonicInteractionItem extends Item {
 
     public SonicInteractionItem(Properties pProperties) {
         super(pProperties);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack p_41421_, @Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
+        if(p_41421_.hasTag()){
+            p_41423_.add(Component.literal("Charge: " + p_41421_.getTag().getInt("charge")));
+        }
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext p_41427_) {
+        ItemStack item = p_41427_.getItemInHand();
+        if(item.getTag() != null){
+            if(!item.hasTag()){
+                item.getTag().putInt("charge", 100);
+            }
+            int charge = item.getTag().getInt("charge");
+            if(item.hasTag()){
+                charge--;
+                item.getTag().putInt("charge", charge);
+            }
+        }
+        return super.useOn(p_41427_);
     }
 
     public static class Interaction implements IDoorInteraction{

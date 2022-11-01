@@ -2,6 +2,7 @@ package be.ninedocteur.docmod.common.listeners;
 
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.gui.overlay.DMSpaceSuitOverlay;
+import be.ninedocteur.docmod.common.block.HandBrakeBlock;
 import be.ninedocteur.docmod.common.capes.Cape;
 import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.utils.*;

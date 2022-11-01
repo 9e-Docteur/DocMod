@@ -41,7 +41,6 @@ public class ClientProxy {
         forgeBus.addListener(DMLoadingTitleScreen::loadDMTitleScreen);
         forgeBus.addListener(DMListeners::onPLayerLevelJoin);
         forgeBus.addListener(DMListeners::onPlayerUpdate);
-        forgeBus.addListener(PlanetUtils::initMoon);
         forgeBus.addListener(DMReportBug::initScreen);
         forgeBus.addListener(DocModDebugOverlay::render);
         forgeBus.addListener(DMSpaceSuitOverlay::render);

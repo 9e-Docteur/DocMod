@@ -78,6 +78,20 @@
     "sounds": [
       "docmod:special_weapons"
     ]
-  		}
-	}
+  		},
+  "block.tardis.demat":{
+    "sounds": [
+      "docmod:tardis_demat"
+    ]
+  },
+  "block.tardis.remat":{
+    "sounds": [
+      "docmod:tardis_remat"
+    ]
+  },
+  "block.tardis.refused":{
+    "sounds": [
+      "docmod:refused_takeoff"
+    ]
+  }
 }

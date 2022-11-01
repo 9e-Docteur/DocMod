@@ -75,5 +75,13 @@ public class DMCreativeTabs {
             return new ItemStack(DMBlocks.CAKE.get());
         }
     };
+
+    public static final CreativeModeTab TARDIS = new CreativeModeTab("DocMod - Tardis") {
+        @Override
+        public ItemStack makeIcon() {
+
+            return new ItemStack(DMBlocks.Tardis.get());
+        }
+    };
 }
 
