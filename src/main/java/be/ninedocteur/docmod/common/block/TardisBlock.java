@@ -9,6 +9,7 @@ import be.ninedocteur.docmod.sonic.SonicInteractionItem;
 import be.ninedocteur.docmod.utils.LevelUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
@@ -105,6 +106,16 @@ public class TardisBlock extends BaseEntityBlock {
                 LevelUtils.unforcedChunkIfLoaded(serverLevel, new ChunkPos(p_60517_), p_60517_);
             }
         }
+    }
+
+    @Override
+    public boolean isSignalSource(BlockState p_60571_) {
+        return true;
+    }
+
+    @Override
+    public int getSignal(BlockState p_60483_, BlockGetter p_60484_, BlockPos p_60485_, Direction p_60486_) {
+        return 15;
     }
 
     @Override
