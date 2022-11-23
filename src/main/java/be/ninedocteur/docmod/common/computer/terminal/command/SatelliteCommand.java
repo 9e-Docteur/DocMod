@@ -1,10 +1,10 @@
-package be.ninedocteur.docmod.common.computer.command;
+package be.ninedocteur.docmod.common.computer.terminal.command;
 
-import be.ninedocteur.docmod.common.computer.BaseOS;
+import be.ninedocteur.docmod.common.computer.terminal.BaseTerminalOS;
 
 public class SatelliteCommand extends BaseCommand{
-    protected BaseOS os;
-    public SatelliteCommand(BaseOS os) {
+    protected BaseTerminalOS os;
+    public SatelliteCommand(BaseTerminalOS os) {
         super("satellite", "", "Locate your computer", "satapp", CommandType.SHOP);
         this.os = os;
     }

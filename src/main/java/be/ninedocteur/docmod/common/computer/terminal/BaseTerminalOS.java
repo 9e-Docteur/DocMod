@@ -1,8 +1,9 @@
-package be.ninedocteur.docmod.common.computer;
+package be.ninedocteur.docmod.common.computer.terminal;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.computer.command.BaseCommand;
-import be.ninedocteur.docmod.common.computer.command.OSINFCommand;
+import be.ninedocteur.docmod.common.computer.OSException;
+import be.ninedocteur.docmod.common.computer.terminal.command.BaseCommand;
+import be.ninedocteur.docmod.common.computer.terminal.command.OSINFCommand;
 import be.ninedocteur.docmod.common.tileentity.ComputerTileEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -12,7 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseOS /*implements ICommand*/ {
+public abstract class BaseTerminalOS /*implements ICommand*/ {
 
     protected String name, shopPackage;
     protected Arch arch;
@@ -31,7 +32,7 @@ public abstract class BaseOS /*implements ICommand*/ {
      * @param arch Is os supported on x64/x32/ARM/UNIVERSAL
      * @param shopPackage The name of the package containing the os in the shop.
      */
-    public BaseOS(String name, Arch arch, String shopPackage){
+    public BaseTerminalOS(String name, Arch arch, String shopPackage){
         this.name = name;
         this.arch = arch;
         this.shopPackage = shopPackage;

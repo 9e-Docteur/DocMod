@@ -1,10 +1,6 @@
-package be.ninedocteur.docmod.common.computer;
+package be.ninedocteur.docmod.common.computer.terminal;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.client.gui.menu.ComputerHarwareMenu;
-import be.ninedocteur.docmod.common.computer.OS.MotherboardOS;
-import be.ninedocteur.docmod.common.init.DMItems;
-import be.ninedocteur.docmod.common.tileentity.ComputerTileEntity;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 public class Computer {

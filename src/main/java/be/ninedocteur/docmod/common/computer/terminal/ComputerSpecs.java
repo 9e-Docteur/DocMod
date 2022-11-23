@@ -1,4 +1,4 @@
-package be.ninedocteur.docmod.common.computer;
+package be.ninedocteur.docmod.common.computer.terminal;
 
 import java.util.ArrayList;
 import java.util.List;

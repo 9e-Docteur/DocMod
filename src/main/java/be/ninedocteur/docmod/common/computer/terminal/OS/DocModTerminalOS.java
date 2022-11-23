@@ -1,12 +1,12 @@
-package be.ninedocteur.docmod.common.computer.OS;
+package be.ninedocteur.docmod.common.computer.terminal.OS;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.computer.BaseOS;
+import be.ninedocteur.docmod.common.computer.terminal.BaseTerminalOS;
 
-public class DocModOS extends BaseOS {
+public class DocModTerminalOS extends BaseTerminalOS {
 
 
-    public DocModOS() {
+    public DocModTerminalOS() {
         super("DocModOS", Arch.x64, "docmodos");
     }
 

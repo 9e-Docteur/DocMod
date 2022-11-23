@@ -1,14 +1,11 @@
 package be.ninedocteur.docmod.registry;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.computer.Computer;
+import be.ninedocteur.docmod.common.computer.terminal.Computer;
 import be.ninedocteur.docmod.common.enchantement.DMEnchantements;
 import be.ninedocteur.docmod.common.init.*;
-import be.ninedocteur.docmod.common.recipe.DMRecipes;
 import be.ninedocteur.docmod.common.sound.DMSound;
-import be.ninedocteur.docmod.client.containers.DMContainers;
 import be.ninedocteur.docmod.common.entity.DMEntityType;
-import be.ninedocteur.docmod.common.world.dimension.DMDimension;
 import be.ninedocteur.docmod.common.world.features.DMConfiguredFeature;
 import be.ninedocteur.docmod.common.world.features.DMPlacedFeature;
 import net.minecraftforge.eventbus.api.IEventBus;

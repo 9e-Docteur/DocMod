@@ -1,4 +1,4 @@
-package be.ninedocteur.docmod.common.computer;
+package be.ninedocteur.docmod.common.computer.terminal;
 
 import net.minecraft.commands.CommandSource;
 import net.minecraft.network.chat.Component;

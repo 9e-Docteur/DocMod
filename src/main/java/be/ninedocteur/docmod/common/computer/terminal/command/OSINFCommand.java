@@ -1,10 +1,10 @@
-package be.ninedocteur.docmod.common.computer.command;
+package be.ninedocteur.docmod.common.computer.terminal.command;
 
-import be.ninedocteur.docmod.common.computer.BaseOS;
+import be.ninedocteur.docmod.common.computer.terminal.BaseTerminalOS;
 
 public class OSINFCommand extends BaseCommand{
-    protected BaseOS os;
-    public OSINFCommand(BaseOS os) {
+    protected BaseTerminalOS os;
+    public OSINFCommand(BaseTerminalOS os) {
         super("osinf", "", "Get a description of the os", CommandType.UNIVERSAL);
         this.os = os;
     }

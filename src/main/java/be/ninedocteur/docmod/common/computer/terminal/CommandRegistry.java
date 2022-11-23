@@ -1,10 +1,8 @@
-package be.ninedocteur.docmod.common.computer;
+package be.ninedocteur.docmod.common.computer.terminal;
 
-import be.ninedocteur.docmod.common.computer.command.BaseCommand;
-import be.ninedocteur.docmod.common.computer.command.OSINFCommand;
-import be.ninedocteur.docmod.common.computer.command.ShopCommand;
-import be.ninedocteur.docmod.common.computer.command.motherboard.command.EchoCommand;
-import be.ninedocteur.docmod.common.tileentity.ComputerTileEntity;
+import be.ninedocteur.docmod.common.computer.terminal.command.BaseCommand;
+import be.ninedocteur.docmod.common.computer.terminal.command.ShopCommand;
+import be.ninedocteur.docmod.common.computer.terminal.command.motherboard.command.EchoCommand;
 
 import java.util.ArrayList;
 import java.util.List;

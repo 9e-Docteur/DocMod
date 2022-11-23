@@ -1,17 +1,11 @@
-package be.ninedocteur.docmod.common.computer.command;
+package be.ninedocteur.docmod.common.computer.terminal.command;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.computer.BaseOS;
-import be.ninedocteur.docmod.common.computer.CommandRegistry;
-import be.ninedocteur.docmod.common.computer.OSRegistry;
-import be.ninedocteur.docmod.common.init.DMBlocks;
-import be.ninedocteur.docmod.common.init.DMItems;
-import be.ninedocteur.docmod.common.init.DMTileEntity;
+import be.ninedocteur.docmod.common.computer.terminal.BaseTerminalOS;
+import be.ninedocteur.docmod.common.computer.terminal.TerminalOSRegistry;
 import be.ninedocteur.docmod.common.tileentity.ComputerTileEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -19,17 +13,17 @@ import java.util.concurrent.ScheduledExecutorService;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class ShopCommand extends BaseCommand {
-    private BaseOS currentOS;
+    private BaseTerminalOS currentOS;
     private ComputerTileEntity computerTileEntity;
 
     public String packg;
 
     public ShopCommand() {
         super("shop", "<buy> <package>", "Buy & Download packages", CommandType.UNIVERSAL);
-        for(BaseOS baseOS : OSRegistry.OSes){
-            currentOS = baseOS;
+        for(BaseTerminalOS baseTerminalOS : TerminalOSRegistry.OSes){
+            currentOS = baseTerminalOS;
             if(currentOS == null){
-                currentOS = OSRegistry.MOTHERBOARD;
+                currentOS = TerminalOSRegistry.MOTHERBOARD;
             }
             this.computerTileEntity = this.currentOS.getComputerTileEntity();
             for(ItemStack itemStack : computerTileEntity.getItems()){
@@ -45,10 +39,10 @@ public class ShopCommand extends BaseCommand {
 
     @Override
     public void performCommand(String[] args) {
-        for(BaseOS baseOS : OSRegistry.OSes) {
-            currentOS = baseOS;
+        for(BaseTerminalOS baseTerminalOS : TerminalOSRegistry.OSes) {
+            currentOS = baseTerminalOS;
             if (currentOS == null) {
-                currentOS = OSRegistry.MOTHERBOARD;
+                currentOS = TerminalOSRegistry.MOTHERBOARD;
             }
         }
         if(args[1].equals("buy")){

@@ -1,7 +1,6 @@
-package be.ninedocteur.docmod.common.computer.command.motherboard.command;
+package be.ninedocteur.docmod.common.computer.terminal.command.motherboard.command;
 
-import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.computer.command.BaseCommand;
+import be.ninedocteur.docmod.common.computer.terminal.command.BaseCommand;
 
 public class EchoCommand extends BaseCommand {
     public EchoCommand() {

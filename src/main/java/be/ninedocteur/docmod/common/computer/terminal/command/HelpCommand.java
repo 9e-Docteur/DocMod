@@ -1,4 +1,4 @@
-package be.ninedocteur.docmod.common.computer.command;
+package be.ninedocteur.docmod.common.computer.terminal.command;
 
 public class HelpCommand extends BaseCommand {
     public HelpCommand() {

@@ -1,13 +1,13 @@
-package be.ninedocteur.docmod.common.computer.OS;
+package be.ninedocteur.docmod.common.computer.terminal.OS;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.computer.BaseOS;
+import be.ninedocteur.docmod.common.computer.terminal.BaseTerminalOS;
 
 
-public class InvalidArchOS extends BaseOS {
+public class InvalidArchTerminalOS extends BaseTerminalOS {
 
 
-    public InvalidArchOS() {
+    public InvalidArchTerminalOS() {
         super("Invalid Arch OS", Arch.NULL, "Just for testing.");
     }
 

@@ -1,34 +1,21 @@
 package be.ninedocteur.docmod.common.tileentity;
 
 import be.ninedocteur.docmod.client.gui.menu.ComputerHarwareMenu;
-import be.ninedocteur.docmod.common.computer.BaseOS;
-import be.ninedocteur.docmod.common.computer.ComputerSpecs;
-import be.ninedocteur.docmod.common.computer.command.BaseCommand;
-import be.ninedocteur.docmod.common.init.DMTileEntity;
-import be.ninedocteur.docmod.common.item.computer.parts.Prosessor;
+import be.ninedocteur.docmod.common.computer.terminal.command.BaseCommand;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.DispenserMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import org.apache.commons.compress.archivers.sevenz.CLI;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;

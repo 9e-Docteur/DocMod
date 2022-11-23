@@ -1,11 +1,5 @@
 package be.ninedocteur.docmod.common.item.computer;
 
-import be.ninedocteur.docmod.common.computer.Computer;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-
 public class RAMItem /*extends Item*/ {
 /*
     public static int durability;

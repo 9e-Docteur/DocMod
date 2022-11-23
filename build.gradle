@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
 
-version = '5.0'
+version = '6.0'
 group = 'be.ninedocteur.docmod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'docmod'
 
@@ -92,10 +92,8 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:1.19.2-43.1.43"
 
-    // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
-    // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
 }
 
@@ -103,12 +101,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title": "docmod",
-                "Specification-Vendor": "docmodsareus",
+                "Specification-Title": "docmod-docteam",
+                "Specification-Vendor": "9e_Docteur (Fonder Of DocTeam)",
                 "Specification-Version": "1", // We are version 1 of ourselves
                 "Implementation-Title": project.name,
                 "Implementation-Version": "${version}",
-                "Implementation-Vendor" :"docmodsareus",
+                "Implementation-Vendor" :"9e_Docteur",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

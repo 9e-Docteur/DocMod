@@ -1,8 +1,7 @@
-package be.ninedocteur.docmod.common.computer.command;
+package be.ninedocteur.docmod.common.computer.terminal.command;
 
 import be.ninedocteur.docmod.common.tileentity.ComputerTileEntity;
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 
 public abstract class BaseCommand {
     protected String name, usage, description, shopPackageName;

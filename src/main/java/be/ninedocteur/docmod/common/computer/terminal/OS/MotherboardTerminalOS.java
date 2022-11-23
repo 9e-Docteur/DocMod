@@ -1,18 +1,13 @@
-package be.ninedocteur.docmod.common.computer.OS;
+package be.ninedocteur.docmod.common.computer.terminal.OS;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.computer.BaseOS;
-import be.ninedocteur.docmod.common.computer.command.BaseCommand;
-import be.ninedocteur.docmod.common.computer.command.motherboard.command.EchoCommand;
-
-import java.util.ArrayList;
-import java.util.List;
+import be.ninedocteur.docmod.common.computer.terminal.BaseTerminalOS;
 
 
-public class MotherboardOS extends BaseOS {
+public class MotherboardTerminalOS extends BaseTerminalOS {
 
 
-    public MotherboardOS() {
+    public MotherboardTerminalOS() {
         super("Motherboard OS", Arch.UNIVERSAL, "Not in the shop.");
     }
 

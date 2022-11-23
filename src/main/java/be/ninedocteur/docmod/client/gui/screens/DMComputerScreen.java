@@ -1,26 +1,19 @@
 package be.ninedocteur.docmod.client.gui.screens;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.block.ComputerBlock;
-import be.ninedocteur.docmod.common.computer.*;
-import be.ninedocteur.docmod.common.computer.OS.MotherboardOS;
-import be.ninedocteur.docmod.common.computer.command.BaseCommand;
-import be.ninedocteur.docmod.common.init.DMItems;
+import be.ninedocteur.docmod.common.computer.terminal.BaseTerminalOS;
+import be.ninedocteur.docmod.common.computer.terminal.TerminalOSRegistry;
 import be.ninedocteur.docmod.common.tileentity.ComputerTileEntity;
 import be.ninedocteur.docmod.utils.ColorUtils;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.FormattedText;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import org.checkerframework.checker.units.qual.C;
+
 @OnlyIn(Dist.CLIENT)
 public class DMComputerScreen extends Screen {
     public static ResourceLocation COMPUTER_GUI = new ResourceLocation(DocMod.MOD_ID, "textures/gui/computer_screen.png");
@@ -32,7 +25,7 @@ public class DMComputerScreen extends Screen {
 
     private ComputerTileEntity computerTileEntity;
 
-    private BaseOS currentOS;
+    private BaseTerminalOS currentOS;
    // @OnlyIn(Dist.CLIENT)
     public DMComputerScreen(ComputerTileEntity computerTileEntity) {
         super(Component.literal("none"));
@@ -62,7 +55,7 @@ public class DMComputerScreen extends Screen {
 //            break;
 //        }
         if(currentOS == null){
-            currentOS = OSRegistry.MOTHERBOARD;
+            currentOS = TerminalOSRegistry.MOTHERBOARD;
         }
         currentOS.init(computerTileEntity);
         if(!isBooted) {
