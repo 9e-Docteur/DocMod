@@ -6,6 +6,7 @@ import be.ninedocteur.docmod.common.computer.terminal.CommandRegistry;
 import be.ninedocteur.docmod.common.computer.OSException;
 import be.ninedocteur.docmod.common.computer.terminal.command.BaseCommand;
 import be.ninedocteur.docmod.common.tileentity.ComputerTileEntity;
+import be.ninedocteur.docmod.utils.LaunchUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -45,6 +46,7 @@ public abstract class BaseOS /*implements ICommand*/ {
     /**
      * @param cpuFreq
      * @param ram
+     * YOU MUST SAY THAT THE BOOLEAN isRequirementOk = true TO INIT YOUR SYSTEM!
      */
     //TODO: FINISH SYSTEM
     public abstract void setupRequirements(int cpuFreq, int ram);
@@ -67,6 +69,10 @@ public abstract class BaseOS /*implements ICommand*/ {
             }
         } else {
             computerTileEntity.TERMINAL_HISTORY.add("Your computer does not respond to the requirement of the OS.");
+            if(LaunchUtils.isRunningInDev()){
+                computerTileEntity.TERMINAL_HISTORY.add("Your are running in dev mode... If your requirement are correct, try to see if your code is okay ;)");
+                computerTileEntity.TERMINAL_HISTORY.add("I hope you know that you must say that isRequirementOk = true in your code");
+            }
         }
     }
 
