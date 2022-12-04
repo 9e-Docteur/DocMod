@@ -13,6 +13,11 @@ public class DocModOS extends BaseOS {
     }
 
     @Override
+    public void setupRequirements(int cpuFreq, int ram) {
+
+    }
+
+    @Override
     public void boot() {
 
     }

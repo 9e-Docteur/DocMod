@@ -4,6 +4,8 @@ import be.ninedocteur.docmod.common.block.*;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.DMCreativeTabs;
 import be.ninedocteur.docmod.common.block.cupdate.*;
+import be.ninedocteur.docmod.common.block.energy.EnergyPipeBlock;
+import be.ninedocteur.docmod.common.block.energy.SolarPanelBlock;
 import be.ninedocteur.docmod.common.block.tardis.TardisLightBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -171,6 +173,14 @@ public class DMBlocks {
      */
     //public static final RegistryObject<Block> COMPUTER = registerComputerBlock("computer", () -> new ComputerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     //public static final RegistryObject<Block> MONITOR = registerComputerBlock("monitor", () -> new MonitorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+
+    /*
+    ENERGY
+     */
+    public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new SolarPanelBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> ENERGY_PIPE = registerBlock("energy_pipe", () -> new EnergyPipeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+
+
 
     /*
     ROUNDEL
