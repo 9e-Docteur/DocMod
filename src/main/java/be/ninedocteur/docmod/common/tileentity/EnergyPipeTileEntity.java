@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class EnergyPipeTileEntity extends BlockEntity implements BlockEntityTicker {
+public class EnergyPipeTileEntity extends BlockEntity {
     public int DEInPipe;
 
     public EnergyPipeTileEntity(BlockPos p_155229_, BlockState p_155230_) {
@@ -48,8 +48,7 @@ public class EnergyPipeTileEntity extends BlockEntity implements BlockEntityTick
         return DEInPipe;
     }
 
-    @Override
-    public void tick(Level p_155253_, BlockPos p_155254_, BlockState p_155255_, BlockEntity p_155256_) {
+    public void tick() {
         getDEInTheOtherPipe();
     }
 }
