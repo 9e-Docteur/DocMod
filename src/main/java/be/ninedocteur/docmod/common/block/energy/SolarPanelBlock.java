@@ -3,6 +3,7 @@ package be.ninedocteur.docmod.common.block.energy;
 import be.ninedocteur.docmod.common.init.DMTileEntity;
 import be.ninedocteur.docmod.common.tileentity.SolarPanelTile;
 import be.ninedocteur.docmod.common.tileentity.ZurbTeleporterTile;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -19,7 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-public class SolarPanelBlock extends BaseEntityBlock {
+public class SolarPanelBlock extends EnergyBlock {
 
     public SolarPanelBlock(Properties p_49224_) {
         super(p_49224_);
@@ -28,6 +29,7 @@ public class SolarPanelBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
+        SolarPanelTile solarPanelTile = (SolarPanelTile) Minecraft.getInstance().level.getBlockEntity(p_153215_);
         return new SolarPanelTile(p_153215_, p_153216_);
     }
 

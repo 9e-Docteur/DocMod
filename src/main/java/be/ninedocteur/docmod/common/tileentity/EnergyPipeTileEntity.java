@@ -1,5 +1,6 @@
 package be.ninedocteur.docmod.common.tileentity;
 
+import be.ninedocteur.docmod.common.block.energy.EnergyBlock;
 import be.ninedocteur.docmod.common.block.energy.EnergyPipeBlock;
 import be.ninedocteur.docmod.common.init.DMTileEntity;
 import net.minecraft.core.BlockPos;
@@ -9,7 +10,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class EnergyPipeTileEntity extends BlockEntity implements BlockEntityTicker {
+public class EnergyPipeTileEntity extends BlockEntity {
     public int DEInPipe;
 
     public EnergyPipeTileEntity(BlockPos p_155229_, BlockState p_155230_) {
@@ -22,6 +23,7 @@ public class EnergyPipeTileEntity extends BlockEntity implements BlockEntityTick
         BlockPos south = getBlockPos().south();
         BlockPos east = getBlockPos().east();
         BlockPos west = getBlockPos().west();
+        //PIPE
         if(level.getBlockEntity(north).getBlockState().getBlock() instanceof EnergyPipeBlock){
             EnergyPipeTileEntity leftTile = (EnergyPipeTileEntity) level.getBlockEntity(north);
             this.setDEInPipe(leftTile.getDEInPipe());
@@ -38,6 +40,24 @@ public class EnergyPipeTileEntity extends BlockEntity implements BlockEntityTick
             EnergyPipeTileEntity leftTile = (EnergyPipeTileEntity) level.getBlockEntity(west);
             this.setDEInPipe(leftTile.getDEInPipe());
         }
+
+        //ENERGY TILE
+        if(level.getBlockEntity(north).getBlockState().getBlock() instanceof EnergyBlock){
+            EnergyTileEntity leftTile = (EnergyTileEntity) level.getBlockEntity(north);
+            this.setDEInPipe(leftTile.getEnergyStocked());
+        }
+        if(level.getBlockEntity(south).getBlockState().getBlock() instanceof EnergyBlock){
+            EnergyTileEntity leftTile = (EnergyTileEntity) level.getBlockEntity(south);
+            this.setDEInPipe(leftTile.getEnergyStocked());
+        }
+        if(level.getBlockEntity(east).getBlockState().getBlock() instanceof EnergyBlock){
+            EnergyTileEntity leftTile = (EnergyTileEntity) level.getBlockEntity(east);
+            this.setDEInPipe(leftTile.getEnergyStocked());
+        }
+        if(level.getBlockEntity(west).getBlockState().getBlock() instanceof EnergyBlock){
+            EnergyTileEntity leftTile = (EnergyTileEntity) level.getBlockEntity(west);
+            this.setDEInPipe(leftTile.getEnergyStocked());
+        }
     }
 
     public void setDEInPipe(int DEInPipe) {
@@ -48,8 +68,7 @@ public class EnergyPipeTileEntity extends BlockEntity implements BlockEntityTick
         return DEInPipe;
     }
 
-    @Override
-    public void tick(Level p_155253_, BlockPos p_155254_, BlockState p_155255_, BlockEntity p_155256_) {
+    public void tick() {
         getDEInTheOtherPipe();
     }
 }

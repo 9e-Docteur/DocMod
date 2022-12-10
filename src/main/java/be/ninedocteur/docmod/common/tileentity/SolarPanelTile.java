@@ -13,13 +13,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.TickingBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class SolarPanelTile extends BlockEntity {
+public class SolarPanelTile extends EnergyTileEntity {
     public int ENERGY_STOCKED;
     public int currentTick = 0;
-    public int genPerTick = 20;
+    public int genPerTick = 30;
+    public int maxStocked = 260;
 
     public SolarPanelTile(BlockPos pos, BlockState state) {
-        super(DMTileEntity.SOLAR_PANEL.get(), pos, state);
+        super(DMTileEntity.SOLAR_PANEL.get(), pos, state, 260);
     }
 
     public void generateEnergyFromSun(){
@@ -29,7 +30,9 @@ public class SolarPanelTile extends BlockEntity {
             currentTick++;
             //currentTick = currentTick * level.getBrightness(LightLayer.SKY, worldPosition);
             if(currentTick > getGenPerTick()){
-                ENERGY_STOCKED++;
+                if(!isStockageFull()){
+                    ENERGY_STOCKED++;
+                }
                 currentTick = 0;
             }
             //if(level.getBrightness(LightLayer.SKY, worldPosition) ){
@@ -62,13 +65,16 @@ public class SolarPanelTile extends BlockEntity {
     public int getEnergyStocked() {
         return ENERGY_STOCKED;
     }
-
+/*
     public void setEnergyStocked(int energyStocked) {
         ENERGY_STOCKED = energyStocked;
     }
 
+ */
+
     public void tick() {
         generateEnergyFromSun();
+        setEnergyStocked(ENERGY_STOCKED);
     }
 
 //    public static void tick(Level p_155253_, BlockPos p_155254_, BlockState p_155255_, BlockEntity p_155256_) {

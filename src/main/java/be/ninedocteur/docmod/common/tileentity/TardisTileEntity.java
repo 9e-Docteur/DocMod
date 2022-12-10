@@ -1,24 +1,16 @@
 package be.ninedocteur.docmod.common.tileentity;
 
 import be.ninedocteur.docmod.common.init.DMTileEntity;
+import be.ninedocteur.docmod.common.world.dimension.DMDimension;
 import be.ninedocteur.docmod.utils.PlayerUtils;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.TickingBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
-import net.minecraftforge.client.model.data.ModelData;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.util.LazyOptional;
 
 import java.util.*;
 
@@ -34,7 +26,6 @@ public class TardisTileEntity extends BlockEntity {
     public BlockPos targetPosition;
     public ResourceKey<Level> targetDimension;
     public UUID ownerUUID;
-    public float alpha = 1f;
 
     public TardisTileEntity(BlockPos pos, BlockState state) {
         super(DMTileEntity.Tardis.get(), pos, state);
@@ -76,18 +67,12 @@ public class TardisTileEntity extends BlockEntity {
         return ownerUUID;
     }
 
-
-
     public void demat(){
         isDemating = true;
         //level.destroyBlock(getBlockPos(), false);
         level.removeBlockEntity(getBlockPos());
         isAlreadyDemat = true;
         isDemating = false;
-        this.setChanged();
-        if(!level.isClientSide){
-            this.level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 2);
-        }
     }
 
     public void remat(){
@@ -111,10 +96,6 @@ public class TardisTileEntity extends BlockEntity {
         //level.setBlockEntity(this);
         //Minecraft.getInstance().level.setBlockEntity(this);
         isAlreadyDemat = false;
-        this.setChanged();
-        if(!level.isClientSide){
-            this.level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 2);
-        }
     }
 
     public void setOwnerUUID(UUID ownerUUID) {
@@ -180,75 +161,4 @@ public class TardisTileEntity extends BlockEntity {
     public String getOwnerName(){
         return PlayerUtils.getUserNameByUUID(getOwnerUUID());
     }
-
-    public void tick() {
-        if (isDemating) {
-            alpha -= 0.01F;
-            if (alpha <= 0) {
-                this.isDemating = false;
-                this.level.setBlock(this.getBlockPos(), Blocks.AIR.defaultBlockState(), 1);
-                this.level.setBlock(this.getBlockPos().below(), Blocks.AIR.defaultBlockState(), 1);
-            }
-        }
-    }
-
-//    @Override
-//    public BlockPos getPos() {
-//        return getBlockPos();
-//    }
-//
-//    @Override
-//    public void deserializeNBT(CompoundTag nbt) {
-//        super.deserializeNBT(nbt);
-//    }
-//
-//    @Override
-//    public CompoundTag serializeNBT() {
-//        return super.serializeNBT();
-//    }
-//
-//    @Override
-//    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
-//        super.onDataPacket(net, pkt);
-//    }
-//
-//    @Override
-//    public void handleUpdateTag(CompoundTag tag) {
-//        super.handleUpdateTag(tag);
-//    }
-//
-//    @Override
-//    public void onLoad() {
-//        super.onLoad();
-//    }
-//
-//    @Override
-//    public AABB getRenderBoundingBox() {
-//        return super.getRenderBoundingBox();
-//    }
-//
-//    @Override
-//    public void requestModelDataUpdate() {
-//        super.requestModelDataUpdate();
-//    }
-//
-//    @Override
-//    public @NotNull ModelData getModelData() {
-//        return super.getModelData();
-//    }
-//
-//    @Override
-//    public boolean hasCustomOutlineRendering(Player player) {
-//        return super.hasCustomOutlineRendering(player);
-//    }
-//
-//    @Override
-//    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap) {
-//        return super.getCapability(cap);
-//    }
-//
-//    @Override
-//    public BlockEntityType<?> getType() {
-//        return null;
-//    }
 }
