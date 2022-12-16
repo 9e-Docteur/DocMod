@@ -335,6 +335,7 @@ public class DMBlocks {
 
     /* 8.0 Space Update */
 
+    public static final RegistryObject<Block> mars_stone = registerBlock("mars_stone", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
