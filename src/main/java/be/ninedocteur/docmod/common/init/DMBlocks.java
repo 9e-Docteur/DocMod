@@ -309,7 +309,7 @@ public class DMBlocks {
 
 
     /*
-    -=-=-=-=-=-=-=-=-= DocMod CU Blocks =-=-=-=-=-=-=-=-=-
+    -=-=-=-=-=-=-=-=-= DocMod CU Blocks 2021 =-=-=-=-=-=-=-=-=-
      */
     public static final RegistryObject<Block> CHRISTMAS_TREE = registerCUBlock("christmas_tree",
             () -> new ChristmasTree(Block.Properties.of(Material.STONE).noOcclusion()));
@@ -369,6 +369,11 @@ public class DMBlocks {
         registerRoundelBlockItem(name, toReturn);
         return toReturn;
     }
+
+     /* 8.0 Space Update */
+
+
+
 
 //    private static <T extends Block> RegistryObject<T> registerComputerBlock(String name, Supplier<T> block) {
 //        RegistryObject<T> toReturn = BLOCKS.register(name, block);
