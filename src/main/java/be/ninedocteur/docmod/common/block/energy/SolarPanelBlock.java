@@ -29,14 +29,13 @@ public class SolarPanelBlock extends EnergyBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        SolarPanelTile solarPanelTile = (SolarPanelTile) Minecraft.getInstance().level.getBlockEntity(p_153215_);
         return new SolarPanelTile(p_153215_, p_153216_);
     }
 
     @Override
     public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
         SolarPanelTile solarPanelTile = (SolarPanelTile) p_60504_.getBlockEntity(p_60505_);
-        p_60506_.sendSystemMessage(Component.literal(String.valueOf(solarPanelTile.ENERGY_STOCKED)));
+        p_60506_.sendSystemMessage(Component.literal(String.valueOf(solarPanelTile.getEnergyStockedAsString())));
         return super.use(p_60503_, p_60504_, p_60505_, p_60506_, p_60507_, p_60508_);
     }
 

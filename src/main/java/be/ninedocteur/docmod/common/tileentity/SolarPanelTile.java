@@ -65,6 +65,10 @@ public class SolarPanelTile extends EnergyTileEntity {
     public int getEnergyStocked() {
         return ENERGY_STOCKED;
     }
+
+    public String getEnergyStockedAsString() {
+        return String.valueOf(ENERGY_STOCKED);
+    }
 /*
     public void setEnergyStocked(int energyStocked) {
         ENERGY_STOCKED = energyStocked;

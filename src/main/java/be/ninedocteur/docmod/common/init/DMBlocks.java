@@ -333,6 +333,8 @@ public class DMBlocks {
     public static final RegistryObject<Block> GOLD_CHRISTMAS_BALL = registerCUBlock("gold_christmas_ball",
             () -> new GoldChristmasBall(Block.Properties.of(Material.STONE).noOcclusion()));
 
+    /* 8.0 Space Update */
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
@@ -369,8 +371,6 @@ public class DMBlocks {
         registerRoundelBlockItem(name, toReturn);
         return toReturn;
     }
-
-     /* 8.0 Space Update */
 
 
 
