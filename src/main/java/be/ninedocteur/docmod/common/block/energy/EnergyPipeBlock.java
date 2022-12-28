@@ -20,15 +20,9 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-public class EnergyPipeBlock extends BaseEntityBlock {
+public class EnergyPipeBlock extends EnergyBlock {
     public EnergyPipeBlock(Properties p_49795_) {
         super(p_49795_);
-    }
-
-    @org.jetbrains.annotations.Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new EnergyPipeTileEntity(p_153215_, p_153216_);
     }
 
     @Override
@@ -42,6 +36,14 @@ public class EnergyPipeBlock extends BaseEntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level p_153212_, BlockState p_153213_, BlockEntityType<T> p_153214_) {
         return p_153212_.isClientSide ? null
-                : (level, pos, state, blockEntity) -> ((EnergyPipeTileEntity) blockEntity).tick();
+                : (level0, pos, state0, blockEntity) -> ((EnergyPipeTileEntity) blockEntity).tick(pos);
     }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
+        return new EnergyPipeTileEntity(p_153215_, p_153216_);
+    }
+
+
 }

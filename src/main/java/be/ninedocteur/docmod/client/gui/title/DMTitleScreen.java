@@ -1,6 +1,7 @@
 package be.ninedocteur.docmod.client.gui.title;
 
 import be.ninedocteur.docmod.DMConfig;
+import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.gui.screens.*;
 import be.ninedocteur.docmod.utils.*;
 import be.ninedocteur.docteam.Servers;
@@ -46,6 +47,8 @@ import net.minecraft.world.level.storage.LevelStorageSource;
 import net.minecraft.world.level.storage.LevelSummary;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.forgespi.language.IModInfo;
 import org.apache.commons.lang3.JavaVersion;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -86,7 +89,7 @@ public class DMTitleScreen extends Screen {
     private GameConfig pGameConfig;
 
     public DMTitleScreen() {
-        this(false);
+        this(true);
     }
 
     public DMTitleScreen(boolean pFading) {
@@ -105,7 +108,7 @@ public class DMTitleScreen extends Screen {
             this.realmsNotificationsScreen.tick();
         }
         Minecraft.getInstance().getWindow().setTitle("Minecraft " + SharedConstants.getCurrentVersion().getName() + " | " + DocMod.MODNAME + " " + DocMod.VERSION);
-
+        LaunchUtils.initWindowIcon(new ResourceLocation(DocMod.MOD_ID, "icons/icon16x16.png"), new ResourceLocation(DocMod.MOD_ID, "icons/icon32x32.png"));
     }
 
     public static CompletableFuture<Void> preloadResources(TextureManager pTexMngr, Executor pBackgroundExecutor) {
@@ -246,6 +249,10 @@ public class DMTitleScreen extends Screen {
 
         this.addRenderableWidget(new Button(this.width / 2 - 0, p_96764_ + p_96765_ * 0, 100, 20, Component.translatable("menu.multiplayer"), (p_96781_) -> {
             this.minecraft.setScreen(new JoinMultiplayerScreen(this));
+        }));
+
+        this.addRenderableWidget(new Button(this.width / 2 - 0, p_96764_ + p_96765_ * -2, 100, 20, Component.translatable("DM Addons"), (p_96781_) -> {
+            this.minecraft.setScreen(new DMAddonListScreen());
         }));
 
         this.addRenderableWidget(new Button(this.width / 2 - 100, p_96764_ + p_96765_ * -1, 200, 20, Component.translatable("menu.singleplayer"), (p_96781_) -> {

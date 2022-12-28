@@ -1,5 +1,6 @@
 package be.ninedocteur.docmod;
 
+import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.containers.DMContainers;
 import be.ninedocteur.docmod.client.gui.screens.DMReportBug;
 import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
@@ -18,6 +19,7 @@ import com.google.gson.GsonBuilder;
 import com.mojang.blaze3d.platform.GlUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,13 +29,18 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import java.util.UUID;
 
+import javax.print.Doc;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+import net.minecraftforge.fml.loading.moddiscovery.ModAnnotation;
+import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
+import net.minecraftforge.forgespi.language.IModInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -47,7 +54,7 @@ public class DocMod {
     public static final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
     public static final String VERSION = "6.0";
     public static final String BUILD = "0";
-    public static final String CODENAME = "Longhorn";
+    public static final String CODENAME = "ChristmasUpdate2022"; //LONGHORN FOR 7.X
     public static final String MODNAME = "DocMod";
     public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
 
@@ -67,6 +74,10 @@ public class DocMod {
         DMContainers.CONTAINERS.register(eventBus);
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::onLaunch);
+        Addon addon = new Addon("DocMod", DocMod.MOD_ID, DocMod.VERSION, "no site", "no issue");
+        Addon test = new Addon("JEI", "jei", "1.0", "no site", "no issue");
+        Addon.registerModAsAPI(addon);
+        Addon.registerModAsAPI(test);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
         MinecraftForge.EVENT_BUS.register(this);
@@ -78,6 +89,7 @@ public class DocMod {
         DMWoodTypes.registerWoodTypes();
         LOGGER.info("Registring Staff...");
         TeamUUIDs.addAdmin();
+        LOGGER.info("Init Core Addon..");
     }
 
     private void onLaunch(FMLClientSetupEvent event){

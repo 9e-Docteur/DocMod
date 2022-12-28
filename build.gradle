@@ -89,12 +89,22 @@ repositories {
 
 }
 
+configurations {
+    // Create the library configuration, where our non-mod libraries will be added to
+    library
+    // Any dependency in the library configuration will also be added to the implementation configuration
+    implementation.extendsFrom library
+}
+
 dependencies {
     minecraft "net.minecraftforge:forge:1.19.2-43.1.43"
 
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
     runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
+
+    compileOnly("com.kohlschutter.junixsocket:junixsocket-core:${junixsocket_version}")
+    library("com.kohlschutter.junixsocket:junixsocket-core:${junixsocket_version}")
 }
 
 
@@ -127,6 +137,14 @@ publishing {
         maven {
             url "file:///${project.projectDir}/mcmodsrepo"
         }
+    }
+}
+
+minecraft.runs.all {
+    // Set the minecraft_classpath token to the paths of all jars in the library configuration
+    // This is added with the actual Minecraft classpath to get the real classpath information later on
+    lazyToken('minecraft_classpath') {
+        configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
     }
 }
 

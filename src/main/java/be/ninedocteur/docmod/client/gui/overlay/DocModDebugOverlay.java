@@ -30,14 +30,17 @@ public class DocModDebugOverlay {
             int w = event.getWindow().getGuiScaledWidth();
             int posX = 4;
             int posY = 4;
-            PoseStack poseStack = new PoseStack();
             Minecraft.getInstance().font.draw(event.getPoseStack(), "DocMod " + DMUtils.VERSION + " " + getBranch(), posX, posY, ColorUtils.getWhite());
+            //Minecraft.getInstance().screen.fill(event.getPoseStack(), 1, 10, posX, posY, -1873784752);
             Minecraft.getInstance().font.draw(event.getPoseStack(), getFPS(Minecraft.getInstance()) + " FPS", posX, posY + 10, getColoredFPS(Minecraft.getInstance()));
+            //Minecraft.getInstance().screen.fill(event.getPoseStack(), 1, 10, posX, posY + 10, -1873784752);
 
             int cpuSide = sideX(event, "CPU:" + GlUtil.getCpuInfo());
             int gpuSide = sideX(event, "GPU:" + GlUtil.getRenderer());
             Minecraft.getInstance().font.draw(event.getPoseStack(), "CPU: " + GlUtil.getCpuInfo(), cpuSide, posY, -1);
+            //Minecraft.getInstance().screen.fill(event.getPoseStack(), 1, 10, cpuSide, posY, -1873784752);
             Minecraft.getInstance().font.draw(event.getPoseStack(), "GPU: " + GlUtil.getRenderer(), gpuSide, posY + 10, -1);
+            //Minecraft.getInstance().screen.fill(event.getPoseStack(), 1, 10, gpuSide, posY + 10, -1873784752);
         }
     }
 

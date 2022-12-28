@@ -19,11 +19,11 @@ public class EnergyPipeTileEntity extends BlockEntity {
 
 
     //WILL BE IMPROVED DON'T PANIC XD
-    public void getDEInTheOtherPipe(){
-        BlockPos north = getBlockPos().north();
-        BlockPos south = getBlockPos().south();
-        BlockPos east = getBlockPos().east();
-        BlockPos west = getBlockPos().west();
+    public void getDEInTheOtherPipe(BlockPos pos){
+        BlockPos north = pos.north();
+        BlockPos south = pos.south();
+        BlockPos east = pos.east();
+        BlockPos west = pos.west();
         System.out.println("DE IN OTHER PIPE");
         //PIPE
         if(level.getBlockEntity(north).getBlockState().getBlock() instanceof EnergyPipeBlock){
@@ -74,9 +74,9 @@ public class EnergyPipeTileEntity extends BlockEntity {
         return String.valueOf(DEInPipe);
     }
 
-    public void tick() {
+    public void tick(BlockPos pos) {
         System.out.println("TICKING1");
-        //getDEInTheOtherPipe();
+        getDEInTheOtherPipe(pos);
         System.out.println("TICKING2");
     }
 }

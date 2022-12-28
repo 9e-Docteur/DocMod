@@ -2,6 +2,11 @@ package be.ninedocteur.docmod.utils;
 
 import be.ninedocteur.docmod.DMConfig;
 import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class LaunchUtils {
 	
@@ -42,5 +47,18 @@ public class LaunchUtils {
             return false;
         }
         return false;
+    }
+
+    public static void initWindowIcon(ResourceLocation icon16, ResourceLocation icon32) {
+        try {
+            if(Minecraft.ON_OSX) {
+                return;
+            }
+            InputStream icon1 = Minecraft.getInstance().getResourceManager().getResourceOrThrow(icon16).open();
+            InputStream icon2 = Minecraft.getInstance().getResourceManager().getResourceOrThrow(icon32).open();
+            Minecraft.getInstance().getWindow().setIcon(icon1, icon2);
+        }catch(IOException e) {
+            return;
+        }
     }
 }
