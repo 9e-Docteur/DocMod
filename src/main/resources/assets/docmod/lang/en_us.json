@@ -273,5 +273,14 @@
   "itemGroup.DocMod - Computers": "DocMod - Computers",
   "itemGroup.DocMod - Anniversary Update": "DocMod - Anniversary Update",
 
-  "item.docmod.magic_ammo" : "Magic Wand Ammo"
+  "item.docmod.magic_ammo" : "Magic Wand Ammo",
+
+  "block.docmod.red_candycane" : "Red Candy Cane",
+  "block.docmod.yellow_candycane" : "Yellow Candy Cane",
+  "block.docmod.green_candycane" : "Green Candy Cane",
+  "block.docmod.purple_candycane" : "Purple Candy Cane",
+  "block.docmod.rose_candycane" : "Pink Candy Cane",
+  "block.docmod.blue_candycane" : "Blue Candy Cane",
+  "block.docmod.orange_candycane" : "Orange Candy Cane"
+
 }

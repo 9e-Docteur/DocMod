@@ -4,8 +4,8 @@ import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.DMCreativeTabs;
 import be.ninedocteur.docmod.common.entity.DMEntityType;
 import be.ninedocteur.docmod.common.item.*;
-import be.ninedocteur.docmod.common.item.computer.HDMICable;
-import be.ninedocteur.docmod.common.item.computer.parts.*;
+import be.ninedocteur.docmod.common.item.cupdate.twentytwo.ExplosiveBallItem;
+import be.ninedocteur.docmod.common.item.cupdate.twentyone.GingerBread;
 import be.ninedocteur.docmod.common.item.gun.*;
 import be.ninedocteur.docmod.common.item.laser.item.*;
 import be.ninedocteur.docmod.common.item.sonic.*;
@@ -53,7 +53,7 @@ public class DMItems {
     public static final RegistryObject<Item> COFFEE = ITEMS.register("coffee", () -> new Item(new Item.Properties().tab(DMCreativeTabs.FOOD).food(new FoodProperties.Builder().effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 2), 1f).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 200, 3), 1f).nutrition(2).saturationMod(1).alwaysEat().build())));
     public static final RegistryObject<Item> JUPILER = ITEMS.register("jupiler", () -> new JupilerFoodItem(new Item.Properties().tab(DMCreativeTabs.FOOD).food(new FoodProperties.Builder().effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 150, 2), 0.5f).effect(() -> new MobEffectInstance(MobEffects.POISON, 20, 3), 0.2f).effect(() -> new MobEffectInstance(MobEffects.HUNGER, 100, 2), 0.4f).nutrition(2).saturationMod(0.2f).alwaysEat().build())));
     public static final RegistryObject<Item> GINGERBREAD = ITEMS.register("gingerbread",
-            () -> new Item(new Item.Properties().tab(DMCreativeTabs.CHRISTMAS)
+            () -> new GingerBread(new Item.Properties().tab(DMCreativeTabs.CHRISTMAS)
                     .food(new FoodProperties.Builder().effect(() ->
                                     new MobEffectInstance(MobEffects.REGENERATION, 200, 2), 0.5f)
                             .nutrition(2).saturationMod(1.0f).build())));
@@ -158,6 +158,9 @@ public class DMItems {
     public static final RegistryObject<Item> GREEN_ROUND_THING_FRAME = ITEMS.register("green_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
     public static final RegistryObject<Item> YELLOW_ROUND_THING_FRAME = ITEMS.register("yellow_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
     public static final RegistryObject<Item> DARK_ROUND_THING_FRAME = ITEMS.register("dark_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
+
+    // Christmas Update 2022
+    public static final RegistryObject<Item> EXPLOSIVE_BALL = ITEMS.register("explosive_ball", () -> new ExplosiveBallItem((new Item.Properties()).tab(DMCreativeTabs.CHRISTMAS)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

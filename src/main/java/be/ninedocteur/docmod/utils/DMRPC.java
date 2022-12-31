@@ -26,13 +26,13 @@ public class DMRPC {
             @Override
             public void onReady(IPCClient client) {
                 client.sendRichPresence(DEFAULT_BUILDER.build());
+                DMUtils.LOGGER.info("DocMod RPC Ready!");
+                DMUtils.LOGGER.warn("DocMod RPC Version 2.0");
             }
         });
         try {
             DocMod.LOGGER.info("Starting DocMod RPC...");
             RPC.connect(DiscordBuild.ANY);
-            DocMod.LOGGER.info("DocMod RPC Started!");
-            DocMod.LOGGER.info("DocMod RPC Version 2.0");
         } catch (NoDiscordClientException e) {
             DocMod.LOGGER.error("DocMod RPC Failed:\n" + e.getMessage());
         }

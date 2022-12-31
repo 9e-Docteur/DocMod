@@ -1,10 +1,10 @@
-package be.ninedocteur.docmod.common.block.cupdate;
+package be.ninedocteur.docmod.common.block.cupdate.twentyone;
 
+import be.ninedocteur.docmod.common.block.cupdate.ChristmasHorizontalDirectionalBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.BooleanOp;
@@ -15,9 +15,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 import java.util.stream.Stream;
 
-public class ChristmasBall extends HorizontalDirectionalBlock {
-    public ChristmasBall(Properties builder){
+public class BlueChristmasBall extends ChristmasHorizontalDirectionalBlock {
+    public BlueChristmasBall(Properties builder){
         super(builder);
+        this.setAddedYear(2021);
     }
 
     private static final VoxelShape SHAPE_N = Stream.of(

@@ -251,9 +251,9 @@ public class DMTitleScreen extends Screen {
             this.minecraft.setScreen(new JoinMultiplayerScreen(this));
         }));
 
-        this.addRenderableWidget(new Button(this.width / 2 - 0, p_96764_ + p_96765_ * -2, 100, 20, Component.translatable("DM Addons"), (p_96781_) -> {
-            this.minecraft.setScreen(new DMAddonListScreen());
-        }));
+        //this.addRenderableWidget(new Button(this.width / 2 - 0, p_96764_ + p_96765_ * -2, 100, 20, Component.translatable("DM Addons"), (p_96781_) -> {
+         //   this.minecraft.setScreen(new DMAddonListScreen());
+        //}));
 
         this.addRenderableWidget(new Button(this.width / 2 - 100, p_96764_ + p_96765_ * -1, 200, 20, Component.translatable("menu.singleplayer"), (p_96781_) -> {
             this.minecraft.setScreen(new SelectWorldScreen(this));

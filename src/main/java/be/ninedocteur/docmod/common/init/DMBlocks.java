@@ -4,6 +4,8 @@ import be.ninedocteur.docmod.common.block.*;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.DMCreativeTabs;
 import be.ninedocteur.docmod.common.block.cupdate.*;
+import be.ninedocteur.docmod.common.block.cupdate.twentyone.*;
+import be.ninedocteur.docmod.common.block.cupdate.twentytwo.TwentyTwoChristmasBlock;
 import be.ninedocteur.docmod.common.block.energy.EnergyPipeBlock;
 import be.ninedocteur.docmod.common.block.energy.SolarPanelBlock;
 import be.ninedocteur.docmod.common.block.tardis.TardisLightBlock;
@@ -317,9 +319,8 @@ public class DMBlocks {
     public static final RegistryObject<Block> SNOW_BALL = registerCUBlock("snow_globe",
             () -> new SnowGlobe(Block.Properties.of(Material.STONE).noOcclusion()));
 
-    //public static final RegistryObject<Block> CHIMNEY = registerBlock("chimney",
-    //() -> new ChimneyBlock(Block.Properties.of(Material.STONE).noOcclusion()
-    //  .strength(1).requiresCorrectToolForDrops().hardnessAndResistance(1f)));
+    public static final RegistryObject<Block> CHIMNEY = registerBlock("chimney",
+    () -> new ChimneyBlock(Block.Properties.of(Material.STONE).noOcclusion().strength(1).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> RED_CHRISTMAS_BALL = registerCUBlock("red_christmas_ball",
             () -> new RedChristmasBall(Block.Properties.of(Material.STONE).noOcclusion()));
@@ -332,6 +333,30 @@ public class DMBlocks {
 
     public static final RegistryObject<Block> GOLD_CHRISTMAS_BALL = registerCUBlock("gold_christmas_ball",
             () -> new GoldChristmasBall(Block.Properties.of(Material.STONE).noOcclusion()));
+
+    /*
+    -=-=-=-=-=-=-=-=-= DocMod CU Blocks 2022 =-=-=-=-=-=-=-=-=-
+     */
+    public static final RegistryObject<Block> RED_CANDYCANE = registerCUBlock("red_candycane",
+            () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
+
+    public static final RegistryObject<Block> YELLOW_CANDYCANE = registerCUBlock("yellow_candycane",
+            () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
+
+    public static final RegistryObject<Block> GREEN_CANDYCANE = registerCUBlock("green_candycane",
+            () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
+
+    public static final RegistryObject<Block> ORANGE_CANDYCANE = registerCUBlock("orange_candycane",
+            () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
+
+    public static final RegistryObject<Block> PURPLE_CANDYCANE = registerCUBlock("purple_candycane",
+            () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
+
+    public static final RegistryObject<Block> ROSE_CANDYCANE = registerCUBlock("rose_candycane",
+            () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
+
+    public static final RegistryObject<Block> BLUE_CANDYCANE = registerCUBlock("blue_candycane",
+            () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
 
     /* 8.0 Space Update */
 

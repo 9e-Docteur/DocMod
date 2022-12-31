@@ -2,6 +2,7 @@ package be.ninedocteur.docmod.common.entity;
 
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.entity.mob.*;
+import be.ninedocteur.docmod.common.entity.projectile.ExplosiveBall;
 import be.ninedocteur.docmod.common.item.laser.entity.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -34,6 +35,8 @@ public class DMEntityType {
     public static final RegistryObject<EntityType<ClassicDalek>> CLASSIC_DALEK = ENTITY_TYPES.register("classic_dalek", () -> EntityType.Builder.of(ClassicDalek::new, MobCategory.MONSTER).sized(0.8f, 2f).build(new ResourceLocation(DocMod.MOD_ID, "classic_dalek").toString()));
     public static final RegistryObject<EntityType<AdiposeEntity>> ADIPOSE = ENTITY_TYPES.register("adipose", () -> EntityType.Builder.<AdiposeEntity>of(AdiposeEntity::new, MobCategory.CREATURE).sized(0.8f, 0.8f).build(new ResourceLocation(DocMod.MOD_ID, "adipose").toString()));
     public static final RegistryObject<EntityType<SittableEntity>> SEAT = ENTITY_TYPES.register("seat", () -> EntityType.Builder.<SittableEntity>of(SittableEntity::new, MobCategory.CREATURE).sized(0.8f, 0.8f).build(new ResourceLocation(DocMod.MOD_ID, "seat").toString()));
+
+    public static final RegistryObject<EntityType<ExplosiveBall>> EXPLOSIVE_BALL = ENTITY_TYPES.register("explosive_ball", () -> EntityType.Builder.<ExplosiveBall>of(ExplosiveBall::new, MobCategory.MISC).sized(0.8f, 0.8f).build(new ResourceLocation(DocMod.MOD_ID, "explosive_ball").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
