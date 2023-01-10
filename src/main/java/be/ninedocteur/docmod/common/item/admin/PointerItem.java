@@ -1,4 +1,4 @@
-package be.ninedocteur.docmod.common.item;
+package be.ninedocteur.docmod.common.item.admin;
 
 import be.ninedocteur.docmod.DocMod;
 import net.minecraft.core.BlockPos;

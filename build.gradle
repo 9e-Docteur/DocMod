@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
 
-version = '6.0'
+version = '7.0'
 group = 'be.ninedocteur.docmod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'docmod'
 

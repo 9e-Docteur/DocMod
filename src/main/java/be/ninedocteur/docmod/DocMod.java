@@ -52,9 +52,9 @@ public class DocMod {
     public static boolean isRunningInDev = false;
     public static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
     public static final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-    public static final String VERSION = "6.0";
+    public static final String VERSION = "7.0";
     public static final String BUILD = "0";
-    public static final String CODENAME = "ChristmasUpdate2022"; //LONGHORN FOR 7.X
+    public static final String CODENAME = "Longhorn";
     public static final String MODNAME = "DocMod";
     public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
 
@@ -74,12 +74,14 @@ public class DocMod {
         DMContainers.CONTAINERS.register(eventBus);
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::onLaunch);
-        Addon addon = new Addon("DocMod", DocMod.MOD_ID, DocMod.VERSION, "no site", "no issue");
-        Addon test = new Addon("JEI", "jei", "1.0", "no site", "no issue");
-        Addon.registerModAsAPI(addon);
-        Addon.registerModAsAPI(test);
+        //WIP STUFF
+//        Addon addon = new Addon("DocMod", DocMod.MOD_ID, DocMod.VERSION, "no site", "no issue");
+//        Addon test = new Addon("JEI", "jei", "1.0", "no site", "no issue");
+//        Addon.registerModAsAPI(addon);
+//        Addon.registerModAsAPI(test);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
+        //MinecraftForge.EVENT_BUS.addListener(DMListeners::onPlayerEvent);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("DocMod is fully Initialized.");
     }

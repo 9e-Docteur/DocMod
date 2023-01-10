@@ -177,8 +177,8 @@ public class DMBlocks {
     /*
     ENERGY
      */
-    public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new SolarPanelBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> ENERGY_PIPE = registerBlock("energy_pipe", () -> new EnergyPipeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    //public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new SolarPanelBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    //public static final RegistryObject<Block> ENERGY_PIPE = registerBlock("energy_pipe", () -> new EnergyPipeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
 
 
@@ -289,22 +289,22 @@ public class DMBlocks {
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> TOYOTA_LOWER_ROUNDEL = registerRoundelBlock("toyota_lower_roundel",
-            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
-
-    public static final RegistryObject<Block> TOYOTA_UPPER_ROUNDEL = registerRoundelBlock("toyota_upper_roundel",
-            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
-
-    public static final RegistryObject<Block> TOYOTA_MID_LIGHT = registerRoundelBlock("toyota_lower_light",
-            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
-
-    public static final RegistryObject<Block> TOYOTA_UPPER_LIGHT = registerRoundelBlock("toyota_upper_light",
-            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
-    
+//    public static final RegistryObject<Block> TOYOTA_LOWER_ROUNDEL = registerRoundelBlock("toyota_lower_roundel",
+//            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+//                    .requiresCorrectToolForDrops().strength(2)));
+//
+//    public static final RegistryObject<Block> TOYOTA_UPPER_ROUNDEL = registerRoundelBlock("toyota_upper_roundel",
+//            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+//                    .requiresCorrectToolForDrops().strength(2)));
+//
+//    public static final RegistryObject<Block> TOYOTA_MID_LIGHT = registerRoundelBlock("toyota_lower_light",
+//            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+//                    .requiresCorrectToolForDrops().strength(2)));
+//
+//    public static final RegistryObject<Block> TOYOTA_UPPER_LIGHT = registerRoundelBlock("toyota_upper_light",
+//            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+//                    .requiresCorrectToolForDrops().strength(2)));
+//
     
 
 
@@ -335,7 +335,7 @@ public class DMBlocks {
 
     /* 8.0 Space Update */
 
-    public static final RegistryObject<Block> mars_stone = registerBlock("mars_stone", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    //public static final RegistryObject<Block> mars_stone = registerBlock("mars_stone", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -3,9 +3,9 @@ loaderVersion="[43,)" #mandatory
 license="All rights reserved"
 [[mods]] #mandatory
 modId="docmod" #mandatory
-version="6.0" #mandatory
+version="7.0" #mandatory
 updateJSONURL="https://raw.githubusercontent.com/9e-Docteur/docteam-modupdater/main/docmod_updater.json"
-displayName="DocMod 6.0" #mandatory
+displayName="DocMod" #mandatory
 logoFile="docmod_logo.png" #optional
 credits="PandaRebel4307, Josia, Killar.exe, Balisto91, Itsaykow, Robainks, Garatim" #optional
 authors="9e_Docteur" #optional

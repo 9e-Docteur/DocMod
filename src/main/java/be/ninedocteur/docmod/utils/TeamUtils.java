@@ -21,7 +21,7 @@ public class TeamUtils {
     public static final TeamMember ORTARKGENDAR = new TeamMember("785d28c1-4a7e-4ebe-a6b6-7893e52691a6", Title.FRIEND);
 
     //DEV
-    public static final TeamMember DEV = new TeamMember("380df991-f603-344c-a090-369bad2a924a", Title.DEVELOPER);
+    //public static final TeamMember DEV = new TeamMember("380df991-f603-344c-a090-369bad2a924a", Title.DEVELOPER);
 
     //CONTRIBUTOR
     public static final TeamMember GARATIM = new TeamMember("fa319239c24c46199666b324b7a7dfe0", Title.CONTRIBUTOR);

@@ -25,23 +25,23 @@ public class TardisMonitorBlock extends HorizontalDirectionalBlock {
         super(p_49795_);
     }
 
-    @Override
-    public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
-        if(p_60504_.isClientSide){
-            TardisTileEntity tardisTileEntity = TardisTileEntity.getOrCreateTardis(p_60505_.getX() / 1000);
-            Minecraft.getInstance().setScreen(new DMMonitorScreen(tardisTileEntity));
-        }
-        return super.use(p_60503_, p_60504_, p_60505_, p_60506_, p_60507_, p_60508_);
-    }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(BlockStateProperties.FACING);
-    }
-
-    @javax.annotation.Nullable
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(BlockStateProperties.FACING, context.getHorizontalDirection().getOpposite());
-    }
+//    @Override
+//    public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
+//        if(p_60504_.isClientSide){
+//            TardisTileEntity tardisTileEntity = TardisTileEntity.getOrCreateTardis(p_60505_.getX() / 1000);
+//            Minecraft.getInstance().setScreen(new DMMonitorScreen(tardisTileEntity));
+//        }
+//        return super.use(p_60503_, p_60504_, p_60505_, p_60506_, p_60507_, p_60508_);
+//    }
+//
+//    @Override
+//    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+//        builder.add(BlockStateProperties.FACING);
+//    }
+//
+//    @javax.annotation.Nullable
+//    @Override
+//    public BlockState getStateForPlacement(BlockPlaceContext context) {
+//        return this.defaultBlockState().setValue(BlockStateProperties.FACING, context.getHorizontalDirection().getOpposite());
+//    }
 }

@@ -11,12 +11,12 @@ import net.minecraftforge.server.command.ConfigCommand;
 
 @Mod.EventBusSubscriber(modid = DMUtils.MOD_ID)
 public class CommandRegistry {
-    @SubscribeEvent
-    public static void onCommandsRegister(RegisterCommandsEvent event){
-        //new DMRankCommand(event.getDispatcher());
-        //new DMVersionCommand(event.getDispatcher());
-        new DMTardisPowerCommand(event.getDispatcher());
-
-        ConfigCommand.register(event.getDispatcher());
-    }
+//    @SubscribeEvent
+//    public static void onCommandsRegister(RegisterCommandsEvent event){
+//        //new DMRankCommand(event.getDispatcher());
+//        //new DMVersionCommand(event.getDispatcher());
+//        new DMTardisPowerCommand(event.getDispatcher());
+//
+//        ConfigCommand.register(event.getDispatcher());
+//    }
 }

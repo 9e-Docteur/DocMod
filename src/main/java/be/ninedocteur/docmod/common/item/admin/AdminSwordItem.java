@@ -1,6 +1,5 @@
-package be.ninedocteur.docmod.common.item;
+package be.ninedocteur.docmod.common.item.admin;
 
-import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.utils.TeamUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -10,11 +9,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 
-public class AdminItem extends Item {
-    public AdminItem(Properties p_41383_) {
-        super(p_41383_);
+public class AdminSwordItem extends SwordItem {
+
+    public AdminSwordItem(Tier p_43269_, int p_43270_, float p_43271_, Properties p_43272_) {
+        super(p_43269_, p_43270_, p_43271_, p_43272_);
     }
 
     @Override

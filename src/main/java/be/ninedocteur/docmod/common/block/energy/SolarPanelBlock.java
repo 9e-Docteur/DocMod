@@ -20,29 +20,29 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-public class SolarPanelBlock extends EnergyBlock {
+public class SolarPanelBlock /*extends EnergyBlock*/ {
 
-    public SolarPanelBlock(Properties p_49224_) {
-        super(p_49224_);
-    }
-
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new SolarPanelTile(p_153215_, p_153216_);
-    }
-
-    @Override
-    public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
-        SolarPanelTile solarPanelTile = (SolarPanelTile) p_60504_.getBlockEntity(p_60505_);
-        p_60506_.sendSystemMessage(Component.literal(String.valueOf(solarPanelTile.getEnergyStockedAsString())));
-        return super.use(p_60503_, p_60504_, p_60505_, p_60506_, p_60507_, p_60508_);
-    }
-
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level p_153212_, BlockState p_153213_, BlockEntityType<T> p_153214_) {
-        return p_153212_.isClientSide ? null
-                : (level0, pos, state0, blockEntity) -> ((SolarPanelTile) blockEntity).tick();
-    }
+//    public SolarPanelBlock(Properties p_49224_) {
+//        super(p_49224_);
+//    }
+//
+//    @Nullable
+//    @Override
+//    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
+//        return new SolarPanelTile(p_153215_, p_153216_);
+//    }
+//
+//    @Override
+//    public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
+//        SolarPanelTile solarPanelTile = (SolarPanelTile) p_60504_.getBlockEntity(p_60505_);
+//        p_60506_.sendSystemMessage(Component.literal(String.valueOf(solarPanelTile.getEnergyStockedAsString())));
+//        return super.use(p_60503_, p_60504_, p_60505_, p_60506_, p_60507_, p_60508_);
+//    }
+//
+//    @Nullable
+//    @Override
+//    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level p_153212_, BlockState p_153213_, BlockEntityType<T> p_153214_) {
+//        return p_153212_.isClientSide ? null
+//                : (level0, pos, state0, blockEntity) -> ((SolarPanelTile) blockEntity).tick();
+//    }
 }

@@ -4,8 +4,9 @@ import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.DMCreativeTabs;
 import be.ninedocteur.docmod.common.entity.DMEntityType;
 import be.ninedocteur.docmod.common.item.*;
-import be.ninedocteur.docmod.common.item.computer.HDMICable;
-import be.ninedocteur.docmod.common.item.computer.parts.*;
+import be.ninedocteur.docmod.common.item.admin.DemonicSword;
+import be.ninedocteur.docmod.common.item.admin.NinetyPartyWand;
+import be.ninedocteur.docmod.common.item.admin.PointerItem;
 import be.ninedocteur.docmod.common.item.gun.*;
 import be.ninedocteur.docmod.common.item.laser.item.*;
 import be.ninedocteur.docmod.common.item.sonic.*;
@@ -115,7 +116,10 @@ public class DMItems {
     public static final RegistryObject<Item> ROBAINKS_SONIC_SCREWDRIVER= ITEMS.register("sonic_screwdriver_robainks", () -> new SonicItem(new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> GARATIM_SONIC_SCREWDRIVER= ITEMS.register("sonic_screwdriver_garatim", () -> new GaratimSonic(new Item.Properties().tab(DMCreativeTabs.TOOLS)));
     public static final RegistryObject<Item> GARATIM_SONIC_SCREWDRIVER_OFF = ITEMS.register("sonic_screwdriver_garatim_off", () -> new GaratimSonicOff(new Item.Properties()));
+
+    //STAFF
     public static final RegistryObject<Item> POINTER = ITEMS.register("pointer", () -> new PointerItem(new Item.Properties().durability(1)));
+    public static final RegistryObject<Item> NINETY_DEMONIC_SWORD = ITEMS.register("ninety_demonic_sword", () -> new DemonicSword(ModItemTier.HALFINUM, 6, 3f, new Item.Properties()));
 
     //EGG
     public static final RegistryObject<Item> STEVE_EGG = ITEMS.register("steve_spawn", () -> new ForgeSpawnEggItem(DMEntityType.OLD_STEVE, 0xffffff, 0xffffff,new Item.Properties().tab(DMCreativeTabs.ENTITIES)));
@@ -158,6 +162,10 @@ public class DMItems {
     public static final RegistryObject<Item> GREEN_ROUND_THING_FRAME = ITEMS.register("green_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
     public static final RegistryObject<Item> YELLOW_ROUND_THING_FRAME = ITEMS.register("yellow_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
     public static final RegistryObject<Item> DARK_ROUND_THING_FRAME = ITEMS.register("dark_round_thing_frame", () -> new Item((new Item.Properties()).tab(DMCreativeTabs.ROUNDEL)));
+
+
+    //STAFF
+    public static final RegistryObject<Item> NINETY_WAND = ITEMS.register("ninety_party_wand", () -> new NinetyPartyWand((new Item.Properties())));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

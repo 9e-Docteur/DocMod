@@ -27,32 +27,32 @@ public class DMMonitorScreen extends Screen {
         this.tardisTileEntity = tardisTileEntity;
     }
 
-    @Override
-    protected void init() {
-        this.addRenderableOnly(new Button(this.width - 345, this.height - 200, 80, 20, Component.translatable(tardisTileEntity.getOnOffString()), (p_96781_) -> {
-            DocMod.LOGGER.info("TEST");
-            if(tardisTileEntity.isOn()){
-                tardisTileEntity.isOn = false;
-            } else {
-                tardisTileEntity.isOn = true;
-            }
-        }));
-        super.init();
-    }
-
-    @Override
-    public void render(PoseStack p_96562_, int p_96563_, int p_96564_, float p_96565_) {
-        RenderSystem.setShaderTexture(0, MONITOR_GUI);
-        blit(p_96562_, this.width - 345, this.height - 200, 0, 0, 256, 198);
-        drawString(p_96562_, font, "Tardis Coords: " + tardisTileEntity.getBlockPos().getX() + " " + tardisTileEntity.getBlockPos().getY() + " " + tardisTileEntity.getBlockPos().getZ(), this.width - 330, this.height - 170, -1);
-        if(tardisTileEntity.getTargetPosition() != null){
-            drawString(p_96562_, font, "Destination Coords: " + tardisTileEntity.getTargetPosition().getX() + " " + tardisTileEntity.getTargetPosition().getY() + " " + tardisTileEntity.getTargetPosition().getZ(), this.width - 330, this.height - 160, -1);
-            drawString(p_96562_, font, "Destination Dimension: " + tardisTileEntity.getTargetDimensionString(), this.width - 330, this.height - 150, -1);
-        }
-        Model model =  new TardisModel(Minecraft.getInstance().getEntityModels().bakeLayer(ModelRegistry.NEW_Tardis));
-        ScreenUtils.renderEntityModelOnScreen(p_96562_, this.width - 345, this.height - 200, 1, 1F, 1F, model, ModelRegistry.NEW_Tardis.getModel(), 1, 1, 1, 1);
-        super.render(p_96562_, p_96563_, p_96564_, p_96565_);
-    }
+//    @Override
+//    protected void init() {
+//        this.addRenderableOnly(new Button(this.width - 345, this.height - 200, 80, 20, Component.translatable(tardisTileEntity.getOnOffString()), (p_96781_) -> {
+//            DocMod.LOGGER.info("TEST");
+//            if(tardisTileEntity.isOn()){
+//                tardisTileEntity.isOn = false;
+//            } else {
+//                tardisTileEntity.isOn = true;
+//            }
+//        }));
+//        super.init();
+//    }
+//
+//    @Override
+//    public void render(PoseStack p_96562_, int p_96563_, int p_96564_, float p_96565_) {
+//        RenderSystem.setShaderTexture(0, MONITOR_GUI);
+//        blit(p_96562_, this.width - 345, this.height - 200, 0, 0, 256, 198);
+//        drawString(p_96562_, font, "Tardis Coords: " + tardisTileEntity.getBlockPos().getX() + " " + tardisTileEntity.getBlockPos().getY() + " " + tardisTileEntity.getBlockPos().getZ(), this.width - 330, this.height - 170, -1);
+//        if(tardisTileEntity.getTargetPosition() != null){
+//            drawString(p_96562_, font, "Destination Coords: " + tardisTileEntity.getTargetPosition().getX() + " " + tardisTileEntity.getTargetPosition().getY() + " " + tardisTileEntity.getTargetPosition().getZ(), this.width - 330, this.height - 160, -1);
+//            drawString(p_96562_, font, "Destination Dimension: " + tardisTileEntity.getTargetDimensionString(), this.width - 330, this.height - 150, -1);
+//        }
+//        Model model =  new TardisModel(Minecraft.getInstance().getEntityModels().bakeLayer(ModelRegistry.NEW_Tardis));
+//        ScreenUtils.renderEntityModelOnScreen(p_96562_, this.width - 345, this.height - 200, 1, 1F, 1F, model, ModelRegistry.NEW_Tardis.getModel(), 1, 1, 1, 1);
+//        super.render(p_96562_, p_96563_, p_96564_, p_96565_);
+//    }
 
     @Override
     public boolean isPauseScreen() {

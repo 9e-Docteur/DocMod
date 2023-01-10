@@ -5,19 +5,23 @@ import be.ninedocteur.docmod.client.gui.overlay.DMSpaceSuitOverlay;
 import be.ninedocteur.docmod.common.block.HandBrakeBlock;
 import be.ninedocteur.docmod.common.capes.Cape;
 import be.ninedocteur.docmod.common.init.DMItems;
+import be.ninedocteur.docmod.common.tileentity.TardisTileEntity;
 import be.ninedocteur.docmod.utils.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class DMListeners {
@@ -59,5 +63,22 @@ public class DMListeners {
                 DMSpaceSuitOverlay.showSpaceSuitOverlay = false;
             }
         }
+    }
+
+//    @SubscribeEvent
+//    public static void onPlayerEvent(PlayerEvent event){
+//        if(getDimension(event, "tardis")){
+//            BlockPos playerCoord = event.getEntity().getOnPos();
+//            TardisTileEntity tardisTileEntity = TardisTileEntity.getOrCreateTardis(playerCoord.getX() / 1000);
+//            if(!tardisTileEntity.isAlreadyDemat){
+//                tardisTileEntity.demat();
+//            } else {
+//                tardisTileEntity.remat();
+//            }
+//        }
+//    }
+
+    public static boolean getDimension(PlayerEvent event, String path){
+        return event.getEntity().level.dimension().location().getPath().equals(path);
     }
 }

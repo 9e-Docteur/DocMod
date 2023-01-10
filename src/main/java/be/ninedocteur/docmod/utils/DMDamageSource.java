@@ -37,6 +37,10 @@ public class DMDamageSource extends DamageSource{
 
     public static final DamageSource SUFFOCATE_ON_A_UNOXYGENED_PLANET = (new DamageSource("suffocate_on_a_unoxygened_planet"));
 
+    public static final DamageSource DIE_BY_A_STAFF = (new DamageSource("dead_by_staff"));
+
+    public static final DamageSource DEMONIC = (new DamageSource("something_strange_has_kill"));
+
     public static DamageSource deadByTNT(LivingEntity entity){
         return DamageSource.explosion(entity);
     }

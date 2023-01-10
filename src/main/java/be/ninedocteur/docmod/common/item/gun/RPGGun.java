@@ -105,8 +105,8 @@ public class RPGGun extends RPGGunItem {
                     TeamUtils.TeamMember teamMember = TeamUtils.getTeamMembers().get(user.getUuid());
                     if(teamMember != null){
                         player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(1));
-                    } else if (player.getUUID().equals(TeamUtils.DEV)){
-                        player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(0));
+//                    } else if (player.getUUID().equals(TeamUtils.DEV)){
+//                        player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(0));
                     } else {
                         player.getCooldowns().addCooldown(this, DMMath.convertSecondsToTicks(0));
                     }

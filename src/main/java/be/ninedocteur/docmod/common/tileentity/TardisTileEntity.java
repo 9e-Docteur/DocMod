@@ -14,6 +14,7 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
 
 import java.util.*;
 
@@ -35,7 +36,11 @@ public class TardisTileEntity extends BlockEntity {
         super(DMTileEntity.Tardis.get(), pos, state);
         this.id = -1;
         Level mLevel = Minecraft.getInstance().level;
-        this.currentDimension = mLevel.dimension();
+        ChunkAccess chunk = mLevel.getChunk(this.getCurrentLocation());
+        if(mLevel instanceof ServerLevel serverLevel){
+            serverLevel.setChunkForced(chunk.getPos().x, chunk.getPos().z, true);
+        }
+        mLevel.getChunkSource().updateChunkForced(chunk.getPos(), true);
     }
 
     public static TardisTileEntity getOrCreateTardis(BlockPos pos, BlockState state, int id){
@@ -77,9 +82,11 @@ public class TardisTileEntity extends BlockEntity {
         isDemating = true;
         //level.destroyBlock(getBlockPos(), false);
         Level mLevel = Minecraft.getInstance().level;
-        if(!Minecraft.getInstance().level.isClientSide) {
-            mLevel.getServer().getLevel(getCurrentDimension()).removeBlockEntity(getBlockPos());
+        ChunkAccess chunk = mLevel.getChunk(this.getCurrentLocation());
+        if(mLevel instanceof ServerLevel serverLevel){
+            serverLevel.setChunkForced(chunk.getPos().x, chunk.getPos().z, true);
         }
+        mLevel.getChunkSource().updateChunkForced(chunk.getPos(), true);
         isAlreadyDemat = true;
         isDemating = false;
     }
@@ -89,9 +96,12 @@ public class TardisTileEntity extends BlockEntity {
         if(getTargetPosition() == null){
             setTargetPosition(new BlockPos(16, 104, 10));
         }
-        if(!Minecraft.getInstance().level.isClientSide){
-            LevelUtils.forcedChunkIfLoaded(Minecraft.getInstance().level.getServer().getLevel(targetDimension), new ChunkPos(getTargetPosition()), getTargetPosition());
+        Level level1 = Minecraft.getInstance().level;
+        ChunkAccess chunk = level1.getChunk(this.getCurrentLocation());
+        if(level1 instanceof ServerLevel serverLevel){
+            serverLevel.setChunkForced(chunk.getPos().x, chunk.getPos().z, true);
         }
+        level1.getChunkSource().updateChunkForced(chunk.getPos(), true);
         DocMod.LOGGER.warn("JE SUIS EN TRAIN DE REMAT");
         setTargetDimension(Level.OVERWORLD);
         TardisTileEntity tardisTileEntity = DMTileEntity.Tardis.get().create(getTargetPosition(), this.getBlockState());
@@ -104,15 +114,22 @@ public class TardisTileEntity extends BlockEntity {
 //            level.getServer().getLevel(getTargetDimension()).setBlockEntity(tardisTileEntity);
 //        }
         Level mLevel = Minecraft.getInstance().level;
-        if(!Minecraft.getInstance().level.isClientSide){
-            mLevel.getServer().getLevel(getTargetDimension()).setBlockEntity(tardisTileEntity);
+        ChunkAccess targetChunk = mLevel.getChunk(this.getTargetPosition());
+        if(mLevel instanceof ServerLevel serverLevel){
+            serverLevel.setChunkForced(targetChunk.getPos().x, targetChunk.getPos().z, true);
+            serverLevel.getServer().getLevel(getTargetDimension()).setBlockEntity(tardisTileEntity);
             setCurrentDimension(getTargetDimension());
         }
+        level1.getChunkSource().updateChunkForced(chunk.getPos(), true);
         //level.removeBlockEntity(getBlockPos());
         isDemating = false;
         //level.setBlockEntity(this);
         //Minecraft.getInstance().level.setBlockEntity(this);
         isAlreadyDemat = false;
+    }
+
+    public BlockPos getCurrentLocation(){
+        return getBlockPos();
     }
 
     public void setOwnerUUID(UUID ownerUUID) {

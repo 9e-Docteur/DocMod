@@ -34,6 +34,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.BlockHitResult;
@@ -92,19 +93,23 @@ public class TardisBlock extends BaseEntityBlock {
     @Override
     public void onPlace(BlockState p_60566_, Level p_60567_, BlockPos p_60568_, BlockState p_60569_, boolean p_60570_) {
         super.onPlace(p_60566_, p_60567_, p_60568_, p_60569_, p_60570_);
+        ChunkAccess chunk = p_60567_.getChunk(p_60568_);
         if(p_60567_ instanceof ServerLevel serverLevel){
-            LevelUtils.forcedChunkIfLoaded(serverLevel, new ChunkPos(p_60568_), p_60568_);
+            serverLevel.setChunkForced(chunk.getPos().x, chunk.getPos().z, true);
         }
+        p_60567_.getChunkSource().updateChunkForced(chunk.getPos(), true);
     }
 
     @Override
     public void onRemove(BlockState p_60515_, Level p_60516_, BlockPos p_60517_, BlockState p_60518_, boolean p_60519_) {
         super.onRemove(p_60515_, p_60516_, p_60517_, p_60518_, p_60519_);
+        ChunkAccess chunk = p_60516_.getChunk(p_60517_);
         if(p_60515_.hasBlockEntity() && p_60515_.getBlock() != p_60518_.getBlock()){
-            p_60516_.removeBlockEntity(p_60517_);
             if(p_60516_ instanceof ServerLevel serverLevel){
-                LevelUtils.unforcedChunkIfLoaded(serverLevel, new ChunkPos(p_60517_), p_60517_);
+                serverLevel.removeBlockEntity(p_60517_);
+                serverLevel.setChunkForced(chunk.getPos().x, chunk.getPos().z, true);
             }
+            p_60516_.getChunkSource().updateChunkForced(chunk.getPos(), true);
         }
     }
 

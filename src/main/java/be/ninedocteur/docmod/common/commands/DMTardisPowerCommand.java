@@ -13,21 +13,21 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 
 public class DMTardisPowerCommand {
-	public DMTardisPowerCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(Commands.literal("tardis").then(Commands.literal("power").executes((command) -> {
-            return cape(command.getSource());
-        })));
-    }
-	
-	 private int cape(CommandSourceStack source) throws CommandSyntaxException {
-		 TardisTileEntity tardisTileEntity = TardisTileEntity.getOrCreateTardis((int) (source.getPlayer().getX() / 1000));
-		 if(tardisTileEntity.isOn()){
-			 tardisTileEntity.isOn = false;
-			 source.getPlayer().sendSystemMessage(Component.literal("OFF"));
-		 } else {
-			 tardisTileEntity.isOn = true;
-			 source.getPlayer().sendSystemMessage(Component.literal("ON"));
-		 }
-		 	return -1;
-	    }
+//	public DMTardisPowerCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
+//        dispatcher.register(Commands.literal("tardis").then(Commands.literal("power").executes((command) -> {
+//            return cape(command.getSource());
+//        })));
+//    }
+//
+//	 private int cape(CommandSourceStack source) throws CommandSyntaxException {
+//		 TardisTileEntity tardisTileEntity = TardisTileEntity.getOrCreateTardis((int) (source.getPlayer().getX() / 1000));
+//		 if(tardisTileEntity.isOn()){
+//			 tardisTileEntity.isOn = false;
+//			 source.getPlayer().sendSystemMessage(Component.literal("OFF"));
+//		 } else {
+//			 tardisTileEntity.isOn = true;
+//			 source.getPlayer().sendSystemMessage(Component.literal("ON"));
+//		 }
+//		 	return -1;
+//	    }
 }

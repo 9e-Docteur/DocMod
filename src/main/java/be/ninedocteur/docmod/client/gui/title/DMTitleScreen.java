@@ -3,6 +3,9 @@ package be.ninedocteur.docmod.client.gui.title;
 import be.ninedocteur.docmod.DMConfig;
 import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.gui.screens.*;
+import be.ninedocteur.docmod.client.models.TardisModel;
+import be.ninedocteur.docmod.client.models.entity.CyberBossEntityModel;
+import be.ninedocteur.docmod.common.entity.mob.CyberBossEntity;
 import be.ninedocteur.docmod.utils.*;
 import be.ninedocteur.docteam.Servers;
 import com.google.common.util.concurrent.Runnables;
@@ -251,9 +254,10 @@ public class DMTitleScreen extends Screen {
             this.minecraft.setScreen(new JoinMultiplayerScreen(this));
         }));
 
-        this.addRenderableWidget(new Button(this.width / 2 - 0, p_96764_ + p_96765_ * -2, 100, 20, Component.translatable("DM Addons"), (p_96781_) -> {
-            this.minecraft.setScreen(new DMAddonListScreen());
-        }));
+//        this.addRenderableWidget(new Button(this.width / 2 - 0, p_96764_ + p_96765_ * -2, 100, 20, Component.translatable("DM Addons"), (p_96781_) -> {
+//            //this.minecraft.setScreen(new DMAddonListScreen());
+//            this.minecraft.setScreen(new DMStarScreen());
+//        }));
 
         this.addRenderableWidget(new Button(this.width / 2 - 100, p_96764_ + p_96765_ * -1, 200, 20, Component.translatable("menu.singleplayer"), (p_96781_) -> {
             this.minecraft.setScreen(new SelectWorldScreen(this));
@@ -379,6 +383,10 @@ public class DMTitleScreen extends Screen {
                     this.blit(p_96739_, p_96768_ + 155, p_96769_, 0, 45, 155, 44);
                 });
             }
+
+//            CyberBossEntity cyberBossEntity = new CyberBossEntity()
+//            ScreenUtils.renderEntityOnScreen(p_96739_, this.height, this.width, 1, 1F, 1F, this.minecraft.player);
+
 /*
             //3D SKIN
             RenderSystem.setShader(GameRenderer::getPositionTexShader);

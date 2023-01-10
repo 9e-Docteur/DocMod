@@ -12,6 +12,10 @@
 ## Author
 DocMod has been created in October 2021 by [9e_Docteur](https://github.com/9e-Docteur/).
 
+## Why this branch is called "experimental" ?
+This branch condain extreme WIP Code for futur update of DocMod.
+Code can be unstable/wip/buggy/unclear etc...
+
 ## Liscence
 **This project is under __All Right Reserved__ Liscence.
 It mean that you cannot take/copy our code.**

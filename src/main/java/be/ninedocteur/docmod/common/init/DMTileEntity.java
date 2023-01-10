@@ -91,13 +91,13 @@ public class DMTileEntity {
             TILE_ENTITIES.register("chair_tile", () -> BlockEntityType.Builder.of(
                     ChairTileEntity::new, DMBlocks.INFUSION_TABLE.get()).build(null));
 
-    public static RegistryObject<BlockEntityType<SolarPanelTile>> SOLAR_PANEL =
-            TILE_ENTITIES.register("solar_panel", () -> BlockEntityType.Builder.of(
-                    SolarPanelTile::new, DMBlocks.SOLAR_PANEL.get()).build(null));
-
-    public static RegistryObject<BlockEntityType<EnergyPipeTileEntity>> ENERGY_PIPE =
-            TILE_ENTITIES.register("energy_pipe", () -> BlockEntityType.Builder.of(
-                    EnergyPipeTileEntity::new, DMBlocks.SOLAR_PANEL.get()).build(null));
+//    public static RegistryObject<BlockEntityType<SolarPanelTile>> SOLAR_PANEL =
+//            TILE_ENTITIES.register("solar_panel", () -> BlockEntityType.Builder.of(
+//                    SolarPanelTile::new, DMBlocks.SOLAR_PANEL.get()).build(null));
+//
+//    public static RegistryObject<BlockEntityType<EnergyPipeTileEntity>> ENERGY_PIPE =
+//            TILE_ENTITIES.register("energy_pipe", () -> BlockEntityType.Builder.of(
+//                    EnergyPipeTileEntity::new, DMBlocks.SOLAR_PANEL.get()).build(null));
 
 
 

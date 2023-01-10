@@ -1,8 +1,6 @@
 package be.ninedocteur.docmod.proxy;
 
-import be.ninedocteur.docmod.DMConfig;
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.TileRenders;
 import be.ninedocteur.docmod.client.containers.DMContainers;
 import be.ninedocteur.docmod.client.event.ClientEventHandler;
@@ -19,13 +17,10 @@ import be.ninedocteur.docmod.common.init.*;
 import be.ninedocteur.docmod.common.listeners.DMListeners;
 import be.ninedocteur.docmod.utils.DMRPC;
 import be.ninedocteur.docmod.utils.LaunchUtils;
-import be.ninedocteur.docmod.utils.PlanetUtils;
-import be.ninedocteur.docteam.installer.DevWarn;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
-import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;

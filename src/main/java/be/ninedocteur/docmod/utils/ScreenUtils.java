@@ -62,6 +62,38 @@ public class ScreenUtils {
         Lighting.setupFor3DItems();
     }
 
+    public static void renderEntityOnScreen(PoseStack poseStack, int posX, int posY, int scale, float rotation, float angleYComponent, LivingEntity p_98856_) {
+        float f1 = angleYComponent;
+        poseStack.pushPose();
+        poseStack.translate((double)posX, (double)posY, 1050.0D);
+        poseStack.scale(1.0F, 1.0F, -1.0F);
+        RenderSystem.applyModelViewMatrix();
+        PoseStack posestack1 = new PoseStack();
+        posestack1.translate(0.0D, 0.0D, 1000.0D);
+        posestack1.scale((float)scale, (float)scale, (float)scale);
+        Quaternion quaternion = Vector3f.ZN.rotationDegrees(0F);
+        Quaternion quaternion1 = Vector3f.XN.rotationDegrees(-25F);
+        Quaternion quaternion2 = Vector3f.YN.rotationDegrees(rotation);
+        posestack1.mulPose(quaternion);
+        posestack1.mulPose(quaternion1);
+        posestack1.mulPose(quaternion2);
+        Lighting.setupForEntityInInventory();
+        EntityRenderDispatcher entityrenderdispatcher = Minecraft.getInstance().getEntityRenderDispatcher();
+        quaternion1.conj();
+        entityrenderdispatcher.overrideCameraOrientation(quaternion1);
+        entityrenderdispatcher.setRenderShadow(false);
+        MultiBufferSource.BufferSource multibuffersource$buffersource = Minecraft.getInstance().renderBuffers().bufferSource();
+        RenderSystem.runAsFancy(() -> {
+            entityrenderdispatcher.render(p_98856_, 0.0, 0.0, 0.0, 0.0F, 1.0F, posestack1, multibuffersource$buffersource, 15728880);
+            //entityrenderdispatcher.render(p_98856_, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, posestack1, multibuffersource$buffersource, 15728880);
+        });
+        multibuffersource$buffersource.endBatch();
+        entityrenderdispatcher.setRenderShadow(true);
+        poseStack.popPose();
+        RenderSystem.applyModelViewMatrix();
+        Lighting.setupFor3DItems();
+    }
+
 
     public static void scissor(int screenX, int screenY, int boxWidth, int boxHeight)
     {
