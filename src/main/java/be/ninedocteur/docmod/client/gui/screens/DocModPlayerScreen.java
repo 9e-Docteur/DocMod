@@ -108,18 +108,18 @@ public class DocModPlayerScreen extends Screen {
     @Override
     protected void init() {
         this.minecraft.getWindow().setTitle("DocMod " + DMUtils.VERSION + " " + DMUtils.CODENAME + " - Player Info");
-        Button cancelButton = new Button(this.width / 2 -50, this.height / 4 + 58 + 80, 100, 20,  Component.translatable("Close"), (button -> {
+        Button cancelButton = Button.builder(Component.translatable("Close"), (button -> {
             onClose();
-        }));
-        Button playerScreen = new Button(this.width / 2 - 210, this.height / 4 + 58 - 90, 140, 20,  Component.translatable("Player"), (button -> {
+        })).bounds(this.width / 2 -50, this.height / 4 + 58 + 80, 100, 20).build();
+        Button playerScreen = Button.builder(Component.translatable("Player"), (button -> {
 
-        }));
-        Button docteamAPIStatus = new Button(this.width / 2 -70, this.height / 4 + 58 -90, 140, 20,  Component.translatable("DocTeam APIs"), (button -> {
-            this.minecraft.setScreen(new DocModAPIStatus(this));
-        }));
-        Button staff = new Button(this.width / 2 +70, this.height / 4 + 58 -90, 140, 20,  Component.translatable("Staff"), (button -> {
+        })).bounds(this.width / 2 - 210, this.height / 4 + 58 - 90, 140, 20).build();
+        Button docteamAPIStatus = Button.builder(Component.translatable("DocTeam APIs"), (button -> {
+            //this.minecraft.setScreen(new DocModAPIStatus(this));
+        })).bounds(this.width / 2 -70, this.height / 4 + 58 -90, 140, 20).build();
+        Button staff = Button.builder(Component.translatable("Staff"), (button -> {
             this.minecraft.setScreen(new DocModStaffScreen(this));
-        }));
+        })).bounds(this.width / 2 +70, this.height / 4 + 58 -90, 140, 20).build();
         addRenderableWidget(cancelButton);
         addRenderableWidget(playerScreen);
         addRenderableWidget(docteamAPIStatus);

@@ -68,9 +68,9 @@ public class DocModChangelogScreen extends Screen {
     @Override
     protected void init() {
         this.minecraft.getWindow().setTitle("DocMod " + DMUtils.VERSION + " " + DMUtils.CODENAME + " - Info");
-        Button cancelButton = new Button(this.width / 2 -50, this.height / 4 + 58 + 80, 100, 20, Component.translatable("Close"), (button -> {
+        Button cancelButton = Button.builder(Component.translatable("Close"), (button -> {
             onClose();
-        }));
+        })).bounds(this.width / 2 -50, this.height / 4 + 58 + 80, 100, 20).build();
         addRenderableWidget(cancelButton);
 
 

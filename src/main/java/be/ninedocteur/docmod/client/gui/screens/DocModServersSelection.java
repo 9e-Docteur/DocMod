@@ -90,13 +90,13 @@ public class DocModServersSelection extends Screen {
         devOnlineUsers = DevServerInfo.getPLAYERS();
         devMaxPlayers = DevServerInfo.getMaxPlayers();
 
-        Button cancel = new Button( 225, 210, 180, 20, Component.translatable("gui.docmod.cancel" ), (p_96781_) -> {
+        Button cancel = Button.builder(Component.translatable("gui.docmod.cancel" ), (p_96781_) -> {
             this.getMinecraft().setScreen(new TitleScreen(this.passEvents));
-        });
-        Button joinServer = new Button( 25, 210, 90, 20, Component.translatable("gui.docmod.join" ), (p_96781_) -> {
+        }).bounds(225, 210, 180, 20).build();
+        Button joinServer = Button.builder(Component.translatable("gui.docmod.join" ), (p_96781_) -> {
             ConnectScreen.startConnecting(this, this.getMinecraft(), new ServerAddress(Servers.HOST, Servers.PORT), new ServerData("DocMod Server", Servers.HOST, false));
-        });
-        Button joinBetaServer = new Button( 116, 210, 90, 20, Component.translatable("gui.docmod.joinbeta" ), (p_96781_) -> {
+        }).bounds(25, 210, 90, 20).build();
+        Button joinBetaServer = Button.builder(Component.translatable("gui.docmod.joinbeta" ), (p_96781_) -> {
             User user = Minecraft.getInstance().getUser();
             TeamUtils.TeamMember teamMember = TeamUtils.getTeamMembers().get(user.getUuid());
             if(Database.getBetaRankDir().contains(user.getUuid())){
@@ -106,7 +106,7 @@ public class DocModServersSelection extends Screen {
             }else {
                 this.minecraft.setScreen(new DocModServerRankErrorScreen(this));
             }
-        });
+        }).bounds(116, 210, 90, 20).build();
 
         this.addRenderableWidget(joinBetaServer);
         this.addRenderableWidget(cancel);

@@ -21,10 +21,6 @@ public class DMTileEntity {
             TILE_ENTITIES.register("glasstile", () -> BlockEntityType.Builder.of(
                     GlassTubeTile::new, DMBlocks.GLASS_TUBE.get()).build(null));
 
-    public static RegistryObject<BlockEntityType<TardisTileEntity>> Tardis =
-            TILE_ENTITIES.register("tardistile", () -> BlockEntityType.Builder.of(
-                    TardisTileEntity::new, DMBlocks.Tardis.get()).build(null));
-
     public static RegistryObject<BlockEntityType<be.ninedocteur.docmod.common.tileentity.ZurbTeleporterTile>> ZurbTeleporterTile =
             TILE_ENTITIES.register("zurbteleportertile", () -> BlockEntityType.Builder.of(
                     ZurbTeleporterTile::new, DMBlocks.ZURBTELEPORTER.get()).build(null));
@@ -41,13 +37,13 @@ public class DMTileEntity {
             TILE_ENTITIES.register("orangeglasstile", () -> BlockEntityType.Builder.of(
                     OrangeGlassTubeTile::new, DMBlocks.ORANGE_GLASS_TUBE.get()).build(null));
 
-   public static RegistryObject<BlockEntityType<DeathSignTile>> DeathSign =
-            TILE_ENTITIES.register("death_sign", () -> BlockEntityType.Builder.of(
-                    DeathSignTile::new, DMBlocks.DEATH_SIGN.get(), DMBlocks.DEATH_WALL_SIGN.get()).build(null));
+//   public static RegistryObject<BlockEntityType<DeathSignTile>> DeathSign =
+//            TILE_ENTITIES.register("death_sign", () -> BlockEntityType.Builder.of(
+//                    DeathSignTile::new, DMBlocks.DEATH_SIGN.get(), DMBlocks.DEATH_WALL_SIGN.get()).build(null));
 
-   public static RegistryObject<BlockEntityType<AlbiziaSignTile>> AlbiziaSign =
-            TILE_ENTITIES.register("albizia_sign", () -> BlockEntityType.Builder.of(
-                    AlbiziaSignTile::new, DMBlocks.ALBIZIA_SIGN.get(), DMBlocks.ALBIZIA_WALL_SIGN.get()).build(null));
+//   public static RegistryObject<BlockEntityType<AlbiziaSignTile>> AlbiziaSign =
+//            TILE_ENTITIES.register("albizia_sign", () -> BlockEntityType.Builder.of(
+//                    AlbiziaSignTile::new, DMBlocks.ALBIZIA_SIGN.get(), DMBlocks.ALBIZIA_WALL_SIGN.get()).build(null));
 /*
     public static RegistryObject<BlockEntityType<ChairTileEntity>> ChairTile =
             TILE_ENTITIES.register("chair_tile", () -> BlockEntityType.Builder.of(
@@ -67,13 +63,7 @@ public class DMTileEntity {
             TILE_ENTITIES.register("red_toyota", () -> BlockEntityType.Builder.of(
                     RedToyotaRotorTileEntity::new, DMBlocks.RedToyota.get()).build(null));
 
-    public static RegistryObject<BlockEntityType<TardisDoorTileEntity>> TARDIS_DOOR =
-            TILE_ENTITIES.register("tardis_door_tile", () -> BlockEntityType.Builder.of(
-                    TardisDoorTileEntity::new, DMBlocks.TARDIS_DOOR.get()).build(null));
 
-    public static RegistryObject<BlockEntityType<DamagedDalekTileEntity>> DAMAGED_DALEK_TILE_ENTITY =
-            TILE_ENTITIES.register("damaged_dalek_tile", () -> BlockEntityType.Builder.of(
-                    DamagedDalekTileEntity::new, DMBlocks.DALEK_DAMAGED.get()).build(null));
 
 //    public static RegistryObject<BlockEntityType<ComputerTileEntity>> COMPUTER_TILE_ENTITY =
 //            TILE_ENTITIES.register("computer_tile", () -> BlockEntityType.Builder.of(
@@ -98,6 +88,10 @@ public class DMTileEntity {
     public static RegistryObject<BlockEntityType<EnergyPipeTileEntity>> ENERGY_PIPE =
             TILE_ENTITIES.register("energy_pipe", () -> BlockEntityType.Builder.of(
                     EnergyPipeTileEntity::new, DMBlocks.SOLAR_PANEL.get()).build(null));
+
+    public static RegistryObject<BlockEntityType<EnergyPipeTileEntity>> DAMAGED_DALEK =
+            TILE_ENTITIES.register("damage_dalek", () -> BlockEntityType.Builder.of(
+                    EnergyPipeTileEntity::new, DMBlocks.DALEK_DAMAGED.get()).build(null));
 
 
 

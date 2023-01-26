@@ -1,10 +1,16 @@
 package be.ninedocteur.docmod.common.world.features;
 
+import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.init.DMBlocks;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -33,124 +39,41 @@ public class DMFeature {
     private static final RuleTest NATURAL_END_STONE = new TagMatchTest(Tags.Blocks.END_STONES);
     private static final RuleTest NATURAL_DEEPSLATE = new TagMatchTest(Tags.Blocks.COBBLESTONE_DEEPSLATE);
 
+    public static final ResourceKey<PlacedFeature> ZINC_ORE_PLACED_KEY = createKey("overworld_zinc_ore_placed");
+    public static final ResourceKey<PlacedFeature> HALFINUM_ORE_PLACED_KEY = createKey("overworld_zinc_ore_placed");
+    public static final ResourceKey<PlacedFeature> CRYOLITE_ORE_PLACED_KEY = createKey("overworld_zinc_ore_placed");
+    public static final ResourceKey<PlacedFeature> CRYSTALINE_ORE_PLACED_KEY = createKey("overworld_zinc_ore_placed");
+    public static final ResourceKey<PlacedFeature> CRYSTALPLACED_PLACED_KEY = createKey("overworld_zinc_ore_placed");
+    public static final ResourceKey<PlacedFeature> STEEL_ORE_PLACED_KEY = createKey("overworld_zinc_ore_placed");
+    public static final ResourceKey<PlacedFeature> XP_ORE_PLACED_KEY = createKey("overworld_zinc_ore_placed");
 
-    public static class Placed {
-        public static final Holder<PlacedFeature> ALBIZIA_TREE_PLACED =
-                PlacementUtils.register("albizia_placed",
-                        Spawn.ALBIZIA_TREE_SPAWN, VegetationPlacements.treePlacement(
-                                PlacementUtils.countExtra(1, 0.1f, 1)));
-
-        public static final Holder<PlacedFeature> CLASSIC_TREE_PLACED =
-                PlacementUtils.register("clssic_placed",
-                        Spawn.CLASSIC_TREE_SPAWN, VegetationPlacements.treePlacement(
-                                PlacementUtils.countExtra(1, 0.1f, 1)));
+    public static final ResourceKey<PlacedFeature> CRYSTALINE_GEODEPLACED_PLACED_KEY = createKey("crystaline_geode_placed");
 
 
-        //Vein 6, Entre 0 - 16
-
-        public static final Holder<PlacedFeature> ZINC_ORE_PLACED = PlacementUtils.register("zinc_ore_placed",
-                Raw.ZINC_ORE, commonOrePlacement(6,
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(16))));
-
-        public static final Holder<PlacedFeature> DEEP_ZINC_ORE_PLACED = PlacementUtils.register("deep_zinc_ore_placed",
-                Raw.DEEP_ZINC_ORE, commonOrePlacement(4,
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(-64))));
-
-        public static final Holder<PlacedFeature> NETHER_ZINC_ORE_PLACED = PlacementUtils.register("nether_zinc_ore_placed",
-                Raw.NETHER_ZINC_ORE, commonOrePlacement(8,
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(80))));
-
-        public static final Holder<PlacedFeature> STEEL_ORE_PLACED = PlacementUtils.register("steel_ore_placed",
-                Raw.STEEL_ORE, commonOrePlacement(8,
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(40))));
-
-        public static final Holder<PlacedFeature> CRYSTALINE_ORE_PLACED = PlacementUtils.register("crystaline_ore_placed",
-                Raw.crystaline_ORE, commonOrePlacement(7,
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(30))));
-
-        public static final Holder<PlacedFeature> CRYSTAL_ORE_PLACED = PlacementUtils.register("crystal_ore_placed",
-                Raw.CRYSTAL_ORE, commonOrePlacement(7,
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(30))));
-
-        public static final Holder<PlacedFeature> CRYOLITE_ORE_PLACED = PlacementUtils.register("cryolite_ore_placed",
-                Raw.CRYOLITE_ORE, commonOrePlacement(8,
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(80))));
-
-        public static final Holder<PlacedFeature> HALFINUM_ORE_PLACED = PlacementUtils.register("halfinum_ore_placed",
-                Raw.HALFINUM_ORE, commonOrePlacement(1,
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(5))));
-
-        public static final Holder<PlacedFeature> XP_ORE_PLACED = PlacementUtils.register("xp_ore_placed",
-                Raw.XP_ORE, commonOrePlacement(6,
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(64))));
-    }
-
-    public static class Checked{
-        private static final Holder<PlacedFeature> ALBIZIA_TREE_CHECKED = PlacementUtils.register("albizia_checked",
-                Raw.ALBIZIA_TREE, PlacementUtils.filteredByBlockSurvival(DMBlocks.ALBIZIA_PLANKS.get()));
-
-        private static final Holder<PlacedFeature> CLASSIC_TREE_CHECKED = PlacementUtils.register("classic_checked",
-                Raw.CLASSIC_TREE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING));
-    }
-
-    public static class Raw {
-        public static final Holder<? extends ConfiguredFeature<TreeConfiguration, ?>> ALBIZIA_TREE =
-                FeatureUtils.register("albizia_tree", Feature.TREE,
-                        new TreeConfiguration.TreeConfigurationBuilder(
-                                BlockStateProvider.simple(DMBlocks.ALBIZIA_LOG.get()),
-                                new StraightTrunkPlacer(5, 6, 3),
-                                BlockStateProvider.simple(DMBlocks.ALBIZIA_LEAVES.get()),
-                                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
-                                new TwoLayersFeatureSize(1, 0, 2)).build());
-
-        public static final Holder<? extends ConfiguredFeature<TreeConfiguration, ?>> CLASSIC_TREE =
-                FeatureUtils.register("classic_tree", Feature.TREE,
-                        new TreeConfiguration.TreeConfigurationBuilder(
-                                BlockStateProvider.simple(Blocks.OAK_LOG),
-                                new StraightTrunkPlacer(5, 6, 3),
-                                BlockStateProvider.simple(DMBlocks.ALBIZIA_LEAVES.get()),
-                                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 2),
-                                new TwoLayersFeatureSize(1, 0, 2)).build());
+    public static final ResourceKey<PlacedFeature> ALBIZIA_TREE_PLACED_KEY = createKey("albizia_tree_placed");
+    public static final ResourceKey<PlacedFeature> ALBIZIA_TREE_CHECKED_KEY = createKey("albizia_tree_check");
 
 
-        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ZINC_ORE = FeatureUtils.register("zinc_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.ZINC_ORE.get().defaultBlockState(), 9));
+    public static void bootstrap(BootstapContext<PlacedFeature> context) {
+        HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+        
+        register(context, ZINC_ORE_PLACED_KEY, configuredFeatures.getOrThrow(DMConfiguredFeature.OVERWORLD_ZINC_ORE_KEY), commonOrePlacement(7 /*Ore per chunk*/, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(32))));
+        register(context, HALFINUM_ORE_PLACED_KEY, configuredFeatures.getOrThrow(DMConfiguredFeature.OVERWORLD_HALFINUM_ORE_KEY), commonOrePlacement(3, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(16))));
+        register(context, CRYOLITE_ORE_PLACED_KEY, configuredFeatures.getOrThrow(DMConfiguredFeature.OVERWORLD_CRYOLITE_ORE_KEY), commonOrePlacement(9, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
+        register(context, CRYSTALINE_ORE_PLACED_KEY, configuredFeatures.getOrThrow(DMConfiguredFeature.OVERWORLD_CRYSTALINE_ORE_KEY), commonOrePlacement(8, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
+        register(context, STEEL_ORE_PLACED_KEY, configuredFeatures.getOrThrow(DMConfiguredFeature.OVERWORLD_STEEL_KEY), commonOrePlacement(7, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(60))));
+        register(context, CRYSTALPLACED_PLACED_KEY, configuredFeatures.getOrThrow(DMConfiguredFeature.OVERWORLD_CRYSTAL_KEY), commonOrePlacement(7, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(40))));
+        register(context, XP_ORE_PLACED_KEY, configuredFeatures.getOrThrow(DMConfiguredFeature.OVERWORLD_XP_ORE_KEY), commonOrePlacement(8 /*Ore per chunk*/, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
 
-        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> DEEP_ZINC_ORE = FeatureUtils.register("deep_zinc_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_DEEPSLATE, DMBlocks.DEEPSLATE_ZINC_ORE.get().defaultBlockState(), 12));
+        register(context, CRYSTALINE_GEODEPLACED_PLACED_KEY, configuredFeatures.getOrThrow(DMConfiguredFeature.CRYSTALINE_GEODE_KEY),
+                List.of(RarityFilter.onAverageOnceEvery(50), InSquarePlacement.spread(),
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(6), VerticalAnchor.absolute(50)),
+                        BiomeFilter.biome()));
 
-        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> NETHER_ZINC_ORE = FeatureUtils.register("nether_zinc_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_NETHERRACK, DMBlocks.NETHER_ZINC_ORE.get().defaultBlockState(), 10));
-
-        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> STEEL_ORE = FeatureUtils.register("steel_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.STEEL_ORE.get().defaultBlockState(), 10));
-
-        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> crystaline_ORE = FeatureUtils.register("crystaline_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.CRYSTALINE_ORE.get().defaultBlockState(), 10));
-
-        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> CRYSTAL_ORE = FeatureUtils.register("crystal_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.CRYSTAL_ORE.get().defaultBlockState(), 11));
-
-        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> CRYOLITE_ORE = FeatureUtils.register("cryolite_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.CRYOLITE_ORE.get().defaultBlockState(), 10));
-
-        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> HALFINUM_ORE = FeatureUtils.register("halfinum_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.HALFINUM_ORE.get().defaultBlockState(), 5));
-
-        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> XP_ORE = FeatureUtils.register("xp_ore",
-                Feature.ORE, new OreConfiguration(NATURAL_STONE, DMBlocks.XP_ORE.get().defaultBlockState(), 12));
-    }
-    
-    public static class Spawn{
-        private static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ALBIZIA_TREE_SPAWN =
-                FeatureUtils.register("albizia_spawn", Feature.RANDOM_SELECTOR,
-                        new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(Checked.ALBIZIA_TREE_CHECKED,
-                                0.5F)), Checked.ALBIZIA_TREE_CHECKED));
-
-        private static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CLASSIC_TREE_SPAWN =
-                FeatureUtils.register("classic_spawn", Feature.RANDOM_SELECTOR,
-                        new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(Checked.CLASSIC_TREE_CHECKED,
-                                0.5F)), Checked.CLASSIC_TREE_CHECKED));
+        register(context, ALBIZIA_TREE_CHECKED_KEY, configuredFeatures.getOrThrow(DMConfiguredFeature.ALBIZIA_TREE_KEY),
+                List.of(PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING)));
+        register(context, ALBIZIA_TREE_PLACED_KEY, configuredFeatures.getOrThrow(DMConfiguredFeature.ALBIZIA_TREE_KEY),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2)));
     }
 
 
@@ -164,5 +87,20 @@ public class DMFeature {
 
     public static List<PlacementModifier> rareOrePlacement(int p_195350_, PlacementModifier p_195351_) {
         return orePlacement(RarityFilter.onAverageOnceEvery(p_195350_), p_195351_);
+    }
+
+
+    private static ResourceKey<PlacedFeature> createKey(String name) {
+        return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DocMod.MOD_ID, name));
+    }
+
+    private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration,
+                                 List<PlacementModifier> modifiers) {
+        context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
+    }
+
+    private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration,
+                                 PlacementModifier... modifiers) {
+        register(context, key, configuration, List.of(modifiers));
     }
 }

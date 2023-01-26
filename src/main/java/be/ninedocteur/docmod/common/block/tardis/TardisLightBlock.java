@@ -1,7 +1,5 @@
 package be.ninedocteur.docmod.common.block.tardis;
 
-import be.ninedocteur.docmod.common.init.DMBlocks;
-import be.ninedocteur.docmod.common.tileentity.TardisTileEntity;
 import be.ninedocteur.docmod.utils.PlanetUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -32,18 +30,18 @@ public class TardisLightBlock extends Block {
         p_49915_.add(LIT);
     }
 
-    @Override
-    public void tick(BlockState p_222945_, ServerLevel p_222946_, BlockPos p_222947_, RandomSource p_222948_) {
-        TardisTileEntity tardisTileEntity = TardisTileEntity.getOrCreateTardis(p_222947_.getX() / 1000);
-        if(!p_222946_.isClientSide()) {
-            if (tardisTileEntity != null) {
-                if (PlanetUtils.getDimension("tardis")) {
-                    if (!tardisTileEntity.isOn()) {
-                        p_222946_.setBlock(p_222947_, p_222945_.cycle(LIT), 3);
-                    }
-                }
-            }
-        }
-        super.tick(p_222945_, p_222946_, p_222947_, p_222948_);
-    }
+//    @Override
+//    public void tick(BlockState p_222945_, ServerLevel p_222946_, BlockPos p_222947_, RandomSource p_222948_) {
+//        TardisTileEntity tardisTileEntity = TardisTileEntity.getOrCreateTardis(p_222947_.getX() / 1000);
+//        if(!p_222946_.isClientSide()) {
+//            if (tardisTileEntity != null) {
+//                if (PlanetUtils.getDimension("tardis")) {
+//                    if (!tardisTileEntity.isOn()) {
+//                        p_222946_.setBlock(p_222947_, p_222945_.cycle(LIT), 3);
+//                    }
+//                }
+//            }
+//        }
+//        super.tick(p_222945_, p_222946_, p_222947_, p_222948_);
+//    }
 }

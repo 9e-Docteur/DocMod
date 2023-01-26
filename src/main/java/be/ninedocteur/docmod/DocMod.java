@@ -4,6 +4,8 @@ import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.containers.DMContainers;
 import be.ninedocteur.docmod.client.gui.screens.DMReportBug;
 import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
+import be.ninedocteur.docmod.common.init.DMBlocks;
+import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.common.init.DMMenu;
 import be.ninedocteur.docmod.common.listeners.DMListeners;
 import be.ninedocteur.docmod.proxy.ClientProxy;
@@ -22,6 +24,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -52,9 +55,9 @@ public class DocMod {
     public static boolean isRunningInDev = false;
     public static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
     public static final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-    public static final String VERSION = "6.0";
+    public static final String VERSION = "6.2.1";
     public static final String BUILD = "0";
-    public static final String CODENAME = "ChristmasUpdate2022"; //LONGHORN FOR 7.X
+    public static final String CODENAME = "ChristmasUpdate2022-1.19.3"; //LONGHORN FOR 7.X
     public static final String MODNAME = "DocMod";
     public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
 
@@ -81,7 +84,210 @@ public class DocMod {
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
         MinecraftForge.EVENT_BUS.register(this);
+        DocMod.LOGGER.info("Init DocMod Creative Tabs...");
+        eventBus.addListener(this::addCreative);
         LOGGER.info("DocMod is fully Initialized.");
+    }
+
+    //TODO: MOVE THIS -> TAKE TO MUCH PLACE LOL
+    private void addCreative(CreativeModeTabEvent.BuildContents event){
+        if(event.getTab() == DMCreativeTabs.DOCMOD_MAIN){
+            event.accept(DMBlocks.KILLER_BLOCK);
+            event.accept(DMBlocks.HEAL_BLOCK);
+            event.accept(DMBlocks.ZINC_ORE);
+            event.accept(DMBlocks.DEEPSLATE_ZINC_ORE);
+            event.accept(DMBlocks.STEEL_ORE);
+            event.accept(DMBlocks.DEEPSLATE_STEEL_ORE);
+            event.accept(DMBlocks.ZINC_BLOCK);
+            event.accept(DMBlocks.STEEL_BLOCK);
+            event.accept(DMBlocks.CRYSTALINE_BLOCK);
+            event.accept(DMBlocks.CRYSTALINE_ORE);
+            event.accept(DMBlocks.CRYSTAL_ORE);
+            event.accept(DMBlocks.DEEPSLATE_CRYSTAL_ORE);
+            event.accept(DMBlocks.XP_ORE);
+            event.accept(DMBlocks.CIRCLE_GLASS);
+            event.accept(DMBlocks.DEATH_LOG);
+            event.accept(DMBlocks.CLASSIC_GRASS);
+            //event.accept(DMBlocks.DEATH_SIGN);
+            event.accept(DMBlocks.DEATH_LEAVES);
+            event.accept(DMBlocks.DEATH_GRASS_BLOCK);
+            event.accept(DMBlocks.NETHER_ZINC_ORE);
+            event.accept(DMBlocks.MOON_BLOCK);
+            event.accept(DMBlocks.MOON_STONE);
+            event.accept(DMBlocks.ALBIZIA_LOG);
+            event.accept(DMBlocks.ALBIZIA_PLANKS);
+            event.accept(DMBlocks.ALBIZIA_STAIRS);
+            event.accept(DMBlocks.ALBIZIA_SLAB);
+            event.accept(DMBlocks.ALBIZIA_DOOR);
+            //event.accept(DMBlocks.ALBIZIA_SIGN);
+            event.accept(DMBlocks.ALBIZIA_LEAVES);
+            event.accept(DMBlocks.CRYOLITE_ORE);
+            event.accept(DMBlocks.HALFINUM_ORE);
+            event.accept(DMBlocks.DEEPSLATE_HALFINUM_ORE);
+            event.accept(DMBlocks.GLASS_TUBE);
+            event.accept(DMBlocks.ZURBTELEPORTER);
+            event.accept(DMBlocks.RED_GLASS_TUBE);
+            event.accept(DMBlocks.GREEN_GLASS_TUBE);
+            event.accept(DMBlocks.ORANGE_GLASS_TUBE);
+            event.accept(DMBlocks.ELECTRONIC_VINE);
+            event.accept(DMBlocks.HOUSE_WALL);
+            event.accept(DMBlocks.HOUSE_WALL_B);
+            event.accept(DMBlocks.FACTORY_BLOCK);
+            event.accept(DMBlocks.COUPE);
+            event.accept(DMBlocks.MARKS_CONCRETE);
+            event.accept(DMBlocks.STONE_ROCK);
+            event.accept(DMBlocks.BLUE_BRICKS);
+            event.accept(DMBlocks.GREEN_BRICKS);
+            event.accept(DMBlocks.YELLOW_BRICKS);
+            event.accept(DMBlocks.LIGHT_BLUE_BRICKS);
+            event.accept(DMBlocks.GREEN_SCREEN);
+            event.accept(DMBlocks.CREEPER_WALLPAPER);
+            event.accept(DMBlocks.CHECKERBOARD_WALLPAPER);
+            event.accept(DMBlocks.YELLOW_ORANGE_WALLPAPER);
+            event.accept(DMBlocks.SMOKE_BLOCK);
+            event.accept(DMBlocks.Toyota);
+            event.accept(DMBlocks.RedToyota);
+            event.accept(DMBlocks.NINEDOCTEUR);
+            event.accept(DMBlocks.PANDAREBEL);
+            event.accept(DMBlocks.JOSIA);
+            event.accept(DMBlocks.LIGHT_BLOCK);
+        }
+        if(event.getTab() == DMCreativeTabs.MATERIALS){
+            event.accept(DMItems.AMETHYST);
+            event.accept(DMItems.ZINC_INGOT);
+            event.accept(DMItems.CRYSTALINE);
+            event.accept(DMItems.CRYSTAL);
+            event.accept(DMItems.ZINC_NUGGET);
+            event.accept(DMItems.HALFINUM_NUGGET);
+            event.accept(DMItems.CRYOLITE);
+            event.accept(DMItems.LIGHT_BLUE_BRICKS_INGOT);
+            event.accept(DMItems.GREEN_BRICKS_INGOT);
+            event.accept(DMItems.YELLOW_BRICKS_INGOT);
+            event.accept(DMItems.BLUE_BRICKS_INGOT);
+            event.accept(DMItems.HALFINUM_INGOT);
+            event.accept(DMItems.WHITE_POINTED_STAR);
+            event.accept(DMItems.FUEL);
+            event.accept(DMItems.WHITE_POINTED_STAR);
+            event.accept(DMItems.STEEL_INGOT);
+            //event.accept(DMItems.DEATH_SIGN);
+            event.accept(DMItems.RAW_STEEL_INGOT);
+            event.accept(DMItems.EMPTY_FLASK);
+            event.accept(DMItems.COPPER_FLASK);
+            event.accept(DMItems.ZINC_FLASK);
+            event.accept(DMItems.HALFINUM_FLASK);
+            //event.accept(DMItems.ALBIZIA_SIGN);
+        }
+        if(event.getTab() == DMCreativeTabs.TOOLS){
+            event.accept(DMItems.ZINC_HELMET);
+            event.accept(DMItems.ZINC_CHESTPLATE);
+            event.accept(DMItems.ZINC_LEGGINGS);
+            event.accept(DMItems.ZINC_BOOTS);
+            event.accept(DMItems.COPPER_HELMET);
+            event.accept(DMItems.COPPER_CHESTPLATE);
+            event.accept(DMItems.COPPER_LEGGINGS);
+            event.accept(DMItems.COPPER_BOOTS);
+            event.accept(DMItems.HALFINUM_HELMET);
+            event.accept(DMItems.HALFINUM_CHESTPLATE);
+            event.accept(DMItems.HALFINUM_LEGGINGS);
+            event.accept(DMItems.HALFINUM_BOOTS);
+            event.accept(DMItems.COPPER_SWORD);
+            event.accept(DMItems.COPPER_PICKAXE);
+            event.accept(DMItems.COPPER_AXE);
+            event.accept(DMItems.ZINC_SWORD);
+            event.accept(DMItems.ZINC_PICKAXE);
+            event.accept(DMItems.ZINC_AXE);
+            event.accept(DMItems.STAFF);
+            event.accept(DMItems.ALBIZIA_STICK);
+            event.accept(DMItems.HALFINUM_AXE);
+            event.accept(DMItems.HALFINUM_PICKAXE);
+            event.accept(DMItems.HALFINUM_SHOVEL);
+            event.accept(DMItems.HALFINUM_SWORD);
+            //event.accept(DMItems.DEATH_SIGN);
+            event.accept(DMItems.ORE_FINDER);
+            event.accept(DMItems.ELECTRONIC_CICUIT);
+            event.accept(DMItems.ELECTRONIC_CICUIT);
+            event.accept(DMItems.SONIC_SCREWDRIVER);
+            event.accept(DMItems.TEN_SONIC_SCREWDRIVER);
+            event.accept(DMItems.THEER_SONIC_SCREWDRIVER);
+            event.accept(DMItems.ROBAINKS_SONIC_SCREWDRIVER);
+            event.accept(DMItems.GARATIM_SONIC_SCREWDRIVER);
+            event.accept(DMItems.CYBER_GUN);
+            event.accept(DMItems.DALEK_GUN);
+            event.accept(DMItems.RPG_GUN);
+            event.accept(DMItems.MAGIC_WAND);
+        }
+        if(event.getTab() == DMCreativeTabs.FOOD){
+            event.accept(DMItems.BELGIUM_FRIES);
+            event.accept(DMItems.TEA);
+            event.accept(DMItems.COFFEE);
+            event.accept(DMItems.JUPILER);
+            event.accept(DMItems.ICE_CREAM);
+            event.accept(DMItems.HAMBURGER);
+            event.accept(DMItems.DOCTEAM_COLA);
+        }
+        if(event.getTab() == DMCreativeTabs.ENTITIES){
+            event.accept(DMItems.STEVE_EGG);
+            event.accept(DMItems.CYBERMAN_EGG);
+            event.accept(DMItems.CYBERBOSS_EGG);
+            event.accept(DMItems.CYBERHUMAN_EGG);
+            event.accept(DMItems.CYBERHUMAN_2_EGG);
+            event.accept(DMItems.CYBERHUMAN_3_EGG);
+            event.accept(DMItems.DALEK_EGG);
+            event.accept(DMItems.SWDALEK_EGG);
+        }
+        if(event.getTab() == DMCreativeTabs.ROUNDELS){
+            event.accept(DMBlocks.ROUNDEL_DARK);
+            event.accept(DMBlocks.ROUNDEL_DARK_2);
+            event.accept(DMBlocks.ROUNDEL_YELLOW);
+            event.accept(DMBlocks.ROUNDEL_YELLOW_2);
+            event.accept(DMBlocks.ROUNDEL_BLUE);
+            event.accept(DMBlocks.ROUNDEL_BLUE_2);
+            event.accept(DMBlocks.ROUNDEL_RED);
+            event.accept(DMBlocks.ROUNDEL_RED_2);
+            event.accept(DMBlocks.ROUNDEL_GREEN);
+            event.accept(DMBlocks.ROUNDEL_GREEN_2);
+            event.accept(DMBlocks.ROUNDEL_COPPER);
+            event.accept(DMBlocks.ROUNDEL_CORAL);
+            event.accept(DMBlocks.ROUNDEL_RED_CUSTOM);
+            event.accept(DMBlocks.ROUNDEL_BLUE_CUSTOM);
+            event.accept(DMBlocks.ROUNDEL_LIME_CUSTOM);
+            event.accept(DMBlocks.ROUNDEL_GREEN_CUSTOM);
+            event.accept(DMBlocks.ROUNDEL_CYAN_CUSTOM);
+            event.accept(DMBlocks.ROUNDEL_LIGHT_BLUE_CUSTOM);
+            event.accept(DMBlocks.ROUNDEL_MAGENTA_CUSTOM);
+            event.accept(DMBlocks.ROUNDEL_ORANGE_CUSTOM);
+            event.accept(DMBlocks.ROUNDEL_PURPLE_CUSTOM);
+            event.accept(DMBlocks.ROUNDEL_YELLOW_CUSTOM);
+            event.accept(DMBlocks.ROUNDEL_LAVA);
+            event.accept(DMBlocks.ROUNDEL_LAVA_2);
+            event.accept(DMItems.ROUND_THING_FRAME);
+            event.accept(DMItems.RED_ROUND_THING_FRAME);
+            event.accept(DMItems.BLUE_ROUND_THING_FRAME);
+            event.accept(DMItems.GREEN_ROUND_THING_FRAME);
+            event.accept(DMItems.YELLOW_ROUND_THING_FRAME);
+            event.accept(DMItems.DARK_ROUND_THING_FRAME);
+        }
+        if(event.getTab() == DMCreativeTabs.CHRISTMAS){
+            event.accept(DMBlocks.CHRISTMAS_TREE);
+            event.accept(DMBlocks.SNOW_BALL);
+            event.accept(DMBlocks.CHIMNEY);
+            event.accept(DMBlocks.RED_CHRISTMAS_BALL);
+            event.accept(DMBlocks.BLUE_CHRISTMAS_BALL);
+            event.accept(DMBlocks.GREEN_CHRISTMAS_BALL);
+            event.accept(DMBlocks.GOLD_CHRISTMAS_BALL);
+            event.accept(DMBlocks.RED_CANDYCANE);
+            event.accept(DMBlocks.YELLOW_CANDYCANE);
+            event.accept(DMBlocks.GREEN_CANDYCANE);
+            event.accept(DMBlocks.ORANGE_CANDYCANE);
+            event.accept(DMBlocks.PURPLE_CANDYCANE);
+            event.accept(DMBlocks.ROSE_CANDYCANE);
+            event.accept(DMBlocks.BLUE_CANDYCANE);
+            event.accept(DMItems.GINGERBREAD);
+            event.accept(DMItems.EXPLOSIVE_BALL);
+        }
+        if(event.getTab() == DMCreativeTabs.ANNIVERSARY){
+            event.accept(DMBlocks.CAKE);
+        }
     }
 
     private void commonSetup(FMLCommonSetupEvent event){

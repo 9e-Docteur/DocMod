@@ -70,13 +70,13 @@ public class DocModConfigScreen extends Screen {
     @Override
     protected void init() {
         this.minecraft.getWindow().setTitle("DocMod " + DMUtils.VERSION + " " + DMUtils.CODENAME + " - Configuration");
-        Button cancelButton = new Button(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20,  Component.translatable("gui.docmod.cancel"), (button -> {
+        Button cancelButton = Button.builder(Component.translatable("gui.docmod.cancel"), (button -> {
             onClose();
-        }));
-        Button applyButton = new Button(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20,  Component.translatable("gui.docmod.apply"), (button -> {
+        })).bounds(this.width / 2 -200, this.height / 4 + 48 + 80, 100, 20).build();
+        Button applyButton = Button.builder(Component.translatable("gui.docmod.apply"), (button -> {
             apply();
             this.minecraft.getWindow().setTitle("DocMod " + DMUtils.VERSION + " " + DMUtils.CODENAME);
-        }));
+        })).bounds(this.width / 2 +100, this.height / 4 + 48 + 80, 100, 20).build();
         addRenderableWidget(cancelButton);
         addRenderableWidget(applyButton);
 

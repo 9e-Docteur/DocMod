@@ -53,8 +53,8 @@ public class PointerItem extends AdminItem {
         if (!nbt.contains("ContainedBlock", Tag.TAG_COMPOUND))
             return InteractionResultHolder.fail(stack);
 
-        final BlockState toPlace = NbtUtils.readBlockState(nbt.getCompound("ContainedBlock"));
-        level.setBlockAndUpdate(result.getBlockPos(), toPlace);
+        //final BlockState toPlace = NbtUtils.readBlockState(nbt.getCompound("ContainedBlock"));
+        //level.setBlockAndUpdate(result.getBlockPos(), toPlace);
         nbt.remove("ContainedBlock");
         return InteractionResultHolder.success(stack);
     }
@@ -81,7 +81,7 @@ public class PointerItem extends AdminItem {
                 return InteractionResult.SUCCESS;
             }
         } else if (state.canBeReplaced(new BlockPlaceContext(context))) {
-            level.setBlockAndUpdate(pos, NbtUtils.readBlockState(nbt.getCompound("ContainedBlock")));
+            //level.setBlockAndUpdate(pos, NbtUtils.readBlockState(nbt.getCompound("ContainedBlock")));
             nbt.remove("ContainedBlock");
             return InteractionResult.SUCCESS;
         }

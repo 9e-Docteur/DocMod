@@ -132,15 +132,15 @@ public class DocModStaffScreen extends Screen {
     @Override
     protected void init() {
         this.minecraft.getWindow().setTitle("DocMod " + DMUtils.VERSION + " " + DMUtils.CODENAME + " - Player Info");
-        Button playerScreen = new Button(this.width / 2 - 210, this.height / 4 + 58 - 90, 140, 20, Component.translatable("Player"), (button -> {
+        Button playerScreen = Button.builder(Component.translatable("Player"), (button -> {
             this.minecraft.setScreen(new DocModPlayerScreen (this));
-        }));
-        Button docteamAPIStatus = new Button(this.width / 2 -70, this.height / 4 + 58 -90, 140, 20, Component.translatable("DocTeam APIs"), (button -> {
-            this.minecraft.setScreen(new DocModAPIStatus (this));
-        }));
-        Button staff = new Button(this.width / 2 +70, this.height / 4 + 58 -90, 140, 20, Component.translatable("Staff"), (button -> {
+        })).bounds(this.width / 2 - 210, this.height / 4 + 58 - 90, 140, 20).build();
+        Button docteamAPIStatus = Button.builder(Component.translatable("DocTeam APIs"), (button -> {
 
-        }));
+        })).bounds(this.width / 2 -70, this.height / 4 + 58 -90, 140, 20).build();
+        Button staff = Button.builder(Component.translatable("Staff"), (button -> {
+
+        })).bounds(this.width / 2 +70, this.height / 4 + 58 -90, 140, 20).build();
         addRenderableWidget(playerScreen);
         addRenderableWidget(docteamAPIStatus);
         addRenderableWidget(staff);

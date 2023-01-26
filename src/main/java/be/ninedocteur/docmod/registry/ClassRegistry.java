@@ -7,7 +7,6 @@ import be.ninedocteur.docmod.common.init.*;
 import be.ninedocteur.docmod.common.sound.DMSound;
 import be.ninedocteur.docmod.common.entity.DMEntityType;
 import be.ninedocteur.docmod.common.world.features.DMConfiguredFeature;
-import be.ninedocteur.docmod.common.world.features.DMPlacedFeature;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 public class ClassRegistry {
@@ -27,9 +26,6 @@ public class ClassRegistry {
         DMBiomes.BIOMES.register(eventBus);
         DocMod.LOGGER.info("Init DocMod Sounds...");
         DMSound.registerSounds();
-        DocMod.LOGGER.info("Init DocMod Gen...");
-        DMConfiguredFeature.register(eventBus);
-        DMPlacedFeature.register(eventBus);
         DocMod.LOGGER.info("Init DocMod Particles...");
         DMParticles.register(eventBus);
         DocMod.LOGGER.info("Init DocMod Enchantements...");

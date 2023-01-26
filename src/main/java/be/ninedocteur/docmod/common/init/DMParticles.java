@@ -7,10 +7,11 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class DMParticles {
-    public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(Registry.PARTICLE_TYPE_REGISTRY, DocMod.MOD_ID);
+    public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, DocMod.MOD_ID);
 
     public static final RegistryObject<SimpleParticleType> MAGIC_PARTICLES = PARTICLE_TYPES.register("magic_particles", () -> new SimpleParticleType(true));
     public static final RegistryObject<SimpleParticleType> CLASSIC_DALEK_PARTICLES = PARTICLE_TYPES.register("classic_dalek", () -> new SimpleParticleType(true));

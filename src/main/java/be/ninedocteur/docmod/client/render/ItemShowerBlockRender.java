@@ -9,9 +9,7 @@ import be.ninedocteur.docmod.common.tileentity.ToyotaRotorTileEntity;
 import be.ninedocteur.docmod.registry.ModelRegistry;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Matrix4f;
-import com.mojang.math.Vector3d;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.player.LocalPlayer;
@@ -37,6 +35,8 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ScreenEvent;
+import org.joml.Matrix4f;
+import org.joml.Vector3d;
 
 @OnlyIn(Dist.CLIENT)
 public class ItemShowerBlockRender implements BlockEntityRenderer<ItemShowerTile> {
@@ -59,14 +59,14 @@ public class ItemShowerBlockRender implements BlockEntityRenderer<ItemShowerTile
         final ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
         pPoseStack.pushPose();
         pPoseStack.translate(0.5D, 1.5D, 0.5D);
-        pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(180));
+        pPoseStack.mulPose(Axis.ZP.rotationDegrees(180));
         model.renderToBuffer(pPoseStack, pBufferSource.getBuffer(RenderType.entityTranslucent(new ResourceLocation(DocMod.MOD_ID, "textures/block/item_shower.png"))), pPackedLight, pPackedOverlay, 1,1,1,1);
         pPoseStack.popPose();
         pPoseStack.pushPose();
         pPoseStack.translate(0.5D, 0.5D, 0.5D);
         pPoseStack.scale(0.5f, 0.5f, 0.5f);
         itemRenderer.renderStatic(setIn, ItemTransforms.TransformType.FIXED, getLightLevel(Minecraft.getInstance().level, pBlockEntity.getBlockPos()), OverlayTexture.NO_OVERLAY, pPoseStack, pBufferSource, 1);
-        pPoseStack.mulPose(Vector3f.XP.rotationDegrees(itemRotation));
+        pPoseStack.mulPose(Axis.XP.rotationDegrees(itemRotation));
         pPoseStack.popPose();
         Component label = setIn.getHoverName();
         if(label != Component.literal("Air")){
@@ -87,8 +87,8 @@ public class ItemShowerBlockRender implements BlockEntityRenderer<ItemShowerTile
         Matrix4f matrix = stack.last().pose();
         stack.translate(corner.x, corner.y + .4f, corner.z);
         stack.scale(scale, scale, scale);
-        stack.mulPose(Vector3f.YP.rotationDegrees(-Minecraft.getInstance().player.getYRot()));
-        stack.mulPose(Vector3f.ZP.rotationDegrees(180f));
+        stack.mulPose(Axis.YP.rotationDegrees(-Minecraft.getInstance().player.getYRot()));
+        stack.mulPose(Axis.ZP.rotationDegrees(180f));
         font.drawInBatch(text, offset, 0, color, false, matrix, buffer, false, opacity, lightLevel);
         stack.popPose();
     }

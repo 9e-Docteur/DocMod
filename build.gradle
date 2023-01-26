@@ -20,7 +20,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.19.2'
+    mappings channel: 'official', version: '1.19.3'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -97,14 +97,14 @@ configurations {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:1.19.2-43.1.43"
+    minecraft "net.minecraftforge:forge:1.19.3-44.1.5"
 
-    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
-    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
-    runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
+    //compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
+    //compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
+    //runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
 
-    compileOnly("com.kohlschutter.junixsocket:junixsocket-core:${junixsocket_version}")
-    library("com.kohlschutter.junixsocket:junixsocket-core:${junixsocket_version}")
+    //compileOnly("com.kohlschutter.junixsocket:junixsocket-core:${junixsocket_version}")
+    //library("com.kohlschutter.junixsocket:junixsocket-core:${junixsocket_version}")
 }
 
 

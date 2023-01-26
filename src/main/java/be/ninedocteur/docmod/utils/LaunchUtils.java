@@ -49,16 +49,16 @@ public class LaunchUtils {
         return false;
     }
 
-    public static void initWindowIcon(ResourceLocation icon16, ResourceLocation icon32) {
-        try {
-            if(Minecraft.ON_OSX) {
-                return;
-            }
-            InputStream icon1 = Minecraft.getInstance().getResourceManager().getResourceOrThrow(icon16).open();
-            InputStream icon2 = Minecraft.getInstance().getResourceManager().getResourceOrThrow(icon32).open();
-            Minecraft.getInstance().getWindow().setIcon(icon1, icon2);
-        }catch(IOException e) {
-            return;
-        }
-    }
+//    public static void initWindowIcon(ResourceLocation icon16, ResourceLocation icon32) {
+//        try {
+//            if(Minecraft.ON_OSX) {
+//                return;
+//            }
+//            InputStream icon1 = Minecraft.getInstance().getResourceManager().getResourceOrThrow(icon16).open();
+//            InputStream icon2 = Minecraft.getInstance().getResourceManager().getResourceOrThrow(icon32).open();
+//            Minecraft.getInstance().getWindow().setIcon(icon1, icon2);
+//        }catch(IOException e) {
+//            return;
+//        }
+//    }
 }

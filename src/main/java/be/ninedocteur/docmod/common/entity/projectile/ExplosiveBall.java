@@ -66,7 +66,7 @@ public class ExplosiveBall extends ThrowableItemProjectile {
         super.onHit(p_37406_);
         if (!this.level.isClientSide) {
             if(DMConfig.Server.GunExplosion.get()) {
-                level.explode(this, this.getX(), this.getY(), this.getZ(), DMConfig.Server.GunExplosionSize.get(), true, Explosion.BlockInteraction.DESTROY);
+                level.explode(this, this.getX(), this.getY(), this.getZ(), DMConfig.Server.GunExplosionSize.get(), true, Level.ExplosionInteraction.BLOCK);
             }
             this.level.broadcastEntityEvent(this, (byte)3);
             this.discard();
@@ -79,7 +79,7 @@ public class ExplosiveBall extends ThrowableItemProjectile {
         super.onHitBlock(p_37258_);
         if(DMConfig.Server.GunExplosion.get()) {
             if (!level.isClientSide) {
-                level.explode(this, this.getX(), this.getY(), this.getZ(), DMConfig.Server.GunExplosionSize.get(), true, Explosion.BlockInteraction.DESTROY);
+                level.explode(this, this.getX(), this.getY(), this.getZ(), DMConfig.Server.GunExplosionSize.get(), true, Level.ExplosionInteraction.BLOCK);
                 this.discard();
             }
         }

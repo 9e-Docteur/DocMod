@@ -50,12 +50,12 @@ public class DMCommunityServerScreen extends Screen {
         font2 = this.font;
         PoseStack poseStack = new PoseStack();
         drawCenteredString(poseStack, font,  Component.literal("DocMod - Communauty Servers"), width/2, 10, 0xffffff);
-        Button cancel = new Button( 225, 210, 180, 20, Component.translatable("gui.docmod.cancel" ), (p_96781_) -> {
+        Button cancel = Button.builder( Component.translatable("gui.docmod.cancel" ), (p_96781_) -> {
             this.getMinecraft().setScreen(new TitleScreen(this.passEvents));
-        });
-        Button joinServer = new Button( 25, 210, 180, 20, Component.translatable("gui.docmod.join" ), (p_96781_) -> {
+        }).bounds(225, 210, 180, 20).build();
+        Button joinServer = Button.builder(Component.translatable("gui.docmod.join"), (p_96781_) -> {
             ConnectScreen.startConnecting(this, this.getMinecraft(), new ServerAddress(Servers.HOST, Servers.PORT), new ServerData("DocMod Server", Servers.HOST, false));
-        });
+        }).bounds(25, 210, 180, 20).build();
         this.addRenderableWidget(cancel);
         this.addRenderableWidget(joinServer);
         joinServer.active = false;
@@ -77,18 +77,18 @@ public class DMCommunityServerScreen extends Screen {
         	int x = width / 2 - width / 4;
         	int y = i * 16 + 32;
         	
-        	ImageButton server = new ImageButton(x - 8, y - 8, 64, 21, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/servers.png"),
-            		new Button.OnPress() {
-						@Override
-						public void onPress(Button p_93751_) {
-							DMConnectScreen.startConnecting(
-			                		tmp,
-			                		new ServerAddress(ip, port),
-			                		new ServerData(name, ip, false)
-			               );
-						}
-					});
-            addRenderableWidget(server);
+//        	ImageButton server = new ImageButton(x - 8, y - 8, 64, 21, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/servers.png"),
+//            		new Button.OnPress() {
+//						@Override
+//						public void onPress(Button p_93751_) {
+//							ConnectScreen.startConnecting(
+//			                		tmp,
+//			                		new ServerAddress(ip, port),
+//			                		new ServerData(name, ip, false)
+//			               );
+//						}
+//					});
+//            addRenderableWidget(server);
         }
     }
 

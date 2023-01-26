@@ -16,22 +16,22 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class DMLootTableProvider extends LootTableProvider {
+public class DMLootTableProvider { //extends LootTableProvider {
 
-    private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> lootTables =
-            ImmutableList.of(Pair.of(DMBlocksLootTables::new, LootContextParamSets.BLOCK));
-
-    public DMLootTableProvider(DataGenerator pGenerator) {
-        super(pGenerator);
-    }
-
-    @Override
-    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
-        return lootTables;
-    }
-
-    @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker) {
-
-    }
+//    private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> lootTables =
+//            ImmutableList.of(Pair.of(DMBlocksLootTables::new, LootContextParamSets.BLOCK));
+//
+//    public DMLootTableProvider(DataGenerator pGenerator) {
+//        super(pGenerator);
+//    }
+//
+//    @Override
+//    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
+//        return lootTables;
+//    }
+//
+//    @Override
+//    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker) {
+//
+//    }
 }

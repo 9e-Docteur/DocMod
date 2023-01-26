@@ -36,10 +36,10 @@ public class SittableEntity extends Entity {
         return super.equals(object) && this.seat.equals(((SittableEntity) object).seat);
     }
 
-    @Override
-    public Packet<?> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
-    }
+//    @Override
+//    public Packet<?> getAddEntityPacket() {
+//        return NetworkHooks.getEntitySpawningPacket(this);
+//    }
 
     @Override
     public double getPassengersRidingOffset() {

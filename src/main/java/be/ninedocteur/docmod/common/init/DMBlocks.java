@@ -9,6 +9,8 @@ import be.ninedocteur.docmod.common.block.cupdate.twentytwo.TwentyTwoChristmasBl
 import be.ninedocteur.docmod.common.block.energy.EnergyPipeBlock;
 import be.ninedocteur.docmod.common.block.energy.SolarPanelBlock;
 import be.ninedocteur.docmod.common.block.tardis.TardisLightBlock;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -33,16 +35,16 @@ public class DMBlocks {
 
     public static final RegistryObject<Block> KILLER_BLOCK = registerBlock("killer_block", () -> new TestBlockEvent(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(5)));
     public static final RegistryObject<Block> HEAL_BLOCK = registerBlock("heal_block", () -> new HealBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(3)));
-    public static final RegistryObject<Block> ZINC_ORE = DMOreBlock("zinc_ore", Material.STONE, MaterialColor.COLOR_BLUE, 4, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
-    public static final RegistryObject<Block> DEEPSLATE_ZINC_ORE = DMOreBlock("deepslate_zinc_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
-    public static final RegistryObject<Block> STEEL_ORE = DMOreBlock("steel_ore", Material.STONE, MaterialColor.COLOR_BLACK, 4, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
-    public static final RegistryObject<Block> DEEPSLATE_STEEL_ORE = DMOreBlock("deepslate_steel_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
+    public static final RegistryObject<Block> ZINC_ORE = DMOreBlock("zinc_ore", Material.STONE, MaterialColor.COLOR_BLUE, 4, 10, 4, SoundType.STONE);
+    public static final RegistryObject<Block> DEEPSLATE_ZINC_ORE = DMOreBlock("deepslate_zinc_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE);
+    public static final RegistryObject<Block> STEEL_ORE = DMOreBlock("steel_ore", Material.STONE, MaterialColor.COLOR_BLACK, 4, 10, 4, SoundType.STONE);
+    public static final RegistryObject<Block> DEEPSLATE_STEEL_ORE = DMOreBlock("deepslate_steel_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE);
     public static final RegistryObject<Block> ZINC_BLOCK = registerBlock("zinc_block", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> STEEL_BLOCK = registerBlock("steel_block", () -> new Block(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3)));
     public static final RegistryObject<Block> CRYSTALINE_BLOCK = registerBlock("crystaline_block", () -> new Block(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5).sound(SoundType.AMETHYST)));
-    public static final RegistryObject<Block> CRYSTALINE_ORE = DMOreBlock("crystaline_ore", Material.STONE, MaterialColor.COLOR_RED, 4, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
-    public static final RegistryObject<Block> CRYSTAL_ORE = DMOreBlock("crystal_ore", Material.STONE, MaterialColor.COLOR_BLUE, 4, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
-    public static final RegistryObject<Block> DEEPSLATE_CRYSTAL_ORE = DMOreBlock("deepslate_crystal_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
+    public static final RegistryObject<Block> CRYSTALINE_ORE = DMOreBlock("crystaline_ore", Material.STONE, MaterialColor.COLOR_RED, 4, 10, 4, SoundType.STONE);
+    public static final RegistryObject<Block> CRYSTAL_ORE = DMOreBlock("crystal_ore", Material.STONE, MaterialColor.COLOR_BLUE, 4, 10, 4, SoundType.STONE);
+    public static final RegistryObject<Block> DEEPSLATE_CRYSTAL_ORE = DMOreBlock("deepslate_crystal_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE);
     public static final RegistryObject<Block> XP_ORE = registerBlock("xp_ore", () -> new XpOreBlock(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5f).noOcclusion()));
 
     public static final RegistryObject<Block> CIRCLE_GLASS = registerBlock("circle_glass", () -> new CircleGlass(Block.Properties.of(Material.GLASS).noOcclusion().requiresCorrectToolForDrops().strength(5)));
@@ -63,11 +65,11 @@ public class DMBlocks {
 
     */
     public static final RegistryObject<Block> CLASSIC_GRASS = registerBlock("classic_grass", () -> new Block(Block.Properties.of(Material.GRASS).requiresCorrectToolForDrops().strength(1).sound(SoundType.GRASS)));
-    public static final RegistryObject<Block> DEATH_SIGN = registerBlockOnly("death_sign", () -> new DeathStandingSign(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), DMWoodTypes.DEATH));
-    public static final RegistryObject<Block> DEATH_WALL_SIGN = registerBlockOnly("death_wall_sign", () -> new DeathWallSign(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), DMWoodTypes.DEATH));
+    //public static final RegistryObject<Block> DEATH_SIGN = registerBlock("death_sign", () -> new DeathStandingSign(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), DMWoodTypes.DEATH));
+    //public static final RegistryObject<Block> DEATH_WALL_SIGN = registerBlock("death_wall_sign", () -> new DeathWallSign(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), DMWoodTypes.DEATH));
     public static final RegistryObject<Block> DEATH_LEAVES = registerBlock("death_leaves", () -> new LeavesBlock(Block.Properties.of(Material.LEAVES).noOcclusion().requiresCorrectToolForDrops().strength(0.2f).sound(SoundType.FUNGUS)));
     public static final RegistryObject<Block> DEATH_GRASS_BLOCK = registerBlock("death_grass_block", () -> new Block(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3)));
-    public static final RegistryObject<Block> NETHER_ZINC_ORE = DMOreBlock("nether_zinc_ore", Material.STONE, MaterialColor.COLOR_RED, 2, 2, 2, SoundType.NETHER_ORE, DMCreativeTabs.BETA);
+    public static final RegistryObject<Block> NETHER_ZINC_ORE = DMOreBlock("nether_zinc_ore", Material.STONE, MaterialColor.COLOR_RED, 2, 2, 2, SoundType.NETHER_ORE);
     public static final RegistryObject<Block> MOON_BLOCK = registerBlock("moon_block", () -> new Block(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(1)));
     public static final RegistryObject<Block> MOON_STONE = registerBlock("moon_stone", () -> new Block(Block.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(1)));
     public static final RegistryObject<Block> ALBIZIA_LOG = registerBlock("albizia_log", () -> new RotatedPillarBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
@@ -76,7 +78,7 @@ public class DMBlocks {
     public static final RegistryObject<Block> ALBIZIA_SLAB = registerBlock("albizia_slab", () -> new SlabBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
     //public static final RegistryObject<Block> ALBIZIA_FENCE = registerBlock("albizia_fence", () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
     //public static final RegistryObject<Block> ALBIZIA_FENCE_GATE = registerBlock("albizia_fence_gate", () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
-    public static final RegistryObject<Block> ALBIZIA_DOOR = registerBlock("albizia_door", () -> new DoorBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
+    public static final RegistryObject<Block> ALBIZIA_DOOR = registerBlock("albizia_door", () -> new DoorBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
     //public static final RegistryObject<Block> ALBIZIA_TRAPDOOR = registerBlock("albizia_trapdoor", () -> new TrapDoorBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
    // public static final RegistryObject<Block> ALBIZIA_BUTTON = registerBlock("albizia_button", () -> new ButtonBlock(true, Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)) {
      //  @Override
@@ -85,13 +87,13 @@ public class DMBlocks {
        // }
    // });
    // public static final RegistryObject<Block> ALBIZIA_PRESSURE_PLATE = registerBlock("albizia_presure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
-    public static final RegistryObject<Block> ALBIZIA_SIGN = registerBlockOnly("albizia_sign", () -> new AlbiziaStandingSign(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), DMWoodTypes.ALBIZIA));
-    public static final RegistryObject<Block> ALBIZIA_WALL_SIGN = registerBlockOnly("albizia_wall_sign", () -> new AlbiziaWallSign(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), DMWoodTypes.ALBIZIA));
+    //public static final RegistryObject<Block> ALBIZIA_SIGN = registerBlock("albizia_sign", () -> new AlbiziaStandingSign(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), DMWoodTypes.ALBIZIA));
+    //public static final RegistryObject<Block> ALBIZIA_WALL_SIGN = registerBlock("albizia_wall_sign", () -> new AlbiziaWallSign(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), DMWoodTypes.ALBIZIA));
     public static final RegistryObject<Block> ALBIZIA_LEAVES = registerBlock("albizia_leaves", () -> new LeavesBlock(Block.Properties.of(Material.LEAVES).noOcclusion().requiresCorrectToolForDrops().strength(5).sound(SoundType.AZALEA_LEAVES).instabreak()));
     public static final RegistryObject<Block> CRYOLITE_ORE = registerBlock("cryolite_ore", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(3)));
     public static final RegistryObject<Block> HALFINUM_ORE = registerBlock("halfinum_ore", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(8)));
-    public static final RegistryObject<Block> DEEPSLATE_HALFINUM_ORE = DMOreBlock("deepslate_halfinum_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE, DMCreativeTabs.BETA);
-    public static final RegistryObject<Block> Tardis = registerBlockTardis("tardis", () -> new TardisBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
+    public static final RegistryObject<Block> DEEPSLATE_HALFINUM_ORE = DMOreBlock("deepslate_halfinum_ore", Material.STONE, MaterialColor.COLOR_BLACK, 6, 10, 4, SoundType.STONE);
+   // public static final RegistryObject<Block> Tardis = registerBlockTardis("tardis", () -> new TardisBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
     public static final RegistryObject<Block> GLASS_TUBE = registerBlock("glass_tube", () -> new GlassTubeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
     public static final RegistryObject<Block> ZURBTELEPORTER = registerBlock("zurb_teleporter", () -> new ZurbTeleporterBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
     public static final RegistryObject<Block> RED_GLASS_TUBE = registerBlock("red_glass_tube", () -> new RedGlassTubeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1)));
@@ -149,26 +151,26 @@ public class DMBlocks {
     })));
     public static final RegistryObject<Block> INFUSION_TABLE = registerBlock("infusion_table", () -> new InfusionBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
-    public static final RegistryObject<Block> REDSTONE_LAMP_ON = registerHidenBlock("redstone_lamp_on", () -> new DMRedstoneLampOn(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).lightLevel((p_152686_) -> {
+    public static final RegistryObject<Block> REDSTONE_LAMP_ON = registerBlock("redstone_lamp_on", () -> new DMRedstoneLampOn(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).lightLevel((p_152686_) -> {
         return 15;
     })));
     //public static final RegistryObject<LiquidBlock> GAZOLINE_BLOCK = registerBlock("gazoline_block", () -> new LiquidBlock(DMFluids.SOURCE_GAZOLINE, BlockBehaviour.Properties.copy(Blocks.WATER)));
     public static final RegistryObject<Block> CHAIR = registerBlock("chair", () -> new ChairBlock(BlockBehaviour.Properties.of(Material.STONE)));
 
-   // public static final RegistryObject<Block> PIG_FARMER = registerHidenBlock("pig_farmer", () -> new PigFarmerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> ITEM_SHOWER = registerHidenBlock("item_shower", () -> new ItemShowerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).noCollission()));
-    public static final RegistryObject<Block> EXPLOSIVE_DEVICE = registerHidenBlock("explosive_device", () -> new ExplosiveDevice(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> HANDBRAKE = registerBlockTardis("handbrake", () -> new HandBrakeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> TARDIS_DOOR = registerBlockTardis("tardis_door", () -> new TardisDoor(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> TARDIS_MONITOR = registerBlockTardis("tardis_monitor", () -> new TardisMonitorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+   // public static final RegistryObject<Block> PIG_FARMER = registerBlock("pig_farmer", () -> new PigFarmerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> ITEM_SHOWER = registerBlock("item_shower", () -> new ItemShowerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).noCollission()));
+  //  public static final RegistryObject<Block> EXPLOSIVE_DEVICE = registerBlock("explosive_device", () -> new ExplosiveDevice(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+ //   public static final RegistryObject<Block> HANDBRAKE = registerBlockTardis("handbrake", () -> new HandBrakeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+   // public static final RegistryObject<Block> TARDIS_DOOR = registerBlockTardis("tardis_door", () -> new TardisDoor(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    //public static final RegistryObject<Block> TARDIS_MONITOR = registerBlockTardis("tardis_monitor", () -> new TardisMonitorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
-    public static final RegistryObject<Block> DALEK_DAMAGED = registerHidenBlock("dalek_damaged", () -> new DalekDamagedBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> ZINC_CRAFTING_TABLE = registerBlock("zinc_crafting_table", () -> new ZincCraftingTable(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> DALEK_DAMAGED = registerBlock("dalek_damaged", () -> new DalekDamagedBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    //public static final RegistryObject<Block> ZINC_CRAFTING_TABLE = registerBlock("zinc_crafting_table", () -> new ZincCraftingTable(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     /*
     ANNIVERSARY
      */
-    public static final RegistryObject<Block> CAKE = registerAnnivairsaryBlock("cake", () -> new AnnivairsaryCakeBlock(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()));
+    public static final RegistryObject<Block> CAKE = registerBlock("cake", () -> new AnnivairsaryCakeBlock(BlockBehaviour.Properties.of(Material.STONE).noOcclusion()));
 
     /*
     COMPUTER
@@ -187,125 +189,125 @@ public class DMBlocks {
     /*
     ROUNDEL
      */
-    public static final RegistryObject<Block> ROUNDEL_DARK = registerRoundelBlock("dark_roundel",
+    public static final RegistryObject<Block> ROUNDEL_DARK = registerBlock("dark_roundel",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_DARK_2 = registerRoundelBlock("dark_roundel_2",
+    public static final RegistryObject<Block> ROUNDEL_DARK_2 = registerBlock("dark_roundel_2",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_YELLOW = registerRoundelBlock("yellow_roundel",
+    public static final RegistryObject<Block> ROUNDEL_YELLOW = registerBlock("yellow_roundel",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_YELLOW_2 = registerRoundelBlock("yellow_roundel_2",
+    public static final RegistryObject<Block> ROUNDEL_YELLOW_2 = registerBlock("yellow_roundel_2",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_BLUE = registerRoundelBlock("blue_roundel",
+    public static final RegistryObject<Block> ROUNDEL_BLUE = registerBlock("blue_roundel",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_BLUE_2 = registerRoundelBlock("blue_roundel_2",
+    public static final RegistryObject<Block> ROUNDEL_BLUE_2 = registerBlock("blue_roundel_2",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_RED = registerRoundelBlock("red_roundel",
+    public static final RegistryObject<Block> ROUNDEL_RED = registerBlock("red_roundel",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_RED_2 = registerRoundelBlock("red_roundel_2",
-            () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
-
-
-    public static final RegistryObject<Block> ROUNDEL_GREEN = registerRoundelBlock("green_roundel",
-            () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
-
-    public static final RegistryObject<Block> ROUNDEL_GREEN_2 = registerRoundelBlock("green_roundel_2",
+    public static final RegistryObject<Block> ROUNDEL_RED_2 = registerBlock("red_roundel_2",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
 
-
-    public static final RegistryObject<Block> ROUNDEL_COPPER = registerRoundelBlock("copper_roundel_2",
+    public static final RegistryObject<Block> ROUNDEL_GREEN = registerBlock("green_roundel",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_CORAL = registerRoundelBlock("coral_roundel_2",
-            () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
-
-
-    public static final RegistryObject<Block> ROUNDEL_RED_CUSTOM= registerRoundelBlock("red_roundel_custom",
+    public static final RegistryObject<Block> ROUNDEL_GREEN_2 = registerBlock("green_roundel_2",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
 
 
-    public static final RegistryObject<Block> ROUNDEL_BLUE_CUSTOM = registerRoundelBlock("blue_roundel_custom",
+    public static final RegistryObject<Block> ROUNDEL_COPPER = registerBlock("copper_roundel_2",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_LIME_CUSTOM = registerRoundelBlock("lime_roundel_custom",
+    public static final RegistryObject<Block> ROUNDEL_CORAL = registerBlock("coral_roundel_2",
+            () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
+                    .requiresCorrectToolForDrops().strength(2)));
+
+
+    public static final RegistryObject<Block> ROUNDEL_RED_CUSTOM= registerBlock("red_roundel_custom",
+            () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
+                    .requiresCorrectToolForDrops().strength(2)));
+
+
+
+    public static final RegistryObject<Block> ROUNDEL_BLUE_CUSTOM = registerBlock("blue_roundel_custom",
+            () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
+                    .requiresCorrectToolForDrops().strength(2)));
+
+    public static final RegistryObject<Block> ROUNDEL_LIME_CUSTOM = registerBlock("lime_roundel_custom",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
 
     //new custom
-    public static final RegistryObject<Block> ROUNDEL_GREEN_CUSTOM = registerRoundelBlock("green_roundel_custom",
+    public static final RegistryObject<Block> ROUNDEL_GREEN_CUSTOM = registerBlock("green_roundel_custom",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_CYAN_CUSTOM = registerRoundelBlock("cyan_roundel_custom",
+    public static final RegistryObject<Block> ROUNDEL_CYAN_CUSTOM = registerBlock("cyan_roundel_custom",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_LIGHT_BLUE_CUSTOM = registerRoundelBlock("light_blue_roundel_custom",
+    public static final RegistryObject<Block> ROUNDEL_LIGHT_BLUE_CUSTOM = registerBlock("light_blue_roundel_custom",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_MAGENTA_CUSTOM = registerRoundelBlock("magenta_roundel_custom",
+    public static final RegistryObject<Block> ROUNDEL_MAGENTA_CUSTOM = registerBlock("magenta_roundel_custom",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_ORANGE_CUSTOM = registerRoundelBlock("orange_roundel_custom",
+    public static final RegistryObject<Block> ROUNDEL_ORANGE_CUSTOM = registerBlock("orange_roundel_custom",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_PURPLE_CUSTOM = registerRoundelBlock("purple_roundel_custom",
+    public static final RegistryObject<Block> ROUNDEL_PURPLE_CUSTOM = registerBlock("purple_roundel_custom",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_YELLOW_CUSTOM = registerRoundelBlock("yellow_roundel_custom",
+    public static final RegistryObject<Block> ROUNDEL_YELLOW_CUSTOM = registerBlock("yellow_roundel_custom",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_LAVA = registerRoundelBlock("lava_roundel",
+    public static final RegistryObject<Block> ROUNDEL_LAVA = registerBlock("lava_roundel",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> ROUNDEL_LAVA_2 = registerRoundelBlock("lava_roundel_2",
+    public static final RegistryObject<Block> ROUNDEL_LAVA_2 = registerBlock("lava_roundel_2",
             () -> new Block(Block.Properties.of(Material.STONE).noOcclusion()
                     .requiresCorrectToolForDrops().strength(2)));
 
-    public static final RegistryObject<Block> TOYOTA_LOWER_ROUNDEL = registerRoundelBlock("toyota_lower_roundel",
-            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
-
-    public static final RegistryObject<Block> TOYOTA_UPPER_ROUNDEL = registerRoundelBlock("toyota_upper_roundel",
-            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
-
-    public static final RegistryObject<Block> TOYOTA_MID_LIGHT = registerRoundelBlock("toyota_lower_light",
-            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
-
-    public static final RegistryObject<Block> TOYOTA_UPPER_LIGHT = registerRoundelBlock("toyota_upper_light",
-            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
-                    .requiresCorrectToolForDrops().strength(2)));
+//    public static final RegistryObject<Block> TOYOTA_LOWER_ROUNDEL = registerBlock("toyota_lower_roundel",
+//            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+//                    .requiresCorrectToolForDrops().strength(2)));
+//
+//    public static final RegistryObject<Block> TOYOTA_UPPER_ROUNDEL = registerBlock("toyota_upper_roundel",
+//            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+//                    .requiresCorrectToolForDrops().strength(2)));
+//
+//    public static final RegistryObject<Block> TOYOTA_MID_LIGHT = registerBlock("toyota_lower_light",
+//            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+//                    .requiresCorrectToolForDrops().strength(2)));
+//
+//    public static final RegistryObject<Block> TOYOTA_UPPER_LIGHT = registerBlock("toyota_upper_light",
+//            () -> new TardisLightBlock(Block.Properties.of(Material.STONE).noOcclusion()
+//                    .requiresCorrectToolForDrops().strength(2)));
     
     
 
@@ -313,49 +315,49 @@ public class DMBlocks {
     /*
     -=-=-=-=-=-=-=-=-= DocMod CU Blocks 2021 =-=-=-=-=-=-=-=-=-
      */
-    public static final RegistryObject<Block> CHRISTMAS_TREE = registerCUBlock("christmas_tree",
+    public static final RegistryObject<Block> CHRISTMAS_TREE = registerBlock("christmas_tree",
             () -> new ChristmasTree(Block.Properties.of(Material.STONE).noOcclusion()));
 
-    public static final RegistryObject<Block> SNOW_BALL = registerCUBlock("snow_globe",
+    public static final RegistryObject<Block> SNOW_BALL = registerBlock("snow_globe",
             () -> new SnowGlobe(Block.Properties.of(Material.STONE).noOcclusion()));
 
     public static final RegistryObject<Block> CHIMNEY = registerBlock("chimney",
     () -> new ChimneyBlock(Block.Properties.of(Material.STONE).noOcclusion().strength(1).requiresCorrectToolForDrops()));
 
-    public static final RegistryObject<Block> RED_CHRISTMAS_BALL = registerCUBlock("red_christmas_ball",
+    public static final RegistryObject<Block> RED_CHRISTMAS_BALL = registerBlock("red_christmas_ball",
             () -> new RedChristmasBall(Block.Properties.of(Material.STONE).noOcclusion()));
 
-    public static final RegistryObject<Block> BLUE_CHRISTMAS_BALL = registerCUBlock("blue_christmas_ball",
+    public static final RegistryObject<Block> BLUE_CHRISTMAS_BALL = registerBlock("blue_christmas_ball",
             () -> new BlueChristmasBall(Block.Properties.of(Material.STONE).noOcclusion()));
 
-    public static final RegistryObject<Block> GREEN_CHRISTMAS_BALL = registerCUBlock("green_christmas_ball",
+    public static final RegistryObject<Block> GREEN_CHRISTMAS_BALL = registerBlock("green_christmas_ball",
             () -> new ChristmasBall(Block.Properties.of(Material.STONE).noOcclusion()));
 
-    public static final RegistryObject<Block> GOLD_CHRISTMAS_BALL = registerCUBlock("gold_christmas_ball",
+    public static final RegistryObject<Block> GOLD_CHRISTMAS_BALL = registerBlock("gold_christmas_ball",
             () -> new GoldChristmasBall(Block.Properties.of(Material.STONE).noOcclusion()));
 
     /*
     -=-=-=-=-=-=-=-=-= DocMod CU Blocks 2022 =-=-=-=-=-=-=-=-=-
      */
-    public static final RegistryObject<Block> RED_CANDYCANE = registerCUBlock("red_candycane",
+    public static final RegistryObject<Block> RED_CANDYCANE = registerBlock("red_candycane",
             () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
 
-    public static final RegistryObject<Block> YELLOW_CANDYCANE = registerCUBlock("yellow_candycane",
+    public static final RegistryObject<Block> YELLOW_CANDYCANE = registerBlock("yellow_candycane",
             () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
 
-    public static final RegistryObject<Block> GREEN_CANDYCANE = registerCUBlock("green_candycane",
+    public static final RegistryObject<Block> GREEN_CANDYCANE = registerBlock("green_candycane",
             () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
 
-    public static final RegistryObject<Block> ORANGE_CANDYCANE = registerCUBlock("orange_candycane",
+    public static final RegistryObject<Block> ORANGE_CANDYCANE = registerBlock("orange_candycane",
             () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
 
-    public static final RegistryObject<Block> PURPLE_CANDYCANE = registerCUBlock("purple_candycane",
+    public static final RegistryObject<Block> PURPLE_CANDYCANE = registerBlock("purple_candycane",
             () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
 
-    public static final RegistryObject<Block> ROSE_CANDYCANE = registerCUBlock("rose_candycane",
+    public static final RegistryObject<Block> ROSE_CANDYCANE = registerBlock("rose_candycane",
             () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
 
-    public static final RegistryObject<Block> BLUE_CANDYCANE = registerCUBlock("blue_candycane",
+    public static final RegistryObject<Block> BLUE_CANDYCANE = registerBlock("blue_candycane",
             () -> new TwentyTwoChristmasBlock(Block.Properties.of(Material.STONE)));
 
     /* 8.0 Space Update */
@@ -368,89 +370,16 @@ public class DMBlocks {
         return toReturn;
     }
 
-    private static <T extends Block> RegistryObject<T> registerBlockTardis(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerTardisBlockItem(name, toReturn);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<T> registerAnnivairsaryBlock(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerAnnivairsaryBlockItem(name, toReturn);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<T> registerHidenBlock(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerHidenBlockItem(name, toReturn);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<T> registerCUBlock(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerCUBlockItem(name, toReturn);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<T> registerRoundelBlock(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerRoundelBlockItem(name, toReturn);
-        return toReturn;
-    }
-
-
-
-
-//    private static <T extends Block> RegistryObject<T> registerComputerBlock(String name, Supplier<T> block) {
-//        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-//        registerComputerBlockItem(name, toReturn);
-//        return toReturn;
-//    }
-
-    private static <T extends Block> RegistryObject<T> registerBlockOnly(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        return toReturn;
-    }
-
-    private static <T extends Block> void registerAnnivairsaryBlockItem(String name, RegistryObject<T> block) {
-        DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(DMCreativeTabs.ANNIVERSARY)));
-    }
-
-    private static <T extends Block> void registerTardisBlockItem(String name, RegistryObject<T> block) {
-        DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(DMCreativeTabs.TARDIS)));
-    }
-
-
+    
         private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
-        DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(DMCreativeTabs.BETA)));
-    }
-
-    private static <T extends Block> void registerHidenBlockItem(String name, RegistryObject<T> block) {
         DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
                 new Item.Properties()));
     }
+    
 
-    private static <T extends Block> void registerCUBlockItem(String name, RegistryObject<T> block) {
-        DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(DMCreativeTabs.CHRISTMAS)));
-    }
-
-    private static <T extends Block> void registerRoundelBlockItem(String name, RegistryObject<T> block) {
-        DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(DMCreativeTabs.ROUNDEL)));
-    }
-
-//    private static <T extends Block> void registerComputerBlockItem(String name, RegistryObject<T> block) {
-//        DMItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-//                new Item.Properties().tab(DMCreativeTabs.COMPUTER)));
-//    }
-
-    private static RegistryObject<Block> DMOreBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float strength, SoundType sound, CreativeModeTab itemGroup){
+    private static RegistryObject<Block> DMOreBlock(@Nonnull String id, Material material, MaterialColor color, float hardness, float resistance, float strength, SoundType sound){
         RegistryObject<Block> block = BLOCKS.register(id, () -> new DropExperienceBlock(BlockBehaviour.Properties.of(material, color).strength(hardness, resistance).requiresCorrectToolForDrops().destroyTime(strength).sound(sound)));
-        DMItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(DMCreativeTabs.BETA).fireResistant()));
+        DMItems.ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()));
         return block;
     }
 

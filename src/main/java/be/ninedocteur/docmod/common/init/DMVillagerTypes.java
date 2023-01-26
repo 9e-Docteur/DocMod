@@ -21,9 +21,9 @@ public class DMVillagerTypes {
     public static final DeferredRegister<PoiType> POI_TYPE = DeferredRegister.create(ForgeRegistries.POI_TYPES, DocMod.MOD_ID);
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSION = DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, DocMod.MOD_ID);
 
-    public static final RegistryObject<PoiType> DM_POI = createPoiType("dm_poi", DMBlocks.ZINC_CRAFTING_TABLE);
+    //public static final RegistryObject<PoiType> DM_POI = createPoiType("dm_poi", DMBlocks.ZINC_CRAFTING_TABLE);
 
-    public static final RegistryObject<VillagerProfession> DM_VILLAGER = createProfession("dm_villager", DM_POI.getKey(), SoundEvents.ANVIL_LAND);
+   // public static final RegistryObject<VillagerProfession> DM_VILLAGER = createProfession("dm_villager", DM_POI.getKey(), SoundEvents.ANVIL_LAND);
 
 
     //Fonction from Dimensional Expansion from the second developer Killar.exe

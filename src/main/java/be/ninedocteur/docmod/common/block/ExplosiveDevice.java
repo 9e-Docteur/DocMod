@@ -63,7 +63,7 @@ public class ExplosiveDevice extends Block{
 
     public void onCaughtFire(BlockState state, Level world, BlockPos pos, @Nullable net.minecraft.core.Direction face, @Nullable LivingEntity igniter) {
         world.addParticle(ParticleTypes.LARGE_SMOKE, pos.getX(), pos.getY(), pos.getZ(), 0d, 1d, 0d);
-        world.explode(null, 0d, 0d, 0d, 8f, Explosion.BlockInteraction.DESTROY);
+        world.explode(null, 0d, 0d, 0d, 8f, Level.ExplosionInteraction.BLOCK);
     }
 
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
@@ -113,16 +113,16 @@ public class ExplosiveDevice extends Block{
             if (pProjectile instanceof AbstractArrow) {
                 onCaughtFire(pState, pLevel, blockpos, null, entity instanceof LivingEntity ? (LivingEntity)entity : null);
                 pLevel.addParticle(ParticleTypes.LARGE_SMOKE, blockpos.getX(), blockpos.getY(), blockpos.getZ(), 0d, 1d, 0d);
-                pLevel.explode(null, 0d, 0d, 0d, 8f, Explosion.BlockInteraction.DESTROY);
+                pLevel.explode(null, 0d, 0d, 0d, 8f, Level.ExplosionInteraction.BLOCK);
                 pLevel.removeBlock(blockpos, false);
             } else if (pProjectile instanceof AbstractLaser) {
                 onCaughtFire(pState, pLevel, blockpos, null, entity instanceof LivingEntity ? (LivingEntity)entity : null);
                 pLevel.addParticle(ParticleTypes.LARGE_SMOKE, blockpos.getX(), blockpos.getY(), blockpos.getZ(), 0d, 1d, 0d);
-                pLevel.explode(null, 0d, 0d, 0d, 8f, Explosion.BlockInteraction.DESTROY);
+                pLevel.explode(null, 0d, 0d, 0d, 8f, Level.ExplosionInteraction.BLOCK);
                 pLevel.removeBlock(blockpos, false);
             } else if (pProjectile instanceof AbstractDalekLaser) {
                 onCaughtFire(pState, pLevel, blockpos, null, entity instanceof LivingEntity ? (LivingEntity)entity : null);
-                pLevel.explode(null, 0d, 0d, 0d, 8f, Explosion.BlockInteraction.DESTROY);
+                pLevel.explode(null, 0d, 0d, 0d, 8f, Level.ExplosionInteraction.BLOCK);
                 pLevel.addParticle(ParticleTypes.LARGE_SMOKE, blockpos.getX(), blockpos.getY(), blockpos.getZ(), 0d, 1d, 0d);
                 pLevel.removeBlock(blockpos, false);
             }

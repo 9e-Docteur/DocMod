@@ -56,7 +56,7 @@ public class DMLoginScreen extends Screen{
 		
 		usernameField = new EditBox(this.font, this.width / 2 - 80, this.height / 2 - 10, 170, 20, Component.literal("username"));
 		passwordField = new EditBox(this.font, this.width / 2 - 80, this.height / 2 + 30, 170, 20, Component.literal("password"));
-		login = new Button(this.width / 2 - 82, this.height / 2 + 60, 85, 20, Component.translatable("Login"), (p_96781_) -> {
+		login = Button.builder(Component.translatable("Login"), (p_96781_) -> {
            //TODO: LOGIN
 			DocTeamAPI api = new DocTeamAPI(usernameField.getValue(), passwordField.getValue());
 			if(DocTeamAPI.isConnected()) {
@@ -73,10 +73,10 @@ public class DMLoginScreen extends Screen{
 			} else {
 				isWrongLogin = true;
 			}
-        });
-		close = new Button(this.width / 2 + 8, this.height / 2 + 60, 85, 20, Component.translatable("Cancel"), (p_96781_) -> {
+        }).bounds(this.width / 2 - 82, this.height / 2 + 60, 85, 20).build();
+		close = Button.builder(Component.translatable("Cancel"), (p_96781_) -> {
 	      Minecraft.getInstance().setScreen(new DMTitleScreen());
-	    });
+	    }).bounds(this.width / 2 + 8, this.height / 2 + 60, 85, 20).build();
 		addRenderableWidget(usernameField);
 		addRenderableWidget(passwordField);
 		addRenderableWidget(login);
@@ -89,11 +89,11 @@ public class DMLoginScreen extends Screen{
 	public void render(PoseStack p_96562_, int p_96563_, int p_96564_, float p_96565_) {
 		// TODO Auto-generated method stub
 		renderDirtBackground(p_96564_);
-		drawCenteredString(p_96562_, font, "Username:", usernameField.x + 25, usernameField.y - 12, -1);
-		drawCenteredString(p_96562_, font, "Password:", passwordField.x + 25, passwordField.y - 12, -1);
-		drawCenteredString(p_96562_, font, "Welcome to DocMod Dev. Please log in to have whole access of the dev features.", usernameField.x + 80, usernameField.y - 50, -1);
+		drawCenteredString(p_96562_, font, "Username:", usernameField.getX() + 25, usernameField.getY() - 12, -1);
+		drawCenteredString(p_96562_, font, "Password:", passwordField.getX() + 25, passwordField.getY() - 12, -1);
+		drawCenteredString(p_96562_, font, "Welcome to DocMod Dev. Please log in to have whole access of the dev features.", usernameField.getX() + 80, usernameField.getY() - 50, -1);
 		if(isWrongLogin) {
-			drawCenteredString(p_96562_, font, "Wrong login!", usernameField.x + 80, usernameField.y - 40, ColorUtils.getRed());
+			drawCenteredString(p_96562_, font, "Wrong login!", usernameField.getX() + 80, usernameField.getY() - 40, ColorUtils.getRed());
 		}
 		super.render(p_96562_, p_96563_, p_96564_, p_96565_);
 	}

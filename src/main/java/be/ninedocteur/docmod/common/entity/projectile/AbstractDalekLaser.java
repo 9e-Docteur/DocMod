@@ -432,16 +432,12 @@ public abstract class AbstractDalekLaser extends Projectile {
         pCompound.putDouble("damage", this.baseDamage);
         pCompound.putBoolean("crit", this.isCritArrow());
         pCompound.putByte("PierceLevel", this.getPierceLevel());
-        pCompound.putString("SoundEvent", Registry.SOUND_EVENT.getKey(this.soundEvent).toString());
         pCompound.putBoolean("ShotFromCrossbow", this.shotFromCrossbow());
     }
 
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.life = pCompound.getShort("life");
-        if (pCompound.contains("inBlockState", 10)) {
-            this.lastState = NbtUtils.readBlockState(pCompound.getCompound("inBlockState"));
-        }
 
         this.shakeTime = pCompound.getByte("shake") & 255;
         this.inGround = pCompound.getBoolean("inGround");

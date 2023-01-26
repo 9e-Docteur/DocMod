@@ -81,7 +81,7 @@ public class ClientProxy {
         //ItemBlockRenderTypes.setRenderLayer(DMFluids.FLOWING_SOURCE_GAZOLINE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DMBlocks.CAKE.get(), RenderType.cutout());
 
-        LaunchUtils.initWindowIcon(new ResourceLocation(DocMod.MOD_ID, "icons/icon16x16.png"), new ResourceLocation(DocMod.MOD_ID, "icons/icon32x32.png"));
+        //LaunchUtils.initWindowIcon(new ResourceLocation(DocMod.MOD_ID, "icons/icon16x16.png"), new ResourceLocation(DocMod.MOD_ID, "icons/icon32x32.png"));
 
         DMRPC.startRPC();
     }

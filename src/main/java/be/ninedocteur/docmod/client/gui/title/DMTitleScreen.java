@@ -82,7 +82,6 @@ public class DMTitleScreen extends Screen {
     private long fadeInStart;
     private final boolean fading;
     private final boolean minceraftEasterEgg;
-    private DMNotificationUpdateScreen modUpdateNotification;
     private Button infoButton, Quit, configButton, discordButton, youtubeButton, staffButton, closeButton, serverButton, dmServerButton;
     protected int leftPos;
     protected int topPos;
@@ -108,7 +107,7 @@ public class DMTitleScreen extends Screen {
             this.realmsNotificationsScreen.tick();
         }
         Minecraft.getInstance().getWindow().setTitle("Minecraft " + SharedConstants.getCurrentVersion().getName() + " | " + DocMod.MODNAME + " " + DocMod.VERSION);
-        LaunchUtils.initWindowIcon(new ResourceLocation(DocMod.MOD_ID, "icons/icon16x16.png"), new ResourceLocation(DocMod.MOD_ID, "icons/icon32x32.png"));
+        //LaunchUtils.initWindowIcon(new ResourceLocation(DocMod.MOD_ID, "icons/icon16x16.png"), new ResourceLocation(DocMod.MOD_ID, "icons/icon32x32.png"));
     }
 
     public static CompletableFuture<Void> preloadResources(TextureManager pTexMngr, Executor pBackgroundExecutor) {
@@ -130,7 +129,6 @@ public class DMTitleScreen extends Screen {
         }
 
         preloadResources(this.minecraft.getTextureManager(), this.minecraft);
-        DMSecondTitleScreen.preloadResources(this.minecraft.getTextureManager(), this.minecraft);
 
         this.copyrightWidth = this.font.width("Copyright Mojang AB. Do not distribute!");
         this.copyrightX = this.width - this.copyrightWidth - 2;
@@ -142,7 +140,6 @@ public class DMTitleScreen extends Screen {
         } else {
             this.createNormalMenuOptions(j, 24);
         }
-        modUpdateNotification = DMNotificationUpdateScreen.init(this, modButton);
 
         this.minecraft.setConnectedToRealms(false);
         if (this.realmsNotificationsScreen == null) {
@@ -156,20 +153,7 @@ public class DMTitleScreen extends Screen {
 
     private void createNormalMenuOptions(int p_96764_, int p_96765_) {
         boolean flag = this.minecraft.allowsMultiplayer();
-        Button.OnTooltip button$ontooltip = flag ? Button.NO_TOOLTIP : new Button.OnTooltip() {
-            private final Component text = Component.translatable("title.multiplayer.disabled");
 
-            public void onTooltip(Button p_169458_, PoseStack p_169459_, int p_169460_, int p_169461_) {
-                if (!p_169458_.active) {
-                    DMTitleScreen.this.renderTooltip(p_169459_, DMTitleScreen.this.minecraft.font.split(this.text, Math.max(DMTitleScreen.this.width / 2 - 43, 170)), p_169460_, p_169461_);
-                }
-
-            }
-
-            public void narrateTooltip(Consumer<Component> p_169456_) {
-                p_169456_.accept(this.text);
-            }
-        };
         if (DMConfig.Client.showWidget.get()) {
             configButton = new ImageButton(this.width / 2 - 210, this.height / 4 + 48 -106, 16, 16, 0, 96, new ResourceLocation(DocMod.MOD_ID, "textures/gui/widgets.png"), (button -> {
                 this.minecraft.setScreen(new DocModConfigScreen(this));
@@ -235,29 +219,29 @@ public class DMTitleScreen extends Screen {
             //}
         }
 
-        Quit = new Button(this.width / 2 - 100, p_96764_ + p_96765_ * 1, 200, 20, Component.translatable("menu.options"), (p_213094_1_) -> {
+        Quit = Button.builder(Component.translatable("menu.options"), (p_213094_1_) -> {
             this.minecraft.setScreen(new OptionsScreen(this, this.minecraft.options));
-        });
+        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 1, 200, 20).build();
 
-        dmServerButton = new Button(this.width / 2 - 100, p_96764_ + p_96765_ * 0, 100, 20, Component.translatable("DocMod Servers"), (p_96781_) -> {
+        dmServerButton = Button.builder(Component.translatable("DocMod Servers"), (p_96781_) -> {
             ConnectScreen.startConnecting(this, this.getMinecraft(), new ServerAddress(Servers.HOST, Servers.PORT), new ServerData("DocMod Server", Servers.HOST, false));
-        });
+        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 0, 100, 20).build();
 
-        this.addRenderableWidget(new Button(this.width / 2 - 100, p_96764_ + p_96765_ * 2, 200, 20, Component.translatable("menu.quit"), (p_96781_) -> {
+        this.addRenderableWidget(Button.builder(Component.translatable("menu.quit"), (p_96781_) -> {
             this.minecraft.stop();
-        }));
+        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 2, 200, 20).build());
 
-        this.addRenderableWidget(new Button(this.width / 2 - 0, p_96764_ + p_96765_ * 0, 100, 20, Component.translatable("menu.multiplayer"), (p_96781_) -> {
+        this.addRenderableWidget(Button.builder(Component.translatable("menu.multiplayer"), (p_96781_) -> {
             this.minecraft.setScreen(new JoinMultiplayerScreen(this));
-        }));
+        }).bounds(this.width / 2 - 0, p_96764_ + p_96765_ * 0, 100, 20).build());
 
         //this.addRenderableWidget(new Button(this.width / 2 - 0, p_96764_ + p_96765_ * -2, 100, 20, Component.translatable("DM Addons"), (p_96781_) -> {
          //   this.minecraft.setScreen(new DMAddonListScreen());
         //}));
 
-        this.addRenderableWidget(new Button(this.width / 2 - 100, p_96764_ + p_96765_ * -1, 200, 20, Component.translatable("menu.singleplayer"), (p_96781_) -> {
+        this.addRenderableWidget(Button.builder(Component.translatable("menu.singleplayer"), (p_96781_) -> {
             this.minecraft.setScreen(new SelectWorldScreen(this));
-        }));
+        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * -1, 200, 20).build());
 
         this.addRenderableWidget(Quit);
         this.addRenderableWidget(dmServerButton);
@@ -268,46 +252,6 @@ public class DMTitleScreen extends Screen {
 
     private void createDemoMenuOptions(int p_96773_, int p_96774_) {
         boolean flag = this.checkDemoWorldPresence();
-        this.addRenderableWidget(new Button(this.width / 2 - 100, p_96773_, 200, 20, Component.translatable("menu.playdemo"), (p_169444_) -> {
-            if (flag) {
-
-            } else {
-            }
-
-        }));
-        this.resetDemoButton = this.addRenderableWidget(new Button(this.width / 2 - 100, p_96773_ + p_96774_ * 1, 200, 20,  Component.translatable("menu.resetdemo"), (p_169441_) -> {
-            LevelStorageSource levelstoragesource = this.minecraft.getLevelSource();
-
-            try {
-                LevelStorageSource.LevelStorageAccess levelstoragesource$levelstorageaccess = levelstoragesource.createAccess("Demo_World");
-
-                try {
-                    LevelSummary levelsummary = levelstoragesource$levelstorageaccess.getSummary();
-                    if (levelsummary != null) {
-                        this.minecraft.setScreen(new ConfirmScreen(this::confirmDemo,  Component.translatable("selectWorld.deleteQuestion"),  Component.translatable("selectWorld.deleteWarning", levelsummary.getLevelName()), Component.translatable("selectWorld.deleteButton"), CommonComponents.GUI_CANCEL));
-                    }
-                } catch (Throwable throwable1) {
-                    if (levelstoragesource$levelstorageaccess != null) {
-                        try {
-                            levelstoragesource$levelstorageaccess.close();
-                        } catch (Throwable throwable) {
-                            throwable1.addSuppressed(throwable);
-                        }
-                    }
-
-                    throw throwable1;
-                }
-
-                if (levelstoragesource$levelstorageaccess != null) {
-                    levelstoragesource$levelstorageaccess.close();
-                }
-            } catch (IOException ioexception) {
-                SystemToast.onWorldAccessFailure(this.minecraft, "Demo_World");
-                LOGGER.warn("Failed to access demo world", ioexception);
-            }
-
-        }));
-        this.resetDemoButton.active = flag;
     }
 
     private boolean checkDemoWorldPresence() {

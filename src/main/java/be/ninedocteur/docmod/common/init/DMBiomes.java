@@ -16,19 +16,19 @@ import net.minecraftforge.registries.RegistryObject;
 public class DMBiomes {
     public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, DocMod.MOD_ID);
 
-    public static final RegistryObject<Biome> CLASSIC_BIOME = BIOMES.register("classic_biome", ClassicBiome::get);
-    public static final ResourceKey<Biome> CLASSIC_BIOME_KEY = registerBiome("classic_biome", 10);
-    
-    public static final RegistryObject<Biome> MOON_BIOME = BIOMES.register("moon_biome", MoonBiome::get);
-    public static final ResourceKey<Biome> MOON_BIOME_KEY = registerBiome("moon_biome", 10);
-
-    public static final RegistryObject<Biome> SPACE_BIOME = BIOMES.register("space_biome", SpaceBiome::get);
-    public static final ResourceKey<Biome> SPACE_BIOME_KEY = registerBiome("space_biome", 10);
-
-    private static ResourceKey<Biome> registerBiome(String name, int weight){
-        ResourceKey<Biome> biome = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DocMod.MOD_ID, name));
-        BiomeManager.addBiome(BiomeManager.BiomeType.ICY, new BiomeManager.BiomeEntry(biome, weight));
-        BiomeManager.addAdditionalOverworldBiomes(biome);
-        return biome;
-    }
+//    public static final RegistryObject<Biome> CLASSIC_BIOME = BIOMES.register("classic_biome", ClassicBiome::get);
+//    public static final ResourceKey<Biome> CLASSIC_BIOME_KEY = registerBiome("classic_biome", 10);
+//
+//    public static final RegistryObject<Biome> MOON_BIOME = BIOMES.register("moon_biome", MoonBiome::get);
+//    public static final ResourceKey<Biome> MOON_BIOME_KEY = registerBiome("moon_biome", 10);
+//
+//    public static final RegistryObject<Biome> SPACE_BIOME = BIOMES.register("space_biome", SpaceBiome::get);
+//    public static final ResourceKey<Biome> SPACE_BIOME_KEY = registerBiome("space_biome", 10);
+//
+//    private static ResourceKey<Biome> registerBiome(String name, int weight){
+//        ResourceKey<Biome> biome = ResourceKey.create(ForgeRegistries.BIOMES.getRegistryKey(), new ResourceLocation(DocMod.MOD_ID, name));
+//        BiomeManager.addBiome(BiomeManager.BiomeType.ICY, new BiomeManager.BiomeEntry(biome, weight));
+//        BiomeManager.addAdditionalOverworldBiomes(biome);
+//        return biome;
+//    }
 }

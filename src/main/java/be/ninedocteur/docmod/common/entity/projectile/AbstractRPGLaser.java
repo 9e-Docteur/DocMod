@@ -408,7 +408,7 @@ public abstract class AbstractRPGLaser extends Projectile {
         this.resetPiercedEntities();
         if(DMConfig.Server.GunExplosion.get()) {
             if (!level.isClientSide) {
-                level.explode(this, this.getX(), this.getY(), this.getZ(), DMConfig.Server.GunExplosionSize.get(), true, Explosion.BlockInteraction.DESTROY);
+                level.explode(this, this.getX(), this.getY(), this.getZ(), DMConfig.Server.GunExplosionSize.get(), true, Level.ExplosionInteraction.BLOCK);
             }
         }
     }
@@ -417,7 +417,7 @@ public abstract class AbstractRPGLaser extends Projectile {
     protected void onHit(HitResult pResult) {
         if(DMConfig.Server.GunExplosion.get()) {
             if (!level.isClientSide) {
-                level.explode(this, this.getX(), this.getY(), this.getZ(), DMConfig.Server.GunExplosionSize.get(), true, Explosion.BlockInteraction.DESTROY);
+                level.explode(this, this.getX(), this.getY(), this.getZ(), DMConfig.Server.GunExplosionSize.get(), true, Level.ExplosionInteraction.BLOCK);
                 this.discard();
             }
         }
@@ -449,16 +449,12 @@ public abstract class AbstractRPGLaser extends Projectile {
         pCompound.putDouble("damage", this.baseDamage);
         pCompound.putBoolean("crit", this.isCritArrow());
         pCompound.putByte("PierceLevel", this.getPierceLevel());
-        pCompound.putString("SoundEvent", Registry.SOUND_EVENT.getKey(this.soundEvent).toString());
         pCompound.putBoolean("ShotFromCrossbow", this.shotFromCrossbow());
     }
 
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.life = pCompound.getShort("life");
-        if (pCompound.contains("inBlockState", 10)) {
-            this.lastState = NbtUtils.readBlockState(pCompound.getCompound("inBlockState"));
-        }
 
         this.shakeTime = pCompound.getByte("shake") & 255;
         this.inGround = pCompound.getBoolean("inGround");

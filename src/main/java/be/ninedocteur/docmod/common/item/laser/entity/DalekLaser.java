@@ -150,9 +150,7 @@ public class DalekLaser extends AbstractDalekLaser {
 
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
-        if (this.potion != Potions.EMPTY) {
-            pCompound.putString("Potion", Registry.POTION.getKey(this.potion).toString());
-        }
+        
 
         if (this.fixedColor) {
             pCompound.putInt("Color", this.getColor());

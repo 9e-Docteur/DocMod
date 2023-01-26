@@ -1,0 +1,38 @@
+{
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/docmod",
+  "1.16.5": {
+    "1.0": "First DocMod Release",
+    "1.1": "Fixes (Loot tables/ drop)",
+    "2.0": "Christmas Update!"
+  },
+  "1.18.1": {
+    "1_Pre-Release": "First Pre-Release",
+    "2_Pre-Release": "New things"
+  },
+  "1.18.2": {
+    "4.0": "First 1.18 Release!",
+    "4.1": "Fixes",
+    "4.2": "Fixes",
+    "4.3": "Fixes"
+  },
+  "1.19.2": {
+    "5.0": "The Dungeon Update!",
+    "5.1": "Fix",
+    "6.0": "The Chritsmas Update!",
+    "6.1": "Fix",
+    "6.2": "Fix"
+  },
+  "1.19.3": {
+    "6.2": "Christmas update 6.2 but for 1.19.3!"
+  },
+  "promos": {
+    "1.18.1-latest": "8b-1.18.1",
+    "1.18.1-recommended": "8b-1.18.1",
+    "1.18.2-latest": "4.3",
+    "1.18.2-recommended": "4.3",
+    "1.19.2-latest": "6.2",
+    "1.19.2-recommended": "6.2",
+    "1.19.3-latest": "6.2",
+    "1.19.3-recommended": "6.2"
+  }
+}

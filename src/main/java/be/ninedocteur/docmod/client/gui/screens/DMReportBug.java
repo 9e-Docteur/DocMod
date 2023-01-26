@@ -26,9 +26,9 @@ public class DMReportBug extends PauseScreen {
         if(event.getScreen() instanceof PauseScreen) {
             final Window window = Minecraft.getInstance().getWindow();
             window.setTitle("DocMod " + DMUtils.VERSION);
-            Button reportBug = new Button(10, 10, 80, 20, Component.translatable("button." + DocMod.MOD_ID + ".report_bug"), (p_96781_) -> {
+            Button reportBug = Button.builder(Component.translatable("button." + DocMod.MOD_ID + ".report_bug"), (p_96781_) -> {
                 DMUtils.openLink("https://github.com/9e-Docteur/docmod/issues");
-            });
+            }).bounds(10, 10, 80, 20).build();
             event.getScreen().addRenderableWidget(reportBug);
         }
     }

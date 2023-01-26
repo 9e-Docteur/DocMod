@@ -4,7 +4,7 @@ import be.ninedocteur.docmod.utils.IOUtils;
 import be.ninedocteur.docteam.api.DocTeamAPI;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -18,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.joml.Vector3f;
 
 @OnlyIn(Dist.CLIENT)
 public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
@@ -57,9 +58,9 @@ public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<Abstract
                 f1 += 25.0F;
             }
 
-            p_116615_.mulPose(Vector3f.XP.rotationDegrees(6.0F + f2 / 2.0F + f1));
-            p_116615_.mulPose(Vector3f.ZP.rotationDegrees(f3 / 2.0F));
-            p_116615_.mulPose(Vector3f.YP.rotationDegrees(180.0F - f3 / 2.0F));
+            p_116615_.mulPose(Axis.XP.rotationDegrees(6.0F + f2 / 2.0F + f1));
+            p_116615_.mulPose(Axis.ZP.rotationDegrees(f3 / 2.0F));
+            p_116615_.mulPose(Axis.YP.rotationDegrees(180.0F - f3 / 2.0F));
             checkCapeAndApply(p_116615_, p_117350_, p_116618_, p_117351_);
             p_116615_.popPose();
         }

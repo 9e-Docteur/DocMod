@@ -7,7 +7,6 @@ import be.ninedocteur.docmod.common.tileentity.ZurbTeleporterTile;
 import be.ninedocteur.docmod.registry.ModelRegistry;
 import be.ninedocteur.docmod.utils.PlayerUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.PandaModel;
 import net.minecraft.client.renderer.MultiBufferSource;

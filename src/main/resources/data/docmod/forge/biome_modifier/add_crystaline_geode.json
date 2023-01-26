@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#minecraft:is_overworld",
-  "features": "docmod:crystaline_geode_placed",
-  "step": "underground_ores"
-}

@@ -15,7 +15,6 @@ public class CommandRegistry {
     public static void onCommandsRegister(RegisterCommandsEvent event){
         //new DMRankCommand(event.getDispatcher());
         //new DMVersionCommand(event.getDispatcher());
-        new DMTardisPowerCommand(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
     }

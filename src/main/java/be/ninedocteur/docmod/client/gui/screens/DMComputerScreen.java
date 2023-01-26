@@ -88,7 +88,7 @@ public class DMComputerScreen extends Screen {
         int i2 = (this.width - 229) / 2; //x
         int j = (this.height - 156) / 2; //y
         RenderSystem.setShaderTexture(0, COMPUTER_GUI);
-        blit(p_96562_, terminal.x - 4, terminal.y - 140, 0, 0, 256, 198);
+        blit(p_96562_, terminal.getX() - 4, terminal.getY() - 140, 0, 0, 256, 198);
         if(isEnterPressed){
             currentOS.execute(terminal.getValue());
             isEnterPressed = false;
