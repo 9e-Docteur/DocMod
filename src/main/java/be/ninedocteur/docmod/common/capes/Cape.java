@@ -23,6 +23,7 @@ import org.joml.Vector3f;
 @OnlyIn(Dist.CLIENT)
 public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
     public static AnimatedCapeHandler NINETY_CAPE = new AnimatedCapeHandler(10, 10);
+    public AbstractClientPlayer abstractClientPlayer;
 
     public Cape(RenderLayerParent<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> p_117346_) {
         super(p_117346_);
@@ -58,16 +59,25 @@ public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<Abstract
                 f1 += 25.0F;
             }
 
+            setAbstractClientPlayer(p_116618_);
+
             p_116615_.mulPose(Axis.XP.rotationDegrees(6.0F + f2 / 2.0F + f1));
             p_116615_.mulPose(Axis.ZP.rotationDegrees(f3 / 2.0F));
             p_116615_.mulPose(Axis.YP.rotationDegrees(180.0F - f3 / 2.0F));
-            checkCapeAndApply(p_116615_, p_117350_, p_116618_, p_117351_);
+            checkCapeAndApply(p_116615_, p_117350_, getAbstractClientPlayer(), p_117351_);
             p_116615_.popPose();
         }
     }
 
+    public void setAbstractClientPlayer(AbstractClientPlayer abstractClientPlayer) {
+        this.abstractClientPlayer = abstractClientPlayer;
+    }
 
-    private void checkCapeAndApply(PoseStack poseStack, MultiBufferSource multiBufferSource, AbstractClientPlayer abstractClientPlayer, int integer) {
+    public AbstractClientPlayer getAbstractClientPlayer() {
+        return abstractClientPlayer;
+    }
+
+    public void checkCapeAndApply(PoseStack poseStack, MultiBufferSource multiBufferSource, AbstractClientPlayer abstractClientPlayer, int integer) {
         if (abstractClientPlayer.getUUID().toString().equals("0f471df5-e6e4-4bf3-9f22-35c2d7e6a4bb")) {
             VertexConsumer vertexconsumer = multiBufferSource.getBuffer(RenderType.entitySolid(NINETY_CAPE.getTexture()));
             this.getParentModel().renderCloak(poseStack, vertexconsumer, integer, OverlayTexture.NO_OVERLAY);

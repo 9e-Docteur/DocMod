@@ -1,5 +1,6 @@
 package be.ninedocteur.docmod.registry;
 
+import be.ninedocteur.docmod.common.commands.DMCosmeticCommand;
 import be.ninedocteur.docmod.common.commands.DMRankCommand;
 import be.ninedocteur.docmod.common.commands.DMTardisPowerCommand;
 import be.ninedocteur.docmod.common.commands.DMVersionCommand;
@@ -15,6 +16,7 @@ public class CommandRegistry {
     public static void onCommandsRegister(RegisterCommandsEvent event){
         //new DMRankCommand(event.getDispatcher());
         //new DMVersionCommand(event.getDispatcher());
+        new DMCosmeticCommand(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
     }

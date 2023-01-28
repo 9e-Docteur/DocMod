@@ -62,6 +62,7 @@ public class DocMod {
     public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
 
 
+    //TODO: FIX BUG WHEN FIRING WITH DALEK GUN
     public DocMod() {
         LOGGER.info("Start initializing DocMod!");
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
