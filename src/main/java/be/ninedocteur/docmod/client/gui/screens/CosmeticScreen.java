@@ -22,6 +22,7 @@ public class CosmeticScreen extends Screen {
     private float xMouse;
     private float yMouse;
     private Player player;
+    private LivingEntity livingEntity;
 
     public CosmeticScreen() {
         super(Component.empty());
@@ -55,12 +56,12 @@ public class CosmeticScreen extends Screen {
         renderEntityInInventory(this.width / 2, this.height / 2, 30, (float)(this.width) -this.xMouse, (float)(this.height) - this.yMouse, getPlayer());
     }
 
-    public static void renderEntityInInventory(int p_98851_, int p_98852_, int p_98853_, float p_98854_, float p_98855_, LivingEntity p_98856_) {
+    public void renderEntityInInventory(int p_98851_, int p_98852_, int p_98853_, float p_98854_, float p_98855_, LivingEntity p_98856_) {
         float f = (float)Math.atan((double)(p_98854_ / 40.0F));
         float f1 = (float)Math.atan((double)(p_98855_ / 40.0F));
         renderEntityInInventoryRaw(p_98851_, p_98852_, p_98853_, f, f1, p_98856_);
     }
-    public static void renderEntityInInventoryRaw(int p_98851_, int p_98852_, int p_98853_, float angleXComponent, float angleYComponent, LivingEntity p_98856_) {
+    public void renderEntityInInventoryRaw(int p_98851_, int p_98852_, int p_98853_, float angleXComponent, float angleYComponent, LivingEntity p_98856_) {
         float f = angleXComponent;
         float f1 = angleYComponent;
         PoseStack posestack = RenderSystem.getModelViewStack();
@@ -104,6 +105,14 @@ public class CosmeticScreen extends Screen {
         posestack.popPose();
         RenderSystem.applyModelViewMatrix();
         Lighting.setupFor3DItems();
+    }
+
+    public void setLivingEntity(LivingEntity livingEntity) {
+        this.livingEntity = livingEntity;
+    }
+
+    public LivingEntity getLivingEntity() {
+        return livingEntity;
     }
 
     public static void renderCapeOnEntity(LivingEntity livingEntity){

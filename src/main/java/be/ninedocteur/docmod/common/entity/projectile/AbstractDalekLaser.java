@@ -365,7 +365,7 @@ public abstract class AbstractDalekLaser extends Projectile {
                 }
             }
 
-            this.playSound(this.soundEvent, 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
+            //this.playSound(this.soundEvent, 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
             if (this.getPierceLevel() <= 0) {
                 this.discard();
             }

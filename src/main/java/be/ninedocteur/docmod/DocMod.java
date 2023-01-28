@@ -55,14 +55,13 @@ public class DocMod {
     public static boolean isRunningInDev = false;
     public static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
     public static final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-    public static final String VERSION = "6.2.1";
+    public static final String VERSION = "7.0";
     public static final String BUILD = "0";
-    public static final String CODENAME = "ChristmasUpdate2022-1.19.3"; //LONGHORN FOR 7.X
+    public static final String CODENAME = "Longhorn"; //LONGHORN FOR 7.X
     public static final String MODNAME = "DocMod";
     public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
 
 
-    //TODO: FIX BUG WHEN FIRING WITH DALEK GUN
     public DocMod() {
         LOGGER.info("Start initializing DocMod!");
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
