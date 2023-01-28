@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "lit=true": { "model": "docmod:block/toyota_upper_light" },
-    "lit=false": { "model": "docmod:block/toyota_upper_light_off" }
-  }
-}

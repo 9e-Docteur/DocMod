@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "docmod:deepslate_steel_ore"
-  },
-  "result": "docmod:steel_ingot",
-  "experience": 1.2,
-  "cookingtime": 200
-}

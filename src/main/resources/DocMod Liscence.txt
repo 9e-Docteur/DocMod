@@ -1,5 +1,0 @@
-DocMod is created by 9e_Docteur.
-The mod's liscence is : All Right Reserved.
-It mean that you cannot take/copy/distribute the code of the mod.
-If you do it, you will get problem, but you can use DocMod as API
-Thanks to not decompile the mod if you don't use DocMod as API.
