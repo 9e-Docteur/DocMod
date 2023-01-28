@@ -90,6 +90,7 @@ public class DocMod {
     }
 
     //TODO: MOVE THIS -> TAKE TO MUCH PLACE LOL
+    //TODO: Change this
     private void addCreative(CreativeModeTabEvent.BuildContents event){
         if(event.getTab() == DMCreativeTabs.DOCMOD_MAIN){
             event.accept(DMBlocks.KILLER_BLOCK);
