@@ -273,6 +273,8 @@
   "itemGroup.DocMod - Computers": "DocMod - Computers",
   "itemGroup.DocMod - Anniversary Update": "DocMod - Anniversary Update",
 
+  "itemGroup.docmod.blocks": "DocMod Blocks",
+
   "item.docmod.magic_ammo" : "Magic Wand Ammo",
 
   "block.docmod.red_candycane" : "Red Candy Cane",
