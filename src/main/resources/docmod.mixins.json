@@ -4,6 +4,7 @@
   "package": "fr.ninedocteur.docmod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ItemMixin"
   ],
   "client": [
   ],
