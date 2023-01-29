@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "docmod:block/albizia_slab"
+    },
+    "type=double": {
+      "model": "docmod:block/albizia_slab"
+    },
+    "type=top": {
+      "model": "docmod:block/albizia_slab_top"
+    }
+  }
+}

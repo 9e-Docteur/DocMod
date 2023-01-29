@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "docmod:block/albizia_planks",
+    "east": "docmod:block/zinc_crafting_table_side",
+    "north": "docmod:block/zinc_crafting_table_front",
+    "particle": "docmod:block/zinc_crafting_table_front",
+    "south": "docmod:block/zinc_crafting_table_side",
+    "up": "docmod:block/zinc_crafting_table_top",
+    "west": "docmod:block/zinc_crafting_table_front"
+  }
+}

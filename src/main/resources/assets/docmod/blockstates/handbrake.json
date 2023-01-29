@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "on=true": { "model": "docmod:block/lever_on" },
+    "on=false": { "model": "docmod:block/lever_off" }
+  }
+}
