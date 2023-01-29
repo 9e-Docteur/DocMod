@@ -19,10 +19,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DMBlocks {
+    public static Map<String, Block> BLOCKS = new HashMap<>();
+
+
     public static final Block HEAL_BLOCK = add("heal_block", new HealBlock(AbstractBlock.Settings.of(Material.STONE).nonOpaque().requiresTool().strength(5)));
 
 
-    public static Map<String, Block> BLOCKS = new HashMap<>();
     public static Block add(String id, Block block) {
         BLOCKS.put(id, block);
         return block;

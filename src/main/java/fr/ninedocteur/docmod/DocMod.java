@@ -8,7 +8,11 @@ import org.slf4j.LoggerFactory;
 
 public class DocMod implements ModInitializer {
     public static final String MOD_ID = "docmod";
-    private static final Logger LOGGER = LoggerFactory.getLogger("docmod");
+    public static final String MODNAME = "DocMod";
+    public static final String VERSION = "6.2.1-FAB";
+
+    public static final Logger LOGGER = LoggerFactory.getLogger("docmod");
+
     @Override
     public void onInitialize() {
         LOGGER.info("Starting DocMod...");
