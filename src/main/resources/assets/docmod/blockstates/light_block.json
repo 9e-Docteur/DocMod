@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "docmod:block/light_block" }
+  }
+}

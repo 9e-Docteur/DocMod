@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "roundthingsmod:block/wooden/wooden_red_roundel_2"
+  }
+}
