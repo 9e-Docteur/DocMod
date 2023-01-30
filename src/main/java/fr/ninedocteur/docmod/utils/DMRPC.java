@@ -1,4 +1,4 @@
-package be.ninedocteur.docmod.utils;
+package fr.ninedocteur.docmod.utils;
 
 import fr.ninedocteur.docmod.DocMod;
 import fr.ninedocteur.docmod.integrations.discord.rpc.DiscordEventHandlers;
@@ -40,7 +40,7 @@ public class DMRPC {
                         presence.state = "Playing Multiplayer: " + MinecraftClient.getInstance().getCurrentServerEntry().address;
                         presence.smallImageKey = "server";
 
-                    }else if(MinecraftClient.getInstance().currentScreen instanceof /*DMTitleScreen*/ TitleScreen){
+                    }else if(MinecraftClient.getInstance().currentScreen instanceof TitleScreen){
                         presence.state = "In the main menu";
                         presence.smallImageKey = "zinc_icon";
                     }
