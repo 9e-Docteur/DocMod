@@ -55,7 +55,7 @@ public class DMUtils {
     }
 
     public static String getDocTeam(){
-        return "DocMod - DocTeam 2021 - 2022";
+        return "DocMod - DocTeam 2021 - 2023";
     }
 
 
