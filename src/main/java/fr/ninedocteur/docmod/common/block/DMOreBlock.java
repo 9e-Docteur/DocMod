@@ -21,4 +21,15 @@ public class DMOreBlock extends ExperienceDroppingBlock {
         }
         return settings;
     }
+
+    public DMOreBlock(DyeColor color, float hardness, float resistance) {
+        super(createSettings(color, hardness, resistance));
+    }
+
+    public static Settings createSettings(DyeColor color, float hardness, float resistance){
+        if (color == DyeColor.RED){
+            return Settings.of(Material.STONE, color).strength(hardness, resistance).requiresTool().sounds(BlockSoundGroup.NETHER_ORE);
+        }
+        else return null;
+    }
 }
