@@ -16,8 +16,8 @@ public class DMRPC {
         String steamId = "";
         DiscordEventHandlers handlers = new DiscordEventHandlers();
         handlers.ready = (user) ->{
-            DocMod.LOGGER.info("DocMod RPC Ready!");
-            DocMod.LOGGER.warn("DocMod RPC Version 1.0.1");
+            DocMod.LOGGER.info("DocMod RPC Ready!"); 
+            DocMod.LOGGER.warn("DocMod RPC Version 1.0.1-FAB");
         };
         lib.Discord_Initialize(applicationId, handlers, true, steamId);
         DiscordRichPresence presence = new DiscordRichPresence();
