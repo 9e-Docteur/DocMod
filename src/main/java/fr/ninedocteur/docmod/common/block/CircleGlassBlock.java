@@ -1,9 +1,6 @@
 package fr.ninedocteur.docmod.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.function.BooleanBiFunction;
@@ -118,9 +115,5 @@ public class CircleGlassBlock extends HorizontalFacingBlock {
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
-    }
-
-    public boolean isTranslucent(BlockState state, BlockView world, BlockPos pos) {
-        return true;
     }
 }
