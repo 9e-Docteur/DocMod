@@ -3,7 +3,6 @@ package fr.ninedocteur.docmod.common.init;
 import fr.ninedocteur.docmod.DocMod;
 import fr.ninedocteur.docmod.common.item.BelgiumFriesFoodItem;
 import fr.ninedocteur.docmod.common.item.HalfinumIngotItem;
-import fr.ninedocteur.docmod.common.item.JupilerFoodItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
@@ -37,8 +36,6 @@ public class DMItems {
     public static final Item WHITE_POINTED_STAR = add("white_pointed_star", new Item(new Item.Settings().rarity(Rarity.RARE)));
     public static final Item STEEL_INGOT = add("steel_ingot");
     public static final Item RAW_STEEL_INGOT = add("raw_steel_ingot");
-
-    //FOOD
     public static final Item BELGIUM_FRIES = add("belgium_fries", new BelgiumFriesFoodItem(new Item.Settings().food(new FoodComponent.Builder().statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 2), 0.2f).hunger(2).saturationModifier(1).alwaysEdible().build())));
     public static final Item TEA = add("tea", new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(1).alwaysEdible().build())));
     public static final Item COFFEE = add("coffee", new Item(new Item.Settings().food(new FoodComponent.Builder().statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 200, 2), 1).statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 200, 3), 1f).hunger(2).saturationModifier(1).alwaysEdible().build())));

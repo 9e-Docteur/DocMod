@@ -1,10 +1,7 @@
 package fr.ninedocteur.docmod.common.block;
 
 import fr.ninedocteur.docmod.common.block.entity.GlassTubeEntity;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
@@ -58,7 +55,8 @@ public class GlassTubeBlock extends Block implements BlockEntityProvider {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
     }
 
-    public boolean isTranslucent(BlockState state, BlockView world, BlockPos pos) {
-        return true;
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.INVISIBLE;
     }
 }
