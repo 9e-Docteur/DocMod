@@ -8,6 +8,7 @@ import fr.ninedocteur.docmod.common.item.WhitePointedStarItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -38,6 +39,8 @@ public class DMItems {
     public static final Item WHITE_POINTED_STAR = add("white_pointed_star", new WhitePointedStarItem(new Item.Settings().rarity(Rarity.RARE)));
     public static final Item STEEL_INGOT = add("steel_ingot");
     public static final Item RAW_STEEL_INGOT = add("raw_steel_ingot");
+
+    //FOOD
     public static final Item BELGIUM_FRIES = add("belgium_fries", new BelgiumFriesFoodItem(new Item.Settings().food(new FoodComponent.Builder().statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 2), 0.2f).hunger(2).saturationModifier(1).alwaysEdible().build())));
     public static final Item TEA = add("tea", new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(1).alwaysEdible().build())));
     public static final Item COFFEE = add("coffee", new Item(new Item.Settings().food(new FoodComponent.Builder().statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 200, 2), 1).statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 200, 3), 1f).hunger(2).saturationModifier(1).alwaysEdible().build())));
@@ -51,6 +54,25 @@ public class DMItems {
     public static final Item COPPER_FLASK = add("copper_flask");
     public static final Item ZINC_FLASK = add("zinc_flask");
     public static final Item HALFINUM_FLASK = add("halfinum_flask");
+
+    //TOOLS
+    public static final Item ZINC_HELMET = add("zinc_helmet", new ArmorItem(DMArmorMaterials.ZINC, EquipmentSlot.HEAD, new Item.Settings()));
+    public static final Item ZINC_CHESTPLATE = add("zinc_chestplate", new ArmorItem(DMArmorMaterials.ZINC, EquipmentSlot.CHEST, new Item.Settings()));
+    public static final Item ZINC_LEGGINGS = add("zinc_leggings", new ArmorItem(DMArmorMaterials.ZINC, EquipmentSlot.LEGS, new Item.Settings()));
+    public static final Item ZINC_BOOTS = add("zinc_boots", new ArmorItem(DMArmorMaterials.ZINC, EquipmentSlot.FEET, new Item.Settings()));
+    public static final Item COPPER_HELMET = add("copper_helmet", new ArmorItem(DMArmorMaterials.COPPER, EquipmentSlot.HEAD, new Item.Settings()));
+    public static final Item COPPER_CHESTPLATE = add("copper_chestplate", new ArmorItem(DMArmorMaterials.COPPER, EquipmentSlot.CHEST, new Item.Settings()));
+    public static final Item COPPER_LEGGINGS = add("copper_leggings", new ArmorItem(DMArmorMaterials.COPPER, EquipmentSlot.LEGS, new Item.Settings()));
+    public static final Item COPPER_BOOTS = add("copper_boots", new ArmorItem(DMArmorMaterials.COPPER, EquipmentSlot.FEET, new Item.Settings()));
+    public static final Item HALFINUM_HELMET = add("halfinum_helmet", new ArmorItem(DMArmorMaterials.HALFINUM, EquipmentSlot.HEAD, new Item.Settings()));
+    public static final Item HALFINUM_CHESTPLATE = add("halfinum_chestplate", new ArmorItem(DMArmorMaterials.HALFINUM, EquipmentSlot.CHEST, new Item.Settings()));
+    public static final Item HALFINUM_LEGGINGS = add("halfinum_leggings", new ArmorItem(DMArmorMaterials.HALFINUM, EquipmentSlot.LEGS, new Item.Settings()));
+    public static final Item HALFINUM_BOOTS = add("halfinum_boots", new ArmorItem(DMArmorMaterials.HALFINUM, EquipmentSlot.FEET, new Item.Settings()));
+    public static final Item SPACE_HELMET = add("space_helmet", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.HEAD, new Item.Settings()));
+    public static final Item SPACE_CHESTPLATE = add("space_chestplate", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.CHEST, new Item.Settings()));
+    public static final Item SPACE_LEGGINGS = add("space_leggings", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.LEGS, new Item.Settings()));
+    public static final Item SPACE_BOOTS = add("space_boots", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.FEET, new Item.Settings()));
+
 
     public static Item add(String id) {
         return add(id, new Item(new Item.Settings()));

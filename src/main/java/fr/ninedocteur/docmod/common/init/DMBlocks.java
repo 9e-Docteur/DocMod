@@ -53,6 +53,7 @@ public class DMBlocks {
     public static final Block HALFINUM_ORE = add("halfinum_ore", new Block(AbstractBlock.Settings.of(Material.STONE).nonOpaque().requiresTool().strength(8)));
     public static final Block DEEPSLATE_HALFINUM_ORE = add("deepslate_halfinum_ore", new DMOreBlock(true, 8, 8));
     public static final Block GLASS_TUBE = add("glass_tube", new GlassTubeBlock(AbstractBlock.Settings.of(Material.STONE).nonOpaque().requiresTool().strength(1)));
+    public static final Block ZURB_TELEPORTER = add("zurb_teleporter", new ZurbTeleporterBlock(AbstractBlock.Settings.of(Material.STONE).nonOpaque().requiresTool().strength(1)));
 
     public static Block add(String id, Block block) {
         BLOCKS.put(id, block);
