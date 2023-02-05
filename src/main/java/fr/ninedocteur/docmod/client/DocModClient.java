@@ -1,6 +1,7 @@
 package fr.ninedocteur.docmod.client;
 
 import fr.ninedocteur.docmod.client.models.GlassTubeModel;
+import fr.ninedocteur.docmod.common.event.DMEvent;
 import fr.ninedocteur.docmod.common.init.DMBlocks;
 import fr.ninedocteur.docmod.registry.ModelRegistry;
 import fr.ninedocteur.docmod.utils.DMRPC;
