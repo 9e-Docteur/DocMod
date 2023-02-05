@@ -8,8 +8,13 @@ import be.ninedocteur.docmod.common.init.DMBlocks;
 import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.common.init.DMMenu;
 import be.ninedocteur.docmod.common.listeners.DMListeners;
+import be.ninedocteur.docmod.jobs.data.ServerJobsData;
+import be.ninedocteur.docmod.jobs.util.config.ReadConfigManager;
+import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
+import be.ninedocteur.docmod.jobs.util.handler.RegistryHandler;
 import be.ninedocteur.docmod.proxy.ClientProxy;
 import be.ninedocteur.docmod.common.init.DMWoodTypes;
+import be.ninedocteur.docmod.proxy.CommonProxy;
 import be.ninedocteur.docmod.registry.ClassRegistry;
 import be.ninedocteur.docmod.utils.*;
 import be.ninedocteur.docteam.api.DMLogin;
@@ -26,6 +31,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -43,6 +49,7 @@ import javax.swing.SwingUtilities;
 
 import net.minecraftforge.fml.loading.moddiscovery.ModAnnotation;
 import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
+import net.minecraftforge.fml.loading.targets.FMLServerLaunchHandler;
 import net.minecraftforge.forgespi.language.IModInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -59,6 +66,7 @@ public class DocMod {
     public static final String BUILD = "0";
     public static final String CODENAME = "Longhorn"; //LONGHORN FOR 7.X
     public static final String MODNAME = "DocMod";
+    public static final String UPDATE_NAME = "Jobs Update";
     public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
 
 
@@ -81,8 +89,15 @@ public class DocMod {
         Addon test = new Addon("JEI", "jei", "1.0", "no site", "no issue");
         Addon.registerModAsAPI(addon);
         Addon.registerModAsAPI(test);
+        RegistryHandler.registerListeners();
+        LOGGER.info("Event Handlers Registered", false);
+        PacketHandler.registerPackets();
+        LOGGER.info("Packets Registered", false);
+        ServerJobsData.registerCommonXPRegistries();
+        LOGGER.info("Common XP Categories Registered", false);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
+        MinecraftForge.EVENT_BUS.addListener(CommonProxy::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         DocMod.LOGGER.info("Init DocMod Creative Tabs...");
         eventBus.addListener(this::addCreative);
@@ -330,5 +345,4 @@ public class DocMod {
     public static void prepareDownload() {
     	AnimatedCapeHandler.readCapeTexture(DocTeamAPI.getAPI() + "docmod/cape/ninety/" + AnimatedCapeHandler.i + ".png", AnimatedCapeHandler.i);
     }
-    
 }

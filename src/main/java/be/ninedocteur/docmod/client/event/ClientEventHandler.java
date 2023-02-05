@@ -5,12 +5,15 @@ import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.KeyBinds;
 import be.ninedocteur.docmod.client.gui.overlay.DocModDebugOverlay;
 import be.ninedocteur.docmod.client.gui.screens.DMConnectScreen;
+import be.ninedocteur.docmod.jobs.gui.screens.GuiJobInfos;
+import be.ninedocteur.docmod.jobs.gui.screens.MainJobsMenu;
 import be.ninedocteur.docmod.utils.DMUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.multiplayer.ServerList;
+import net.minecraft.data.Main;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -72,6 +75,10 @@ public class ClientEventHandler {
             } else {
                 DocModDebugOverlay.showDebugOverlay = true;
             }
+        }
+
+        if(KeyBinds.JOBS_KEY.consumeClick()){
+            Minecraft.getInstance().setScreen(new MainJobsMenu());
         }
     }
 }

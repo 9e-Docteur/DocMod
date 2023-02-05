@@ -27,10 +27,10 @@ public class WandLaserRenderer<T extends AbstractWandLaser> extends EntityRender
     }
 
 
-    public void render(T pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        pMatrixStack.pushPose();
-        pMatrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
-        pMatrixStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot())));
+    public void render(T pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+        pPoseStack.pushPose();
+        pPoseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
+        pPoseStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot())));
         boolean $$6 = false;
         float $$7 = 0.0F;
         float $$8 = 0.5F;
@@ -44,14 +44,14 @@ public class WandLaserRenderer<T extends AbstractWandLaser> extends EntityRender
         float $$16 = (float)pEntity.shakeTime - pPartialTicks;
         if ($$16 > 0.0F) {
             float $$17 = -Mth.sin($$16 * 3.0F) * $$16;
-            pMatrixStack.mulPose(Axis.ZP.rotationDegrees($$17));
+            pPoseStack.mulPose(Axis.ZP.rotationDegrees($$17));
         }
 
-        pMatrixStack.mulPose(Axis.XP.rotationDegrees(45.0F));
-        pMatrixStack.scale(0.05625F, 0.05625F, 0.05625F);
-        pMatrixStack.translate(-4.0D, 0.0D, 0.0D);
+        pPoseStack.mulPose(Axis.XP.rotationDegrees(45.0F));
+        pPoseStack.scale(0.05625F, 0.05625F, 0.05625F);
+        pPoseStack.translate(-4.0D, 0.0D, 0.0D);
         VertexConsumer $$18 = pBuffer.getBuffer(RenderType.entityCutout(this.getTextureLocation(pEntity)));
-        Pose $$19 = pMatrixStack.last();
+        Pose $$19 = pPoseStack.last();
         Matrix4f $$20 = $$19.pose();
         Matrix3f $$21 = $$19.normal();
         this.vertex($$20, $$21, $$18, -7, -2, -2, 0.0F, 0.15625F, -1, 0, 0, ModelUtils.getModelGlow(1F));
@@ -64,15 +64,15 @@ public class WandLaserRenderer<T extends AbstractWandLaser> extends EntityRender
         this.vertex($$20, $$21, $$18, -7, -2, -2, 0.0F, 0.3125F, 1, 0, 0, ModelUtils.getModelGlow(1F));
 
         for(int $$22 = 0; $$22 < 4; ++$$22) {
-            pMatrixStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+            pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
             this.vertex($$20, $$21, $$18, -8, -2, 0, 0.0F, 0.0F, 0, 1, 0, ModelUtils.getModelGlow(1F));
             this.vertex($$20, $$21, $$18, 8, -2, 0, 0.5F, 0.0F, 0, 1, 0, ModelUtils.getModelGlow(1F));
             this.vertex($$20, $$21, $$18, 8, 2, 0, 0.5F, 0.15625F, 0, 1, 0, ModelUtils.getModelGlow(1F));
             this.vertex($$20, $$21, $$18, -8, 2, 0, 0.0F, 0.15625F, 0, 1, 0, ModelUtils.getModelGlow(1F));
         }
 
-        pMatrixStack.popPose();
-        super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
+        pPoseStack.popPose();
+        super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
     }
 
     @Override

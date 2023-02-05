@@ -2,6 +2,7 @@ package be.ninedocteur.docmod.common.entity.mob;
 
 import be.ninedocteur.docmod.DMConfig;
 import be.ninedocteur.docmod.DocMod;
+import be.ninedocteur.docmod.common.init.DMBlocks;
 import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.common.item.gun.CyberGun;
 import be.ninedocteur.docmod.common.item.laser.item.LaserGunItem;
@@ -12,6 +13,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -25,12 +27,15 @@ import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 import java.util.function.Predicate;
 
 public class CybermanEntity extends Monster implements RangedAttackMob {
+    private Block spawnBlock;
 
     private final RangedBowAttackGoal bowGoal = new RangedBowAttackGoal(this, 0.25D, 20, 1.0F);
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 0.2D, false);
@@ -186,5 +191,17 @@ public class CybermanEntity extends Monster implements RangedAttackMob {
 
     public boolean canFireProjectileWeapon(ProjectileWeaponItem p_32144_) {
         return p_32144_ == DMItems.CYBER_GUN.get();
+    }
+
+    public void setSpawnBlock(Block spawnBlock) {
+        this.spawnBlock = spawnBlock;
+    }
+
+    public Block getSpawnBlock() {
+        return spawnBlock;
+    }
+
+    public static boolean canSpawn(EntityType<CybermanEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+        return checkMobSpawnRules(entityType, level, spawnType, pos, random) && pos.getY() > 100  ||  checkMobSpawnRules(entityType, level, spawnType, pos, random) && pos.getY() > 100 && level.getBlockState(pos).is(DMBlocks.STEEL_BLOCK.get());
     }
 }

@@ -13,6 +13,10 @@ public class KeyBinds {
 
     public static final String KEY_DEBUG = "key.docmod.debug";
 
+    public static final String CATEGORY = "keys.jobs.category";
+    public static final String OPEN_GUI = "keys.jobs.open_gui";
+
+    public static final KeyMapping JOBS_KEY = new KeyMapping(OPEN_GUI, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_J, CATEGORY);
 
     public static final KeyMapping DEV_MODE_KEY = new KeyMapping(KEY_DEVMODE, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_U, KEY_CATEGORY);
 
