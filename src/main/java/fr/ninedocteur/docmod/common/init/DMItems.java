@@ -72,6 +72,12 @@ public class DMItems {
     public static final Item SPACE_CHESTPLATE = add("space_chestplate", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.CHEST, new Item.Settings()));
     public static final Item SPACE_LEGGINGS = add("space_leggings", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.LEGS, new Item.Settings()));
     public static final Item SPACE_BOOTS = add("space_boots", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.FEET, new Item.Settings()));
+    public static final Item COPPER_SWORD = add("copper_sword", new SwordItem(DMToolMaterials.COPPER, 6, -3, new Item.Settings()));
+    public static final Item COPPER_PICKAXE = add("copper_pickaxe", new PickaxeItem(DMToolMaterials.COPPER, 0, -1, new Item.Settings()));
+    public static final Item COPPER_AXE = add("copper_axe", new AxeItem(DMToolMaterials.COPPER, 0, -1, new Item.Settings()));
+    public static final Item ZINC_SWORD = add("zinc_sword", new SwordItem(DMToolMaterials.ZINC, 6, 3f, new Item.Settings()));
+    public static final Item ZINC_PICKAXE = add("zinc_pickaxe", new PickaxeItem(DMToolMaterials.ZINC, 0, -1, new Item.Settings()));
+    public static final Item ZINC_AXE = add("zinc_axe", new AxeItem(DMToolMaterials.ZINC, 0, -1, new Item.Settings()));
 
 
     public static Item add(String id) {
