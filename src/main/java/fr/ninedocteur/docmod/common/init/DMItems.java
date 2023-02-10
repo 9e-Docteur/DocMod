@@ -1,10 +1,7 @@
 package fr.ninedocteur.docmod.common.init;
 
 import fr.ninedocteur.docmod.DocMod;
-import fr.ninedocteur.docmod.common.item.BelgiumFriesFoodItem;
-import fr.ninedocteur.docmod.common.item.HalfinumIngotItem;
-import fr.ninedocteur.docmod.common.item.JupilerFoodItem;
-import fr.ninedocteur.docmod.common.item.WhitePointedStarItem;
+import fr.ninedocteur.docmod.common.item.*;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
@@ -78,6 +75,15 @@ public class DMItems {
     public static final Item ZINC_SWORD = add("zinc_sword", new SwordItem(DMToolMaterials.ZINC, 6, 3f, new Item.Settings()));
     public static final Item ZINC_PICKAXE = add("zinc_pickaxe", new PickaxeItem(DMToolMaterials.ZINC, 0, -1, new Item.Settings()));
     public static final Item ZINC_AXE = add("zinc_axe", new AxeItem(DMToolMaterials.ZINC, 0, -1, new Item.Settings()));
+    public static final Item STAFF = add("staff", new StaffItem(DMToolMaterials.ZINC, 0, -1, new Item.Settings()));
+    public static final Item TARDIS_KEY = add("tardis_key", new TardisKeyItem(new Item.Settings()));
+    public static final Item ALBIZIA_STICK = add("albizia_stick");
+    public static final Item HALFINUM_AXE = add("halfinum_axe", new AxeItem(DMToolMaterials.HALFINUM, 0, -1, new Item.Settings()));
+    public static final Item HALFINUM_PICKAXE = add("halfinum_pickaxe", new PickaxeItem(DMToolMaterials.HALFINUM, 0, -1, new Item.Settings()));
+    public static final Item HALFINUM_SWORD = add("halfinum_sword", new HalfinumSwordItem(DMToolMaterials.HALFINUM, 0, -1, new Item.Settings()));
+    public static final Item HALFINUM_SHOVEL = add("halfinum_shovel", new ShovelItem(DMToolMaterials.HALFINUM, 0, -1, new Item.Settings()));
+    public static final Item MASK = add("mask", new ArmorItem(DMArmorMaterials.MASK, EquipmentSlot.HEAD, new Item.Settings()));
+
 
 
     public static Item add(String id) {
