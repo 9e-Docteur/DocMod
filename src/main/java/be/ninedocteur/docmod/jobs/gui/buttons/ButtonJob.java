@@ -2,10 +2,12 @@ package be.ninedocteur.docmod.jobs.gui.buttons;
 
 import be.ninedocteur.docmod.jobs.data.ClientJobsData;
 import be.ninedocteur.docmod.jobs.util.GuiUtil;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import be.ninedocteur.docmod.jobs.gui.screens.GuiJobInfos;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import org.lwjgl.opengl.GL11;
@@ -47,7 +49,7 @@ public class ButtonJob extends Button {
     public void renderButton(PoseStack mStack, int mouseX, int mouseY, float partialTicks) {
     	if (this.visible) {
             float f = 1.0f;
-            GL11.glColor4f(f, f, f, 1.0F);
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             GuiUtil.drawJobIcon(mStack, this, this.job, this.getX()+20, this.getY()+20, 32);
             long xp = ClientJobsData.playerJobs.getXPByJob(this.job);
             int lvl = ClientJobsData.playerJobs.getLevelByJob(this.job);

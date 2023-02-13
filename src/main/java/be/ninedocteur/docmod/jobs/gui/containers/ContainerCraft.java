@@ -134,7 +134,7 @@ public class ContainerCraft extends RecipeBookMenu<CraftingContainer> {
 	public void removed(Player player) {
 		super.removed(player);
 		this.access.execute((p_217068_2_, p_217068_3_) -> {
-			this.clearContainer(player, p_217068_2_, this.craftSlots);
+			this.clearContainer(player, this.craftSlots);
 		});
 	}
 
@@ -191,10 +191,10 @@ public class ContainerCraft extends RecipeBookMenu<CraftingContainer> {
 				return ItemStack.EMPTY;
 			}
 
-			ItemStack itemstack2 = slot.onTake(player, itemstack1);
-			if (slotIndex == 0) {
-				player.drop(itemstack2, false);
-			}
+			//ItemStack itemstack2 = slot.safeTake(1, player.getInventory().getItem(itemstack1)., player);
+			//if (slotIndex == 0) {
+			//	player.drop(itemstack2, false);
+			//}
 		}
 
 		return itemstack;

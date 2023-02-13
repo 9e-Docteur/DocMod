@@ -2,11 +2,13 @@ package be.ninedocteur.docmod.jobs.gui;
 
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.jobs.data.ClientJobsData;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -42,9 +44,10 @@ public class GuiGainXP extends Screen {
      * @param partialTicks
      */
     public void render(PoseStack mStack, float partialTicks) {
-    	GL11.glPushMatrix();
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        Minecraft.getInstance().getTextureManager().bindForSetup(TEXTURE);
+    	mStack.pushPose();
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderTexture(0, TEXTURE);
         int render_width = Minecraft.getInstance().getWindow().getGuiScaledWidth();
 
         long xp_progression = ClientJobsData.playerJobs.getXPByJob(job);
@@ -62,7 +65,7 @@ public class GuiGainXP extends Screen {
         this.blit(mStack, render_width/2 - 75, 35, 0, 62, width, 12);//progressbar
         Minecraft.getInstance().font.draw(mStack, title, render_width/2.0F - titleWidth/2.0F, 15, Color.white.getRGB());
         Minecraft.getInstance().font.draw(mStack, xpTotal, render_width/2.0F - xpTotalWidth/2.0F, 38, Color.black.getRGB());
-        GL11.glPopMatrix();
+        mStack.popPose();
     }
 
 

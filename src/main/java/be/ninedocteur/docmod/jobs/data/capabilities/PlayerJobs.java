@@ -8,6 +8,7 @@ import be.ninedocteur.docmod.jobs.network.PacketUpdateClientJob;
 import be.ninedocteur.docmod.jobs.util.JobsUtil;
 import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
 import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -197,7 +198,7 @@ public class PlayerJobs {
 	 * Deserialize Jobs from NBT
 	 * @param nbt the nbt to read from
 	 */
-	public void fromNBT(Tag nbt) {
+	public void fromNBT(CompoundTag nbt) {
 		for(String job : nbt.getAllKeys())
 			this.set(job, nbt.getLong(job));
 	}
@@ -206,8 +207,8 @@ public class PlayerJobs {
 	 * Serialize Jobs to NBT
 	 * @return the serialized NBT
 	 */
-	public Tag toNBT() {
-		Tag nbt = new Tag();
+	public CompoundTag toNBT() {
+		CompoundTag nbt = new CompoundTag();
 		for(Map.Entry<String, Long> e : this.XP.entrySet())
 			nbt.putLong(e.getKey(), e.getValue());
 		return nbt;

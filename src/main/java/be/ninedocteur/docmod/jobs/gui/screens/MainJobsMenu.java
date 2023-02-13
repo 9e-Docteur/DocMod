@@ -6,9 +6,11 @@ import be.ninedocteur.docmod.jobs.gui.buttons.ButtonArrow;
 import be.ninedocteur.docmod.jobs.gui.buttons.ButtonJob;
 import be.ninedocteur.docmod.jobs.util.GuiUtil;
 import be.ninedocteur.docmod.jobs.util.JobsUtil;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -79,8 +81,10 @@ public class MainJobsMenu extends Screen {
      */
     @Override
     public void render(PoseStack mStack, int mouseX, int mouseY, float partialTicks) {
-    	GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        Minecraft.getInstance().getTextureManager().bindForSetup(BACKGROUND);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderTexture(0, BACKGROUND);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         this.blit(mStack, this.width/2 - 128, this.height/2 - 110, 0, 0, 256, 220);
         GuiUtil.renderCenteredString(mStack, I18n.get("text.jobs.title"), Color.black.getRGB(), this.width/2, this.height/2 - 95, 2.0f);
     	super.render(mStack, mouseX, mouseY, partialTicks);

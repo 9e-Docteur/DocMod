@@ -12,9 +12,10 @@ import be.ninedocteur.docmod.jobs.events.server.ItemInteractionEvents;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-@EventBusSubscriber
+@Mod.EventBusSubscriber(modid = DocMod.MOD_ID)
 public class RegistryHandler {
 
 	/**

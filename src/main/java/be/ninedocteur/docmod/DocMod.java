@@ -4,6 +4,7 @@ import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.containers.DMContainers;
 import be.ninedocteur.docmod.client.gui.screens.DMReportBug;
 import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
+import be.ninedocteur.docmod.common.event.DMEvent;
 import be.ninedocteur.docmod.common.init.DMBlocks;
 import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.common.init.DMMenu;

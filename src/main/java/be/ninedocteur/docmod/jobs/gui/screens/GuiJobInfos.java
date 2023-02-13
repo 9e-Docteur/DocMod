@@ -8,10 +8,12 @@ import be.ninedocteur.docmod.jobs.gui.buttons.ButtonXPCategory;
 import be.ninedocteur.docmod.jobs.gui.buttons.SlideBarButton;
 import be.ninedocteur.docmod.jobs.util.GuiUtil;
 import be.ninedocteur.docmod.jobs.util.JobsUtil;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
@@ -88,14 +90,16 @@ public class GuiJobInfos extends Screen implements SliderParent{
     	super.render(mStack, mouseX, mouseY, partialTicks);
     	this.left = this.width/2 - 110 + offsetUnlock;
         this.top = this.height/2 - 90;
-        Minecraft.getInstance().getTextureManager().bindForSetup(BACKGROUND);
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderTexture(0, BACKGROUND);
         this.blit(mStack, this.left, this.top, 0, 0, 220, 180);//background
         this.drawGradients(mStack);
 
         if(offsetUnlock != 0) {
-            Minecraft.getInstance().getTextureManager().bindForSetup(UNLOCK_BACKGROUND);
-            GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderTexture(0, UNLOCK_BACKGROUND);
             this.blit(mStack, this.left + 225, this.top + 14, 0, 0, 70, 152);
         }
         super.render(mStack, mouseX, mouseY, partialTicks);

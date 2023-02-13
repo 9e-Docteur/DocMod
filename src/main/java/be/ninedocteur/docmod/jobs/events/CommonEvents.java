@@ -17,11 +17,12 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 import java.util.Optional;
 
-@EventBusSubscriber
+@Mod.EventBusSubscriber(modid = DocMod.MOD_ID)
 public class CommonEvents {
 
 	/**

@@ -3,12 +3,14 @@ package be.ninedocteur.docmod.jobs.data.capabilities;
 
 import be.ninedocteur.docmod.jobs.data.registry.LevelData;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.CapabilityManager;
-import net.minecraftforge.common.capabilities.ICapabilitySerializable;
+import net.minecraftforge.common.capabilities.*;
+import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -17,6 +19,7 @@ public class PlayerData {
 	
 	//@CapabilityInject(PlayerJobs.class)
 	public static Capability<PlayerJobs> JOBS;
+
 
 	/**
 	 * Gets the Jobs from a player
@@ -27,10 +30,10 @@ public class PlayerData {
 		Optional<PlayerJobs> capability = player.getCapability(JOBS, null).resolve();
 		return capability.orElse(null);
 	}
-
+/*
 	/**
 	 * Registers the capability
-	 */
+
 	public static void register() {
 		CapabilityManager.INSTANCE.injectCapabilities(PlayerJobs.class, new Capability<PlayerJobs>() {
 
@@ -45,15 +48,17 @@ public class PlayerData {
 			}
 
 			@Override
-			public void readNBT(Capability<PlayerJobs> capability, PlayerJobs instance, Direction side, Tag nbt) {
-				instance.fromNBT((Tag) nbt);
+			public void readNBT(Capability<PlayerJobs> capability, PlayerJobs instance, Direction side, CompoundTag nbt) {
+				instance.fromNBT(nbt);
 			}
-			
+
 		}, () -> null);
 	}
+	*/
 	
-	public static class JobsDispatcher implements ICapabilitySerializable<Tag>{
+	public static class JobsDispatcher implements ICapabilityProvider, INBTSerializable<CompoundTag>{
 
+		public static Capability<PlayerJobs> JOBS = CapabilityManager.get(new CapabilityToken<PlayerJobs>(){});
 		private final PlayerJobs jobs;
 
 		/**
@@ -74,7 +79,7 @@ public class PlayerData {
 		 * @return the NBT containing the jobs
 		 */
 		@Override
-		public Tag serializeNBT() {
+		public CompoundTag serializeNBT() {
 			return this.jobs.toNBT();
 		}
 
@@ -83,7 +88,7 @@ public class PlayerData {
 		 * @param nbt the nbt from which the jobs are deserialized
 		 */
 		@Override
-		public void deserializeNBT(Tag nbt) {
+		public void deserializeNBT(CompoundTag nbt) {
 			this.jobs.fromNBT(nbt);
 		}
 		

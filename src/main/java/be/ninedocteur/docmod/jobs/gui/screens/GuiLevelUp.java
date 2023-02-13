@@ -5,10 +5,12 @@ import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.jobs.data.ClientJobsData;
 import be.ninedocteur.docmod.jobs.data.registry.UnlockStack;
 import be.ninedocteur.docmod.jobs.util.GuiUtil;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -55,8 +57,9 @@ public class GuiLevelUp extends Screen {
     public void render(PoseStack mStack, int mouseX, int mouseY, float partialTicks) {
         if(this.font == null)
             return;
-        Minecraft.getInstance().getTextureManager().bindForSetup(TEXTURES);
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderTexture(0, TEXTURES);
         this.blit(mStack, this.width/2 - 88, this.height/2 - 75, 0, 0, 176, 150); //background
 
 

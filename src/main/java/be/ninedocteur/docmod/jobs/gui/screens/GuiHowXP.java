@@ -9,10 +9,12 @@ import be.ninedocteur.docmod.jobs.gui.buttons.ButtonBack;
 import be.ninedocteur.docmod.jobs.gui.buttons.SlideBarButton;
 import be.ninedocteur.docmod.jobs.util.GuiUtil;
 import be.ninedocteur.docmod.jobs.util.JobsUtil;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -98,8 +100,9 @@ public class GuiHowXP extends Screen implements SliderParent {
         this.tooltip.clear();
         this.left = this.width/2 - 88;
         this.top = this.height/2 - 75;
-        Minecraft.getInstance().getTextureManager().bindForSetup(BACKGROUND);
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderTexture(0, BACKGROUND);
         this.blit(mStack, this.left, this.top, 0, 0, 176, 150);//background
         if(getLastPage(false) > 0)
             this.blit(mStack, this.left, this.top + 140, 0, 150, 176, 24);

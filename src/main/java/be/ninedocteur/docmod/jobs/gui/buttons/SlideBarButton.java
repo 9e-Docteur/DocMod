@@ -2,9 +2,11 @@ package be.ninedocteur.docmod.jobs.gui.buttons;
 
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.jobs.util.JobsUtil;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import be.ninedocteur.docmod.jobs.gui.screens.SliderParent;
@@ -49,8 +51,9 @@ public class SlideBarButton extends Button {
     public void renderButton(PoseStack mStack, int mouseX, int mouseY, float partialTicks) {
         if (this.visible) {
             boolean disabled = this.parent.getLastPage(isVertical) == 0;
-            GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-            Minecraft.getInstance().getTextureManager().bindForSetup(this.texture);
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderTexture(0, this.texture);
 
             int textY = 0;
             int textX = isVertical ? 177 : 189;

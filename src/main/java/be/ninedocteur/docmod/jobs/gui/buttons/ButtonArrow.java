@@ -3,9 +3,11 @@ package be.ninedocteur.docmod.jobs.gui.buttons;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.jobs.gui.screens.MainJobsMenu;
 import be.ninedocteur.docmod.jobs.util.GuiUtil;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -43,8 +45,9 @@ public class ButtonArrow extends Button {
     @Override
     public void renderButton(PoseStack mStack, int mouseX, int mouseY, float partialTicks) {
         if (this.visible) {
-            GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-            Minecraft.getInstance().getTextureManager().bindForSetup(BACKGROUND);
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderTexture(0, BACKGROUND);
             int x = this.isHovered ? 17 : 0;
             int y = isUp ? 220 : 230;
             GuiUtil.drawTexture(mStack, this, this.getX(), this.getY(), x, y, 17, 10);

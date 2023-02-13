@@ -3,12 +3,15 @@ package be.ninedocteur.docmod.jobs.gui.containers;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.ContainerScreen;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
 import net.minecraft.client.gui.screens.recipebook.RecipeUpdateListener;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.RecipeBookMenu;
 import net.minecraft.world.inventory.Slot;
@@ -16,11 +19,11 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class GuiCraft extends ContainerScreen<ContainerCraft> implements RecipeUpdateListener {
+public class GuiCraft extends AbstractContainerScreen<ContainerCraft> implements RecipeUpdateListener {
 
     private static final ResourceLocation CRAFTING_TABLE_LOCATION = new ResourceLocation("textures/gui/container/crafting_table.png");
     private static final ResourceLocation RECIPE_BUTTON_LOCATION = new ResourceLocation("textures/gui/recipe_button.png");
-    private final RecipeBookMenu recipeBookComponent = new RecipeBookMenu();
+    private final RecipeBookComponent recipeBookComponent = new RecipeBookComponent();
     private boolean widthTooNarrow;
 
     /**
@@ -40,12 +43,13 @@ public class GuiCraft extends ContainerScreen<ContainerCraft> implements RecipeU
         super.init();
         this.widthTooNarrow = this.width < 379;
         this.recipeBookComponent.init(this.width, this.height, this.minecraft, this.widthTooNarrow, this.menu);
-        this.leftPos = this.recipeBookComponent.updateScreenPosition(this.widthTooNarrow, this.width, this.imageWidth);
+        this.leftPos = this.recipeBookComponent.updateScreenPosition(this.width, this.imageWidth);
+        this.addRenderableOnly(this.recipeBookComponent);
         this.setInitialFocus(this.recipeBookComponent);
         this.addRenderableWidget(new ImageButton(this.leftPos + 5, this.height / 2 - 49, 20, 18, 0, 0, 19, RECIPE_BUTTON_LOCATION, (p_214076_1_) -> {
-            this.recipeBookComponent.initVisuals(this.widthTooNarrow);
+            this.recipeBookComponent.initVisuals();
             this.recipeBookComponent.toggleVisibility();
-            this.leftPos = this.recipeBookComponent.updateScreenPosition(this.widthTooNarrow, this.width, this.imageWidth);
+            this.leftPos = this.recipeBookComponent.updateScreenPosition(this.width, this.imageWidth);
             ((ImageButton)p_214076_1_).setPosition(this.leftPos + 5, this.height / 2 - 49);
         }));
         this.titleLabelX = 29;
@@ -54,14 +58,11 @@ public class GuiCraft extends ContainerScreen<ContainerCraft> implements RecipeU
     /**
      * Ticks the recipe book
      */
-//    public void tick() {
-//        super.tick();
-//        this.recipeBookComponent.tick();
-//    }
 
     @Override
     protected void containerTick() {
         super.containerTick();
+        this.recipeBookComponent.tick();
     }
 
     /**
@@ -95,7 +96,8 @@ public class GuiCraft extends ContainerScreen<ContainerCraft> implements RecipeU
      */
     protected void renderBg(PoseStack mStack, float partialTicks, int mouseX, int mouseY) {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        this.minecraft.getTextureManager().bindForSetup(CRAFTING_TABLE_LOCATION);
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderTexture(0, CRAFTING_TABLE_LOCATION);
         int i = this.leftPos;
         int j = (this.height - this.imageHeight) / 2;
         this.blit(mStack, i, j, 0, 0, this.imageWidth, this.imageHeight);
@@ -160,7 +162,7 @@ public class GuiCraft extends ContainerScreen<ContainerCraft> implements RecipeU
      * Executes when the GUI is removed from the screen
      */
     public void removed() {
-        this.recipeBookComponent.removed();
+        this.recipeBookComponent.toggleVisibility();
         super.removed();
     }
 

@@ -2,11 +2,13 @@ package be.ninedocteur.docmod.jobs.gui.buttons;
 
 
 import be.ninedocteur.docmod.DocMod;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import be.ninedocteur.docmod.jobs.gui.screens.GuiHowXP;
 import be.ninedocteur.docmod.jobs.gui.screens.GuiJobInfos;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -51,12 +53,14 @@ public class ButtonXPCategory extends Button {
     public void renderButton(PoseStack mStack, int mouseX, int mouseY, float partialTicks) {
     	if (this.visible) {
             boolean hovered = mouseX >= this.getX() && mouseY >= this.getY() && mouseX < this.getX() + this.width && mouseY < this.getY() + this.height;
-            Minecraft.getInstance().getTextureManager().bindForSetup(BACKGROUND);
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderTexture(0, BACKGROUND);
             int i = this.xTexStart;
             int j = this.yTexStart;
 
-            if(hovered) GL11.glColor4f(0.8F, 0.8F, 0.8F, 1.0F);
-            else GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+            if(hovered) RenderSystem.setShaderColor(0.8F, 0.8F, 0.8F, 1.0F);
+            else RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
             this.blit(mStack, this.getX(), this.getY(), i, j, 16, 16);
             String name = "category." + type.name().toLowerCase();
