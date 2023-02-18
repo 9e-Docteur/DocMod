@@ -1,5 +1,6 @@
 package be.ninedocteur.docmod.jobs.util;
 
+import be.ninedocteur.docmod.DMConfig.Client;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.jobs.data.ClientJobsData;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -69,11 +70,18 @@ public class GuiUtil {
 	 * @param size
 	 */
 	public static void drawJobIcon(PoseStack mStack, Button gui, String job, int centerX, int centerY, int size) {
+		if(!ClientJobsData.JOBS_ICONS.containsKey(job)) {
+			return;
+		}
 		RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
 		ClientJobsData.JOBS_ICONS.get(job).bind();
 		GuiUtil.drawScaledTexture(mStack, centerX-size/2, centerY-size/2, 0, 0, size, size, size, size);
 	}
+	
 	public static void drawJobIcon(PoseStack mStack, Screen gui, String job, int centerX, int centerY, int size) {
+		if(!ClientJobsData.JOBS_ICONS.containsKey(job)) {
+			return;
+		}
 		RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
 		ClientJobsData.JOBS_ICONS.get(job).bind();
 		GuiUtil.drawScaledTexture(mStack, centerX-size/2, centerY-size/2, 0, 0, size, size, size, size);

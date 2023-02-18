@@ -23,7 +23,6 @@ import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = DocMod.MOD_ID, value = Dist.CLIENT)
 public class ClientEventHandler {
 /*
     @SubscribeEvent
@@ -51,14 +50,12 @@ public class ClientEventHandler {
 
      */
 
-    @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
     public static void onKeyRegister(RegisterKeyMappingsEvent event){
         event.register(KeyBinds.DEV_MODE_KEY);
         event.register(KeyBinds.DEBUG_MODE_KEY);
+        event.register(KeyBinds.JOBS_KEY);
     }
-    @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
+
     public static void onKeyInput(InputEvent.Key event){
         if(KeyBinds.DEV_MODE_KEY.consumeClick()){
             if(DMConfig.Client.DEV_MODE.get()) {

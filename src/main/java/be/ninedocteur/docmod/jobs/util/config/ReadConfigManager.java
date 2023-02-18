@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.server.MinecraftServer;
 
+import java.io.File;
 import java.util.Map;
 
 public class ReadConfigManager {

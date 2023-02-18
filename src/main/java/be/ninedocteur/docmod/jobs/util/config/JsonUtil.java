@@ -53,7 +53,7 @@ public class JsonUtil {
      */
     public static JsonObject itemStackToJSON(ItemStack stack){
         JsonObject object = new JsonObject();
-        object.addProperty("item", stack.getItem().getDefaultInstance().getDisplayName().toString());
+        object.addProperty("item", ForgeRegistries.ITEMS.getKey(stack.getItem()).toString());
         object.addProperty("count", stack.getCount());
         object.addProperty("metadata", stack.getDamageValue());
         return object;
@@ -82,7 +82,7 @@ public class JsonUtil {
      */
     public static JsonObject itemXPDataToJSON(XPData.ItemXPData data){
         JsonObject object = new JsonObject();
-        object.addProperty("item", data.getItem().getDefaultInstance().getDisplayName().toString());
+        object.addProperty("item", ForgeRegistries.ITEMS.getKey(data.getItem()).toString());
         if(data.getMetadata() >= 0)
             object.addProperty("metadata", data.getMetadata());
         JsonArray array = longArrayToJSON(data.getXP_values());
@@ -114,7 +114,7 @@ public class JsonUtil {
      */
     public static JsonObject blockXPDataToJSON(XPData.BlockXPData data){
         JsonObject object = new JsonObject();
-        object.addProperty("block", data.getBlock().getName().toString());
+        object.addProperty("block", ForgeRegistries.BLOCKS.getKey(data.getBlock()).toString());
         JsonArray array = longArrayToJSON(data.getXP_values());
         object.add("xp", array);
         return object;

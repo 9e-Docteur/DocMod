@@ -14,6 +14,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
+import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.jobs.data.ServerJobsData;
 import net.minecraftforge.network.NetworkDirection;
 
@@ -33,8 +34,11 @@ public class PlayerJobs {
 	 */
 	public PlayerJobs(LevelData levelData) {
 		this.levelData = levelData;
-		for(String job : levelData.getJobs())
+		DocMod.LOGGER.info("Player Jobs(LevelData size): " + levelData.getJobs().size());
+		for(String job : levelData.getJobs()) {
+			DocMod.LOGGER.info("Player Jobs(LevelData job): " + job);
 			this.XP.put(job, 0L);
+		}
 	}
 
 	/**
@@ -44,9 +48,12 @@ public class PlayerJobs {
 	public PlayerJobs(FriendlyByteBuf buf) {
 		this.levelData = new LevelData(buf);
 		int size = buf.readInt();
+		DocMod.LOGGER.info("Player Jobs(buffer size): " + size);
 		for(int i = 0; i < size; i++){
 			String job = JobsUtil.readString(buf);
 			long xp = buf.readLong();
+			DocMod.LOGGER.info("Player Jobs(job): " + job);
+			DocMod.LOGGER.info("Player Jobs(xp): " + xp);
 			this.XP.put(job, xp);
 		}
 	}

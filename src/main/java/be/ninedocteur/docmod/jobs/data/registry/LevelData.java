@@ -1,5 +1,6 @@
 package be.ninedocteur.docmod.jobs.data.registry;
 
+import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.jobs.util.JobsUtil;
 import net.minecraft.network.FriendlyByteBuf;
 
@@ -24,10 +25,13 @@ public class LevelData {
      */
     public LevelData(FriendlyByteBuf buf){
         int size = buf.readInt();
+        DocMod.LOGGER.info("LevelData Buffer(size): " + size);
         for(int i = 0; i < size; i++){
             int length = buf.readInt();
             String job = buf.readUtf(length);
             Levels levels = new Levels(buf);
+            DocMod.LOGGER.info("LevelData Buffer(job): " + job);
+            DocMod.LOGGER.info("LevelData Buffer(level): " + levels.toString());
             this.LEVELS_BY_JOB.put(job, levels);
         }
     }
@@ -181,6 +185,7 @@ public class LevelData {
          */
         private Levels(long[] XP_BY_LEVEL) {
             this.XP_BY_LEVEL = XP_BY_LEVEL;
+            DocMod.LOGGER.info("JobLevel(Constructor long[]): " + this.toString());
         }
 
         /**
@@ -189,6 +194,7 @@ public class LevelData {
          */
         public Levels(FriendlyByteBuf buf) {
             this.XP_BY_LEVEL = JobsUtil.fromBytes(JobsUtil.readByteArray(buf));
+            DocMod.LOGGER.info("JobLevel(Constructor long[]): " + this.toString());
         }
 
         /**
@@ -264,6 +270,16 @@ public class LevelData {
         private void writeToBytes(FriendlyByteBuf buf){
             byte[] array = JobsUtil.toBytes(XP_BY_LEVEL);
             JobsUtil.writeByteArray(array, buf);
+        }
+        
+        @Override
+        public String toString() {
+        	String result = "[";
+        	for(int i = 0; i < XP_BY_LEVEL.length; i++) {
+        		result += XP_BY_LEVEL[i];
+        		result += ", ";
+        	}
+        	return result + "]";
         }
     }
 

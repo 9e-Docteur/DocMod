@@ -2,6 +2,7 @@ package be.ninedocteur.docmod.jobs.data;
 
 import be.ninedocteur.docmod.jobs.data.registry.*;
 import be.ninedocteur.docmod.jobs.network.PacketUpdateClientJobsData;
+import be.ninedocteur.docmod.jobs.util.config.JobsIconUtil;
 import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Items;
@@ -11,7 +12,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class ServerJobsData {
 

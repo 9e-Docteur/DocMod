@@ -2,6 +2,7 @@ package be.ninedocteur.docmod;
 
 import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.containers.DMContainers;
+import be.ninedocteur.docmod.client.event.ClientEventHandler;
 import be.ninedocteur.docmod.client.gui.screens.DMReportBug;
 import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
 import be.ninedocteur.docmod.common.event.DMEvent;
@@ -31,7 +32,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -85,19 +85,24 @@ public class DocMod {
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientProxy.doClientEvents(eventBus, MinecraftForge.EVENT_BUS));
         DocMod.LOGGER.info("Init DocMod Containers...");
         DMContainers.CONTAINERS.register(eventBus);
-        eventBus.addListener(this::commonSetup);
-        eventBus.addListener(this::onLaunch);
-        MinecraftForge.EVENT_BUS.addListener(this::onServerStartup);
         Addon addon = new Addon("DocMod", DocMod.MOD_ID, DocMod.VERSION, "no site", "no issue");
         Addon test = new Addon("JEI", "jei", "1.0", "no site", "no issue");
         Addon.registerModAsAPI(addon);
         Addon.registerModAsAPI(test);
+        RegistryHandler.registerListeners();
+        LOGGER.info("Event Handlers Registered", false);
+        ServerJobsData.registerCommonXPRegistries();
+        LOGGER.info("Common XP Categories Registered", false);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
         MinecraftForge.EVENT_BUS.addListener(CommonProxy::commonSetup);
-        MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.addListener(ClientEventHandler::onKeyInput);
         DocMod.LOGGER.info("Init DocMod Creative Tabs...");
+        eventBus.addListener(ClientEventHandler::onKeyRegister);
         eventBus.addListener(this::addCreative);
+        eventBus.addListener(this::commonSetup);
+        eventBus.addListener(this::onLaunch);
+        MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("DocMod is fully Initialized.");
     }
 
@@ -303,22 +308,15 @@ public class DocMod {
     }
 
     private void commonSetup(FMLCommonSetupEvent event){
-        LOGGER.info("Starting Common Setup...");
-        DMWoodTypes.registerWoodTypes();
-        LOGGER.info("Registring Staff...");
-        TeamUUIDs.addAdmin();
-        LOGGER.info("Init Core Addon..");
-        PacketHandler.registerPackets();
-        LOGGER.info("Packets Registered", false);
-        RegistryHandler.registerListeners();
-        LOGGER.info("Event Handlers Registered", false);
-        ServerJobsData.registerCommonXPRegistries();
-        LOGGER.info("Common XP Categories Registered", false);
-    }
-
-    private void onServerStartup(ServerStartingEvent event){
-        ReadConfigManager.readConfigFiles(event.getServer());
-        LOGGER.info("Configuration Loaded", false);
+    	event.enqueueWork(() -> {
+    		LOGGER.info("Starting Common Setup...");
+    		PacketHandler.registerPackets();
+	        LOGGER.info("Packets Registered", false);
+	        DMWoodTypes.registerWoodTypes();
+	        LOGGER.info("Registring Staff...");
+	        TeamUUIDs.addAdmin();
+	        LOGGER.info("Init Core Addon..");
+    	});
     }
 
     private void onLaunch(FMLClientSetupEvent event){

@@ -85,7 +85,11 @@ public class FileUtil {
                 return Optional.of(new JsonParser().parse(new FileReader(f)).getAsJsonObject());
         }
         catch (FileNotFoundException e) {
-            DocMod.LOGGER.info("Error while reading file <" + f.getName() + "> : file doesn't exist !", true);
+        	try {
+				f.createNewFile();
+			} catch (IOException e1) {
+				DocMod.LOGGER.info("Error while reading file <" + f.getName() + "> : file doesn't exist !", true);
+			}
         }
         catch (JsonParseException | IllegalStateException e) {
             DocMod.LOGGER.info("Error while reading file <" + f.getName() + "> : json syntax error !", true);
