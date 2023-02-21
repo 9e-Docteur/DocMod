@@ -6,8 +6,11 @@ import be.ninedocteur.docmod.common.block.HandBrakeBlock;
 import be.ninedocteur.docmod.common.capes.Cape;
 import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.utils.*;
+import com.mojang.blaze3d.platform.Window;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.network.chat.Component;
@@ -16,6 +19,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -58,6 +62,14 @@ public class DMListeners {
             } else {
                 DMSpaceSuitOverlay.showSpaceSuitOverlay = false;
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onButtonPressed(ScreenEvent.Init.Post event){
+        if(event.getScreen() instanceof PauseScreen pauseScreen){
+            final Window window = Minecraft.getInstance().getWindow();
+
         }
     }
 }

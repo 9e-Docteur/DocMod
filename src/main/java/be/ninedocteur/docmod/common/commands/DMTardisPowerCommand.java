@@ -2,18 +2,17 @@ package be.ninedocteur.docmod.common.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 
 public class DMTardisPowerCommand {
-//	public DMTardisPowerCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
+//	public DMTardisPowerCommand(CommandDispatcher<CommandSourceStackStack> dispatcher) {
 //        dispatcher.register(Commands.literal("tardis").then(Commands.literal("power").executes((command) -> {
 //            return cape(command.getSource());
 //        })));
 //    }
 //
-//	 private int cape(CommandSourceStack source) throws CommandSyntaxException {
+//	 private int cape(CommandSourceStackStack source) throws CommandSyntaxException {
 //		 TardisTileEntity tardisTileEntity = TardisTileEntity.getOrCreateTardis((int) (source.getPlayer().getX() / 1000));
 //		 if(tardisTileEntity.isOn()){
 //			 tardisTileEntity.isOn = false;

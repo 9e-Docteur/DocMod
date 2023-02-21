@@ -67,7 +67,7 @@ public class AnimatedCapeHandler {
                 Minecraft.getInstance().getTextureManager().register(resourceLocation, texture);
                 inputStream.close();
             } catch (IOException e) {
-                DocMod.LOGGER.warn("Failed to get Docmod capes");
+                DocMod.LOGGER.error("Failed to get DocMod capes. Please contact the mod author!");
             }
             return resourceLocation;
         }

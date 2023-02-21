@@ -1,10 +1,12 @@
 package be.ninedocteur.docmod.jobs.events.client;
 
-import be.ninedocteur.docmod.jobs.data.ClientJobsData;
+import be.ninedocteur.docmod.jobs.data.ClientInfos;
 import be.ninedocteur.docmod.jobs.gui.GuiGainXP;
 import be.ninedocteur.docmod.jobs.gui.containers.ContainerCraft;
+import be.ninedocteur.docmod.jobs.gui.screens.GuiLevelUp;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.datafixers.util.Pair;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -13,12 +15,12 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -36,20 +38,17 @@ public class GuiEvents {
     public void clientTick(RenderGuiOverlayEvent e) {
         if(Minecraft.getInstance().player == null)
             return;
-            ClientJobsData.addXPInfos.update();
-            if(!ClientJobsData.addXPInfos.shouldShow())
-                return;
-            Pair<String, Long> toShow = ClientJobsData.addXPInfos.showJobAtTime();
-            if(ClientJobsData.playerJobs.isMax(toShow.getFirst()))
-                return;
-            GuiGainXP gui = new GuiGainXP(toShow.getFirst(), toShow.getSecond());
-            gui.render(new PoseStack(), 0.0f);
+        if(ClientInfos.addXPInfos == null) return;
+        if(ClientInfos.job.getLevelByJob(ClientInfos.addXPInfos.job) >= 25) return;
+        if(ClientInfos.addXPInfos.ticks <= System.currentTimeMillis())
+        {
+            ClientInfos.addXPInfos = null;
+            return;
+        }
+        GuiGainXP gui = new GuiGainXP(ClientInfos.addXPInfos.job, ClientInfos.addXPInfos.xpAdded);
+        gui.render(new PoseStack(), 0.0f);
     }
 
-    /**
-     * Cancels the opening of the regular crafting interface and opens the custom one from the Jobs mod.
-     * @param e the Click Event
-     */
     @SubscribeEvent
     public void onOpenCraftingTable(RightClickBlock e) {
         if(e.getLevel().getBlockState(e.getPos()).getBlock() == Blocks.CRAFTING_TABLE) {
@@ -82,4 +81,13 @@ public class GuiEvents {
             }
         });
     }
+
+    @SubscribeEvent
+    @OnlyIn(Dist.CLIENT)
+    public void onGuiOpen(ScreenEvent.Init.Post e)
+    {
+        if(!(e.getScreen() instanceof GuiLevelUp))
+            ClientInfos.CURRENT_REWARDS.clear();
+    }
+
 }

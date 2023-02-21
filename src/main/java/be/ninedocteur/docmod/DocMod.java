@@ -3,23 +3,22 @@ package be.ninedocteur.docmod;
 import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.containers.DMContainers;
 import be.ninedocteur.docmod.client.event.ClientEventHandler;
-import be.ninedocteur.docmod.client.gui.screens.DMReportBug;
+import be.ninedocteur.docmod.client.event.ModEventBusEvent;
 import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
-import be.ninedocteur.docmod.common.event.DMEvent;
+import be.ninedocteur.docmod.common.entity.DMEntityType;
+import be.ninedocteur.docmod.common.entity.mob.CybermanEntity;
 import be.ninedocteur.docmod.common.init.DMBlocks;
 import be.ninedocteur.docmod.common.init.DMItems;
-import be.ninedocteur.docmod.common.init.DMMenu;
-import be.ninedocteur.docmod.common.listeners.DMListeners;
-import be.ninedocteur.docmod.jobs.data.ServerJobsData;
-import be.ninedocteur.docmod.jobs.util.config.ReadConfigManager;
+import be.ninedocteur.docmod.jobs.IJobFactory;
+import be.ninedocteur.docmod.jobs.JobFactory;
 import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
 import be.ninedocteur.docmod.jobs.util.handler.RegistryHandler;
+import be.ninedocteur.docmod.jobs.util.save.LoadUtil;
 import be.ninedocteur.docmod.proxy.ClientProxy;
 import be.ninedocteur.docmod.common.init.DMWoodTypes;
 import be.ninedocteur.docmod.proxy.CommonProxy;
 import be.ninedocteur.docmod.registry.ClassRegistry;
 import be.ninedocteur.docmod.utils.*;
-import be.ninedocteur.docteam.api.DMLogin;
 import be.ninedocteur.docteam.api.DocTeamAPI;
 
 import com.google.gson.Gson;
@@ -28,10 +27,16 @@ import com.google.gson.GsonBuilder;
 import com.mojang.blaze3d.platform.GlUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.event.server.ServerStartedEvent;
+import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -40,19 +45,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.event.lifecycle.ParallelDispatchEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import java.util.UUID;
 
-import javax.print.Doc;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-
-import net.minecraftforge.fml.loading.moddiscovery.ModAnnotation;
-import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
-import net.minecraftforge.fml.loading.targets.FMLServerLaunchHandler;
-import net.minecraftforge.forgespi.language.IModInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -83,6 +80,7 @@ public class DocMod {
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, DMConfig.Server.SERVER_SPEC, "docmod-server.toml");
         LOGGER.info("Start initializing DocMod Events.");
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientProxy.doClientEvents(eventBus, MinecraftForge.EVENT_BUS));
+        DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> CommonProxy.doCommonEvent());
         DocMod.LOGGER.info("Init DocMod Containers...");
         DMContainers.CONTAINERS.register(eventBus);
         Addon addon = new Addon("DocMod", DocMod.MOD_ID, DocMod.VERSION, "no site", "no issue");
@@ -91,17 +89,16 @@ public class DocMod {
         Addon.registerModAsAPI(test);
         RegistryHandler.registerListeners();
         LOGGER.info("Event Handlers Registered", false);
-        ServerJobsData.registerCommonXPRegistries();
-        LOGGER.info("Common XP Categories Registered", false);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
-        MinecraftForge.EVENT_BUS.addListener(CommonProxy::commonSetup);
         MinecraftForge.EVENT_BUS.addListener(ClientEventHandler::onKeyInput);
+        MinecraftForge.EVENT_BUS.addListener(this::onDestroy);
         DocMod.LOGGER.info("Init DocMod Creative Tabs...");
         eventBus.addListener(ClientEventHandler::onKeyRegister);
         eventBus.addListener(this::addCreative);
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::onLaunch);
+        eventBus.addListener(this::after);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("DocMod is fully Initialized.");
     }
@@ -308,7 +305,8 @@ public class DocMod {
     }
 
     private void commonSetup(FMLCommonSetupEvent event){
-    	event.enqueueWork(() -> {
+        SpawnPlacements.register(DMEntityType.CYBERMAN.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE_WG, CybermanEntity::canSpawn);
+        event.enqueueWork(() -> {
     		LOGGER.info("Starting Common Setup...");
     		PacketHandler.registerPackets();
 	        LOGGER.info("Packets Registered", false);
@@ -316,7 +314,14 @@ public class DocMod {
 	        LOGGER.info("Registring Staff...");
 	        TeamUUIDs.addAdmin();
 	        LOGGER.info("Init Core Addon..");
+            JobFactory.init();
     	});
+    }
+
+    private void after(ParallelDispatchEvent event){
+        event.enqueueWork(() -> {
+            //JobFactory.init();
+        });
     }
 
     private void onLaunch(FMLClientSetupEvent event){
@@ -350,5 +355,26 @@ public class DocMod {
     
     public static void prepareDownload() {
     	AnimatedCapeHandler.readCapeTexture(DocTeamAPI.getAPI() + "docmod/cape/ninety/" + AnimatedCapeHandler.i + ".png", AnimatedCapeHandler.i);
+    }
+
+    @SubscribeEvent
+    public void onDestroy(BlockEvent.BreakEvent event){
+        if(event.hasResult()){
+            BlockState blockState = event.getLevel().getBlockState(event.getPos());
+            if(JobFactory.JOBS_XP_FACTORY.containsKey(blockState)){
+                JobFactory.Factory jobFactory = (JobFactory.Factory) JobFactory.JOBS_XP_FACTORY.get(blockState);
+                jobFactory.executeActionFromBlockstate(blockState);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onServerStart(ServerStartingEvent event){
+        LoadUtil.loadData(event.getServer());
+    }
+
+    @SubscribeEvent
+    public static void onServerStarted(ServerStartedEvent event){
+        LoadUtil.loadData(event.getServer());
     }
 }

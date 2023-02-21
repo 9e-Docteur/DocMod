@@ -1,27 +1,14 @@
 package be.ninedocteur.docmod.client.event;
 
 import be.ninedocteur.docmod.DMConfig;
-import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.KeyBinds;
 import be.ninedocteur.docmod.client.gui.overlay.DocModDebugOverlay;
-import be.ninedocteur.docmod.client.gui.screens.DMConnectScreen;
-import be.ninedocteur.docmod.jobs.gui.screens.GuiJobInfos;
 import be.ninedocteur.docmod.jobs.gui.screens.MainJobsMenu;
-import be.ninedocteur.docmod.utils.DMUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
-import net.minecraft.client.multiplayer.ServerData;
-import net.minecraft.client.multiplayer.ServerList;
-import net.minecraft.data.Main;
 import net.minecraft.network.chat.Component;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
-import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
 public class ClientEventHandler {
 /*

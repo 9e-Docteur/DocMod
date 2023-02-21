@@ -2,13 +2,13 @@ package be.ninedocteur.docmod.common.commands;
 
 public class DMAdminGiveCommand {
     /*
-    public DMAdminGiveCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
+    public DMAdminGiveCommand(CommandDispatcher<CommandSourceStackStack> dispatcher) {
         dispatcher.register(Commands.literal("docmod").then(Commands.literal("admin").then(Commands.literal("give"))).executes((command) -> {
             return getCommand(command.getSource());
         }));
     }
 
-    //private int getCommand(CommandSourceStack source) throws CommandSyntaxException {
+    //private int getCommand(CommandSourceStackStack source) throws CommandSyntaxException {
 /*
         User user = Minecraft.getInstance().getUser();
         Player player = Minecraft.getInstance().player;

@@ -7,7 +7,6 @@ import be.ninedocteur.docmod.utils.LaunchUtils;
 import be.ninedocteur.docmod.utils.PlayerUtils;
 import be.ninedocteur.docteam.api.DocTeamAPI;
 import net.minecraft.client.Minecraft;
-import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;

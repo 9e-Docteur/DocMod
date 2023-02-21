@@ -1,6 +1,6 @@
 package be.ninedocteur.docmod.common.computer.terminal;
 
-import net.minecraft.commands.CommandSource;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
 

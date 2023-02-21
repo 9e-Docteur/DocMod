@@ -1,109 +1,86 @@
 package be.ninedocteur.docmod.jobs.gui.screens;
 
+import java.awt.Color;
+import java.io.IOException;
+
+
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.jobs.data.ClientJobsData;
-import be.ninedocteur.docmod.jobs.gui.buttons.ButtonArrow;
+import be.ninedocteur.docmod.jobs.JobFactory;
+import be.ninedocteur.docmod.jobs.data.ClientInfos;
 import be.ninedocteur.docmod.jobs.gui.buttons.ButtonJob;
-import be.ninedocteur.docmod.jobs.util.GuiUtil;
-import be.ninedocteur.docmod.jobs.util.JobsUtil;
+import be.ninedocteur.docmod.jobs.util.Constants;
+import be.ninedocteur.docmod.jobs.util.save.LoadUtil;
+import be.ninedocteur.docmod.jobs.util.save.LoadXPValues;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import org.lwjgl.opengl.GL11;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.dedicated.DedicatedServer;
+import net.minecraft.server.level.ServerPlayer;
 
 public class MainJobsMenu extends Screen {
+    Button job1, job2, job3, job4;
 
-    public static final ResourceLocation BACKGROUND = new ResourceLocation(DocMod.MOD_ID, "textures/gui/main_menu.png");
-
-    public int index = 0;
-    private final List<String> jobs;
-
-    /**
-     * Creates the Main Jobs Menu GUI
-     */
-    public MainJobsMenu() {
+    public MainJobsMenu() 
+    {
 		super(Component.translatable("text.jobs.title"));
-        this.jobs = new ArrayList<>(ClientJobsData.JOBS_LEVELS.getJobs());
 	}
 
-    /**
-     * Creates all the Jobs Button and up and down arrows if there are more than 4 Jobs
-     */
+	public static final ResourceLocation BACKGROUND = new ResourceLocation(DocMod.MOD_ID, "textures/gui/background.png");
+    public static final ResourceLocation ICONS = new ResourceLocation(DocMod.MOD_ID, "textures/gui/jobs_icons.png");
+    
     @Override
-    protected void init() {
-        int offset = 0;
-        for(String job : jobs.stream().skip(index).limit(4).collect(Collectors.toList())){
-            this.addRenderableWidget(new ButtonJob(this.width/2 - 100, this.height/2 - 67 + offset, job));
-            offset += 40;
-        }
-        if(index > 0){
-            this.addRenderableWidget(new ButtonArrow(this.width/2-9, 43, this, true));
-        }
-        if(index < lastIndex()){
-            this.addRenderableWidget(new ButtonArrow(this.width/2-9, this.height/2+93, this, false));
-        }
+    protected void init() 
+    {
+//        if(Minecraft.getInstance().player.getServer() == null){
+//            MinecraftServer server = Minecraft.getInstance().getSingleplayerServer();
+//            LoadUtil.loadData(server);
+//        } else {
+//            LoadUtil.loadData(Minecraft.getInstance().player.getServer());
+//        }
+    	job1 = new ButtonJob(this.width/2 - 90, this.height/2 - 70, Constants.Job.byIndex(0));
+        job2 = new ButtonJob(this.width/2 - 90, this.height/2 - 30, Constants.Job.byIndex(1));
+        job3 = new ButtonJob(this.width/2 - 90, this.height/2 + 10, Constants.Job.byIndex(2));
+        job4 = new ButtonJob(this.width/2 - 90, this.height/2 + 50, Constants.Job.byIndex(3));
+        this.addRenderableWidget(job1);
+        this.addRenderableWidget(job2);
+        this.addRenderableWidget(job3);
+        this.addRenderableWidget(job4);
+    	super.init();
     }
-
-    /**
-     * @return false, this GUI doesn't pause the game
-     */
+    
     @Override
-    public boolean isPauseScreen() {
+    public boolean isPauseScreen() 
+    {
     	return false;
     }
-
-    /**
-     * @return the last page of the menu based on the amount of jobs
-     */
-    private int lastIndex(){
-        int x = this.jobs.size()-4;
-        if(x < 0)
-            x = 0;
-        return x;
-    }
-
-    /**
-     * Renders the GUI on the screen
-     * @param mStack
-     * @param mouseX
-     * @param mouseY
-     * @param partialTicks
-     */
+    
     @Override
-    public void render(PoseStack mStack, int mouseX, int mouseY, float partialTicks) {
+    public void render(PoseStack mStack, int mouseX, int mouseY, float partialTicks)
+    {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderTexture(0, BACKGROUND);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         this.blit(mStack, this.width/2 - 128, this.height/2 - 110, 0, 0, 256, 220);
-        GuiUtil.renderCenteredString(mStack, I18n.get("text.jobs.title"), Color.black.getRGB(), this.width/2, this.height/2 - 95, 2.0f);
+        drawTitle(mStack);
     	super.render(mStack, mouseX, mouseY, partialTicks);
     }
 
-    /**
-     * Goes one page up or down when the mouse is scrolled
-     * @param mouseX the x coordinate of the mouse
-     * @param mouseY the y coordinate of the mouse
-     * @param direction the direction of the scroll
-     * @return true
-     */
-    @Override
-    public boolean mouseScrolled(double mouseX, double mouseY, double direction) {
-        if (direction != 0) {
-            int x = -1 * Integer.signum((int)direction);
-            this.index = JobsUtil.clamp(this.index + x, 0, lastIndex());
-            this.init();
-        }
-        return true;
+    private void drawTitle(PoseStack mStack)
+    {
+        mStack.pushPose();
+        mStack.scale(2.0F, 2.0F, 2.0F);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        String title = I18n.get("text.jobs.title");
+        int x = this.width/4 - this.font.width(title)/4 - 5;
+        int y = this.height/2 - 114;
+        this.font.draw(mStack, title, x, y, Color.black.getRGB());
+        mStack.popPose();
     }
 }

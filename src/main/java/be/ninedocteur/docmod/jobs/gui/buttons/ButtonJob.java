@@ -1,89 +1,120 @@
 package be.ninedocteur.docmod.jobs.gui.buttons;
 
-import be.ninedocteur.docmod.jobs.data.ClientJobsData;
+import java.awt.Color;
+
+import be.ninedocteur.docmod.DocMod;
+import be.ninedocteur.docmod.jobs.data.ClientInfos;
+import be.ninedocteur.docmod.jobs.gui.screens.GuiJobInfos;
+import be.ninedocteur.docmod.jobs.util.Constants;
 import be.ninedocteur.docmod.jobs.util.GuiUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
-import be.ninedocteur.docmod.jobs.gui.screens.GuiJobInfos;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
-import java.awt.*;
 
 
 public class ButtonJob extends Button {
 
-
-
+    private final ResourceLocation texture = new ResourceLocation(DocMod.MOD_ID + ":textures/gui/jobs_icons.png");
+    private final int xTexStart;
+    private final int yTexStart;
     private final String title;
-    private final String job;
-    protected static final Button.CreateNarration DEFAULT_NARRATION = (p_253298_) -> {
+    private final Constants.Job job;
+    private int buttonX = this.getX();
+    private int buttonY = this.getY();
+
+    protected static final net.minecraft.client.gui.components.Button.CreateNarration DEFAULT_NARRATION = (p_253298_) -> {
         return p_253298_.get();
     };
 
-    /**
-     * Creates a Job Button
-     * @param posX the x coordinate
-     * @param posY the y coordinate
-     * @param j the job the button is representing
-     */
-    public ButtonJob(int posX, int posY, String j) {
-        super(posX, posY, 200, 40, Component.empty() ,new OnPressed(), DEFAULT_NARRATION);
-        this.title = ClientJobsData.getJobName(j);
+    public ButtonJob(int posX, int posY, Constants.Job j)
+    {
+        super(posX, posY, 200, 40, Component.literal(""),new OnPressed(),DEFAULT_NARRATION);
+        this.xTexStart = 40 * j.index;
+        this.yTexStart = 216;
+        this.title = I18n.get("jobs." + j.name);
         this.job = j;
     }
 
+    public void setPosition(int x, int y)
+    {
+        this.buttonX = x;
+        this.buttonY = y;
+    }
 
-    /**
-     * Renders the widget on the screen
-     * @param mStack
-     * @param mouseX
-     * @param mouseY
-     * @param partialTicks
-     */
+
     @Override
-    public void renderButton(PoseStack mStack, int mouseX, int mouseY, float partialTicks) {
-    	if (this.visible) {
-            float f = 1.0f;
+    public void renderButton(PoseStack mStack, int mouseX, int mouseY, float partialTicks)
+    {
+    	if (this.visible)
+        {
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-            GuiUtil.drawJobIcon(mStack, this, this.job, this.getX()+20, this.getY()+20, 32);
-            long xp = ClientJobsData.playerJobs.getXPByJob(this.job);
-            int lvl = ClientJobsData.playerJobs.getLevelByJob(this.job);
-            long total = lvl >= ClientJobsData.JOBS_LEVELS.getMaxLevel(this.job) ? xp :
-                    ClientJobsData.JOBS_LEVELS.getXPForLevel(this.job, lvl+1);
-            GuiUtil.renderProgressBar(mStack, this, this.getX()+45, this.getY()+15, 150, 12, xp, total);
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderTexture(0, this.texture);
+            drawIcon(mStack);
+            drawGradient(mStack);
             drawName(mStack);
+
         }
     }
 
-    /**
-     * Renders the Job name and level on the screen
-     * @param mStack
-     */
-    private void drawName(PoseStack mStack) {
-        int lvl = ClientJobsData.playerJobs.getLevelByJob(this.job);
+    private void drawIcon(PoseStack mStack)
+    {
+        int i = this.xTexStart;
+        int j = this.yTexStart;
+        GuiUtil.drawScaledTexture(mStack, this.buttonX, this.buttonY, i, j, 40, 40, 30, 30);
+    }
+
+    private void drawGradient(PoseStack mStack)
+    {
+        long xp = ClientInfos.job.getXPByJob(this.job);
+        int lvl = ClientInfos.job.getLevelByJob(this.job);
+        if(lvl < 25)
+        {
+            long total = Constants.XP_BY_LEVEL[lvl+1];
+            int size = (int)(150*((double)xp / (double)total));
+            GuiUtil.drawTexture(mStack, this, this.buttonX + 30, this.buttonY + 15, 0, 80, 150, 12); //background
+            GuiUtil.drawTexture(mStack, this, this.buttonX + 30, this.buttonY + 15, 0, 92, size, 12);
+
+            String info = xp + "/" + total;
+            int widthInfo = Minecraft.getInstance().font.width(info);
+            Minecraft.getInstance().font.draw(mStack, info, this.buttonX + 105 - widthInfo/2, this.buttonY + 18,
+                    Color.white.getRGB());
+        }
+        else
+        {
+            int size = 150;
+            this.blit(mStack, this.buttonX + 30, this.buttonY + 15, 0, 80, 150, 12); //background
+            this.blit(mStack, this.buttonX + 30, this.buttonY + 15, 0, 104, size, 12);
+
+            String info = I18n.get("text.level.max");
+            int widthInfo = Minecraft.getInstance().font.width(info);
+            Minecraft.getInstance().font.draw(mStack, info, this.buttonX + 95 - widthInfo/2, this.buttonY + 18,
+                    Color.white.getRGB());
+        }
+    }
+
+    private void drawName(PoseStack mStack)
+    {
+        int lvl = ClientInfos.job.getLevelByJob(this.job);
         String name = this.title + " (" + I18n.get("text.level") + " " + lvl + ")";
-        int x = 120 - Minecraft.getInstance().font.width(name)/2;
-        int y = Minecraft.getInstance().font.lineHeight/2;
-        Minecraft.getInstance().font.draw(mStack, name, this.getX() + x, this.getY() + y, Color.black.getRGB());
+        int x = 105 - Minecraft.getInstance().font.width(name)/2;
+        int y = 2;
+        Minecraft.getInstance().font.draw(mStack, name, this.buttonX + x, this.buttonY + y, Color.black.getRGB());
     }
     
-    public static class OnPressed implements net.minecraft.client.gui.components.Button.OnPress {
+    public static class OnPressed implements OnPress{
 
-        /**
-         * Opens a Jobs Infos GUI when the button is clicked
-         * @param btn the button clicked
-         */
-        @Override
-		public void onPress(Button btn) {
-			if(!(btn instanceof ButtonJob))
-                return;
-            ButtonJob b = (ButtonJob)btn;
-			Minecraft.getInstance().setScreen(new GuiJobInfos(b.job));
+		@Override
+		public void onPress(Button btn) 
+		{
+			if(!(btn instanceof ButtonJob)) return;
+			Minecraft.getInstance().setScreen(new GuiJobInfos(((ButtonJob)btn).job));
 		}
     	
     }

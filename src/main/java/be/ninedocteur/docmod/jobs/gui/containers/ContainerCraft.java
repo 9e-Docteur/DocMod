@@ -1,7 +1,9 @@
 package be.ninedocteur.docmod.jobs.gui.containers;
 
-import be.ninedocteur.docmod.jobs.data.ServerJobsData;
-import be.ninedocteur.docmod.jobs.data.capabilities.PlayerData;
+import be.ninedocteur.docmod.jobs.data.GainXPUtil;
+import be.ninedocteur.docmod.jobs.data.JobsInfo;
+import be.ninedocteur.docmod.jobs.data.PlayerData;
+import be.ninedocteur.docmod.jobs.util.Constants;
 import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
@@ -76,13 +78,20 @@ public class ContainerCraft extends RecipeBookMenu<CraftingContainer> {
 	protected static void slotChangedCraftingGrid(int index, Level world, Player player, CraftingContainer craftingInventory, ResultContainer resultInventory) {
 		if (!world.isClientSide) {
 			ServerPlayer ServerPlayer = (ServerPlayer)player;
+			JobsInfo jobs = PlayerData.getPlayerJobs(ServerPlayer);
 			ItemStack itemstack = ItemStack.EMPTY;
 			Optional<CraftingRecipe> optional = world.getServer().getRecipeManager().getRecipeFor(RecipeType.CRAFTING, craftingInventory, world);
 			if (optional.isPresent()) {
 				CraftingRecipe icraftingrecipe = optional.get();
-				if (resultInventory.setRecipeUsed(world, ServerPlayer, icraftingrecipe)) {
+				if (resultInventory.setRecipeUsed(world, ServerPlayer, icraftingrecipe))
+				{
 					itemstack = icraftingrecipe.assemble(craftingInventory);
-					if(!ServerJobsData.BLOCKED_CRAFTS.canCraft(itemstack, PlayerData.getPlayerJobs(ServerPlayer)))
+				}
+				if(GainXPUtil.CRAFT_UNLOCK_JOB.containsKey(itemstack.getItem()))
+				{
+					Constants.Job j = GainXPUtil.CRAFT_UNLOCK_JOB.get(itemstack.getItem());
+					int lvl = GainXPUtil.CRAFT_UNLOCK_LVL.get(itemstack.getItem());
+					if(lvl > jobs.getLevelByJob(j))
 						itemstack = ItemStack.EMPTY;
 				}
 			}

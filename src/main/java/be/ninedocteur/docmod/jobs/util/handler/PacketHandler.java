@@ -1,5 +1,8 @@
 package be.ninedocteur.docmod.jobs.util.handler;
 
+import java.util.function.BiConsumer;
+import java.util.function.Supplier;
+
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.jobs.network.*;
 import net.minecraft.network.chat.Component;
@@ -13,34 +16,27 @@ public class PacketHandler {
 	
 	private static final String PROTOCOL_VERSION = "1";
 	public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
-	    new ResourceLocation(DocMod.MOD_ID, "main"),
-	    () -> PROTOCOL_VERSION,
-	    PROTOCOL_VERSION::equals,
-	    PROTOCOL_VERSION::equals
+			new ResourceLocation(DocMod.MOD_ID, "main"),
+			() -> PROTOCOL_VERSION,
+			PROTOCOL_VERSION::equals,
+			PROTOCOL_VERSION::equals
 	);
-
-	/**
-	 * Registers all the packets types
-	 */
-	public static void registerPackets() {
+	
+	public static void registerPackets()
+	{
 		INSTANCE.registerMessage(0, PacketAddXP.class, PacketAddXP::toBytes, PacketAddXP::fromBytes, PacketAddXP::handle);
 		INSTANCE.registerMessage(1, PacketAskClientUpdate.class, PacketAskClientUpdate::toBytes, PacketAskClientUpdate::fromBytes, PacketAskClientUpdate::handle);
 		INSTANCE.registerMessage(2, PacketLevelUp.class, PacketLevelUp::toBytes, PacketLevelUp::fromBytes, PacketLevelUp::handle);
 		INSTANCE.registerMessage(3, PacketSendRewardsClient.class, PacketSendRewardsClient::toBytes, PacketSendRewardsClient::fromBytes, PacketSendRewardsClient::handle);
-		INSTANCE.registerMessage(4, PacketUpdateClientJobsData.class, PacketUpdateClientJobsData::toBytes, PacketUpdateClientJobsData::fromBytes, PacketUpdateClientJobsData::handle);
+		INSTANCE.registerMessage(4, PacketUpdateClientInfos.class, PacketUpdateClientInfos::toBytes, PacketUpdateClientInfos::fromBytes, PacketUpdateClientInfos::handle);
 		INSTANCE.registerMessage(5, PacketUpdateClientJob.class, PacketUpdateClientJob::toBytes, PacketUpdateClientJob::fromBytes, PacketUpdateClientJob::handle);
 		INSTANCE.registerMessage(6, PacketSendChatMessage.class, PacketSendChatMessage::toBytes, PacketSendChatMessage::fromBytes, PacketSendChatMessage::handle);
 	}
-
-	/**
-	 * Sends a char message to the client
-	 * @param player the player who will receive the message
-	 * @param message the message to send
-	 */
-	public static void sendMessageToClient(ServerPlayer player, Component message) {
-		INSTANCE.sendTo(new PacketSendChatMessage(message),
-						player.connection.getConnection(),
-						NetworkDirection.PLAY_TO_CLIENT);
+	
+	
+	public static void sendMessageToClient(ServerPlayer player, Component message)
+	{
+		INSTANCE.sendTo(new PacketSendChatMessage(message), player.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
 	}
 
 }

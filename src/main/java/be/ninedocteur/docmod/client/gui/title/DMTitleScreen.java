@@ -73,7 +73,7 @@ public class DMTitleScreen extends Screen {
     private String splash;
     private Button resetDemoButton;
     private static final ResourceLocation MINECRAFT_LOGO = new ResourceLocation("textures/gui/title/minecraft.png");
-    private static final ResourceLocation DOCMOD_LOGO = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/docmodv3.png");
+    private static final ResourceLocation DOCMOD_LOGO = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/docmodv4.png");
     private static final ResourceLocation MINECRAFT_EDITION = new ResourceLocation("textures/gui/title/edition.png");
     private Screen realmsNotificationsScreen;
     private int copyrightWidth;
