@@ -4,6 +4,7 @@ import be.ninedocteur.docmod.DMConfig;
 import be.ninedocteur.docmod.client.KeyBinds;
 import be.ninedocteur.docmod.client.gui.overlay.DocModDebugOverlay;
 import be.ninedocteur.docmod.jobs.gui.screens.MainJobsMenu;
+import be.ninedocteur.docmod.utils.TeamUUIDs;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;

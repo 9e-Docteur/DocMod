@@ -23,5 +23,4 @@ public class KeyBinds {
     public static final KeyMapping ENTER_KEY = new KeyMapping(KEY_ENTER, KeyConflictContext.UNIVERSAL, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_ENTER, KEY_CATEGORY);
 
     public static final KeyMapping DEBUG_MODE_KEY = new KeyMapping(KEY_DEBUG, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F4, KEY_CATEGORY);
-
 }

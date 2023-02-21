@@ -1,16 +1,11 @@
 package be.ninedocteur.docmod.jobs;
 
-import be.ninedocteur.docmod.client.gui.overlay.DocModJobOverlay;
 import be.ninedocteur.docmod.common.init.DMBlocks;
-import be.ninedocteur.docmod.jobs.commands.CommandAdd;
 import be.ninedocteur.docmod.jobs.data.ClientInfos;
 import be.ninedocteur.docmod.jobs.data.PlayerData;
-import be.ninedocteur.docmod.jobs.gui.GuiGainXP;
-import be.ninedocteur.docmod.jobs.network.PacketSendChatMessage;
 import be.ninedocteur.docmod.jobs.network.PacketUpdateClientJob;
 import be.ninedocteur.docmod.jobs.util.Constants;
 import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -23,14 +18,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.network.NetworkDirection;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class JobFactory {
@@ -77,8 +68,7 @@ public class JobFactory {
         int currentLevel = ClientInfos.job.getLevelByJob(fromJob);
         if(currentLevel >= fromLevel && currentLevel <= toLevel){
             ClientInfos.job.addXP(fromJob, xpToGive);
-            Player player = Minecraft.getInstance().player;
-
+            ClientInfos.showAddGui(fromJob, xpToGive);
         }
     }
 
@@ -87,6 +77,7 @@ public class JobFactory {
         int currentLevel = ClientInfos.job.getLevelByJob(fromJob);
         if(currentLevel >= fromLevel && currentLevel <= toLevel){
             ClientInfos.job.addXP(fromJob, -xpToRemove);
+            Minecraft.getInstance().player.sendSystemMessage(Component.literal("You have lost " + xpToRemove + " for the job" + fromJob+ "!"));
         }
     }
 

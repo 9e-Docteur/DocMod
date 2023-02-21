@@ -359,13 +359,14 @@ public class DocMod {
 
     @SubscribeEvent
     public void onDestroy(BlockEvent.BreakEvent event){
-        if(event.hasResult()){
             BlockState blockState = event.getLevel().getBlockState(event.getPos());
+        LOGGER.info("Destroyed");
+        LOGGER.info(blockState);
             if(JobFactory.JOBS_XP_FACTORY.containsKey(blockState)){
                 JobFactory.Factory jobFactory = (JobFactory.Factory) JobFactory.JOBS_XP_FACTORY.get(blockState);
                 jobFactory.executeActionFromBlockstate(blockState);
+                LOGGER.info("Destroyed and found");
             }
-        }
     }
 
     @SubscribeEvent

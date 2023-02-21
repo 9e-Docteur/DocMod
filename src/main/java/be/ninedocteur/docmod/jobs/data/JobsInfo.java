@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import be.ninedocteur.docmod.client.gui.overlay.DocModJobOverlay;
 import be.ninedocteur.docmod.jobs.network.PacketAddXP;
 import be.ninedocteur.docmod.jobs.network.PacketLevelUp;
 import be.ninedocteur.docmod.jobs.network.PacketSendRewardsClient;
@@ -106,7 +105,6 @@ public class JobsInfo {
 	{
 		long total = Constants.TOTAL_XP_BY_LEVEL[this.levels[j.index]] + this.XPs[j.index] + xp;
 		set(j, total);
-		DocModJobOverlay.setShow(true, (int) xp, j);
 	}
 	
 	public boolean isMax(Constants.Job j)

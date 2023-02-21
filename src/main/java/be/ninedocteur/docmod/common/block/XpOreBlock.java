@@ -22,7 +22,7 @@ public class XpOreBlock extends Block {
     public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
         ExperienceOrb experienceOrb = new ExperienceOrb(level, pos.getX(), pos.getY(), pos.getZ(), 40);
         level.addFreshEntity(experienceOrb);
-        //PlayerData.getPlayerJobs(player).gainXP(Constants.Job.MINER, 25, (ServerPlayer) player);
+        JobFactory.giveXP(25, Constants.Job.MINER, 0, 20);
         return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
 }
