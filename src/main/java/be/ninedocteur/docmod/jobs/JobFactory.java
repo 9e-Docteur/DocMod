@@ -14,6 +14,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JobFactory {
-    public static Map<Object, IJobFactory> JOBS_XP_FACTORY = new HashMap<>();
+    public static Map<ItemLike, IJobFactory> JOBS_XP_FACTORY = new HashMap<>();
 
 
     //TODO: SHOW ALL OF THIS ON GUI HOW XP SCREEN
@@ -81,12 +82,12 @@ public class JobFactory {
         }
     }
 
-    public static void registerToFactory(Object object, Factory factory){
+    public static void registerToFactory(ItemLike object, Factory factory){
         JOBS_XP_FACTORY.put(object, factory);
     }
 
     public static class Factory implements IJobFactory{
-        private Object object;
+        private ItemLike object; //TODO: USE ITEMLIKE
         private int xpToGive;
         private int fromLevel;
         private int toLevel;
@@ -94,7 +95,7 @@ public class JobFactory {
         private Constants.Job fromJob;
         private Action action;
 
-        public Factory(Object object, Integer xpToGiveOrRemove, Constants.Job fromJob, Integer fromLevel, Integer toLevel, Action action) {
+        public Factory(ItemLike object, Integer xpToGiveOrRemove, Constants.Job fromJob, Integer fromLevel, Integer toLevel, Action action) {
             this.object = object;
             this.action = action;
             if(action == Action.GIVE){
@@ -110,7 +111,7 @@ public class JobFactory {
             this.toLevel = toLevel;
         }
 
-        public Object getObject() {
+        public ItemLike getObject() {
             return object;
         }
 
@@ -139,7 +140,7 @@ public class JobFactory {
         }
 
         @Override
-        public void giveXP(Object object, Integer xpToGive, Constants.Job fromJob, Integer fromLevel, Integer toLevel) {
+        public void giveXP(ItemLike object, Integer xpToGive, Constants.Job fromJob, Integer fromLevel, Integer toLevel) {
             int currentLevel = ClientInfos.job.getLevelByJob(fromJob);
             if(currentLevel >= fromLevel && currentLevel <= toLevel){
                 //TODO: TAG ON BLOCK TO AVOID XP GLITCH WHEN GIVING ITEM
@@ -164,7 +165,7 @@ public class JobFactory {
         }
 
         @Override
-        public void removeXP(Object object, Integer xpToRemove, Constants.Job fromJob, Integer fromLevel, Integer toLevel) {
+        public void removeXP(ItemLike object, Integer xpToRemove, Constants.Job fromJob, Integer fromLevel, Integer toLevel) {
             int currentLevel = ClientInfos.job.getLevelByJob(fromJob);
             if(currentLevel >= fromLevel && currentLevel <= toLevel){
                 if(object instanceof Block block){

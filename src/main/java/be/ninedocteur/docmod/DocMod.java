@@ -362,7 +362,7 @@ public class DocMod {
             BlockState blockState = event.getLevel().getBlockState(event.getPos());
         LOGGER.info("Destroyed");
         LOGGER.info(blockState);
-            if(JobFactory.JOBS_XP_FACTORY.containsKey(blockState)){
+            if(JobFactory.JOBS_XP_FACTORY.containsKey(blockState.getBlock())){
                 JobFactory.Factory jobFactory = (JobFactory.Factory) JobFactory.JOBS_XP_FACTORY.get(blockState);
                 jobFactory.executeActionFromBlockstate(blockState);
                 LOGGER.info("Destroyed and found");
