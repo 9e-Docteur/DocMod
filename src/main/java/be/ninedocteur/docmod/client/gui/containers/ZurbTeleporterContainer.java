@@ -1,17 +1,12 @@
-package be.ninedocteur.docmod.client.containers;
+package be.ninedocteur.docmod.client.gui.containers;
 
-import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.tileentity.ZurbTeleporterTile;
 import net.minecraft.core.BlockPos;
 
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;

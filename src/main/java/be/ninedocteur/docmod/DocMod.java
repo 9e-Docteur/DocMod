@@ -1,15 +1,14 @@
 package be.ninedocteur.docmod;
 
 import be.ninedocteur.docmod.api.Addon;
-import be.ninedocteur.docmod.client.containers.DMContainers;
+import be.ninedocteur.docmod.client.gui.containers.DMContainers;
 import be.ninedocteur.docmod.client.event.ClientEventHandler;
-import be.ninedocteur.docmod.client.event.ModEventBusEvent;
 import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
 import be.ninedocteur.docmod.common.entity.DMEntityType;
 import be.ninedocteur.docmod.common.entity.mob.CybermanEntity;
 import be.ninedocteur.docmod.common.init.DMBlocks;
 import be.ninedocteur.docmod.common.init.DMItems;
-import be.ninedocteur.docmod.jobs.IJobFactory;
+import be.ninedocteur.docmod.common.tileentity.SafeChestTileEntity;
 import be.ninedocteur.docmod.jobs.JobFactory;
 import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
 import be.ninedocteur.docmod.jobs.util.handler.RegistryHandler;
@@ -25,9 +24,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import com.mojang.blaze3d.platform.GlUtil;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -47,8 +46,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.ParallelDispatchEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-
-import java.util.UUID;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -314,13 +311,13 @@ public class DocMod {
 	        LOGGER.info("Registring Staff...");
 	        TeamUUIDs.addAdmin();
 	        LOGGER.info("Init Core Addon..");
-            JobFactory.init();
     	});
     }
 
     private void after(ParallelDispatchEvent event){
         event.enqueueWork(() -> {
-            //JobFactory.init();
+            LOGGER.info("Init Job Factory...");
+            JobFactory.init();
         });
     }
 
@@ -341,18 +338,6 @@ public class DocMod {
         LOGGER.info("Welcome to DocMod " + DMUtils.CODENAME);
     }
     
-    private void closeGameForBannedPeopleRunningTheMod() {
-    	if(getBannedPeople()) {
-    		System.exit(1);
-    	}
-    }
-    
-    public static boolean getBannedPeople() {
-    	//TODO: Change to UUID to avoid player changing name are unbanned
-    	UUID playerUUID = Minecraft.getInstance().player.getUUID();
-    	return playerUUID.toString().contains((CharSequence) Component.literal(IOUtils.readURLContent(DocTeamAPI.getAPI() + "docmod/ban/banned_players.txt")));
-    }
-    
     public static void prepareDownload() {
     	AnimatedCapeHandler.readCapeTexture(DocTeamAPI.getAPI() + "docmod/cape/ninety/" + AnimatedCapeHandler.i + ".png", AnimatedCapeHandler.i);
     }
@@ -361,12 +346,20 @@ public class DocMod {
     public void onDestroy(BlockEvent.BreakEvent event){
             BlockState blockState = event.getLevel().getBlockState(event.getPos());
         LOGGER.info("Destroyed");
+        LOGGER.info(JobFactory.JOBS_XP_FACTORY.keySet());
         LOGGER.info(blockState);
-            if(JobFactory.JOBS_XP_FACTORY.containsKey(blockState.getBlock())){
+            if(JobFactory.JOBS_XP_FACTORY.containsKey(blockState.getBlock())) {
                 JobFactory.Factory jobFactory = (JobFactory.Factory) JobFactory.JOBS_XP_FACTORY.get(blockState);
                 jobFactory.executeActionFromBlockstate(blockState);
                 LOGGER.info("Destroyed and found");
             }
+            if(blockState.equals(DMBlocks.SAFE_CHEST.get())){
+                SafeChestTileEntity safeChestTileEntity = (SafeChestTileEntity) Minecraft.getInstance().level.getBlockEntity(event.getPos());
+                //if(Minecraft.getInstance().player.getUUID() != safeChestTileEntity.getOwner()){
+                 //   event.setCanceled(true);
+                 //   Minecraft.getInstance().player.sendSystemMessage(Component.literal(ChatFormatting.RED + "You can't destroy this chest! It's not yours."));
+               // }
+        }
     }
 
     @SubscribeEvent

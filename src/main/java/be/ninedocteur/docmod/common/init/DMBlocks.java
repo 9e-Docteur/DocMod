@@ -159,13 +159,9 @@ public class DMBlocks {
 
    // public static final RegistryObject<Block> PIG_FARMER = registerBlock("pig_farmer", () -> new PigFarmerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     public static final RegistryObject<Block> ITEM_SHOWER = registerBlock("item_shower", () -> new ItemShowerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).noCollission()));
-  //  public static final RegistryObject<Block> EXPLOSIVE_DEVICE = registerBlock("explosive_device", () -> new ExplosiveDevice(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
- //   public static final RegistryObject<Block> HANDBRAKE = registerBlockTardis("handbrake", () -> new HandBrakeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-   // public static final RegistryObject<Block> TARDIS_DOOR = registerBlockTardis("tardis_door", () -> new TardisDoor(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    //public static final RegistryObject<Block> TARDIS_MONITOR = registerBlockTardis("tardis_monitor", () -> new TardisMonitorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-
     public static final RegistryObject<Block> DALEK_DAMAGED = registerBlock("dalek_damaged", () -> new DalekDamagedBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     //public static final RegistryObject<Block> ZINC_CRAFTING_TABLE = registerBlock("zinc_crafting_table", () -> new ZincCraftingTable(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> SAFE_CHEST = registerBlock("safe_chest", () -> new SafeChestBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     /*
     ANNIVERSARY

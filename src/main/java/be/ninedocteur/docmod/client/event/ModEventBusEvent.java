@@ -62,6 +62,7 @@ public class ModEventBusEvent {
         registerLayerDefinitions.registerLayerDefinition(ModelRegistry.MONITOR, MonitorModel::createBodyLayer);
         registerLayerDefinitions.registerLayerDefinition(ModelRegistry.CHAIR, ChairModel::createBodyLayer);
         registerLayerDefinitions.registerLayerDefinition(ModelRegistry.TARDIS_DOOR, TardisDoorModel::createBodyLayer);
+        registerLayerDefinitions.registerLayerDefinition(ModelRegistry.SAFE_CHEST, SafeChestModel::createBodyLayer);
     }
 
     @OnlyIn(Dist.CLIENT)

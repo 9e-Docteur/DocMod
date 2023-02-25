@@ -1,6 +1,7 @@
 package be.ninedocteur.docmod.jobs.events.server;
 
 import be.ninedocteur.docmod.DocMod;
+import be.ninedocteur.docmod.jobs.JobFactory;
 import be.ninedocteur.docmod.jobs.data.GainXPUtil;
 
 import be.ninedocteur.docmod.jobs.data.JobsInfo;
@@ -69,6 +70,6 @@ public class CommonEvents {
 	{
 		if(!(event.getEntity() instanceof ServerPlayer serverPlayer)) return;
 		GainXPUtil.sendDataToClient((ServerPlayer)event.getEntity());
-		PacketHandler.INSTANCE.sendTo(new PacketUpdateClientJob(PlayerData.getPlayerJobs(serverPlayer).toTotalXPs()), serverPlayer.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+		JobFactory.updateJobs(serverPlayer);
 	}
 }

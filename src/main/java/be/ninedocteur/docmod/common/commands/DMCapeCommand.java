@@ -23,7 +23,6 @@ public class DMCapeCommand {
 	
 	 private int cape(CommandSourceStack source, ServerPlayer serverPlayer) throws CommandSyntaxException {
 		 String playerName = serverPlayer.getName().toString();
-		 String playerUUID = PlayerUtils.getUserUUID(playerName);
 		 
 		 if(LaunchUtils.isRunningInDev()) {
 			 if(DocTeamAPI.isConnected()) {

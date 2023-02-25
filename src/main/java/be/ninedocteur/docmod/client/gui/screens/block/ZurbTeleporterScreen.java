@@ -1,6 +1,6 @@
 package be.ninedocteur.docmod.client.gui.screens.block;
 
-import be.ninedocteur.docmod.client.containers.ZurbTeleporterContainer;
+import be.ninedocteur.docmod.client.gui.containers.ZurbTeleporterContainer;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import be.ninedocteur.docmod.DocMod;

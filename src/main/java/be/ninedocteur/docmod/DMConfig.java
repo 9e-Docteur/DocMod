@@ -44,10 +44,12 @@ public class DMConfig {
         public static final ForgeConfigSpec SERVER_SPEC;
 
         public static final ForgeConfigSpec.ConfigValue<Boolean> GunExplosion;
+        //public static final ForgeConfigSpec.ConfigValue<Boolean> AllowStaffLookingIntoSafeChest;
         public static final ForgeConfigSpec.IntValue GunExplosionSize;
         static{
             SERVER_BUILDER.push("Config for DocMod Server");
             GunExplosion = SERVER_BUILDER.comment("If you want that RPG Gun do explosion. Also for the SW Dalek.").define("Gun Explosion", true);
+            //AllowStaffLookingIntoSafeChest = SERVER_BUILDER.comment("Allow staff to access content in Safe Chest.").define("Allow staff use other Safe Chest", false);
             GunExplosionSize = SERVER_BUILDER.comment("If you want that RPG Gun do explosion").defineInRange("gun_explosion_size", 12, 1, Integer.MAX_VALUE);
             SERVER_BUILDER.pop();
             SERVER_SPEC = SERVER_BUILDER.build();

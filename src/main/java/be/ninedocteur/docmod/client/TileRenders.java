@@ -20,6 +20,6 @@ public class TileRenders {
         BlockEntityRenderers.register(DMTileEntity.item_shower.get(), ItemShowerBlockRender::new);
         BlockEntityRenderers.register(DMTileEntity.red_toyota.get(), RedToyotaRotorBlockRender::new);
         BlockEntityRenderers.register(DMTileEntity.CHAIR_TILE_ENTITY.get(), ChairBlockRender::new);
-
+        BlockEntityRenderers.register(DMTileEntity.SAFECHEST.get(), SafeChestRender::new);
     }
 }

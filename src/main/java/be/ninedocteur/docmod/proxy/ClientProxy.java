@@ -2,15 +2,12 @@ package be.ninedocteur.docmod.proxy;
 
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.TileRenders;
-import be.ninedocteur.docmod.client.containers.DMContainers;
+import be.ninedocteur.docmod.client.gui.containers.DMContainers;
 import be.ninedocteur.docmod.client.event.ClientEventHandler;
 import be.ninedocteur.docmod.client.gui.overlay.DMSpaceSuitOverlay;
 import be.ninedocteur.docmod.client.gui.overlay.DocModDebugOverlay;
 import be.ninedocteur.docmod.client.gui.overlay.DocModVersionOverlay;
-import be.ninedocteur.docmod.client.gui.screens.DMComputerHardwareScreen;
-import be.ninedocteur.docmod.client.gui.screens.DMPauseButtons;
-import be.ninedocteur.docmod.client.gui.screens.DocModConfigScreen;
-import be.ninedocteur.docmod.client.gui.screens.InfusionScreen;
+import be.ninedocteur.docmod.client.gui.screens.*;
 import be.ninedocteur.docmod.client.gui.screens.block.ZurbTeleporterScreen;
 import be.ninedocteur.docmod.client.gui.title.DMLoadingTitleScreen;
 import be.ninedocteur.docmod.common.init.*;
@@ -55,6 +52,7 @@ public class ClientProxy {
         MenuScreens.register(DMContainers.ZURBTELEPORTERCONTAINER.get(), ZurbTeleporterScreen::new);
         MenuScreens.register(DMMenu.COMPUTER.get(), DMComputerHardwareScreen::new);
         MenuScreens.register(DMMenu.INFUSION.get(), InfusionScreen::new);
+        MenuScreens.register(DMContainers.SAFE_CHEST_CONTAINER.get(), SafeChestScreen::new);
 
         ItemBlockRenderTypes.setRenderLayer(DMBlocks.CIRCLE_GLASS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DMBlocks.KILLER_BLOCK.get(), RenderType.cutout());

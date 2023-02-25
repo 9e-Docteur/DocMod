@@ -24,6 +24,7 @@ public class ModelRegistry {
     public static final ModelLayerLocation CHAIR = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "chair"), "chair");
     public static final ModelLayerLocation TARDIS_DOOR = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "door"), "door");
 
+    public static final ModelLayerLocation SAFE_CHEST = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "safe"), "safe");
 
     //ENTITY
     public static final ModelLayerLocation Zurbion = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "zurbion"), "zurbion");
