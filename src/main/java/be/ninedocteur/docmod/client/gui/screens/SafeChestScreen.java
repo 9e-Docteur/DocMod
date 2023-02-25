@@ -49,7 +49,6 @@ public class SafeChestScreen extends AbstractContainerScreen<SafeChestMenu> {
         this.renderBackground(p_99249_);
         super.render(p_99249_, p_99250_, p_99251_, p_99252_);
         this.renderTooltip(p_99249_, p_99250_, p_99251_);
-        this.renderButtons(p_99249_);
     }
 
     @Override
@@ -59,24 +58,11 @@ public class SafeChestScreen extends AbstractContainerScreen<SafeChestMenu> {
     }
 
     protected void renderBg(PoseStack p_99244_, float p_99245_, int p_99246_, int p_99247_) {
-        if(!isOnSettingsMenu) { //ON MAIN MENU
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             RenderSystem.setShaderTexture(0, CONTAINER_TEXTURE);
             int i = (this.width - this.imageWidth) / 2;
             int j = (this.height - this.imageHeight) / 2;
             this.blit(p_99244_, i, j, 0, 0, this.imageWidth, this.imageHeight);
-        } else {               //ON SCREEN MENU
-            RenderSystem.setShader(GameRenderer::getPositionTexShader);
-            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-            RenderSystem.setShaderTexture(0, SETTINGS_TEXTURE);
-            int i = (this.width - this.imageWidth) / 2;
-            int j = (this.height - this.imageHeight) / 2;
-            this.blit(p_99244_, i, j, 0, 0, this.imageWidth, this.imageHeight);
-        }
-        this.renderButtons(p_99244_);
-    }
-
-    protected void renderButtons(PoseStack poseStack){
     }
 }

@@ -113,6 +113,13 @@ public abstract class BaseCommand {
         return shopPackageName;
     }
 
+    /**
+     * Get Computer Tile
+     */
+    public ComputerTileEntity getComputerTileEntity() {
+        return computerTileEntity;
+    }
+
     public enum CommandType {
         UNIVERSAL,
         NORMAL,

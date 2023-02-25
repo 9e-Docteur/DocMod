@@ -42,6 +42,7 @@ public class SafeChestMenu extends AbstractContainerMenu {
         safeChestTileEntity.setPos(pos);
         containerAccess = ContainerLevelAccess.create(playerInv.player.level, pos);
         containerData = data;
+        int index = 0;
         for(int row = 0; row < 3; row++){ // PLAYER INV
             for(int colons = 0; colons < 9; colons++){
                 addSlot(new Slot(playerInv, 9 + row * 9 + colons, 8 + colons * 18, 86 + row * 18));
@@ -52,14 +53,15 @@ public class SafeChestMenu extends AbstractContainerMenu {
         }
         for(int row = 0; row < 3; row++){ // CHEST
             for(int colons = 0; colons < 9; colons++){
-                addSlot(new Slot(playerInv, 9 + row * 9 + colons, 8 + colons * 18,  row * 18));
+                addSlot(new SlotItemHandler(handler, index, 8 + colons * 18,  row * 18));
+                index++;
             }
         }
         addDataSlots(data);
     }
 
     public static MenuConstructor getServerContainer(SafeChestTileEntity te, BlockPos pos) {
-        return (id, playerInv, player) -> new SafeChestMenu(id, new ItemStackHandler(27), pos, playerInv, new SimpleContainerData(27));
+        return (id, playerInv, player) -> new SafeChestMenu(id, te.inventory, pos, playerInv, new SimpleContainerData(27));
     }
 
     @Override

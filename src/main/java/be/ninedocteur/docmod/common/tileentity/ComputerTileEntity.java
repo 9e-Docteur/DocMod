@@ -2,6 +2,8 @@ package be.ninedocteur.docmod.common.tileentity;
 
 import be.ninedocteur.docmod.client.gui.menu.ComputerHarwareMenu;
 import be.ninedocteur.docmod.common.computer.terminal.command.BaseCommand;
+import be.ninedocteur.docmod.common.item.computer.parts.DiskType;
+import be.ninedocteur.docmod.common.item.computer.parts.Disks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -18,6 +20,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ComputerTileEntity extends RandomizableContainerBlockEntity /*BlockEntity*/ {
@@ -28,6 +31,7 @@ public class ComputerTileEntity extends RandomizableContainerBlockEntity /*Block
     public CompoundTag compoundTag = new CompoundTag();
     public boolean isLinkedToMonitor;
     private List<BaseCommand> installedApps = new ArrayList();
+    private HashMap<Disks, DiskType> INSTALLED_DISK = new HashMap<>();
 
 
 //    public ComputerTileEntity(BlockPos p_155229_, BlockState p_155230_) {
@@ -44,6 +48,14 @@ public class ComputerTileEntity extends RandomizableContainerBlockEntity /*Block
 
     public boolean isAppInstalled(BaseCommand app){
         return installedApps.contains(app);
+    }
+
+    public void setInstalledDisk(HashMap<Disks, DiskType> INSTALLED_DISK) {
+        this.INSTALLED_DISK = INSTALLED_DISK;
+    }
+
+    public HashMap<Disks, DiskType> getInstalledDisk() {
+        return INSTALLED_DISK;
     }
 
     /*

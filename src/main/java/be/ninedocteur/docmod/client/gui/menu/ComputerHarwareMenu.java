@@ -61,6 +61,9 @@ public class ComputerHarwareMenu extends AbstractContainerMenu {
 //        getSlot(6).mayPlace(new ItemStack(DMItems.VENTIRAD.get()));
         //getSlot(7).mayPlace(new ItemStack(DMItems.RAM.get()));
         //getSlot(8).mayPlace(new ItemStack(DMItems.RAM.get()));
+        if(getSlot(5).hasItem()){
+
+        }
 
     }
 
