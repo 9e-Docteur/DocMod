@@ -48,7 +48,7 @@ import java.util.stream.IntStream;
 
 public class SafeChestTileEntity extends InventoryTileEntity {
     private UUID owner;
-    private List<UUID> authorisedPeople = new ArrayList();
+    private final List<UUID> authorisedPeople = new ArrayList<>();
     private BlockPos pos;
 
     public SafeChestTileEntity(BlockPos pos, BlockState state) {
@@ -68,11 +68,7 @@ public class SafeChestTileEntity extends InventoryTileEntity {
     }
 
     public boolean isOwner(UUID uuid){
-        if(uuid == owner){
-            return true;
-        } else {
-            return false;
-        }
+        return uuid == owner;
     }
 
     public UUID getOwner() {
