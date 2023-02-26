@@ -4,6 +4,7 @@ import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.computer.terminal.Computer;
 import be.ninedocteur.docmod.common.enchantement.DMEnchantements;
 import be.ninedocteur.docmod.common.init.*;
+import be.ninedocteur.docmod.common.network.DMPackets;
 import be.ninedocteur.docmod.common.sound.DMSound;
 import be.ninedocteur.docmod.common.entity.DMEntityType;
 import be.ninedocteur.docmod.common.world.features.DMConfiguredFeature;
@@ -38,6 +39,8 @@ public class ClassRegistry {
         //DMDimension.register();
         DocMod.LOGGER.info("Init DocMod Computer System...");
         Computer.registerCommand();
+        DocMod.LOGGER.info("Init Packets...");
+        DMPackets.register();
 //        DocMod.LOGGER.info("Init DocMod Recipes...");
 //        DMRecipes.SERIALIZERS.register(eventBus);
         //DocMod.LOGGER.info("Init DocMod Fluids...");
