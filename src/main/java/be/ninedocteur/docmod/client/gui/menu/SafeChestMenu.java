@@ -43,14 +43,7 @@ public class SafeChestMenu extends AbstractContainerMenu {
         containerAccess = ContainerLevelAccess.create(playerInv.player.level, pos);
         containerData = data;
         int index = 0;
-        for(int row = 0; row < 3; row++){ // PLAYER INV
-            for(int colons = 0; colons < 9; colons++){
-                addSlot(new Slot(playerInv, 9 + row * 9 + colons, 8 + colons * 18, 86 + row * 18));
-            }
-        }
-        for(int colons = 0; colons < 9; colons++){ // FIRST ROW PLAYER INV
-            addSlot(new Slot(playerInv, colons, 8 + colons * 18, 144));
-        }
+        layoutPlayerInventorySlots(new InvWrapper(playerInv), 8, 86);
         for(int row = 0; row < 3; row++){ // CHEST
             for(int colons = 0; colons < 9; colons++){
                 addSlot(new SlotItemHandler(handler, index, 8 + colons * 18,  row * 18));
@@ -62,6 +55,32 @@ public class SafeChestMenu extends AbstractContainerMenu {
 
     public static MenuConstructor getServerContainer(SafeChestTileEntity te, BlockPos pos) {
         return (id, playerInv, player) -> new SafeChestMenu(id, te.inventory, pos, playerInv, new SimpleContainerData(27));
+    }
+
+    private void layoutPlayerInventorySlots(IItemHandler playerInv, int leftCol, int topRow) {
+        addSlotBox(playerInv, 9, leftCol, topRow, 9, 18, 3, 18);
+
+        topRow += 58;
+        addSlotRange(playerInv, 0, leftCol, topRow, 9, 18);
+    }
+
+    private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
+        for (int i = 0; i < amount; i++) {
+            addSlot(new SlotItemHandler(handler, index, x, y));
+            x += dx;
+            index++;
+        }
+
+        return index;
+    }
+
+    private int addSlotBox(IItemHandler handler, int index, int x, int y, int horAmount, int dx, int verAmount, int dy) {
+        for (int j = 0; j < verAmount; j++) {
+            index = addSlotRange(handler, index, x, y, horAmount, dx);
+            y += dy;
+        }
+
+        return index;
     }
 
     @Override
