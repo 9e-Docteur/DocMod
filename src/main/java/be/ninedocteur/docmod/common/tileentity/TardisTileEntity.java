@@ -42,6 +42,7 @@ public class TardisTileEntity extends BlockEntity {
     public TardisTileEntity(BlockPos pos, BlockState state) {
         super(DMTileEntity.Tardis.get(), pos, state);
         Level mLevel = Minecraft.getInstance().level;
+        id = -1;
         ChunkAccess chunk = mLevel.getChunk(this.getCurrentLocation());
         if(mLevel instanceof ServerLevel serverLevel){
             serverLevel.setChunkForced(chunk.getPos().x, chunk.getPos().z, true);
@@ -98,14 +99,14 @@ public class TardisTileEntity extends BlockEntity {
     }
 
     public void demat(){
+        if(getTargetPosition() == null){
+            setTargetPosition(getCurrentPosition());
+        }
         DMPackets.INSTANCE.sendTo(new TardisDematPacket(getId(), getCurrentPosition(), getTargetPosition()), Minecraft.getInstance().player.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
     }
 
     public void remat(){
         //setTargetPosition(new BlockPos(id * 1000, 0, id * 1000));
-        if(getTargetPosition() == null){
-            setTargetPosition(new BlockPos(16, 104, 10));
-        }
 
         DMPackets.INSTANCE.sendTo(new TardisRematPacket(getId(), getOwnerUUID(), getTargetPosition()), Minecraft.getInstance().player.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
 
