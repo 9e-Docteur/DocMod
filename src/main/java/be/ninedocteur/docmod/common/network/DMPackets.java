@@ -41,8 +41,8 @@ public class DMPackets {
 //                .encoder(FluidSyncS2CPacket::toBytes)
 //                .consumerMainThread(FluidSyncS2CPacket::handle)
 //                .add();
-        INSTANCE.registerMessage(0, TardisDematPacket.class, TardisDematPacket::toBytes, TardisDematPacket::fromBytes, TardisDematPacket::handle);
-        INSTANCE.registerMessage(1, TardisRematPacket.class, TardisRematPacket::toBytes, TardisRematPacket::fromBytes, TardisRematPacket::handle);
+        INSTANCE.registerMessage(id(), TardisDematPacket.class, TardisDematPacket::toBytes, TardisDematPacket::fromBytes, TardisDematPacket::handle);
+        INSTANCE.registerMessage(id(), TardisRematPacket.class, TardisRematPacket::toBytes, TardisRematPacket::fromBytes, TardisRematPacket::handle);
     }
 
     public static <MSG> void sendToServer(MSG message) {
