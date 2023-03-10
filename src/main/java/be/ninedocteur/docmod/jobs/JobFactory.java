@@ -5,7 +5,7 @@ import be.ninedocteur.docmod.jobs.data.ClientInfos;
 import be.ninedocteur.docmod.jobs.data.PlayerData;
 import be.ninedocteur.docmod.jobs.network.PacketUpdateClientJob;
 import be.ninedocteur.docmod.jobs.util.Constants;
-import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
+import be.ninedocteur.docmod.network.PacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -26,33 +26,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JobFactory {
-    public static Map<ItemLike, IJobFactory> JOBS_XP_FACTORY = new HashMap<>();
+    public static Map<BlockState, IJobFactory> JOBS_XP_FACTORY = new HashMap<>();
 
 
     //TODO: SHOW ALL OF THIS ON GUI HOW XP SCREEN
     public static void init(){
-        Factory STONE = new Factory(Blocks.STONE, 1, Constants.Job.MINER, 0, 7, Factory.Action.GIVE);
-        Factory COPPER_ORE = new Factory(Blocks.COPPER_ORE, 2, Constants.Job.MINER, 0, 20, Factory.Action.GIVE);
-        Factory ZINC_ORE = new Factory(DMBlocks.ZINC_ORE.get(), 25, Constants.Job.MINER, 0, 20, Factory.Action.GIVE);
-        Factory XP_ORE = new Factory(DMBlocks.XP_ORE.get(), 25, Constants.Job.MINER, 0, 20, Factory.Action.GIVE);
-        Factory HALFINUM_ORE_1 = new Factory(DMBlocks.HALFINUM_ORE.get(), 250, Constants.Job.MINER, 0, 4, Factory.Action.GIVE);
-        Factory HALFINUM_ORE_2 = new Factory(DMBlocks.HALFINUM_ORE.get(), 150, Constants.Job.MINER, 4, 10, Factory.Action.GIVE);
-        Factory HALFINUM_ORE_3 = new Factory(DMBlocks.HALFINUM_ORE.get(), 100, Constants.Job.MINER, 10, 20, Factory.Action.GIVE);
-        registerToFactory(DMBlocks.XP_ORE.get(), XP_ORE);
-        registerToFactory(Blocks.STONE, STONE);
-        registerToFactory(Blocks.COPPER_ORE, COPPER_ORE);
-        registerToFactory(DMBlocks.ZINC_ORE.get(), ZINC_ORE);
-        registerToFactory(DMBlocks.HALFINUM_ORE.get(), HALFINUM_ORE_1);
-        registerToFactory(DMBlocks.HALFINUM_ORE.get(), HALFINUM_ORE_2);
-        registerToFactory(DMBlocks.HALFINUM_ORE.get(), HALFINUM_ORE_3);
+        Factory STONE = new Factory(Blocks.STONE.defaultBlockState(), 1, Constants.Job.MINER, 0, 7, Factory.Action.GIVE);
+        Factory COPPER_ORE = new Factory(Blocks.COPPER_ORE.defaultBlockState(), 2, Constants.Job.MINER, 0, 20, Factory.Action.GIVE);
+        Factory ZINC_ORE = new Factory(DMBlocks.ZINC_ORE.get().defaultBlockState(), 25, Constants.Job.MINER, 0, 20, Factory.Action.GIVE);
+        Factory XP_ORE = new Factory(DMBlocks.XP_ORE.get().defaultBlockState(), 25, Constants.Job.MINER, 0, 20, Factory.Action.GIVE);
+        Factory HALFINUM_ORE_1 = new Factory(DMBlocks.HALFINUM_ORE.get().defaultBlockState(), 250, Constants.Job.MINER, 0, 4, Factory.Action.GIVE);
+        Factory HALFINUM_ORE_2 = new Factory(DMBlocks.HALFINUM_ORE.get().defaultBlockState(), 150, Constants.Job.MINER, 4, 10, Factory.Action.GIVE);
+        Factory HALFINUM_ORE_3 = new Factory(DMBlocks.HALFINUM_ORE.get().defaultBlockState(), 100, Constants.Job.MINER, 10, 20, Factory.Action.GIVE);
+        registerToFactory(DMBlocks.XP_ORE.get().defaultBlockState(), XP_ORE);
+        registerToFactory(Blocks.STONE.defaultBlockState(), STONE);
+        registerToFactory(Blocks.COPPER_ORE.defaultBlockState(), COPPER_ORE);
+        registerToFactory(DMBlocks.ZINC_ORE.get().defaultBlockState(), ZINC_ORE);
+        registerToFactory(DMBlocks.HALFINUM_ORE.get().defaultBlockState(), HALFINUM_ORE_1);
+        registerToFactory(DMBlocks.HALFINUM_ORE.get().defaultBlockState(), HALFINUM_ORE_2);
+        registerToFactory(DMBlocks.HALFINUM_ORE.get().defaultBlockState(), HALFINUM_ORE_3);
         for(Object factory : JOBS_XP_FACTORY.keySet()){
             Factory factory1 = (Factory) factory;
-            if(factory1.object instanceof Block block){
+            //if(factory1.object instanceof Block block){
                 switch (factory1.fromJob){
                     case MINER:
-                        ClientInfos.addBreakBlockXp(block, new long[]{factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive});
+                        ClientInfos.addBreakBlockXp(factory1.getObject().getBlock(), new long[]{factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive, factory1.xpToGive});
                 }
-            }
+            //}
         }
     }
 
@@ -82,12 +82,12 @@ public class JobFactory {
         }
     }
 
-    public static void registerToFactory(ItemLike object, Factory factory){
+    public static void registerToFactory(BlockState object, Factory factory){
         JOBS_XP_FACTORY.put(object, factory);
     }
 
     public static class Factory implements IJobFactory{
-        private ItemLike object; //TODO: USE ITEMLIKE
+        private BlockState object; //TODO: USE ITEMLIKE
         private int xpToGive;
         private int fromLevel;
         private int toLevel;
@@ -95,7 +95,7 @@ public class JobFactory {
         private Constants.Job fromJob;
         private Action action;
 
-        public Factory(ItemLike object, Integer xpToGiveOrRemove, Constants.Job fromJob, Integer fromLevel, Integer toLevel, Action action) {
+        public Factory(BlockState object, Integer xpToGiveOrRemove, Constants.Job fromJob, Integer fromLevel, Integer toLevel, Action action) {
             this.object = object;
             this.action = action;
             if(action == Action.GIVE){
@@ -111,7 +111,7 @@ public class JobFactory {
             this.toLevel = toLevel;
         }
 
-        public ItemLike getObject() {
+        public BlockState getObject() {
             return object;
         }
 
@@ -140,47 +140,46 @@ public class JobFactory {
         }
 
         @Override
-        public void giveXP(ItemLike object, Integer xpToGive, Constants.Job fromJob, Integer fromLevel, Integer toLevel) {
+        public void giveXP(BlockState object, Integer xpToGive, Constants.Job fromJob, Integer fromLevel, Integer toLevel) {
             int currentLevel = ClientInfos.job.getLevelByJob(fromJob);
             if(currentLevel >= fromLevel && currentLevel <= toLevel){
                 //TODO: TAG ON BLOCK TO AVOID XP GLITCH WHEN GIVING ITEM
-                if(object instanceof Block block){
+                //if(object instanceof Block block){
                     Player player = Minecraft.getInstance().player;
                     Level level = Minecraft.getInstance().level;
-                    BlockState blockState = block.defaultBlockState();
                     BlockHitResult hitResult = (BlockHitResult) Minecraft.getInstance().hitResult;
                     BlockPos pos = hitResult.getBlockPos();
-                   if(block.onDestroyedByPlayer(blockState, level, pos, player, false, null)){
+                   if(object.onDestroyedByPlayer(level, pos, player, false, null)){
                        ClientInfos.job.addXP(fromJob, xpToGive);
                        CompoundTag tag = new CompoundTag();
                    }
-                }
+                //}
                 //TODO: TAG ON ITEM TO AVOID XP GLITCH WHEN GIVING ITEM
-                if(object instanceof Item item){
-                    ItemStack itemStack = item.getDefaultInstance();
-                    Player player = Minecraft.getInstance().player;
-                    Level level = Minecraft.getInstance().level;
-                }
+                //if(object instanceof Item item){
+                   // ItemStack itemStack = item.getDefaultInstance();
+                   // Player player = Minecraft.getInstance().player;
+                   // Level level = Minecraft.getInstance().level;
+                //}
             }
         }
 
         @Override
-        public void removeXP(ItemLike object, Integer xpToRemove, Constants.Job fromJob, Integer fromLevel, Integer toLevel) {
+        public void removeXP(BlockState object, Integer xpToRemove, Constants.Job fromJob, Integer fromLevel, Integer toLevel) {
             int currentLevel = ClientInfos.job.getLevelByJob(fromJob);
             if(currentLevel >= fromLevel && currentLevel <= toLevel){
-                if(object instanceof Block block){
+                //if(object instanceof Block block){
                     Player player = Minecraft.getInstance().player;
                     Level level = Minecraft.getInstance().level;
-                    BlockState blockState = block.defaultBlockState();
+                    //BlockState blockState = block.defaultBlockState();
                     BlockHitResult hitResult = (BlockHitResult) Minecraft.getInstance().hitResult;
                     BlockPos pos = hitResult.getBlockPos();
-                    if(block.onDestroyedByPlayer(blockState, level, pos, player, false, null)){
+                    if(object.onDestroyedByPlayer(level, pos, player, false, null)){
                         ClientInfos.job.addXP(fromJob, -xpToRemove);
                     }
-                }
-                if(object instanceof Item item){
+               // }
+                //if(object instanceof Item item){
 
-                }
+                //}
             }
         }
 

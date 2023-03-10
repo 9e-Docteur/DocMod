@@ -1,6 +1,5 @@
 package be.ninedocteur.docmod;
 
-import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.gui.containers.DMContainers;
 import be.ninedocteur.docmod.client.event.ClientEventHandler;
 import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
@@ -8,14 +7,16 @@ import be.ninedocteur.docmod.common.entity.DMEntityType;
 import be.ninedocteur.docmod.common.entity.mob.CybermanEntity;
 import be.ninedocteur.docmod.common.init.DMBlocks;
 import be.ninedocteur.docmod.common.init.DMItems;
+import be.ninedocteur.docmod.common.listeners.DMListeners;
 import be.ninedocteur.docmod.common.tileentity.SafeChestTileEntity;
 import be.ninedocteur.docmod.jobs.JobFactory;
-import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
+import be.ninedocteur.docmod.network.PacketHandler;
 import be.ninedocteur.docmod.jobs.util.handler.RegistryHandler;
 import be.ninedocteur.docmod.jobs.util.save.LoadUtil;
 import be.ninedocteur.docmod.proxy.ClientProxy;
 import be.ninedocteur.docmod.common.init.DMWoodTypes;
 import be.ninedocteur.docmod.proxy.CommonProxy;
+import be.ninedocteur.docmod.proxy.ServerProxy;
 import be.ninedocteur.docmod.registry.ClassRegistry;
 import be.ninedocteur.docmod.utils.*;
 import be.ninedocteur.docteam.api.DocTeamAPI;
@@ -24,9 +25,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import com.mojang.blaze3d.platform.GlUtil;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -64,6 +63,7 @@ public class DocMod {
     public static final String MODNAME = "DocMod";
     public static final String UPDATE_NAME = "Jobs Update";
     public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
+    public static boolean isInDevVersion = true;
 
 
     public DocMod() {
@@ -78,12 +78,9 @@ public class DocMod {
         LOGGER.info("Start initializing DocMod Events.");
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientProxy.doClientEvents(eventBus, MinecraftForge.EVENT_BUS));
         DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> CommonProxy.doCommonEvent());
+        DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> ServerProxy.serverProxyRegistry(eventBus, MinecraftForge.EVENT_BUS));
         DocMod.LOGGER.info("Init DocMod Containers...");
         DMContainers.CONTAINERS.register(eventBus);
-        Addon addon = new Addon("DocMod", DocMod.MOD_ID, DocMod.VERSION, "no site", "no issue");
-        Addon test = new Addon("JEI", "jei", "1.0", "no site", "no issue");
-        Addon.registerModAsAPI(addon);
-        Addon.registerModAsAPI(test);
         RegistryHandler.registerListeners();
         LOGGER.info("Event Handlers Registered", false);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
@@ -96,6 +93,7 @@ public class DocMod {
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::onLaunch);
         eventBus.addListener(this::after);
+        MinecraftForge.EVENT_BUS.addListener(DMListeners::onPlayerTick);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("DocMod is fully Initialized.");
     }
@@ -218,6 +216,7 @@ public class DocMod {
             event.accept(DMItems.ELECTRONIC_CICUIT);
             event.accept(DMItems.ELECTRONIC_CICUIT);
             event.accept(DMItems.SONIC_SCREWDRIVER);
+            event.accept(DMItems.NINEDOCTEUR_SONIC_SCREWDRIVER);
             event.accept(DMItems.TEN_SONIC_SCREWDRIVER);
             event.accept(DMItems.THEER_SONIC_SCREWDRIVER);
             event.accept(DMItems.ROBAINKS_SONIC_SCREWDRIVER);

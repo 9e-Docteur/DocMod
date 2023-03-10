@@ -4,7 +4,7 @@ import be.ninedocteur.docmod.jobs.data.PlayerData;
 import be.ninedocteur.docmod.jobs.network.PacketSendChatMessage;
 import be.ninedocteur.docmod.jobs.network.PacketUpdateClientJob;
 import be.ninedocteur.docmod.jobs.util.Constants;
-import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
+import be.ninedocteur.docmod.network.PacketHandler;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.LongArgumentType;

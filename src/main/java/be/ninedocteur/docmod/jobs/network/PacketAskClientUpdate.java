@@ -3,7 +3,7 @@ package be.ninedocteur.docmod.jobs.network;
 import java.util.function.Supplier;
 
 import be.ninedocteur.docmod.jobs.data.PlayerData;
-import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
+import be.ninedocteur.docmod.network.PacketHandler;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkEvent;
 

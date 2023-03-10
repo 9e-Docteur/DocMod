@@ -16,7 +16,7 @@ import net.minecraft.world.entity.player.Player;
 
 public class DMCosmeticCommand {
 	public DMCosmeticCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(Commands.literal("cosmetics").executes((command) -> {
+        dispatcher.register(Commands.literal("docmod").then(Commands.literal("cosmetics")).executes((command) -> {
             return exec(command.getSource());
         }));
     }

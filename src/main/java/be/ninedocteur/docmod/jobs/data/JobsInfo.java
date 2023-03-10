@@ -10,7 +10,7 @@ import be.ninedocteur.docmod.jobs.network.PacketSendRewardsClient;
 import be.ninedocteur.docmod.jobs.network.PacketUpdateClientJob;
 import be.ninedocteur.docmod.jobs.util.Constants;
 import be.ninedocteur.docmod.jobs.util.JobsMath;
-import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
+import be.ninedocteur.docmod.network.PacketHandler;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.nbt.CompoundTag;

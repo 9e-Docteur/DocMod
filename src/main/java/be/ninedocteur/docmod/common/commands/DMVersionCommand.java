@@ -19,12 +19,7 @@ public class DMVersionCommand {
     }
 
     private int getVersionCommand(CommandSourceStack source) throws CommandSyntaxException {
-
-        //player.sendMessage(new TextComponent(ChatFormatting.GOLD + "Version of the mod:" + ChatFormatting.WHITE + DMUtils.MODNAME + DMUtils.VERSION), player.getUUID());
-        Level level = Minecraft.getInstance().level;
-        if(level.isClientSide()) {
-            source.sendSuccess(Component.literal(ChatFormatting.GOLD + "Version of the mod:" + ChatFormatting.WHITE + DMUtils.MODNAME + DMUtils.VERSION), true);
-        }
+        source.sendSuccess(Component.literal(ChatFormatting.GOLD + "Version of the DocMod: " + ChatFormatting.WHITE + DMUtils.MODNAME + " " +  DMUtils.VERSION), true);
         return 1;
     }
 

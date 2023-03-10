@@ -3,7 +3,7 @@ package be.ninedocteur.docmod.jobs.commands;
 import be.ninedocteur.docmod.jobs.data.JobsInfo;
 import be.ninedocteur.docmod.jobs.data.PlayerData;
 import be.ninedocteur.docmod.jobs.util.Constants;
-import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
+import be.ninedocteur.docmod.network.PacketHandler;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;

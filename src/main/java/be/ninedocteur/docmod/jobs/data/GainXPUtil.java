@@ -2,7 +2,7 @@ package be.ninedocteur.docmod.jobs.data;
 
 import be.ninedocteur.docmod.jobs.network.PacketUpdateClientInfos;
 import be.ninedocteur.docmod.jobs.util.Constants;
-import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
+import be.ninedocteur.docmod.network.PacketHandler;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

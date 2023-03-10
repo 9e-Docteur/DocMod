@@ -13,6 +13,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
@@ -20,6 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.event.ScreenEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -62,6 +64,16 @@ public class DMListeners {
             } else {
                 DMSpaceSuitOverlay.showSpaceSuitOverlay = false;
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event){
+        if(LaunchUtils.isRunningInDev() && TeamUtils.getTeamMembers().containsKey(event.player.getUUID())){
+            event.player.getLevel().addParticle(ParticleTypes.CLOUD, event.player.getX() + 0.1D,
+                    event.player.getY() + 0.5D, event.player.getZ() + 0.1D,
+                    0d, 0.08d, 0d);
+
         }
     }
 

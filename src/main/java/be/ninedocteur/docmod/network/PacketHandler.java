@@ -1,4 +1,4 @@
-package be.ninedocteur.docmod.jobs.util.handler;
+package be.ninedocteur.docmod.network;
 
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;

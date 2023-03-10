@@ -1,31 +1,7 @@
 package be.ninedocteur.docmod.client.gui.screens;
 
-import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.utils.DMUtils;
-import be.ninedocteur.docmod.utils.DatabaseUtils;
-import be.ninedocteur.docmod.utils.IOUtils;
-import be.ninedocteur.docteam.website.Database;
-import be.ninedocteur.docteam.website.OnlineAssets;
-import be.ninedocteur.docteam.website.WebsiteStatus;
-import com.google.gson.Gson;
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.*;
-import net.minecraft.ChatFormatting;
-import net.minecraft.Util;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.User;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.renderer.CubeMap;
-import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.client.renderer.PanoramaRenderer;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.common.MinecraftForge;
 
 @OnlyIn(Dist.CLIENT)
 public class DocModAPIStatus { //} extends Screen {

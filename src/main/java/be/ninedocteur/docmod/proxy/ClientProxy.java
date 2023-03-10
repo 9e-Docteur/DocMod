@@ -6,6 +6,7 @@ import be.ninedocteur.docmod.client.gui.containers.DMContainers;
 import be.ninedocteur.docmod.client.event.ClientEventHandler;
 import be.ninedocteur.docmod.client.gui.overlay.DMSpaceSuitOverlay;
 import be.ninedocteur.docmod.client.gui.overlay.DocModDebugOverlay;
+import be.ninedocteur.docmod.client.gui.overlay.DocModSonicChargeOverlay;
 import be.ninedocteur.docmod.client.gui.overlay.DocModVersionOverlay;
 import be.ninedocteur.docmod.client.gui.screens.*;
 import be.ninedocteur.docmod.client.gui.screens.block.ZurbTeleporterScreen;
@@ -36,6 +37,7 @@ public class ClientProxy {
         forgeBus.addListener(DMListeners::onPlayerUpdate);
         forgeBus.addListener(DMPauseButtons::initScreen);
         forgeBus.addListener(DocModDebugOverlay::render);
+        forgeBus.addListener(DocModSonicChargeOverlay::render);
         forgeBus.addListener(DMSpaceSuitOverlay::render);
         DocMod.LOGGER.info("Init DocMod Menus...");
         DMMenu.register(modBus);

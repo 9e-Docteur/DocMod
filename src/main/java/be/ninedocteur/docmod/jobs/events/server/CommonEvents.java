@@ -6,23 +6,16 @@ import be.ninedocteur.docmod.jobs.data.GainXPUtil;
 
 import be.ninedocteur.docmod.jobs.data.JobsInfo;
 import be.ninedocteur.docmod.jobs.data.PlayerData;
-import be.ninedocteur.docmod.jobs.network.PacketAskClientUpdate;
-import be.ninedocteur.docmod.jobs.network.PacketUpdateClientJob;
-import be.ninedocteur.docmod.jobs.util.handler.PacketHandler;
-import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.network.NetworkDirection;
 
 import java.util.Optional;
 

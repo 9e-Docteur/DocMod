@@ -11,12 +11,16 @@ import net.minecraftforge.server.command.ConfigCommand;
 public class CommandRegistry {
     @SubscribeEvent
     public static void onCommandsRegister(RegisterCommandsEvent event){
-        //new DMRankCommand(event.getDispatcher());
-        //new DMVersionCommand(event.getDispatcher());
+        new DMRankCommand(event.getDispatcher());
+        new DMVersionCommand(event.getDispatcher());
         new DMCosmeticCommand(event.getDispatcher());
         new DMSafeChestAccess(event.getDispatcher());
         new DMSafeChestGetOwner(event.getDispatcher());
         new DMSafeChestSetOwner(event.getDispatcher());
+        new DMAwardCommand(event.getDispatcher());
+        new DMSonicChargeCommand(event.getDispatcher());
+        new DMSonicXpCommand(event.getDispatcher());
+        new DMSonicLevelCommand(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
     }

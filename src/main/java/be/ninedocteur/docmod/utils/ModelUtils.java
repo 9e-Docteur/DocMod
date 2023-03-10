@@ -16,11 +16,4 @@ public class ModelUtils {
         int i = (int) Mth.clampedLerp(0.0F, 15.0F, percent);
         return LightTexture.pack(i, i);
     }
-
-    public static int getModelPartGlow(ModelPart modelPart, double percent){
-        int i = (int) Mth.clampedLerp(0.0F, 15.0F, percent);
-        return LightTexture.pack(i, i);
-    }
-
-
 }

@@ -1,9 +1,9 @@
 package be.ninedocteur.docmod.common.init;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.DMCreativeTabs;
 import be.ninedocteur.docmod.common.entity.DMEntityType;
 import be.ninedocteur.docmod.common.item.*;
+import be.ninedocteur.docmod.common.item.sonic.RobainksSonicItem;
 import be.ninedocteur.docmod.common.item.cupdate.twentytwo.ExplosiveBallItem;
 import be.ninedocteur.docmod.common.item.cupdate.twentyone.GingerBread;
 import be.ninedocteur.docmod.common.item.gun.*;
@@ -106,16 +106,20 @@ public class DMItems {
     //public static final RegistryObject<Item> ALBIZIA_SIGN = ITEMS.register("albizia_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DMBlocks.ALBIZIA_SIGN.get(), DMBlocks.ALBIZIA_WALL_SIGN.get()));
     public static final RegistryObject<Item> ORE_FINDER = ITEMS.register("ore_finder", () -> new OreFinderItem(new Item.Properties().rarity(Rarity.EPIC).durability(100)));
     public static final RegistryObject<Item> ELECTRONIC_CICUIT = ITEMS.register("electronic_circuit", () -> new Item(new Item.Properties()));
-//    public static final RegistryObject<Item> KNOWCKBACK_STICK = ITEMS.register("knockback_stick", () -> new KnockbackStick(new Item.Properties()));
-    public static final RegistryObject<Item> SONIC_SCREWDRIVER = ITEMS.register("sonic_screwdriver", () -> new SonicItem(new Item.Properties()));
+    public static final RegistryObject<Item> KNOWCKBACK_STICK = ITEMS.register("knockback_stick", () -> new KnockbackStick(new Item.Properties()));
+    public static final RegistryObject<Item> GENERIC_SONIC_SCREWDRIVER = ITEMS.register("generic_sonic", () -> new RobainksSonicItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> SONIC_SCREWDRIVER = ITEMS.register("sonic_screwdriver", () -> new RobainksSonicItem(new Item.Properties()));
+    public static final RegistryObject<Item> NINEDOCTEUR_SONIC_SCREWDRIVER = ITEMS.register("ninedocteur_sonic_screwdriver", () -> new NinedocteurSonic(new Item.Properties()));
     public static final RegistryObject<Item> TEN_SONIC_SCREWDRIVER = ITEMS.register("sonic_screwdriver_10", () -> new TenthSonic(new Item.Properties()));
     public static final RegistryObject<Item> TEN_SONIC_SCREWDRIVER_EXTENDED = ITEMS.register("sonic_screwdriver_10_extended", () -> new TenthSonicExtended(new Item.Properties()));
     public static final RegistryObject<Item> THEER_SONIC_SCREWDRIVER = ITEMS.register("sonic_screwdriver_13", () -> new TheerSonic(new Item.Properties()));
-    public static final RegistryObject<Item> THEER_SONIC_SCREWDRIVER_OFF = ITEMS.register("sonic_screwdriver_13_off", () -> new TheerSonicOff(new Item.Properties()));
-    public static final RegistryObject<Item> ROBAINKS_SONIC_SCREWDRIVER= ITEMS.register("sonic_screwdriver_robainks", () -> new SonicItem(new Item.Properties()));
+    public static final RegistryObject<Item> THEER_SONIC_SCREWDRIVER_OFF = ITEMS.register("sonic_screwdriver_13_off", () -> new SonicItem(new Item.Properties()));
+    public static final RegistryObject<Item> ROBAINKS_SONIC_SCREWDRIVER= ITEMS.register("sonic_screwdriver_robainks", () -> new RobainksSonicItem(new Item.Properties()));
     public static final RegistryObject<Item> GARATIM_SONIC_SCREWDRIVER= ITEMS.register("sonic_screwdriver_garatim", () -> new GaratimSonic(new Item.Properties()));
-    public static final RegistryObject<Item> GARATIM_SONIC_SCREWDRIVER_OFF = ITEMS.register("sonic_screwdriver_garatim_off", () -> new GaratimSonicOff(new Item.Properties()));
+    public static final RegistryObject<Item> GARATIM_SONIC_SCREWDRIVER_OFF = ITEMS.register("sonic_screwdriver_garatim_off", () -> new SonicItem(new Item.Properties()));
     public static final RegistryObject<Item> POINTER = ITEMS.register("pointer", () -> new PointerItem(new Item.Properties().durability(1)));
+    public static final RegistryObject<Item> SMITH_TOOL = ITEMS.register("smith_tool", () -> new SmithItem(new Item.Properties().durability(10)));
 
     //EGG
     public static final RegistryObject<Item> STEVE_EGG = ITEMS.register("steve_spawn", () -> new ForgeSpawnEggItem(DMEntityType.OLD_STEVE, 0xffffff, 0xffffff,new Item.Properties()));
