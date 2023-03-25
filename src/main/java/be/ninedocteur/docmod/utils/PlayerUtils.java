@@ -23,7 +23,9 @@ public class PlayerUtils {
     }
     
     public static UUID getUserUUID(String playerName) {
-    	return UUID.fromString(IOUtils.readURLContent("https://minecraft-api.com/api/uuid/" + playerName));
+    	return UUID.fromString(IOUtils.readURLContent("https://minecraft-api.com/api/uuid/" + playerName).replaceFirst(
+                "(\\p{XDigit}{8})(\\p{XDigit}{4})(\\p{XDigit}{4})(\\p{XDigit}{4})(\\p{XDigit}+)", "$1-$2-$3-$4-$5"
+        ));
     }
 
     public static String getUserNameByUUID(UUID playerUUID) {

@@ -97,6 +97,10 @@ public class DMTileEntity {
             TILE_ENTITIES.register("safe_chest", () -> BlockEntityType.Builder.of(
                     SafeChestTileEntity::new, DMBlocks.SAFE_CHEST.get()).build(null));
 
+    public static RegistryObject<BlockEntityType<HologramTileEntity>> HOLOGRAM =
+            TILE_ENTITIES.register("hologram", () -> BlockEntityType.Builder.of(
+                    HologramTileEntity::new, DMBlocks.HOLOGRAM.get()).build(null));
+
 
 
     public static void register(IEventBus eventBus) {

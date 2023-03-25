@@ -28,4 +28,5 @@ public class ModelRegistry {
 
     //ENTITY
     public static final ModelLayerLocation Zurbion = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "zurbion"), "zurbion");
+    public static final ModelLayerLocation PLAYER = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "player"), "player");
 }

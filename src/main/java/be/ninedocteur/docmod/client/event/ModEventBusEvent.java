@@ -63,6 +63,7 @@ public class ModEventBusEvent {
         registerLayerDefinitions.registerLayerDefinition(ModelRegistry.CHAIR, ChairModel::createBodyLayer);
         registerLayerDefinitions.registerLayerDefinition(ModelRegistry.TARDIS_DOOR, TardisDoorModel::createBodyLayer);
         registerLayerDefinitions.registerLayerDefinition(ModelRegistry.SAFE_CHEST, SafeChestModel::createBodyLayer);
+        registerLayerDefinitions.registerLayerDefinition(ModelRegistry.PLAYER, PlayerEntityModel::createBodyLayer);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -86,6 +87,7 @@ public class ModEventBusEvent {
         event.registerEntityRenderer(DMEntityType.CLASIC_DALEK_LASER.get(), ClassicDalekLaserRenderer::new);
         event.registerEntityRenderer(DMEntityType.ADIPOSE.get(), AdiposeRenderer::new);
     }
+
 
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event){

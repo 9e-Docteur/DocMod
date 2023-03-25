@@ -162,6 +162,7 @@ public class DMBlocks {
     public static final RegistryObject<Block> DALEK_DAMAGED = registerBlock("dalek_damaged", () -> new DalekDamagedBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     //public static final RegistryObject<Block> ZINC_CRAFTING_TABLE = registerBlock("zinc_crafting_table", () -> new ZincCraftingTable(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     public static final RegistryObject<Block> SAFE_CHEST = registerBlock("safe_chest", () -> new SafeChestBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> HOLOGRAM = registerBlock("hologram", () -> new HologramBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     /*
     ANNIVERSARY
