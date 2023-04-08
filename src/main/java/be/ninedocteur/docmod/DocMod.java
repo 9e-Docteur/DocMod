@@ -83,8 +83,8 @@ public class DocMod {
         DMContainers.CONTAINERS.register(eventBus);
         RegistryHandler.registerListeners();
         LOGGER.info("Event Handlers Registered", false);
-        MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
-        MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
+        //MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
+        //MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
         MinecraftForge.EVENT_BUS.addListener(ClientEventHandler::onKeyInput);
         DocMod.LOGGER.info("Init DocMod Creative Tabs...");
         eventBus.addListener(ClientEventHandler::onKeyRegister);
@@ -92,7 +92,7 @@ public class DocMod {
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::onLaunch);
         eventBus.addListener(this::after);
-        MinecraftForge.EVENT_BUS.addListener(DMListeners::onPlayerTick);
+        //MinecraftForge.EVENT_BUS.addListener(DMListeners::onPlayerTick);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("DocMod is fully Initialized.");
     }

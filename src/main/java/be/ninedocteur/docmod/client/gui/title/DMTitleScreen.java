@@ -75,6 +75,14 @@ public class DMTitleScreen extends Screen {
     private Button resetDemoButton;
     private static final ResourceLocation MINECRAFT_LOGO = new ResourceLocation("textures/gui/title/minecraft.png");
     private static final ResourceLocation DOCMOD_LOGO = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/docmod_logo.png");
+    private static final ResourceLocation INFO = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/info.png");
+    private static final ResourceLocation DISCORD = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/discord.png");
+    private static final ResourceLocation YOUTUBE = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/youtube.png");
+    private static final ResourceLocation PARAM = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/param.png");
+    private static final ResourceLocation INFO_ON = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/info_on.png");
+    private static final ResourceLocation DISCORD_ON = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/discord_on.png");
+    private static final ResourceLocation YOUTUBE_ON = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/youtube_on.png");
+    private static final ResourceLocation PARAM_ON = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/param_on.png");
     private static final ResourceLocation MINECRAFT_EDITION = new ResourceLocation("textures/gui/title/edition.png");
     private Screen realmsNotificationsScreen;
     private int copyrightWidth;
@@ -156,19 +164,15 @@ public class DMTitleScreen extends Screen {
         boolean flag = this.minecraft.allowsMultiplayer();
 
         if (DMConfig.Client.showWidget.get()) {
-            configButton = new ImageButton(this.width / 2 - 210, this.height / 4 + 48 -106, 16, 16, 0, 96, new ResourceLocation(DocMod.MOD_ID, "textures/gui/widgets.png"), (button -> {
+            configButton = new ImageButton(this.width / 2 - 210, this.height / 4 + 48 -106, 16, 16, 0, 96, new ResourceLocation(DocMod.MOD_ID, "textures/gui/title/transparent.png"), (button -> {
                 this.minecraft.setScreen(new DocModConfigScreen(this));
             }));
-            discordButton = new ImageButton(this.width / 2 - 190, this.height / 4 + 48 -106, 16, 16, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/widgets.png"), (button -> {
+            discordButton = new ImageButton(this.width / 2 - 190, this.height / 4 + 48 -106, 16, 16, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/title/transparent.png"), (button -> {
                 URLUtils.openLink(DMUtils.getDiscordLink());
             }));
-            youtubeButton = new ImageButton(this.width / 2 - 170, this.height / 4 + 48 -106, 16, 16, 0, 64, new ResourceLocation(DocMod.MOD_ID, "textures/gui/widgets.png"), (button -> {
+            youtubeButton = new ImageButton(this.width / 2 - 170, this.height / 4 + 48 -106, 16, 16, 0, 64, new ResourceLocation(DocMod.MOD_ID, "textures/gui/title/transparent.png"), (button -> {
                 URLUtils.openLink(DMUtils.getYoutubeLink());
             }));
-
-            //closeButton = new ImageButton(this.width / 2 + 190, this.height / 4 + 48 -106, 16, 16, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/close.png"), (button -> {
-                //this.minecraft.close();
-            //}));
 
             staffButton = new ImageButton(this.width / 2 + 170, this.height / 4 + 48 -106, 16, 16, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/staff.png"), (button -> {
                 ScreenUtils.openScreen(new DocModStaffScreen());
@@ -178,35 +182,9 @@ public class DMTitleScreen extends Screen {
                 //ScreenUtils.openScreen(new DMCommunityMainScreen(this));
             }));
 
-            infoButton = new ImageButton(this.width / 2 - 150, this.height / 4 + 48 -106, 16, 16, 0, 129, new ResourceLocation(DocMod.MOD_ID, "textures/gui/widgets.png"), (button -> {
+            infoButton = new ImageButton(this.width / 2 - 150, this.height / 4 + 48 -106, 16, 16, 0, 129, new ResourceLocation(DocMod.MOD_ID, "textures/gui/title/transparent.png"), (button -> {
                 this.minecraft.setScreen(new DocModChangelogScreen(this));
             }));
-/*
-            singlePlayer = new ImageButton(this.width / 2 - 40, this.height / 4 + 48 -20, 21 *2 *2 + 4, 21 *2 *2 + 4, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/title/singleplayer.png"), (button -> {
-                this.minecraft.setScreen(new SelectWorldScreen(this));
-            }));
-
-            multiPlayer = new ImageButton(this.width / 2 -140, this.height / 4 + 48 - 20, 21 *2 *2 + 4, 21 *2 *2 + 4, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/title/multiplayer.png"), (button -> {
-                Screen screen = this.minecraft.options.skipMultiplayerWarning ? new JoinMultiplayerScreen(this) : new SafetyScreen(this);
-                this.minecraft.setScreen(screen);
-            }));
-
-            Quit = new ImageButton(this.width / 2 + 60, this.height / 4 + 48- 20, 21 *2 *2 + 4, 21 *2 *2 + 4, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/title/options.png"), (button -> {
-                this.minecraft.setScreen(new OptionsScreen(this, this.minecraft.options));
-            }));
-            this.addRenderableWidget(new ImageButton(this.width / 2 + 120, this.height / 4 + -60 + 120, 20 * 2 * 2 -0, 9 * 2 * 2 -0, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/title/next.png"), (p_96781_) -> {
-                this.minecraft.setScreen(new DMSecondTitleScreen(this.passEvents));
-            }));
-            this.addRenderableWidget(new ImageButton(this.width / 2 - 200, this.height / 4 + -60 + 120, 20 * 2 * 2 -0, 9 * 2 * 2 -0, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/title/back.png"), (p_96781_) -> {
-
-            }));
-
- */
-
-           // Button ninedocteur = new ImageButton(this.width / 2 - 120, this.height / 4 + 48 + 20, 32, 32, 0, 0, new ResourceLocation(ImageIO.read()), (button -> {
-              //  URLUtils.openLink(DMUtils.getYoutubeLink());
-           // }));
-
 
             this.addRenderableWidget(discordButton);
             this.addRenderableWidget(youtubeButton);
@@ -285,6 +263,38 @@ public class DMTitleScreen extends Screen {
             return false;
         }
     }
+    
+    public ResourceLocation getParamTexture() {
+    	if(configButton.isHovered()) {
+    		return PARAM_ON;
+    	} else {
+    		return PARAM;
+    	}
+    }
+    
+    public ResourceLocation getYoutubeTexture() {
+    	if(youtubeButton.isHovered()) {
+    		return YOUTUBE_ON;
+    	} else {
+    		return YOUTUBE;
+    	}
+    }
+    
+    public ResourceLocation getDiscordTexture() {
+    	if(discordButton.isHovered()) {
+    		return DISCORD_ON;
+    	} else {
+    		return DISCORD;
+    	}
+    }
+    
+    public ResourceLocation getInfoTexture() {
+    	if(infoButton.isHovered()) {
+    		return INFO_ON;
+    	} else {
+    		return INFO;
+    	}
+    }
 
     public void render(PoseStack p_96739_, int p_96740_, int p_96741_, float p_96742_) {
         float f = (float)(Util.getMillis() - this.fadeInStart);
@@ -304,7 +314,7 @@ public class DMTitleScreen extends Screen {
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderTexture(0, DOCMOD_LOGO);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, f1);
-            ScreenUtils.fillWithFullTexture(this.width /2 - 105, 5, 1280 / 6, 720 / 6);
+            ScreenUtils.fillWithFullTexture(this.width /2 - 104, -5, 1280 / 6, 720 / 6);
         
             if (this.splash != null) {
                 p_96739_.pushPose();
@@ -316,6 +326,32 @@ public class DMTitleScreen extends Screen {
                 //drawCenteredString(p_96739_, this.font, this.splash, 0, -8, 16776960 | l);
                 p_96739_.popPose();
             }
+           
+            
+            //WIDGETS
+            //PARAM
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderTexture(0, getParamTexture());
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, f1);
+            ScreenUtils.fillWithFullTexture(configButton.getX(), configButton.getY(), 256 / 15, 256 / 15);
+            
+            //DISCORD
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderTexture(0, getDiscordTexture());
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, f1);
+            ScreenUtils.fillWithFullTexture(discordButton.getX(), discordButton.getY(), 1024 / 54, 1024 / 54);
+            
+            //YOUTUBE
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderTexture(0, getYoutubeTexture());
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, f1);
+            ScreenUtils.fillWithFullTexture(youtubeButton.getX(), youtubeButton.getY(), 1024 / 54, 1024 / 54);
+            
+            //INFO
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderTexture(0, getInfoTexture());
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, f1);
+            ScreenUtils.fillWithFullTexture(infoButton.getX(), infoButton.getY(), 1024 / 62, 1024 / 62);
 
  
 

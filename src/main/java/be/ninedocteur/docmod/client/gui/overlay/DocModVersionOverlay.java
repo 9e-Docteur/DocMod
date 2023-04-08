@@ -1,6 +1,7 @@
 package be.ninedocteur.docmod.client.gui.overlay;
 
 import be.ninedocteur.docmod.DMConfig;
+import be.ninedocteur.docmod.DMSharedConstants;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.utils.ColorUtils;
@@ -46,7 +47,7 @@ public class DocModVersionOverlay {
             if(LaunchUtils.checkLaunchedVersion()){
                 Minecraft.getInstance().font.draw(event.getPoseStack(), "DocMod " + DMUtils.VERSION + " " + DMUtils.CODENAME, posX, posY, ColorUtils.getWhite());
                 Minecraft.getInstance().getItemRenderer().renderGuiItem(new PoseStack(), itemIcon, 4, 6);
-            } else if(!LaunchUtils.isRunningInDev() && DocMod.isInDevVersion) {
+            } else if(!LaunchUtils.isRunningInDev() && DocMod.isInDevVersion || !LaunchUtils.isRunningInDev() && DMSharedConstants.isSnapshot()) {
                 Minecraft.getInstance().font.draw(event.getPoseStack(), "DocMod 1.19 Development", posX - 10, posY, ColorUtils.getWhite());
             }
         }

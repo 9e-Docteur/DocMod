@@ -1,6 +1,7 @@
 package be.ninedocteur.docmod.client.gui.overlay;
 
 import be.ninedocteur.docmod.DMConfig;
+import be.ninedocteur.docmod.DMSharedConstants;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.utils.ColorUtils;
@@ -38,7 +39,7 @@ public class DocModDebugOverlay extends GuiComponent {
             int w = event.getWindow().getGuiScaledWidth();
             int posX = 4;
             int posY = 4;
-            list.add("DocMod " + DMUtils.VERSION + " " + getBranch());
+            list.add("DocMod " + DMUtils.VERSION + " " + getBranch() + " Snapshot " + DMSharedConstants.getVersion());
             list.add(getFPS(Minecraft.getInstance()) + " FPS");
             rightList.add("CPU: " + GlUtil.getCpuInfo());
             rightList.add("GPU: " + GlUtil.getRenderer());
@@ -65,11 +66,6 @@ public class DocModDebugOverlay extends GuiComponent {
                     Minecraft.getInstance().font.draw(new PoseStack(), s, (float)l, (float)i1, 14737632);
                 }
             }
-
-            //Minecraft.getInstance().font.draw(event.getPoseStack(), "DocMod " + DMUtils.VERSION + " " + getBranch(), posX, posY, ColorUtils.getWhite());
-            //Minecraft.getInstance().screen.fill(event.getPoseStack(), 1, 10, posX, posY, -1873784752);
-            //Minecraft.getInstance().font.draw(event.getPoseStack(), getFPS(Minecraft.getInstance()) + " FPS", posX, posY + 10, getColoredFPS(Minecraft.getInstance()));
-            //Minecraft.getInstance().screen.fill(event.getPoseStack(), 1, 10, posX, posY + 10, -1873784752);
 
             int cpuSide = sideX(event, "CPU:" + GlUtil.getCpuInfo());
             int gpuSide = sideX(event, "GPU:" + GlUtil.getRenderer());
