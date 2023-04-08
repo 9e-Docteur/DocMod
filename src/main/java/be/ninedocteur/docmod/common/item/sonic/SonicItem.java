@@ -232,7 +232,7 @@ public class SonicItem extends Item {
         if(!isReplaced() && charge > 0 && shearInteract && sonicLevel >= 2){
             if (entity instanceof net.minecraftforge.common.IForgeShearable target) {
                 if (entity.level.isClientSide) return net.minecraft.world.InteractionResult.SUCCESS;
-                BlockPos pos = new BlockPos(entity.getX(), entity.getY(), entity.getZ());
+                BlockPos pos = new BlockPos((int) entity.getX(), (int) entity.getY(), (int) entity.getZ());
                 if (target.isShearable(stack, entity.level, pos)) {
                     java.util.List<ItemStack> drops = target.onSheared(playerIn, stack, entity.level, pos,
                             net.minecraft.world.item.enchantment.EnchantmentHelper.getItemEnchantmentLevel(net.minecraft.world.item.enchantment.Enchantments.BLOCK_FORTUNE, stack));
