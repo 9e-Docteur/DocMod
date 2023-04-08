@@ -35,7 +35,7 @@ public class DMHologramBlock extends Screen {
                 getHologramTileEntity().sendUpdate();
             } catch (IllegalArgumentException e){
                 e.printStackTrace();
-                Minecraft.getInstance().player.sendSystemMessage(Component.literal(ChatFormatting.RED + "Player not found!"));
+                getMinecraft().player.sendSystemMessage(Component.literal(ChatFormatting.RED + "Player not found!"));
             }
         }).bounds(this.width / 2 - 100, j + 24 * -1, 20, 20).build();
         this.addRenderableWidget(saveBtn);
@@ -77,5 +77,12 @@ public class DMHologramBlock extends Screen {
     @Override
     public boolean isPauseScreen() {
         return false;
+    }
+
+    public Minecraft getMinecraft(){
+        if(this.minecraft == null){
+            return Minecraft.getInstance();
+        }
+        return Minecraft.getInstance();
     }
 }

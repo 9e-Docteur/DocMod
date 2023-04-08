@@ -5,6 +5,7 @@ import be.ninedocteur.docmod.common.sound.DMSound;
 import be.ninedocteur.docmod.sonic.SonicInteractionItem;
 import be.ninedocteur.docmod.utils.KeyUtils;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -55,6 +56,7 @@ public class SonicItem extends Item {
     private int damageLevel;
     private int xp;
     private Mode mode;
+    CompoundTag tag = Minecraft.getInstance().player.getPersistentData();
 
     public SonicItem(Properties p_41383_) {
         super(p_41383_);
@@ -402,10 +404,14 @@ public class SonicItem extends Item {
 
     @Override
     public @Nullable CompoundTag getShareTag(ItemStack stack) {
-        stack.getTag().putInt("charge", this.getCharge());
-        stack.getTag().putInt("tozerocount", this.chargeToZeroCount);
-        stack.getTag().putInt("level", this.getSonicLevel());
-        stack.getTag().putInt("xp", this.getXp());
+//        stack.getTag().putInt("charge", this.getCharge());
+//        stack.getTag().putInt("tozerocount", this.chargeToZeroCount);
+//        stack.getTag().putInt("level", this.getSonicLevel());
+//        stack.getTag().putInt("xp", this.getXp());
+        tag.putInt("charge", this.getCharge());
+        tag.putInt("tozerocount", this.chargeToZeroCount);
+        tag.putInt("level", this.getSonicLevel());
+        tag.putInt("xp", this.getXp());
         return super.getShareTag(stack);
     }
 
@@ -418,10 +424,10 @@ public class SonicItem extends Item {
     @Override
     public void readShareTag(ItemStack stack, @Nullable CompoundTag nbt) {
         super.readShareTag(stack, nbt);
-        this.charge = nbt.getInt("charge");
-        this.chargeToZeroCount = nbt.getInt("tozerocount");
-        this.sonicLevel = nbt.getInt("level");
-        this.xp = nbt.getInt("xp");
+        this.charge = tag.getInt("charge");
+        this.chargeToZeroCount = tag.getInt("tozerocount");
+        this.sonicLevel = tag.getInt("level");
+        this.xp = tag.getInt("xp");
     }
 
     public SoundEvent getDefaultSonicSound(){

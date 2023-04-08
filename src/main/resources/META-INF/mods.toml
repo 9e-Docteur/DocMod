@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[44,)" #mandatory
+loaderVersion="[45,)" #mandatory
 license="All rights reserved"
 [[mods]] #mandatory
 modId="docmod" #mandatory
@@ -13,12 +13,12 @@ description='''Mod Created By 9e_Docteur, Textures by 9e_Docteur and PandaRebel4
 [[dependencies.docmod]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[44,)" #mandatory
+    versionRange="[45,)" #mandatory
     ordering="NONE"
     side="BOTH"
 [[dependencies.docmod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.3,]"
+    versionRange="[1.19.4,]"
     ordering="NONE"
     side="BOTH"

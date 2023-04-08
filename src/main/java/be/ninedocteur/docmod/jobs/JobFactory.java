@@ -57,7 +57,7 @@ public class JobFactory {
     }
 
     public static void updateJobs(ServerPlayer serverPlayer){
-        PacketHandler.INSTANCE.sendTo(new PacketUpdateClientJob(PlayerData.getPlayerJobs(serverPlayer).toTotalXPs()), serverPlayer.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+        //PacketHandler.INSTANCE.sendTo(new PacketUpdateClientJob(PlayerData.getPlayerJobs(serverPlayer).toTotalXPs()), serverPlayer.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
     }
 
     public static int getLevelByJob(Constants.Job job){

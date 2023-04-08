@@ -1,5 +1,7 @@
 package be.ninedocteur.docmod.common.event;
 
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+
 import java.util.Optional;
 
 public class DMEvent {
@@ -36,7 +38,6 @@ public class DMEvent {
             base.add(DMFeature.Placed.CRYOLITE_ORE_PLACED);
         }
     }
-
 
  */
 }
