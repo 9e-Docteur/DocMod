@@ -237,14 +237,7 @@ public class AdiposeEntity extends TamableAnimal implements NeutralMob {
         }
     }
 
-    public boolean doHurtTarget(Entity p_30372_) {
-        boolean flag = p_30372_.hurt(DamageSource.mobAttack(this), (float)((int)this.getAttributeValue(Attributes.ATTACK_DAMAGE)));
-        if (flag) {
-            this.doEnchantDamageEffects(this, p_30372_);
-        }
 
-        return flag;
-    }
 
     public void setTame(boolean p_30443_) {
         super.setTame(p_30443_);

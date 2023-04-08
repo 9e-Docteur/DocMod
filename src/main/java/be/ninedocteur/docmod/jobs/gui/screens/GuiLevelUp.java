@@ -88,7 +88,7 @@ public class GuiLevelUp extends Screen {
         int x = this.width/2 - sizeX/2;
         for(int i = 0; i < stacks.size(); i++)
         {
-            this.itemRenderer.renderGuiItem(stacks.get(i), x + i*22, y);
+            this.itemRenderer.renderGuiItem(new PoseStack(), stacks.get(i), x + i*22, y);
             if(mouseX >= x + i*22 && mouseX < x + i*22 + 16 && mouseY >= y && mouseY < y + 16)
                 hovered = i;
         }
@@ -108,7 +108,7 @@ public class GuiLevelUp extends Screen {
         int x = this.width/2 - sizeX/2;
         for(int i = 0; i < stacks.size(); i++)
         {
-            this.itemRenderer.renderGuiItem(stacks.get(i).copy(), x + i*22, y);
+            this.itemRenderer.renderGuiItem(new PoseStack(), stacks.get(i).copy(), x + i*22, y);
             if(mouseX >= x + i*22 && mouseX < x + i*22 + 16 && mouseY >= y && mouseY < y + 16)
                 hovered = i;
         }

@@ -93,9 +93,9 @@ public class DMTileEntity {
             TILE_ENTITIES.register("damage_dalek", () -> BlockEntityType.Builder.of(
                     EnergyPipeTileEntity::new, DMBlocks.DALEK_DAMAGED.get()).build(null));
 
-    public static RegistryObject<BlockEntityType<SafeChestTileEntity>> SAFECHEST =
-            TILE_ENTITIES.register("safe_chest", () -> BlockEntityType.Builder.of(
-                    SafeChestTileEntity::new, DMBlocks.SAFE_CHEST.get()).build(null));
+//    public static RegistryObject<BlockEntityType<SafeChestTileEntity>> SAFECHEST =
+//            TILE_ENTITIES.register("safe_chest", () -> BlockEntityType.Builder.of(
+//                    SafeChestTileEntity::new, DMBlocks.SAFE_CHEST.get()).build(null));
 
     public static RegistryObject<BlockEntityType<HologramTileEntity>> HOLOGRAM =
             TILE_ENTITIES.register("hologram", () -> BlockEntityType.Builder.of(

@@ -46,13 +46,13 @@ public class HDMICable extends Item {
                 isEnchanted = true;
                 isMonitorSelected = true;
             }
-            if(state.getBlock() instanceof ComputerBlock){
+            //if(state.getBlock() instanceof ComputerBlock){
                 if(isMonitorSelected){
                     isEnchanted = false;
                     monitorTileEntity.compoundTag.putLong("monitorPos", monitorTileEntity.computerPos = blockPos.asLong());
                     monitorTileEntity.isLinkedToComputer = true;
                 }
-            }
+            //}
             if(!isMonitorSelected){
                 player.sendSystemMessage(Component.literal(ChatFormatting.RED + "You need to select the monitor first!"));
             }

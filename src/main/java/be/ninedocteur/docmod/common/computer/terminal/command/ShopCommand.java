@@ -26,14 +26,14 @@ public class ShopCommand extends BaseCommand {
                 currentOS = TerminalOSRegistry.MOTHERBOARD;
             }
             this.computerTileEntity = this.currentOS.getComputerTileEntity();
-            for(ItemStack itemStack : computerTileEntity.getItems()){
+            //for(ItemStack itemStack : computerTileEntity.getItems()){
 //                if(itemStack.is(DMItems.DISK.get())){
 //                    if(baseOS.getName().equals(itemStack.getTag().getString("OS"))){
 //                        break;
 //                    }
 //                }
-            }
-            break;
+            //}
+            //break;
         }
     }
 
@@ -67,7 +67,7 @@ public class ShopCommand extends BaseCommand {
 
                 System.out.println(pourcent);
                 pourcent++;
-                computerTileEntity.TERMINAL_HISTORY.add("Downloading... " + pourcent + "%");
+               // computerTileEntity.TERMINAL_HISTORY.add("Downloading... " + pourcent + "%");
                 DocMod.LOGGER.info("Downloading... " + pourcent + "%");
 
                 if (pourcent > 100) {
@@ -77,14 +77,14 @@ public class ShopCommand extends BaseCommand {
                     if(pkg.equals(currentOS.getName())){
                         CompoundTag compoundTag = new CompoundTag();
                         compoundTag.putString("OS", currentOS.getName());
-                        for(ItemStack itemStack : computerTileEntity.getItems()){
+                       // for(ItemStack itemStack : computerTileEntity.getItems()){
 //                            if(itemStack.is(DMItems.DISK.get())){
 //                                itemStack.setTag(compoundTag);
 //                                break;
 //                            }
-                        }
+                       // }
                     }
-                    computerTileEntity.TERMINAL_HISTORY.add("Downloaded " + pkg + " !");
+                   // computerTileEntity.TERMINAL_HISTORY.add("Downloaded " + pkg + " !");
                     DocMod.LOGGER.info("Started downloading a shop package." + pkg);
                 }
             }
@@ -105,7 +105,7 @@ public class ShopCommand extends BaseCommand {
                 DocMod.LOGGER.info("Started downloading a shop package." + command.getName());
                 System.out.println(pourcent);
                 pourcent++;
-                computerTileEntity.TERMINAL_HISTORY.add("Downloading... " + pourcent + "%");
+               // computerTileEntity.TERMINAL_HISTORY.add("Downloading... " + pourcent + "%");
                 DocMod.LOGGER.info("Downloading... " + pourcent + "%");
 
                 if (pourcent > 2) {
@@ -114,7 +114,7 @@ public class ShopCommand extends BaseCommand {
 //                        computerTileEntity.installApp(command);
 //                    }
                     DocMod.LOGGER.info("Downloading... " + "100%");
-                    computerTileEntity.TERMINAL_HISTORY.add("Downloaded " + command.getName() + " !");
+                   // computerTileEntity.TERMINAL_HISTORY.add("Downloaded " + command.getName() + " !");
 
                 }
             }

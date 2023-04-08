@@ -68,10 +68,10 @@ public abstract class BaseOS /*implements ICommand*/ {
                 player.sendSystemMessage(Component.literal(ChatFormatting.RED + "An Error Occured : " + e));
             }
         } else {
-            computerTileEntity.TERMINAL_HISTORY.add("Your computer does not respond to the requirement of the OS.");
+           // computerTileEntity.TERMINAL_HISTORY.add("Your computer does not respond to the requirement of the OS.");
             if(LaunchUtils.isRunningInDev()){
-                computerTileEntity.TERMINAL_HISTORY.add("Your are running in dev mode... If your requirement are correct, try to see if your code is okay ;)");
-                computerTileEntity.TERMINAL_HISTORY.add("I hope you know that you must say that isRequirementOk = true in your code");
+               // computerTileEntity.TERMINAL_HISTORY.add("Your are running in dev mode... If your requirement are correct, try to see if your code is okay ;)");
+                //computerTileEntity.TERMINAL_HISTORY.add("I hope you know that you must say that isRequirementOk = true in your code");
             }
         }
     }
@@ -137,7 +137,7 @@ public abstract class BaseOS /*implements ICommand*/ {
         for(BaseCommand command1 : CommandRegistry.commands){
             command1.init(computerTileEntity);
             if(command1.getName().equals(args[0])) {
-                if (computerTileEntity.isAppInstalled(command1)) {
+               // if (computerTileEntity.isAppInstalled(command1)) {
                     System.out.println(command);
                     if (command1.getCommandType() == BaseCommand.CommandType.UNIVERSAL || commands.contains(command1.getName())) {
                         command1.performCommand(args);
@@ -147,11 +147,11 @@ public abstract class BaseOS /*implements ICommand*/ {
                         command1.answer("Unknown Command", BaseCommand.AnswerType.FAILED);
                     }
                 }
-            } else {
+           // } else {
                 //command1.answer("Unknown Command", BaseCommand.AnswerType.FAILED);
-            }
+            //}
         }
-        computerTileEntity.TERMINAL_HISTORY.add(">" + command);
+        //computerTileEntity.TERMINAL_HISTORY.add(">" + command);
     }
 
 

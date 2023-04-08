@@ -1,6 +1,7 @@
 package be.ninedocteur.docmod.client.gui.title;
 
 import be.ninedocteur.docmod.DMConfig;
+import be.ninedocteur.docmod.DMSharedConstants;
 import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.gui.screens.*;
 import be.ninedocteur.docmod.utils.*;
@@ -73,7 +74,7 @@ public class DMTitleScreen extends Screen {
     private String splash;
     private Button resetDemoButton;
     private static final ResourceLocation MINECRAFT_LOGO = new ResourceLocation("textures/gui/title/minecraft.png");
-    private static final ResourceLocation DOCMOD_LOGO = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/docmodv4.png");
+    private static final ResourceLocation DOCMOD_LOGO = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/docmod_logo.png");
     private static final ResourceLocation MINECRAFT_EDITION = new ResourceLocation("textures/gui/title/edition.png");
     private Screen realmsNotificationsScreen;
     private int copyrightWidth;
@@ -221,19 +222,19 @@ public class DMTitleScreen extends Screen {
 
         Quit = Button.builder(Component.translatable("menu.options"), (p_213094_1_) -> {
             this.minecraft.setScreen(new OptionsScreen(this, this.minecraft.options));
-        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 1, 200, 20).build();
+        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 2, 200, 20).build();
 
         dmServerButton = Button.builder(Component.translatable("DocMod Servers"), (p_96781_) -> {
             ConnectScreen.startConnecting(this, this.getMinecraft(), new ServerAddress(Servers.HOST, Servers.PORT), new ServerData("DocMod Server", Servers.HOST, false));
-        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 0, 100, 20).build();
+        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 1, 100, 20).build();
 
         this.addRenderableWidget(Button.builder(Component.translatable("menu.quit"), (p_96781_) -> {
             this.minecraft.stop();
-        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 2, 200, 20).build());
+        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 3, 200, 20).build());
 
         this.addRenderableWidget(Button.builder(Component.translatable("menu.multiplayer"), (p_96781_) -> {
             this.minecraft.setScreen(new JoinMultiplayerScreen(this));
-        }).bounds(this.width / 2 - 0, p_96764_ + p_96765_ * 0, 100, 20).build());
+        }).bounds(this.width / 2 - 0, p_96764_ + p_96765_ * 1, 100, 20).build());
 
         //this.addRenderableWidget(new Button(this.width / 2 - 0, p_96764_ + p_96765_ * -2, 100, 20, Component.translatable("DM Addons"), (p_96781_) -> {
          //   this.minecraft.setScreen(new DMAddonListScreen());
@@ -241,7 +242,7 @@ public class DMTitleScreen extends Screen {
 
         this.addRenderableWidget(Button.builder(Component.translatable("menu.singleplayer"), (p_96781_) -> {
             this.minecraft.setScreen(new SelectWorldScreen(this));
-        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * -1, 200, 20).build());
+        }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 0, 200, 20).build());
 
         this.addRenderableWidget(Quit);
         this.addRenderableWidget(dmServerButton);
@@ -292,11 +293,6 @@ public class DMTitleScreen extends Screen {
         int j = this.width / 2 - 137;
         int k = 30;
         float f1 = Mth.clamp(f - 1.0F, 0.0F, 1.0F);
-        //RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        //RenderSystem.setShaderTexture(0, DOCMOD_LOGO);
-        //RenderSystem.setShaderTexture(0, MINECRAFT_LOGO);
-        //RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1F);
-        //blit(p_96739_, 67, 32, this.width, this.height, 0.0F, 0.0F, 800, 800, 700, 700);
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderTexture(0, PANORAMA_OVERLAY);
         RenderSystem.enableBlend();
@@ -308,31 +304,8 @@ public class DMTitleScreen extends Screen {
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderTexture(0, DOCMOD_LOGO);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, f1);
-            //blit(p_96739_, 0, 0, this.width, this.height, 0.0F, 0.0F, 16, 128, 16, 128);
-            if (this.minceraftEasterEgg) {
-                this.blitOutlineBlack(j, 30, (p_96768_, p_96769_) -> {
-                    this.blit(p_96739_, p_96768_ + 0, p_96769_, 0, 0, 99, 44);
-                    this.blit(p_96739_, p_96768_ + 99, p_96769_, 129, 0, 27, 44);
-                    this.blit(p_96739_, p_96768_ + 99 + 26, p_96769_, 126, 0, 3, 44);
-                    this.blit(p_96739_, p_96768_ + 99 + 26 + 3, p_96769_, 99, 0, 26, 44);
-                    this.blit(p_96739_, p_96768_ + 155, p_96769_, 0, 45, 155, 44);
-                });
-            } else {
-                this.blitOutlineBlack(j - 18, 30, (p_96768_, p_96769_) -> {
-                    this.blit(p_96739_, p_96768_ + 0, p_96769_, 0, 0, 155, 44);
-                    this.blit(p_96739_, p_96768_ + 155, p_96769_, 0, 45, 155, 44);
-                });
-            }
-/*
-            //3D SKIN
-            RenderSystem.setShader(GameRenderer::getPositionTexShader);
-            RenderSystem.setShaderTexture(0, PlayerUtils.get3DSkin(Minecraft.getInstance().getUser().getUuid()));
-            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-            blit(p_96739_, width / 2 - 180, height / 2 - 50, 0, 0, 120/2, 270/2, 120 / 2, 270 / 2);
-
- */
-            //RenderSystem.setShaderTexture(0, MINECRAFT_EDITION);
-            //blit(p_96739_, j + 88, 67, 0.0F, 0.0F, 98, 14, 128, 16);
+            ScreenUtils.fillWithFullTexture(this.width /2 - 105, 5, 1280 / 6, 720 / 6);
+        
             if (this.splash != null) {
                 p_96739_.pushPose();
                 p_96739_.translate(this.width / 2 + 0, 80.0D, 0.0D);
@@ -344,16 +317,7 @@ public class DMTitleScreen extends Screen {
                 p_96739_.popPose();
             }
 
-            String s = "Minecraft " + SharedConstants.getCurrentVersion().getName();
-            if (this.minecraft.isDemo()) {
-                s = s + " Demo";
-            } else {
-                s = s + ("release".equalsIgnoreCase(this.minecraft.getVersionType()) ? "" : "/" + this.minecraft.getVersionType());
-            }
-
-            if (Minecraft.checkModStatus().shouldReportAsModified()) {
-                s = s + I18n.get("menu.modded");
-            }
+ 
 
             net.minecraftforge.internal.BrandingControl.forEachAboveCopyrightLine((brdline, brd) ->
                     drawString(p_96739_, this.font, brd, this.width - font.width(brd), this.height - (10 + (brdline + 1) * ( this.font.lineHeight + 1)), 16777215 | l)
@@ -363,30 +327,16 @@ public class DMTitleScreen extends Screen {
 
             drawString(p_96739_, this.font, DMUtils.getCopyright(), this.copyrightX + 10, this.height - 20, 16777215 | l);
 
-            if(LaunchUtils.isBeta) {
-                drawString(p_96739_, this.font, "This is a Beta. The mod can contains bugs.", this.copyrightX - 16, this.height - 30, ColorUtils.getRed() | l);
-            }
-            if(LaunchUtils.isPreRelease){
-                drawString(p_96739_, this.font, "This is a Pre-Release. Somes things aren't ok.", this.copyrightX - 34, this.height - 30, ColorUtils.getYellow() | l);
-            }
             drawString(p_96739_, this.font, DMUtils.getMinecraftVersion(), 0, this.height - 20, 16777215 | l);
 
             drawString(p_96739_, this.font, DMUtils.getDocTeam(), 0, this.height - 10, 16777215 | l);
 
-            //drawString(p_96739_, this.font, "Page : 1 / " + TitleScreenUtils.getMaxTitleScreen(), singlePlayer.x + 14, this.height - 50, 16777215 | l);
-
-/*
-            if(LaunchUtils.checkLaunchedVersion()){
-                //drawString(p_96739_, this.font, ChatFormatting.GREEN + "DocMod Dev is activated", singlePlayer.x -14, this.height -40, 16777215 | l);
-                MemoryUsage heapMemoryUsage = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage();
-                long maxMB = heapMemoryUsage.getMax()/(1024*1024);
-                long usedMB = heapMemoryUsage.getUsed()/(1024*1024);
-                final int MegaBytes = 10241024;
-                drawString(p_96739_, this.font, "Java Runtime: " + usedMB + "MB/" + maxMB + "MB", 0, this.height - 30, 16777215 | l);
-            }
-            */
             
-            drawString(p_96739_, this.font, DocMod.MODNAME + " " + DocMod.VERSION, 0, this.height - 30, 16777215 | l);
+            if(!DMSharedConstants.isSnapshot()) {
+            	drawString(p_96739_, this.font, DocMod.MODNAME + " " + DocMod.VERSION, 0, this.height - 30, 16777215 | l);
+            } else {
+            	drawString(p_96739_, this.font, DocMod.MODNAME + " " + DocMod.VERSION + " Snapshot " + DMSharedConstants.getVersion(), 0, this.height - 30, 16777215 | l);
+            }
             }
             
             
@@ -403,30 +353,7 @@ public class DMTitleScreen extends Screen {
                 }
             }
 
-            /*
-            if(infoButton.isHoveredOrFocused()){
-                this.drawString(p_96739_, font, "Changelog", infoButton.x - 50, infoButton.y, 0xffffff);
-            }
-
-             */
-/*
-            if(singlePlayer.isHoveredOrFocused()){
-                drawString(p_96739_, font, "Singleplayer", singlePlayer.x + 14, singlePlayer.y +90, ColorUtils.getWhite());
-            }
-
-            if(multiPlayer.isHoveredOrFocused()){
-                drawString(p_96739_, font, "Multiplayer", multiPlayer.x + 18, multiPlayer.y +90, ColorUtils.getWhite());
-            }
-
-            if(Quit.isHoveredOrFocused()){
-                drawString(p_96739_, font, "Options", Quit.x + 28, Quit.y +90, ColorUtils.getWhite());
-            }
-
-            if(closeButton.isHoveredOrFocused()){
-                this.renderTooltip(p_96739_, Component.translatable("gui.docmod.quit"), p_96740_, p_96741_);
-            }
-
- */
+           
 
         if(infoButton.isHoveredOrFocused()){
             this.renderTooltip(p_96739_, Component.translatable("gui.docmod.info"), p_96740_, p_96741_);
@@ -458,56 +385,6 @@ public class DMTitleScreen extends Screen {
                 this.realmsNotificationsScreen.render(p_96739_, p_96740_, p_96741_, p_96742_);
             }
             }
-
-/*
-    public static LivingEntity livingEntity;
-    public static void renderEntityInInventory(int pPosX, int pPosY, int pScale, float pMouseX, float pMouseY, LivingEntity pLivingEntity) {
-        float f = (float)Math.atan((double)(pMouseX / 40.0F));
-        float f1 = (float)Math.atan((double)(pMouseY / 40.0F));
-        PoseStack posestack = RenderSystem.getModelViewStack();
-        posestack.pushPose();
-        posestack.translate((double)pPosX, (double)pPosY, 1050.0D);
-        posestack.scale(1.0F, 1.0F, -1.0F);
-        RenderSystem.applyModelViewMatrix();
-        PoseStack posestack1 = new PoseStack();
-        posestack1.translate(0.0D, 0.0D, 1000.0D);
-        posestack1.scale((float)pScale, (float)pScale, (float)pScale);
-        Quaternion quaternion = Vector3f.ZP.rotationDegrees(180.0F);
-        Quaternion quaternion1 = Vector3f.XP.rotationDegrees(f1 * 20.0F);
-        quaternion.mul(quaternion1);
-        posestack1.mulPose(quaternion);
-        float f2 = livingEntity.yBodyRot;
-        float f3 = livingEntity.getYRot();
-        float f4 = livingEntity.getXRot();
-        float f5 = livingEntity.yHeadRotO;
-        float f6 = livingEntity.yHeadRot;
-        livingEntity.yBodyRot = 180.0F + f * 20.0F;
-        livingEntity.setYRot(180.0F + f * 40.0F);
-        livingEntity.setXRot(-f1 * 20.0F);
-        livingEntity.yHeadRot = livingEntity.getYRot();
-        livingEntity.yHeadRotO = livingEntity.getYRot();
-        Lighting.setupForEntityInInventory();
-        EntityRenderDispatcher entityrenderdispatcher = Minecraft.getInstance().getEntityRenderDispatcher();
-        quaternion1.conj();
-        entityrenderdispatcher.overrideCameraOrientation(quaternion1);
-        entityrenderdispatcher.setRenderShadow(false);
-        MultiBufferSource.BufferSource multibuffersource$buffersource = Minecraft.getInstance().renderBuffers().bufferSource();
-        RenderSystem.runAsFancy(() -> {
-            entityrenderdispatcher.render(livingEntity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, posestack1, multibuffersource$buffersource, 15728880);
-        });
-        multibuffersource$buffersource.endBatch();
-        entityrenderdispatcher.setRenderShadow(true);
-        livingEntity.yBodyRot = f2;
-        livingEntity.setYRot(f3);
-        livingEntity.setXRot(f4);
-        livingEntity.yHeadRotO = f5;
-        livingEntity.yHeadRot = f6;
-        posestack.popPose();
-        RenderSystem.applyModelViewMatrix();
-        Lighting.setupFor3DItems();
-    }
-
- */
 
 
 

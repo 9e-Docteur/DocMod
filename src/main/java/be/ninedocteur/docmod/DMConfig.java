@@ -25,9 +25,9 @@ public class DMConfig {
         static {
             //CLIENT
             CLIENT_BUILDER.push("Config for DocMod Client");
-            showVersion = CLIENT_BUILDER.comment("Show the version of DocMod. By Default is true").define("Show Version", false);
+            showVersion = CLIENT_BUILDER.comment("Show the version of DocMod. By Default is false").define("Show Version", false);
             showVersionInGame = CLIENT_BUILDER.comment("Show the version of DocMod in game. By Default is false").define("Show Version", false);
-            customtitlescreen = CLIENT_BUILDER.comment("Show the custom title screen of DocMod. By Default is true").define("Show Version", true);
+            customtitlescreen = CLIENT_BUILDER.comment("Show the custom title screen of DocMod. By Default is true").define("Show Custom Title Screen", true);
             showWIPTabs = CLIENT_BUILDER.comment("Show a new tab on the creative menu containing WIP stuff").define("Show WIP Stuff", false);
             showWidget = CLIENT_BUILDER.comment("Show the DocTeam's Widget, can't be showed if the custom title screen is disable").define("Show Widget", true);
             ThreeDHead = CLIENT_BUILDER.comment("Show in DocTeam Screen a 3D Head instead of a 2D").define("Show 3D Head", true);

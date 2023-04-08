@@ -32,6 +32,7 @@ public class ClientProxy {
     public static void doClientEvents(IEventBus modBus, IEventBus forgeBus){
         modBus.addListener(ClientProxy::doClientStuff);
         forgeBus.addListener(DocModVersionOverlay::render);
+        DocMod.LOGGER.warn("Loading title screen...");
         forgeBus.addListener(DMLoadingTitleScreen::loadDMTitleScreen);
         forgeBus.addListener(DMListeners::onPLayerLevelJoin);
         forgeBus.addListener(DMListeners::onPlayerUpdate);
@@ -48,13 +49,13 @@ public class ClientProxy {
     private static void doClientStuff(FMLClientSetupEvent event) {
         ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((mc, screen) -> new DocModConfigScreen(screen)));
         TileRenders.register();
-        Sheets.addWoodType(DMWoodTypes.DEATH);
-        Sheets.addWoodType(DMWoodTypes.ALBIZIA);
-
-        MenuScreens.register(DMContainers.ZURBTELEPORTERCONTAINER.get(), ZurbTeleporterScreen::new);
-        MenuScreens.register(DMMenu.COMPUTER.get(), DMComputerHardwareScreen::new);
-        MenuScreens.register(DMMenu.INFUSION.get(), InfusionScreen::new);
-        MenuScreens.register(DMContainers.SAFE_CHEST_CONTAINER.get(), SafeChestScreen::new);
+//        Sheets.addWoodType(DMWoodTypes.DEATH);
+//        Sheets.addWoodType(DMWoodTypes.ALBIZIA);
+//
+//        MenuScreens.register(DMContainers.ZURBTELEPORTERCONTAINER.get(), ZurbTeleporterScreen::new);
+//        MenuScreens.register(DMMenu.COMPUTER.get(), DMComputerHardwareScreen::new);
+//        MenuScreens.register(DMMenu.INFUSION.get(), InfusionScreen::new);
+//        MenuScreens.register(DMContainers.SAFE_CHEST_CONTAINER.get(), SafeChestScreen::new);
 
         ItemBlockRenderTypes.setRenderLayer(DMBlocks.CIRCLE_GLASS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(DMBlocks.KILLER_BLOCK.get(), RenderType.cutout());

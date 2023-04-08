@@ -15,7 +15,7 @@ public class DocModOSCommand extends BaseCommand {
         answer("Downloading System Config...", AnswerType.NORMAL);
         answer("Installing DocModKernel (v1.0-NR)...", AnswerType.NORMAL);
         answer("Configuring drive C: " + "\" + DocModOS" + "\" install.dmos", AnswerType.NORMAL);
-        this.getComputerTileEntity().getInstalledDisk();
+        //this.getComputerTileEntity().getInstalledDisk();
         answer("Base OS installed, restart your system", AnswerType.NORMAL);
     }
 }

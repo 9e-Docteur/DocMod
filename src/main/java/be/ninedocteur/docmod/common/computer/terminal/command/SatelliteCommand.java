@@ -11,6 +11,6 @@ public class SatelliteCommand extends BaseCommand{
 
     @Override
     public void performCommand(String[] args) {
-        answer("Computer located on " + os.getComputerTileEntity().getBlockPos(), AnswerType.INFO);
+        //answer("Computer located on " + os.getComputerTileEntity().getBlockPos(), AnswerType.INFO);
     }
 }

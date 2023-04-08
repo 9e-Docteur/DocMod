@@ -46,87 +46,87 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.IntStream;
 
-public class SafeChestTileEntity extends InventoryTileEntity {
-    private UUID owner;
-    private final List<UUID> authorisedPeople = new ArrayList<>();
-    private BlockPos pos;
-
-    public SafeChestTileEntity(BlockPos pos, BlockState state) {
-        super(DMTileEntity.SAFECHEST.get(), pos, state, 27);
-    }
-
-    public void addAuthorisedPeople(UUID uuidOfTheAutorisedPerson){
-        authorisedPeople.add(uuidOfTheAutorisedPerson);
-    }
-
-    public void removeAuthorisedPeople(UUID uuidOfTheAutorisedPerson){
-        authorisedPeople.remove(uuidOfTheAutorisedPerson);
-    }
-
-    public void setOwner(UUID owner) {
-        this.owner = owner;
-    }
-
-    public boolean isOwner(UUID uuid){
-        return uuid == owner;
-    }
-
-    public UUID getOwner() {
-        return owner;
-    }
-
-    public List<UUID> getAuthorisedPeople() {
-        return authorisedPeople;
-    }
-
-    public String getNameByUUID(UUID uuid){
-        return PlayerUtils.getUserNameByUUID(uuid);
-    }
-    public UUID getUUIDByName(String name){
-        return PlayerUtils.getUserUUID(name);
-    }
-
-    public boolean isPersonAllowedToUseChest(UUID uuid){
-        if(authorisedPeople.contains(uuid)){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    @Override
-    public CompoundTag serializeNBT() {
-        CompoundTag tag = new CompoundTag();
-        tag.putUUID("owner", getOwner());
-        saveAdditional(tag);
-        return tag;
-    }
-
-    @Override
-    public void deserializeNBT(CompoundTag nbt) {
-        owner = nbt.getUUID("owner");
-        load(nbt);
-        super.deserializeNBT(nbt);
-    }
-
-
-    public Component getDefaultName() {
-        return Component.translatable("Safe Chest");
-    }
-
-    public void load(CompoundTag p_155678_) {
-        super.load(p_155678_);
-    }
-
-    protected AbstractContainerMenu createMenu(int p_59660_, Inventory p_59661_) {
-        return new SafeChestMenu(p_59660_, p_59661_);
-    }
-
-    public BlockPos getPos() {
-        return pos;
-    }
-
-    public void setPos(BlockPos pos) {
-        this.pos = pos;
-    }
+public class SafeChestTileEntity /*extends InventoryTileEntity*/ {
+//    private UUID owner;
+//    private final List<UUID> authorisedPeople = new ArrayList<>();
+//    private BlockPos pos;
+//
+//    public SafeChestTileEntity(BlockPos pos, BlockState state) {
+//        super(DMTileEntity.SAFECHEST.get(), pos, state, 27);
+//    }
+//
+//    public void addAuthorisedPeople(UUID uuidOfTheAutorisedPerson){
+//        authorisedPeople.add(uuidOfTheAutorisedPerson);
+//    }
+//
+//    public void removeAuthorisedPeople(UUID uuidOfTheAutorisedPerson){
+//        authorisedPeople.remove(uuidOfTheAutorisedPerson);
+//    }
+//
+//    public void setOwner(UUID owner) {
+//        this.owner = owner;
+//    }
+//
+//    public boolean isOwner(UUID uuid){
+//        return uuid == owner;
+//    }
+//
+//    public UUID getOwner() {
+//        return owner;
+//    }
+//
+//    public List<UUID> getAuthorisedPeople() {
+//        return authorisedPeople;
+//    }
+//
+//    public String getNameByUUID(UUID uuid){
+//        return PlayerUtils.getUserNameByUUID(uuid);
+//    }
+//    public UUID getUUIDByName(String name){
+//        return PlayerUtils.getUserUUID(name);
+//    }
+//
+//    public boolean isPersonAllowedToUseChest(UUID uuid){
+//        if(authorisedPeople.contains(uuid)){
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+//
+//    @Override
+//    public CompoundTag serializeNBT() {
+//        CompoundTag tag = new CompoundTag();
+//        tag.putUUID("owner", getOwner());
+//        saveAdditional(tag);
+//        return tag;
+//    }
+//
+//    @Override
+//    public void deserializeNBT(CompoundTag nbt) {
+//        owner = nbt.getUUID("owner");
+//        load(nbt);
+//        super.deserializeNBT(nbt);
+//    }
+//
+//
+//    public Component getDefaultName() {
+//        return Component.translatable("Safe Chest");
+//    }
+//
+//    public void load(CompoundTag p_155678_) {
+//        super.load(p_155678_);
+//    }
+//
+//    protected AbstractContainerMenu createMenu(int p_59660_, Inventory p_59661_) {
+//        return new SafeChestMenu(p_59660_, p_59661_);
+//    }
+//
+//    public BlockPos getPos() {
+//        return pos;
+//    }
+//
+//    public void setPos(BlockPos pos) {
+//        this.pos = pos;
+//    }
 }

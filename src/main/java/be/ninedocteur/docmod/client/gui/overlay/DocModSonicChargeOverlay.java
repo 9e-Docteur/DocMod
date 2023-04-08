@@ -1,5 +1,7 @@
 package be.ninedocteur.docmod.client.gui.overlay;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+
 import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.common.item.sonic.NinedocteurSonic;
 import be.ninedocteur.docmod.common.item.sonic.SonicItem;
@@ -23,7 +25,7 @@ public class DocModSonicChargeOverlay {
                 Minecraft.getInstance().font.draw(event.getPoseStack(), "§Level: §r" + sonicItem.getSonicLevel(), posX, posY + 10, ColorUtils.getWhite());
                 Minecraft.getInstance().font.draw(event.getPoseStack(), "§6XP: §r" + sonicItem.getXp(), posX, posY + 20, ColorUtils.getWhite());
 
-                Minecraft.getInstance().getItemRenderer().renderGuiItem(itemIcon, 4, 6);
+                Minecraft.getInstance().getItemRenderer().renderGuiItem(new PoseStack(), itemIcon, 4, 6);
             }
     }
 }

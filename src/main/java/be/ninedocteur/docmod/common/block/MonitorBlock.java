@@ -62,7 +62,7 @@ public class MonitorBlock extends BaseEntityBlock {
                 BlockPos computerTileEntityPos = BlockPos.of(monitorTileEntity.compoundTag.getLong("computerPos"));
                 BlockEntity computerTileEntity = pLevel.getBlockEntity(computerTileEntityPos);
                 if (monitorTileEntity.isLinkedToComputer) {
-                    Minecraft.getInstance().setScreen(new DMComputerScreen((ComputerTileEntity) computerTileEntity));
+                   // Minecraft.getInstance().setScreen(new DMComputerScreen((ComputerTileEntity) computerTileEntity));
                 } else {
                     pPlayer.sendSystemMessage(Component.literal(ChatFormatting.RED + "This monitor is not linked to a computer."));
                 }

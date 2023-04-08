@@ -29,9 +29,9 @@ public class PlanetUtils {
             if(e.getEntity() instanceof Player livingEntityEntity) {
                 if(!livingEntityEntity.isCreative()) {
                     setGravity(livingEntityEntity, Gravity.MOON);
-                    if(!checkForSpaceSuit(livingEntityEntity) && !airPresent()) {
-                        livingEntityEntity.hurt(DMDamageSource.SUFFOCATE_ON_A_UNOXYGENED_PLANET, 1.5F);
-                    }
+                   // if(!checkForSpaceSuit(livingEntityEntity) && !airPresent()) {
+                      //  livingEntityEntity.hurt(DMDamageSource.SUFFOCATE_ON_A_UNOXYGENED_PLANET, 1.5F);
+                    //}
                     setNoFallDamage(livingEntityEntity);
                 }
             }
@@ -45,9 +45,9 @@ public class PlanetUtils {
             if(e.getEntity() instanceof Player livingEntityEntity) {
                 if(!livingEntityEntity.isCreative()) {
                     setGravity(livingEntityEntity, Gravity.SPACE);
-                    if(!checkForSpaceSuit(livingEntityEntity) && !airPresent()) {
-                        livingEntityEntity.hurt(DMDamageSource.SUFFOCATE_ON_A_UNOXYGENED_PLANET, 1.5F);
-                    }
+                    //if(!checkForSpaceSuit(livingEntityEntity) && !airPresent()) {
+                       // livingEntityEntity.hurt(DMDamageSource.SUFFOCATE_ON_A_UNOXYGENED_PLANET, 1.5F);
+                    //}
                     setNoFallDamage(livingEntityEntity);
                 }
             }
@@ -62,9 +62,9 @@ public class PlanetUtils {
         return player.getInventory().getArmor(3).is(DMItems.SPACE_HELMET.get());
     }
 
-    public static boolean airPresent(){
-         return SpaceSuitHelmet.air <= 0;
-    }
+//    public static boolean airPresent(){
+//         return SpaceSuitHelmet.air <= 0;
+//    }
 
     public static Vec3 setGravity(Player player, double gravity){
         Vec3 motion = player.getDeltaMovement();

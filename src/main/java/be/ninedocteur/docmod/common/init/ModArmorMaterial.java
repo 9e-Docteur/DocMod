@@ -1,112 +1,146 @@
 package be.ninedocteur.docmod.common.init;
 
 import be.ninedocteur.docmod.DocMod;
+import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import java.util.EnumMap;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements ArmorMaterial {
-
-    ZINC("zinc", 80, new int[] { 2, 5, 6, 2 }, 12,
-    SoundEvents.ARMOR_EQUIP_IRON, 1.0f, 0.0f, () -> {
+    
+    ZINC("zinc", 80, make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
+    	map.put(ArmorItem.Type.BOOTS, 5);
+    	map.put(ArmorItem.Type.LEGGINGS, 8);
+    	map.put(ArmorItem.Type.CHESTPLATE, 10);
+    	map.put(ArmorItem.Type.HELMET, 5);
+     }), 25, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> {
         return Ingredient.of(DMItems.ZINC_INGOT.get());
-
-    }),
-
-    HALFINUM("halfinum", 100, new int[] { 25, 20, 25, 35 }, 30,
-            SoundEvents.ARMOR_EQUIP_IRON, 5.0f, 1.0f, () -> {
+     }),
+    
+    HALFINUM("halfinum", 100, make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
+    	map.put(ArmorItem.Type.BOOTS, 7);
+    	map.put(ArmorItem.Type.LEGGINGS, 10);
+    	map.put(ArmorItem.Type.CHESTPLATE, 12);
+    	map.put(ArmorItem.Type.HELMET, 7);
+     }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.0F, 0.0F, () -> {
         return Ingredient.of(DMItems.HALFINUM_INGOT.get());
-
-    }),
-
-    COPPER("copper", 60, new int[] { 2, 5, 6, 2 }, 12,
-    SoundEvents.ARMOR_EQUIP_IRON, 1.0f, 0.0f, () -> {
+     }),
+    
+    COPPER("copper", 60, make(new EnumMap<>(ArmorItem.Type.class), (p_266650_) -> {
+        p_266650_.put(ArmorItem.Type.BOOTS, 2);
+        p_266650_.put(ArmorItem.Type.LEGGINGS, 4);
+        p_266650_.put(ArmorItem.Type.CHESTPLATE, 6);
+        p_266650_.put(ArmorItem.Type.HELMET, 4);
+     }), 25, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
         return Ingredient.of(Items.COPPER_INGOT);
-    }),
+     }),
 
-    CLOUD("cloud", 1, new int[] { 10, 10, 10, 10 }, 5,
-    SoundEvents.ARMOR_EQUIP_IRON, 2.0f, 1.0f, () -> {
-        return Ingredient.of(Items.COPPER_INGOT);
-    }),
-
-    MASK("mask", 1, new int[] { 10, 10, 10, 10 }, 5,
-    SoundEvents.ARMOR_EQUIP_IRON, 2.0f, 1.0f, () -> {
+    CLOUD("cloud", 1, make(new EnumMap<>(ArmorItem.Type.class), (p_266650_) -> {
+        p_266650_.put(ArmorItem.Type.BOOTS, 1);
+        p_266650_.put(ArmorItem.Type.LEGGINGS, 1);
+        p_266650_.put(ArmorItem.Type.CHESTPLATE, 1);
+        p_266650_.put(ArmorItem.Type.HELMET, 1);
+     }), 25, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
         return null;
-    }),
+     }),
 
-    SPACE_SUIT("space_suit", 60, new int[] { 2, 5, 6, 2 }, 0,
-            SoundEvents.ARMOR_EQUIP_LEATHER, 2.0f, 1.0f, () -> {
+    MASK("mask", 1, make(new EnumMap<>(ArmorItem.Type.class), (p_266650_) -> {
+        p_266650_.put(ArmorItem.Type.BOOTS, 1);
+        p_266650_.put(ArmorItem.Type.LEGGINGS, 1);
+        p_266650_.put(ArmorItem.Type.CHESTPLATE, 1);
+        p_266650_.put(ArmorItem.Type.HELMET, 1);
+     }), 25, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
         return null;
-    }),;
+     }),
 
-    private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
-    private final String name;
-    private final int maxDamageFactor;
-    private final int[] damageReductionAmountArray;
-    private final int enchantability;
-    private final SoundEvent soundEvent;
-    private final float toughness;
-    private final float knockbackResistance;
-    private final LazyLoadedValue<Ingredient> repairMaterial;
+    SPACE_SUIT("space_suit", 20, make(new EnumMap<>(ArmorItem.Type.class), (p_266650_) -> {
+        p_266650_.put(ArmorItem.Type.BOOTS, 2);
+        p_266650_.put(ArmorItem.Type.LEGGINGS, 4);
+        p_266650_.put(ArmorItem.Type.CHESTPLATE, 3);
+        p_266650_.put(ArmorItem.Type.HELMET, 2);
+     }), 25, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
+        return null;
+     }),;
 
-    ModArmorMaterial(String name, int maxDamageFactor, int[] damageReductionAmountArray, int enchantability,
-                     SoundEvent soundEvent, float toughness, float knockbackResistance,
-                     Supplier<Ingredient> repairMaterial) {
-        this.name = name;
-        this.maxDamageFactor = maxDamageFactor;
-        this.damageReductionAmountArray = damageReductionAmountArray;
-        this.enchantability = enchantability;
-        this.soundEvent = soundEvent;
-        this.toughness = toughness;
-        this.knockbackResistance = knockbackResistance;
-        this.repairMaterial = new LazyLoadedValue<>(repairMaterial);
-    }
+	public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
+	   private static final EnumMap<ArmorItem.Type, Integer> HEALTH_FUNCTION_FOR_TYPE = Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266653_) -> {
+	      p_266653_.put(ArmorItem.Type.BOOTS, 13);
+	      p_266653_.put(ArmorItem.Type.LEGGINGS, 15);
+	      p_266653_.put(ArmorItem.Type.CHESTPLATE, 16);
+	      p_266653_.put(ArmorItem.Type.HELMET, 11);
+	   });
+	   private final String name;
+	   private final int durabilityMultiplier;
+	   private final EnumMap<ArmorItem.Type, Integer> protectionFunctionForType;
+	   private final int enchantmentValue;
+	   private final SoundEvent sound;
+	   private final float toughness;
+	   private final float knockbackResistance;
+	   private final LazyLoadedValue<Ingredient> repairIngredient;
 
+	   private ModArmorMaterial(String p_268171_, int p_268303_, EnumMap<ArmorItem.Type, Integer> p_267941_, int p_268086_, SoundEvent p_268145_, float p_268058_, float p_268180_, Supplier<Ingredient> p_268256_) {
+	      this.name = p_268171_;
+	      this.durabilityMultiplier = p_268303_;
+	      this.protectionFunctionForType = p_267941_;
+	      this.enchantmentValue = p_268086_;
+	      this.sound = p_268145_;
+	      this.toughness = p_268058_;
+	      this.knockbackResistance = p_268180_;
+	      this.repairIngredient = new LazyLoadedValue<>(p_268256_);
+	   }
 
-    @Override
-    public int getDurabilityForSlot(EquipmentSlot p_40410_) {
-        return MAX_DAMAGE_ARRAY[p_40410_.getIndex()] * this.maxDamageFactor;
-    }
+	   public int getDurabilityForType(ArmorItem.Type p_266745_) {
+	      return HEALTH_FUNCTION_FOR_TYPE.get(p_266745_) * this.durabilityMultiplier;
+	   }
 
-    @Override
-    public int getDefenseForSlot(EquipmentSlot p_40411_) {
-        return this.damageReductionAmountArray[p_40411_.getIndex()];
-    }
+	   public int getDefenseForType(ArmorItem.Type p_266752_) {
+	      return this.protectionFunctionForType.get(p_266752_);
+	   }
 
-    @Override
-    public int getEnchantmentValue() {
-        return this.enchantability;
-    }
+	   public int getEnchantmentValue() {
+	      return this.enchantmentValue;
+	   }
 
-    @Override
-    public SoundEvent getEquipSound() {
-        return this.soundEvent;
-    }
+	   public SoundEvent getEquipSound() {
+	      return this.sound;
+	   }
 
-    @Override
-    public Ingredient getRepairIngredient() {
-        return this.repairMaterial.get();
-    }
+	   public Ingredient getRepairIngredient() {
+	      return this.repairIngredient.get();
+	   }
 
-    @OnlyIn(Dist.CLIENT)
-    public String getName() {
-        return DocMod.MOD_ID + ":" + this.name;
-    }
+	   public String getName() {
+	      return this.name;
+	   }
 
-    public float getToughness() {
-        return this.toughness;
-    }
+	   public float getToughness() {
+	      return this.toughness;
+	   }
 
-    public float getKnockbackResistance() {
-        return this.knockbackResistance;
-    }
+	   public float getKnockbackResistance() {
+	      return this.knockbackResistance;
+	   }
+
+	   public String getSerializedName() {
+	      return this.name;
+	   }
+	   
+	   private static <T> T make(T p_137470_, Consumer<T> p_137471_) {
+		      p_137471_.accept(p_137470_);
+		      return p_137470_;
+	}
 }
 

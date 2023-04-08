@@ -36,7 +36,7 @@ public class PacketHandler {
 	
 	public static void sendMessageToClient(ServerPlayer player, Component message)
 	{
-		INSTANCE.sendTo(new PacketSendChatMessage(message), player.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+		//INSTANCE.sendTo(new PacketSendChatMessage(message), player.connection.conn, NetworkDirection.PLAY_TO_CLIENT);
 	}
 
 }

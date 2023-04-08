@@ -118,12 +118,12 @@ public class JobsInfo {
 
 		int previousLVL = this.levels[j.index]; 
 		addXP(j, xp);
-		PacketHandler.INSTANCE.sendTo(new PacketUpdateClientJob(this.toTotalXPs()), p.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+		//PacketHandler.INSTANCE.sendTo(new PacketUpdateClientJob(this.toTotalXPs()), p.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
 		int LVL = this.levels[j.index];
-		PacketHandler.INSTANCE.sendTo(new PacketAddXP(j, xp), p.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+		//PacketHandler.INSTANCE.sendTo(new PacketAddXP(j, xp), p.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
 		if(LVL > previousLVL)
 		{
-			PacketHandler.INSTANCE.sendTo(new PacketLevelUp(j), p.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+			//PacketHandler.INSTANCE.sendTo(new PacketLevelUp(j), p.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
 			giveReward(p, j, LVL);
 		}
 
@@ -164,7 +164,7 @@ public class JobsInfo {
 			default:
 				break;
 		}
-		PacketHandler.INSTANCE.sendTo(new PacketSendRewardsClient(list), p.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+		//PacketHandler.INSTANCE.sendTo(new PacketSendRewardsClient(list), p.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
 		for(ItemStack s : list)
 			p.getInventory().add(s.copy());
 		p.inventoryMenu.broadcastChanges();

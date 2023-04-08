@@ -17,48 +17,48 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
-public class ComputerBlock extends BaseEntityBlock {
+public class ComputerBlock/* extends BaseEntityBlock*/ {
     public boolean isRunning;
 
 
-    public ComputerBlock(Properties p_49224_) {
-        super(p_49224_);
-        isRunning = false;
-    }
+//    public ComputerBlock(Properties p_49224_) {
+//        super(p_49224_);
+//        isRunning = false;
+//    }
 
-    @OnlyIn(Dist.CLIENT)
-    @Override
-    public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
-        if(p_60504_.isClientSide()){
-            BlockEntity blockentity = p_60504_.getBlockEntity(p_60505_);
-            if(Screen.hasShiftDown()){
-             if (blockentity instanceof ComputerTileEntity) {
-                    p_60506_.openMenu((ComputerTileEntity) blockentity);
-              }
-         } else {
-              // final MenuProvider container = new SimpleMenuProvider(ComputerHarwareMenu, Component.literal("Computer Harware"));
-              //NetworkHooks.openScreen((ServerPlayer) p_60506_, container, p_60505_);
-             if (blockentity instanceof ComputerTileEntity computerTileEntity) {
-                    Minecraft.getInstance().setScreen(new DMComputerScreen(computerTileEntity));
-                 if (isRunning) {
-                      isRunning = false;
-                       computerTileEntity.TERMINAL_HISTORY.clear();
-                  } else {
-                      isRunning = true;
-                   }
-             }
-         }
-        }
-        return super.use(p_60503_, p_60504_, p_60505_, p_60506_, p_60507_, p_60508_);
-    }
-
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new ComputerTileEntity(pPos, pState);
-    }
-
-    public BlockEntity create(BlockPos p_155268_, BlockState p_155269_) {
-        return new ComputerTileEntity(p_155268_, p_155269_);
-    }
+//    @OnlyIn(Dist.CLIENT)
+//    @Override
+//    public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
+//        if(p_60504_.isClientSide()){
+//            BlockEntity blockentity = p_60504_.getBlockEntity(p_60505_);
+//            if(Screen.hasShiftDown()){
+//             if (blockentity instanceof ComputerTileEntity) {
+//                    p_60506_.openMenu((ComputerTileEntity) blockentity);
+//              }
+//         } else {
+//              // final MenuProvider container = new SimpleMenuProvider(ComputerHarwareMenu, Component.literal("Computer Harware"));
+//              //NetworkHooks.openScreen((ServerPlayer) p_60506_, container, p_60505_);
+//             if (blockentity instanceof ComputerTileEntity computerTileEntity) {
+//                    Minecraft.getInstance().setScreen(new DMComputerScreen(computerTileEntity));
+//                 if (isRunning) {
+//                      isRunning = false;
+//                       computerTileEntity.TERMINAL_HISTORY.clear();
+//                  } else {
+//                      isRunning = true;
+//                   }
+//             }
+//         }
+//        }
+//        return super.use(p_60503_, p_60504_, p_60505_, p_60506_, p_60507_, p_60508_);
+//    }
+//
+//    @Nullable
+//    @Override
+//    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+//        return new ComputerTileEntity(pPos, pState);
+//    }
+//
+//    public BlockEntity create(BlockPos p_155268_, BlockState p_155269_) {
+//        return new ComputerTileEntity(p_155268_, p_155269_);
+//    }
 }

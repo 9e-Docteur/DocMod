@@ -86,7 +86,6 @@ public class DocMod {
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
         MinecraftForge.EVENT_BUS.addListener(ClientEventHandler::onKeyInput);
-        MinecraftForge.EVENT_BUS.addListener(this::onDestroy);
         DocMod.LOGGER.info("Init DocMod Creative Tabs...");
         eventBus.addListener(ClientEventHandler::onKeyRegister);
         eventBus.addListener(this::addCreative);
@@ -127,7 +126,6 @@ public class DocMod {
             event.accept(DMBlocks.ALBIZIA_PLANKS);
             event.accept(DMBlocks.ALBIZIA_STAIRS);
             event.accept(DMBlocks.ALBIZIA_SLAB);
-            event.accept(DMBlocks.ALBIZIA_DOOR);
             //event.accept(DMBlocks.ALBIZIA_SIGN);
             event.accept(DMBlocks.ALBIZIA_LEAVES);
             event.accept(DMBlocks.CRYOLITE_ORE);
@@ -341,25 +339,6 @@ public class DocMod {
     	AnimatedCapeHandler.readCapeTexture(DocTeamAPI.getAPI() + "docmod/cape/ninety/" + AnimatedCapeHandler.i + ".png", AnimatedCapeHandler.i);
     }
 
-    @SubscribeEvent
-    public void onDestroy(BlockEvent.BreakEvent event){
-            BlockState blockState = event.getLevel().getBlockState(event.getPos());
-        LOGGER.info("Destroyed");
-        LOGGER.info(JobFactory.JOBS_XP_FACTORY.keySet());
-        LOGGER.info(blockState);
-            if(JobFactory.JOBS_XP_FACTORY.containsKey(blockState.getBlock())) {
-                JobFactory.Factory jobFactory = (JobFactory.Factory) JobFactory.JOBS_XP_FACTORY.get(blockState);
-                jobFactory.executeActionFromBlockstate(blockState);
-                LOGGER.info("Destroyed and found");
-            }
-            if(blockState.equals(DMBlocks.SAFE_CHEST.get())){
-                SafeChestTileEntity safeChestTileEntity = (SafeChestTileEntity) Minecraft.getInstance().level.getBlockEntity(event.getPos());
-                //if(Minecraft.getInstance().player.getUUID() != safeChestTileEntity.getOwner()){
-                 //   event.setCanceled(true);
-                 //   Minecraft.getInstance().player.sendSystemMessage(Component.literal(ChatFormatting.RED + "You can't destroy this chest! It's not yours."));
-               // }
-        }
-    }
 
     @SubscribeEvent
     public static void onServerStart(ServerStartingEvent event){

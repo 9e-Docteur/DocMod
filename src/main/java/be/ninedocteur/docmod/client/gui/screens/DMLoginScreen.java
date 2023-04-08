@@ -32,9 +32,8 @@ public class DMLoginScreen extends Screen{
 	}
 	
 	@Override
-	public void renderDirtBackground(int p_96627_) {
-		// TODO Auto-generated method stub
-		super.renderDirtBackground(p_96627_);
+	public void renderDirtBackground(PoseStack p_265092_) {
+		super.renderDirtBackground(p_265092_);
 	}
 	
 	@Override
@@ -87,8 +86,6 @@ public class DMLoginScreen extends Screen{
 	
 	@Override
 	public void render(PoseStack p_96562_, int p_96563_, int p_96564_, float p_96565_) {
-		// TODO Auto-generated method stub
-		renderDirtBackground(p_96564_);
 		drawCenteredString(p_96562_, font, "Username:", usernameField.getX() + 25, usernameField.getY() - 12, -1);
 		drawCenteredString(p_96562_, font, "Password:", passwordField.getX() + 25, passwordField.getY() - 12, -1);
 		drawCenteredString(p_96562_, font, "Welcome to DocMod Dev. Please log in to have whole access of the dev features.", usernameField.getX() + 80, usernameField.getY() - 50, -1);

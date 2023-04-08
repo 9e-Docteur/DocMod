@@ -33,10 +33,10 @@ public class SafeChestSettingsScreen extends Screen {
         super.init();
         editBox = new EditBox(this.font, this.width / 2 - 110, this.height / 2 + 60, 220, 20, Component.literal(""));
         this.addRenderableWidget(Button.builder(Component.translatable("docmod.gui.add"), (p_96781_) -> {
-            safeChestTileEntity.addAuthorisedPeople(safeChestTileEntity.getUUIDByName(editBox.getValue()));
+            //safeChestTileEntity.addAuthorisedPeople(safeChestTileEntity.getUUIDByName(editBox.getValue()));
         }).bounds(this.width / 2 - 100, this.height + 20, 100, 20).build());
         this.addRenderableWidget(Button.builder(Component.translatable("docmod.gui.remove"), (p_96781_) -> {
-            safeChestTileEntity.removeAuthorisedPeople(safeChestTileEntity.getUUIDByName(editBox.getValue()));
+            //safeChestTileEntity.removeAuthorisedPeople(safeChestTileEntity.getUUIDByName(editBox.getValue()));
         }).bounds(this.width / 2 - 100, this.height - 20, 100, 20).build());
         this.addRenderableWidget(editBox);
     }
@@ -50,16 +50,16 @@ public class SafeChestSettingsScreen extends Screen {
         int x = this.width / 2;
         int y = this.height / 2;
         this.blit(p_96562_, x, y, 0, 0, this.width, this.height);
-        for(int i = 0; i < safeChestTileEntity.getAuthorisedPeople().size(); i++){
+       // for(int i = 0; i < safeChestTileEntity.getAuthorisedPeople().size(); i++){
             int spaceBetween = 2;
             int headY = 127;
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-            RenderSystem.setShaderTexture(0, PlayerUtils.getPlayerHead(safeChestTileEntity.getNameByUUID(safeChestTileEntity.getAuthorisedPeople().get(i))));
-            if(i <= 6){
-                headY = 110;
-            }
-            this.blit(p_96562_, i + spaceBetween + 16, headY, 0, 0, 16, 16);
-        }
+           // RenderSystem.setShaderTexture(0, PlayerUtils.getPlayerHead(safeChestTileEntity.getNameByUUID(safeChestTileEntity.getAuthorisedPeople().get(i))));
+            //if(i <= 6){
+            //    headY = 110;
+          //  }
+            //this.blit(p_96562_, i + spaceBetween + 16, headY, 0, 0, 16, 16);
+        //}
     }
 }

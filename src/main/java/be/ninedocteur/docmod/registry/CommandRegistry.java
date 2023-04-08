@@ -14,7 +14,7 @@ public class CommandRegistry {
         new DMRankCommand(event.getDispatcher());
         new DMVersionCommand(event.getDispatcher());
         new DMCosmeticCommand(event.getDispatcher());
-        new DMSafeChestAccess(event.getDispatcher());
+        //new DMSafeChestAccess(event.getDispatcher());
         new DMSafeChestGetOwner(event.getDispatcher());
         new DMSafeChestSetOwner(event.getDispatcher());
         new DMAwardCommand(event.getDispatcher());

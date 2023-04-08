@@ -19,8 +19,8 @@ public class MotherboardTerminalOS extends BaseTerminalOS {
 
     @Override
     public void bootMessages() {
-        computerTileEntity.TERMINAL_HISTORY.add("Boting...");
-        computerTileEntity.TERMINAL_HISTORY.add("NO OS Detected! Running in the os of the motherboard");
+       // computerTileEntity.TERMINAL_HISTORY.add("Boting...");
+     //   computerTileEntity.TERMINAL_HISTORY.add("NO OS Detected! Running in the os of the motherboard");
     }
 
     @Override

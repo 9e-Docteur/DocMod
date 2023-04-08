@@ -78,7 +78,7 @@ public class DMBlocks {
     public static final RegistryObject<Block> ALBIZIA_SLAB = registerBlock("albizia_slab", () -> new SlabBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
     //public static final RegistryObject<Block> ALBIZIA_FENCE = registerBlock("albizia_fence", () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
     //public static final RegistryObject<Block> ALBIZIA_FENCE_GATE = registerBlock("albizia_fence_gate", () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
-    public static final RegistryObject<Block> ALBIZIA_DOOR = registerBlock("albizia_door", () -> new DoorBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
+    //public static final RegistryObject<Block> ALBIZIA_DOOR = registerBlock("albizia_door", () -> new DoorBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
     //public static final RegistryObject<Block> ALBIZIA_TRAPDOOR = registerBlock("albizia_trapdoor", () -> new TrapDoorBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)));
    // public static final RegistryObject<Block> ALBIZIA_BUTTON = registerBlock("albizia_button", () -> new ButtonBlock(true, Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).requiresCorrectToolForDrops().strength(1)) {
      //  @Override
@@ -161,7 +161,7 @@ public class DMBlocks {
     public static final RegistryObject<Block> ITEM_SHOWER = registerBlock("item_shower", () -> new ItemShowerBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).noCollission()));
     public static final RegistryObject<Block> DALEK_DAMAGED = registerBlock("dalek_damaged", () -> new DalekDamagedBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     //public static final RegistryObject<Block> ZINC_CRAFTING_TABLE = registerBlock("zinc_crafting_table", () -> new ZincCraftingTable(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
-    public static final RegistryObject<Block> SAFE_CHEST = registerBlock("safe_chest", () -> new SafeChestBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    //public static final RegistryObject<Block> SAFE_CHEST = registerBlock("safe_chest", () -> new SafeChestBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     public static final RegistryObject<Block> HOLOGRAM = registerBlock("hologram", () -> new HologramBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     /*

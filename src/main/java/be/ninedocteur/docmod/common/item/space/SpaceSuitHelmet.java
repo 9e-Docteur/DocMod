@@ -17,13 +17,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class SpaceSuitHelmet extends ArmorItem {
-    private float currentTick = 0;
+	private float currentTick = 0;
     public static int air;
+    
+    public SpaceSuitHelmet(ArmorMaterial p_40386_, Type p_266831_, Properties p_40388_) {
+		super(p_40386_, p_266831_, p_40388_);
+		// TODO Auto-generated constructor stub
+	}
 
-    public SpaceSuitHelmet(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
-        super(p_40386_, p_40387_, p_40388_);
-    }
-
+   
     @Override
     public void appendHoverText(ItemStack p_41421_, @Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
         super.appendHoverText(p_41421_, p_41422_, p_41423_, p_41424_);

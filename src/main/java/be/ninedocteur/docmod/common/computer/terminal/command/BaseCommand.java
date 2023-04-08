@@ -85,7 +85,7 @@ public abstract class BaseCommand {
      * @param answerType Is the command normal, or failed or other.
      */
     public void answer(String string, AnswerType answerType) {
-        computerTileEntity.TERMINAL_HISTORY.add(answerType.color + string);
+        //computerTileEntity.TERMINAL_HISTORY.add(answerType.color + string);
     }
 
     /**

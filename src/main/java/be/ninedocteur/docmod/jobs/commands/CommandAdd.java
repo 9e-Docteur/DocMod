@@ -36,13 +36,13 @@ public class CommandAdd {
 	{
 		PlayerData.getPlayerJobs(target).gainXP(Constants.Job.valueOf(jobArgument), xp, target);
 		Constants.Job job = Constants.Job.valueOf(jobArgument);
-        PacketHandler.INSTANCE.sendTo(new PacketUpdateClientJob(PlayerData.getPlayerJobs(target).toTotalXPs()), target.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+        //PacketHandler.INSTANCE.sendTo(new PacketUpdateClientJob(PlayerData.getPlayerJobs(target).toTotalXPs()), target.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
         
         if(source.getEntity() instanceof ServerPlayer)
         {
 			ServerPlayer sender = (ServerPlayer)source.getEntity();
-        	PacketHandler.INSTANCE.sendTo(new PacketSendChatMessage(Component.literal(xp + " xp added to " + target.getName().getString() + " for job " + job.name())),
-    				sender.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+        	//PacketHandler.INSTANCE.sendTo(new PacketSendChatMessage(Component.literal(xp + " xp added to " + target.getName().getString() + " for job " + job.name())),
+    			//	sender.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
         }
 	}
 }

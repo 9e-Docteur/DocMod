@@ -37,7 +37,7 @@ public class SlideBarXP extends Button {
     }
 
     @Override
-    public void renderButton(PoseStack mStack, int mouseX, int mouseY, float partialTicks)
+    public void render(PoseStack mStack, int mouseX, int mouseY, float partialTicks)
     {
         if (this.visible)
         {

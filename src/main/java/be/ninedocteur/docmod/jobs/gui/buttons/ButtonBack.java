@@ -45,25 +45,26 @@ public class ButtonBack extends net.minecraft.client.gui.components.Button {
         buttonY = yPos;
     }
 
+
     @Override
-    public void renderButton(PoseStack mStack, int mouseX, int mouseY, float partialTicks)
-    {
-        if (this.visible)
-        {
-            boolean hovered = mouseX >= this.buttonX && mouseY >= this.buttonY && mouseX < this.buttonX + this.width && mouseY < this.buttonY + this.height;
-            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-            RenderSystem.setShader(GameRenderer::getPositionTexShader);
-            RenderSystem.setShaderTexture(0, BACKGROUND);
-            int i = this.xTexStart;
-            int j = this.yTexStart;
+    public void render(PoseStack mStack, int mouseX, int mouseY, float p_93660_) {
+    	 if (this.visible)
+         {
+             boolean hovered = mouseX >= this.buttonX && mouseY >= this.buttonY && mouseX < this.buttonX + this.width && mouseY < this.buttonY + this.height;
+             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+             RenderSystem.setShader(GameRenderer::getPositionTexShader);
+             RenderSystem.setShaderTexture(0, BACKGROUND);
+             int i = this.xTexStart;
+             int j = this.yTexStart;
 
-            if (hovered)
-            {
-                i += this.xDiffText;
-            }
+             if (hovered)
+             {
+                 i += this.xDiffText;
+             }
 
-            this.blit(mStack, this.buttonX, this.buttonY, i, j, this.width, this.height);
-        }
+             this.blit(mStack, this.buttonX, this.buttonY, i, j, this.width, this.height);
+         }
+    	super.render(mStack, mouseX, mouseY, p_93660_);
     }
     
     public static class OnPressed implements OnPress{

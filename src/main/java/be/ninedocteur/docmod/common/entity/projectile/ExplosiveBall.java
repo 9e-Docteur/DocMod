@@ -59,7 +59,7 @@ public class ExplosiveBall extends ThrowableItemProjectile {
         super.onHitEntity(p_37404_);
         Entity $$1 = p_37404_.getEntity();
         int $$2 = $$1 instanceof Blaze ? 3 : 0;
-        $$1.hurt(DamageSource.thrown(this, this.getOwner()), (float)$$2);
+        //$$1.hurt(DamageSource.thrown(this, this.getOwner()), (float)$$2);
     }
 
     protected void onHit(HitResult p_37406_) {

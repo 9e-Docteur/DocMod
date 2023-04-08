@@ -13,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class DMMenu {
     public static final DeferredRegister<MenuType<?>> MENU = DeferredRegister.create(ForgeRegistries.MENU_TYPES, DocMod.MOD_ID);
 
-    public static final RegistryObject<MenuType<ComputerHarwareMenu>> COMPUTER = MENU.register("computer_menu", () -> new MenuType(ComputerHarwareMenu::new));
+    //public static final RegistryObject<MenuType<ComputerHarwareMenu>> COMPUTER = MENU.register("computer_menu", () -> new MenuType(ComputerHarwareMenu::new));
     public static final RegistryObject<MenuType<InfusionMenu>> INFUSION = MENU.register("infusion_menu", () -> IForgeMenuType.create(InfusionMenu::new));
 
 

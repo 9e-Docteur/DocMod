@@ -93,8 +93,8 @@ public class DMCommunityServerScreen extends Screen {
     }
 
     @Override
-    public void renderDirtBackground(int p_96627_) {
-        super.renderDirtBackground(p_96627_);
+    public void renderDirtBackground(PoseStack p_265092_) {
+    	super.renderDirtBackground(p_265092_);
     }
 
     @Override

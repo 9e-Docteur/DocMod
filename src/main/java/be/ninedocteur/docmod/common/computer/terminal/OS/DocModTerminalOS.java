@@ -18,8 +18,8 @@ public class DocModTerminalOS extends BaseTerminalOS {
 
     @Override
     public void bootMessages() {
-        computerTileEntity.TERMINAL_HISTORY.add("Boting...");
-        computerTileEntity.TERMINAL_HISTORY.add("Welcome to DocMod OS!");
+       // computerTileEntity.TERMINAL_HISTORY.add("Boting...");
+        //computerTileEntity.TERMINAL_HISTORY.add("Welcome to DocMod OS!");
     }
 
     @Override

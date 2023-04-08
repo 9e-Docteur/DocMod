@@ -25,14 +25,14 @@ public class DMSafeChestGetOwner {
 
     private int execute(CommandSourceStack source, BlockPos pos) throws CommandSyntaxException {
 
-        Level level = Minecraft.getInstance().level;
-        SafeChestTileEntity safeChestTileEntity = (SafeChestTileEntity) level.getBlockEntity(pos);
-        if(safeChestTileEntity == null){
-            source.sendSystemMessage(Component.literal(ChatFormatting.RED + "This is not a Safe Chest! Can't get information!"));
-        } else {
-            source.sendSystemMessage(Component.literal("This Safe Chest belong to " + safeChestTileEntity.getOwner()));
-
-        }
+//        Level level = Minecraft.getInstance().level;
+//        SafeChestTileEntity safeChestTileEntity = (SafeChestTileEntity) level.getBlockEntity(pos);
+//        if(safeChestTileEntity == null){
+//            source.sendSystemMessage(Component.literal(ChatFormatting.RED + "This is not a Safe Chest! Can't get information!"));
+//        } else {
+//            source.sendSystemMessage(Component.literal("This Safe Chest belong to " + safeChestTileEntity.getOwner()));
+//
+//        }
         return 1;
     }
 }

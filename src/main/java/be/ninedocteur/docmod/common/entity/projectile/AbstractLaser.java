@@ -315,80 +315,80 @@ public abstract class AbstractLaser extends Projectile {
 
         Entity entity1 = this.getOwner();
         DamageSource damagesource;
-        if (entity1 == null) {
-            damagesource = DMDamageSource.cyberLaser(this, this);
-        } else {
-            damagesource = DMDamageSource.cyberLaser(this, entity1);
-            if (entity1 instanceof LivingEntity) {
-                ((LivingEntity)entity1).setLastHurtMob(entity);
-            }
-        }
-
-        boolean flag = entity.getType() == EntityType.ENDERMAN;
-        int k = entity.getRemainingFireTicks();
-        if (this.isOnFire() && !flag) {
-            entity.setSecondsOnFire(5);
-        }
-
-        if (entity.hurt(damagesource, (float)i)) {
-            if (flag) {
-                return;
-            }
-
-            if (entity instanceof LivingEntity) {
-                LivingEntity livingentity = (LivingEntity)entity;
-                if (!this.level.isClientSide && this.getPierceLevel() <= 0) {
-                    livingentity.setArrowCount(livingentity.getArrowCount() + 1);
-                }
-
-                if (this.knockback > 0) {
-                    Vec3 vec3 = this.getDeltaMovement().multiply(1.0D, 0.0D, 1.0D).normalize().scale((double)this.knockback * 0.6D);
-                    if (vec3.lengthSqr() > 0.0D) {
-                        livingentity.push(vec3.x, 0.1D, vec3.z);
-                    }
-                }
-
-                if (!this.level.isClientSide && entity1 instanceof LivingEntity) {
-                    EnchantmentHelper.doPostHurtEffects(livingentity, entity1);
-                    EnchantmentHelper.doPostDamageEffects((LivingEntity)entity1, livingentity);
-                }
-
-                this.doPostHurtEffects(livingentity);
-                if (entity1 != null && livingentity != entity1 && livingentity instanceof Player && entity1 instanceof ServerPlayer && !this.isSilent()) {
-                    ((ServerPlayer)entity1).connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.ARROW_HIT_PLAYER, 0.0F));
-                }
-
-                if (!entity.isAlive() && this.piercedAndKilledEntities != null) {
-                    this.piercedAndKilledEntities.add(livingentity);
-                }
-
-                if (!this.level.isClientSide && entity1 instanceof ServerPlayer) {
-                    ServerPlayer serverplayer = (ServerPlayer)entity1;
-                    if (this.piercedAndKilledEntities != null && this.shotFromCrossbow()) {
-                        CriteriaTriggers.KILLED_BY_CROSSBOW.trigger(serverplayer, this.piercedAndKilledEntities);
-                    } else if (!entity.isAlive() && this.shotFromCrossbow()) {
-                        CriteriaTriggers.KILLED_BY_CROSSBOW.trigger(serverplayer, Arrays.asList(entity));
-                    }
-                }
-            }
-
-            this.playSound(this.soundEvent, 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
-            if (this.getPierceLevel() <= 0) {
-                this.discard();
-            }
-        } else {
-            entity.setRemainingFireTicks(k);
-            this.setDeltaMovement(this.getDeltaMovement().scale(-0.1D));
-            this.setYRot(this.getYRot() + 180.0F);
-            this.yRotO += 180.0F;
-            if (!this.level.isClientSide && this.getDeltaMovement().lengthSqr() < 1.0E-7D) {
-                if (this.pickup == AbstractLaser.Pickup.ALLOWED) {
-                    this.spawnAtLocation(this.getPickupItem(), 0.1F);
-                }
-
-                this.discard();
-            }
-        }
+//        if (entity1 == null) {
+//            damagesource = DMDamageSource.cyberLaser(this, this);
+//        } else {
+//            damagesource = DMDamageSource.cyberLaser(this, entity1);
+//            if (entity1 instanceof LivingEntity) {
+//                ((LivingEntity)entity1).setLastHurtMob(entity);
+//            }
+//        }
+//
+//        boolean flag = entity.getType() == EntityType.ENDERMAN;
+//        int k = entity.getRemainingFireTicks();
+//        if (this.isOnFire() && !flag) {
+//            entity.setSecondsOnFire(5);
+//        }
+//
+//        if (entity.hurt(damagesource, (float)i)) {
+//            if (flag) {
+//                return;
+//            }
+//
+//            if (entity instanceof LivingEntity) {
+//                LivingEntity livingentity = (LivingEntity)entity;
+//                if (!this.level.isClientSide && this.getPierceLevel() <= 0) {
+//                    livingentity.setArrowCount(livingentity.getArrowCount() + 1);
+//                }
+//
+//                if (this.knockback > 0) {
+//                    Vec3 vec3 = this.getDeltaMovement().multiply(1.0D, 0.0D, 1.0D).normalize().scale((double)this.knockback * 0.6D);
+//                    if (vec3.lengthSqr() > 0.0D) {
+//                        livingentity.push(vec3.x, 0.1D, vec3.z);
+//                    }
+//                }
+//
+//                if (!this.level.isClientSide && entity1 instanceof LivingEntity) {
+//                    EnchantmentHelper.doPostHurtEffects(livingentity, entity1);
+//                    EnchantmentHelper.doPostDamageEffects((LivingEntity)entity1, livingentity);
+//                }
+//
+//                this.doPostHurtEffects(livingentity);
+//                if (entity1 != null && livingentity != entity1 && livingentity instanceof Player && entity1 instanceof ServerPlayer && !this.isSilent()) {
+//                    ((ServerPlayer)entity1).connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.ARROW_HIT_PLAYER, 0.0F));
+//                }
+//
+//                if (!entity.isAlive() && this.piercedAndKilledEntities != null) {
+//                    this.piercedAndKilledEntities.add(livingentity);
+//                }
+//
+//                if (!this.level.isClientSide && entity1 instanceof ServerPlayer) {
+//                    ServerPlayer serverplayer = (ServerPlayer)entity1;
+//                    if (this.piercedAndKilledEntities != null && this.shotFromCrossbow()) {
+//                        CriteriaTriggers.KILLED_BY_CROSSBOW.trigger(serverplayer, this.piercedAndKilledEntities);
+//                    } else if (!entity.isAlive() && this.shotFromCrossbow()) {
+//                        CriteriaTriggers.KILLED_BY_CROSSBOW.trigger(serverplayer, Arrays.asList(entity));
+//                    }
+//                }
+//            }
+//
+//            this.playSound(this.soundEvent, 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
+//            if (this.getPierceLevel() <= 0) {
+//                this.discard();
+//            }
+//        } else {
+//            entity.setRemainingFireTicks(k);
+//            this.setDeltaMovement(this.getDeltaMovement().scale(-0.1D));
+//            this.setYRot(this.getYRot() + 180.0F);
+//            this.yRotO += 180.0F;
+//            if (!this.level.isClientSide && this.getDeltaMovement().lengthSqr() < 1.0E-7D) {
+//                if (this.pickup == AbstractLaser.Pickup.ALLOWED) {
+//                    this.spawnAtLocation(this.getPickupItem(), 0.1F);
+//                }
+//
+//                this.discard();
+//            }
+//        }
 
     }
 

@@ -50,7 +50,7 @@ public class GainXPUtil {
                                                                      SMELT_ITEM_XP, SMELT_ITEM_JOB,
                                                                      KILL_ENTITY_XP, KILL_ENTITY_JOB,
                                                                      CRAFT_UNLOCK_LVL, CRAFT_UNLOCK_JOB);
-        PacketHandler.INSTANCE.sendTo(packet1, player.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+        //PacketHandler.INSTANCE.sendTo(packet1, player.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
     }
 
 

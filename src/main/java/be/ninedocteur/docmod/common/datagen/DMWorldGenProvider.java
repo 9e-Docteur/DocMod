@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class DMWorldGenProvider extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-            .add(Registries.CONFIGURED_FEATURE, DMConfiguredFeature::bootstrap)
+            //.add(Registries.CONFIGURED_FEATURE, DMConfiguredFeature::bootstrap)
             .add(Registries.PLACED_FEATURE, DMFeature::bootstrap);
 
     public DMWorldGenProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {

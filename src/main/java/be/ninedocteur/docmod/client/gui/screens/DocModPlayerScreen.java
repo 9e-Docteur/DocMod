@@ -101,8 +101,9 @@ public class DocModPlayerScreen extends Screen {
 
 
     @Override
-    public void renderDirtBackground(int pVOffset) {
-        super.renderDirtBackground(pVOffset);
+    public void renderDirtBackground(PoseStack p_265092_) {
+    	// TODO Auto-generated method stub
+    	super.renderDirtBackground(p_265092_);
     }
 
     @Override

@@ -215,9 +215,9 @@ public class Dalek extends Monster implements RangedAttackMob {
     public void tick() {
         super.tick();
         if(this.dead){
-            if(this.getLastDamageSource().isExplosion()) {
-                startTimer();
-            }
+           // if(this.getLastDamageSource().isExplosion()) {
+             //   startTimer();
+            //}
         }
     }
 

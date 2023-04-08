@@ -17,7 +17,7 @@ public class DMBiomeUtils {
     public static Biome biome(float temperature, float downFall, int waterColor, int p_194857_, MobSpawnSettings.Builder mobBuilder,
                               BiomeGenerationSettings.Builder generationBuilder, Music music) {
         return (new Biome.BiomeBuilder())
-                .precipitation(Biome.Precipitation.RAIN)
+                //.precipitation(Biome.Precipitation.RAIN)
                 .temperature(temperature)
                 .downfall(downFall)
                 .specialEffects((new BiomeSpecialEffects.Builder())

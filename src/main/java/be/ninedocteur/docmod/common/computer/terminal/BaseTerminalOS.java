@@ -114,7 +114,7 @@ public abstract class BaseTerminalOS /*implements ICommand*/ {
         for(BaseCommand command1 : CommandRegistry.commands){
             command1.init(computerTileEntity);
             if(command1.getName().equals(args[0])) {
-                if (computerTileEntity.isAppInstalled(command1)) {
+               // if (computerTileEntity.isAppInstalled(command1)) {
                     System.out.println(command);
                     if (command1.getCommandType() == BaseCommand.CommandType.UNIVERSAL || commands.contains(command1.getName())) {
                         command1.performCommand(args);
@@ -124,11 +124,11 @@ public abstract class BaseTerminalOS /*implements ICommand*/ {
                         command1.answer("Unknown Command", BaseCommand.AnswerType.FAILED);
                     }
                 }
-            } else {
+            //} else {
                 //command1.answer("Unknown Command", BaseCommand.AnswerType.FAILED);
-            }
+            //}
         }
-        computerTileEntity.TERMINAL_HISTORY.add(">" + command);
+        //computerTileEntity.TERMINAL_HISTORY.add(">" + command);
     }
 
 /*

@@ -132,7 +132,7 @@ public class GuiJobInfos extends Screen {
         int renderIndex = -1;
         for(int i = 0; i < (unlocked_items.size() >= 7 ? 7 : unlocked_items.size() - page); i++)
         {
-            renderItem.renderGuiItem(new ItemStack(unlocked_items.get(i + page)), this.left + 242, this.top + 27 + i*18);
+            renderItem.renderGuiItem(new PoseStack(), new ItemStack(unlocked_items.get(i + page)), this.left + 242, this.top + 27 + i*18);
             if(mouseX >= this.left + 242      && mouseX < this.left + 258 &&
                mouseY >= this.top + 27 + i*18 && mouseY < this.top + 27 + 16 + i*18)
                 renderIndex = i;

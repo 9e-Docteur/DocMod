@@ -150,7 +150,7 @@ public class GuiHowXP extends Screen {
                     GuiJobInfos.drawEntityOnScreen(mStack, x + 8, y + 16, scale/2, this.width/2 - mouseX, this.height/2 - mouseY,
                             Constants.getEntityByName(stack.getOrCreateTag().getString("class"), Minecraft.getInstance().player.level));
                 }
-                else this.itemRenderer.renderGuiItem(stack, x, y);
+                else this.itemRenderer.renderGuiItem(new PoseStack(), stack, x, y);
 
                 if(mouseX >= x && mouseX < x+16 && mouseY >= y && mouseY < y+16)
                     hoveredIndex = j;

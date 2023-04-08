@@ -47,15 +47,15 @@ public class CommandSet {
 	private static void setJobs(CommandSourceStack source, ServerPlayer target, String jobArgument, long total)
 	{
 		PlayerData.getPlayerJobs(target).set(Constants.Job.valueOf(jobArgument), total);
-        PacketHandler.INSTANCE.sendTo(new PacketUpdateClientJob(PlayerData.getPlayerJobs(target).toTotalXPs()), target.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+       // PacketHandler.INSTANCE.sendTo(new PacketUpdateClientJob(PlayerData.getPlayerJobs(target).toTotalXPs()), target.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
         
         if(source.getEntity() instanceof ServerPlayer)
         {
         	ServerPlayer sender = (ServerPlayer)source.getEntity();
         	int lvl = PlayerData.getPlayerJobs(target).getLevelByJob(Constants.Job.valueOf(jobArgument));
         	long xp = PlayerData.getPlayerJobs(target).getXPByJob(Constants.Job.valueOf(jobArgument));
-        	PacketHandler.INSTANCE.sendTo(new PacketSendChatMessage(Component.literal("Job " + Constants.Job.valueOf(jobArgument).name() + " of " + target.getDisplayName().getString() + " set to lvl " + lvl + ", xp " + xp)),
-        			sender.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+        	//PacketHandler.INSTANCE.sendTo(new PacketSendChatMessage(Component.literal("Job " + Constants.Job.valueOf(jobArgument).name() + " of " + target.getDisplayName().getString() + " set to lvl " + lvl + ", xp " + xp)),
+        		//	sender.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
         }
 	}
 

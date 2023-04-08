@@ -85,7 +85,7 @@ public class ContainerCraft extends RecipeBookMenu<CraftingContainer> {
 				CraftingRecipe icraftingrecipe = optional.get();
 				if (resultInventory.setRecipeUsed(world, ServerPlayer, icraftingrecipe))
 				{
-					itemstack = icraftingrecipe.assemble(craftingInventory);
+					//itemstack = icraftingrecipe.assemble(craftingInventory);
 				}
 				if(GainXPUtil.CRAFT_UNLOCK_JOB.containsKey(itemstack.getItem()))
 				{

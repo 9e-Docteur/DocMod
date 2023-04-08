@@ -72,22 +72,22 @@ public class DMItems {
     /*
     TOOLS
      */
-    public static final RegistryObject<Item> ZINC_HELMET = ITEMS.register("zinc_helmet", () -> new ArmorItem(ModArmorMaterial.ZINC, EquipmentSlot.HEAD, new Item.Properties()));
-    public static final RegistryObject<Item> ZINC_CHESTPLATE = ITEMS.register("zinc_chestplate", () -> new ArmorItem(ModArmorMaterial.ZINC, EquipmentSlot.CHEST, new Item.Properties()));
-    public static final RegistryObject<Item> ZINC_LEGGINGS = ITEMS.register("zinc_leggings", () -> new ArmorItem(ModArmorMaterial.ZINC, EquipmentSlot.LEGS, new Item.Properties()));
-    public static final RegistryObject<Item> ZINC_BOOTS = ITEMS.register("zinc_boots", () -> new ArmorItem(ModArmorMaterial.ZINC, EquipmentSlot.FEET, new Item.Properties()));
-    public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet", () -> new ArmorItem(ModArmorMaterial.COPPER, EquipmentSlot.HEAD, new Item.Properties()));
-    public static final RegistryObject<Item> COPPER_CHESTPLATE = ITEMS.register("copper_chestplate", () -> new ArmorItem(ModArmorMaterial.COPPER, EquipmentSlot.CHEST, new Item.Properties()));
-    public static final RegistryObject<Item> COPPER_LEGGINGS = ITEMS.register("copper_leggings", () -> new ArmorItem(ModArmorMaterial.COPPER, EquipmentSlot.LEGS, new Item.Properties()));
-    public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register("copper_boots", () -> new ArmorItem(ModArmorMaterial.COPPER, EquipmentSlot.FEET, new Item.Properties()));
-    public static final RegistryObject<Item> HALFINUM_HELMET = ITEMS.register("halfinum_helmet", () -> new ArmorItem(ModArmorMaterial.HALFINUM, EquipmentSlot.HEAD, new Item.Properties()));
-    public static final RegistryObject<Item> HALFINUM_CHESTPLATE = ITEMS.register("halfinum_chestplate", () -> new ArmorItem(ModArmorMaterial.HALFINUM, EquipmentSlot.CHEST, new Item.Properties()));
-    public static final RegistryObject<Item> HALFINUM_LEGGINGS = ITEMS.register("halfinum_leggings", () -> new ArmorItem(ModArmorMaterial.HALFINUM, EquipmentSlot.LEGS, new Item.Properties()));
-    public static final RegistryObject<Item> HALFINUM_BOOTS = ITEMS.register("halfinum_boots", () -> new ArmorItem(ModArmorMaterial.HALFINUM, EquipmentSlot.FEET, new Item.Properties()));
-    public static final RegistryObject<Item> SPACE_HELMET = ITEMS.register("space_helmet", () -> new SpaceSuitHelmet(ModArmorMaterial.SPACE_SUIT, EquipmentSlot.HEAD, new Item.Properties()));
-    public static final RegistryObject<Item> SPACE_CHESTPLATE = ITEMS.register("space_chestplate", () -> new ArmorItem(ModArmorMaterial.SPACE_SUIT, EquipmentSlot.CHEST, new Item.Properties()));
-    public static final RegistryObject<Item> SPACE_LEGGINGS = ITEMS.register("space_leggings", () -> new ArmorItem(ModArmorMaterial.SPACE_SUIT, EquipmentSlot.LEGS, new Item.Properties()));
-    public static final RegistryObject<Item> SPACE_BOOTS = ITEMS.register("space_boots", () -> new ArmorItem(ModArmorMaterial.SPACE_SUIT, EquipmentSlot.FEET, new Item.Properties()));
+    public static final RegistryObject<Item> ZINC_HELMET = ITEMS.register("zinc_helmet", () -> new ArmorItem(ModArmorMaterial.ZINC, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> ZINC_CHESTPLATE = ITEMS.register("zinc_chestplate", () -> new ArmorItem(ModArmorMaterial.ZINC, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> ZINC_LEGGINGS = ITEMS.register("zinc_leggings", () -> new ArmorItem(ModArmorMaterial.ZINC, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> ZINC_BOOTS = ITEMS.register("zinc_boots", () -> new ArmorItem(ModArmorMaterial.ZINC, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet", () -> new ArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_CHESTPLATE = ITEMS.register("copper_chestplate", () -> new ArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_LEGGINGS = ITEMS.register("copper_leggings", () -> new ArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register("copper_boots", () -> new ArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> HALFINUM_HELMET = ITEMS.register("halfinum_helmet", () -> new ArmorItem(ModArmorMaterial.HALFINUM, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> HALFINUM_CHESTPLATE = ITEMS.register("halfinum_chestplate", () -> new ArmorItem(ModArmorMaterial.HALFINUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> HALFINUM_LEGGINGS = ITEMS.register("halfinum_leggings", () -> new ArmorItem(ModArmorMaterial.HALFINUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> HALFINUM_BOOTS = ITEMS.register("halfinum_boots", () -> new ArmorItem(ModArmorMaterial.HALFINUM, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> SPACE_HELMET = ITEMS.register("space_helmet", () -> new SpaceSuitHelmet(ModArmorMaterial.SPACE_SUIT, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> SPACE_CHESTPLATE = ITEMS.register("space_chestplate", () -> new ArmorItem(ModArmorMaterial.SPACE_SUIT, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> SPACE_LEGGINGS = ITEMS.register("space_leggings", () -> new ArmorItem(ModArmorMaterial.SPACE_SUIT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> SPACE_BOOTS = ITEMS.register("space_boots", () -> new ArmorItem(ModArmorMaterial.SPACE_SUIT, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> COPPER_SWORD = ITEMS.register("copper_sword", () -> new SwordItem(ModItemTier.COPPER, 6, 3f, new Item.Properties()));
     public static final RegistryObject<Item> COPPER_PICKAXE = ITEMS.register("copper_pickaxe", () -> new PickaxeItem(ModItemTier.COPPER, 0, -1f, new Item.Properties()));
     public static final RegistryObject<Item> COPPER_AXE = ITEMS.register("copper_axe", () -> new AxeItem(ModItemTier.COPPER, 0, -1f, new Item.Properties()));
@@ -101,7 +101,7 @@ public class DMItems {
     public static final RegistryObject<Item> HALFINUM_PICKAXE = ITEMS.register("halfinum_pickaxe", () -> new PickaxeItem(ModItemTier.HALFINUM, 0, -1f, new Item.Properties()));
     public static final RegistryObject<Item> HALFINUM_SHOVEL = ITEMS.register("halfinum_shovel", () -> new ShovelItem(ModItemTier.HALFINUM, 0, -1f, new Item.Properties()));
     public static final RegistryObject<Item> HALFINUM_SWORD = ITEMS.register("halfinum_sword", () -> new HalfinumSword(ModItemTier.HALFINUM, 0, -1f, new Item.Properties()));
-    public static final RegistryObject<Item> MASK = ITEMS.register("mask", () -> new ArmorItem(ModArmorMaterial.MASK, EquipmentSlot.HEAD, new Item.Properties()));
+    public static final RegistryObject<Item> MASK = ITEMS.register("mask", () -> new ArmorItem(ModArmorMaterial.MASK, ArmorItem.Type.HELMET, new Item.Properties()));
     //public static final RegistryObject<Item> DEATH_SIGN = ITEMS.register("death_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DMBlocks.DEATH_SIGN.get(), DMBlocks.DEATH_WALL_SIGN.get()));
     //public static final RegistryObject<Item> ALBIZIA_SIGN = ITEMS.register("albizia_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DMBlocks.ALBIZIA_SIGN.get(), DMBlocks.ALBIZIA_WALL_SIGN.get()));
     public static final RegistryObject<Item> ORE_FINDER = ITEMS.register("ore_finder", () -> new OreFinderItem(new Item.Properties().rarity(Rarity.EPIC).durability(100)));

@@ -65,7 +65,7 @@ public class ItemShowerBlockRender implements BlockEntityRenderer<ItemShowerTile
         pPoseStack.pushPose();
         pPoseStack.translate(0.5D, 0.5D, 0.5D);
         pPoseStack.scale(0.5f, 0.5f, 0.5f);
-        itemRenderer.renderStatic(setIn, ItemTransforms.TransformType.FIXED, getLightLevel(Minecraft.getInstance().level, pBlockEntity.getBlockPos()), OverlayTexture.NO_OVERLAY, pPoseStack, pBufferSource, 1);
+        //itemRenderer.renderStatic(setIn, ItemTransforms.TransformType.FIXED, getLightLevel(Minecraft.getInstance().level, pBlockEntity.getBlockPos()), OverlayTexture.NO_OVERLAY, pPoseStack, pBufferSource, 1);
         pPoseStack.mulPose(Axis.XP.rotationDegrees(itemRotation));
         pPoseStack.popPose();
         Component label = setIn.getHoverName();
@@ -89,7 +89,7 @@ public class ItemShowerBlockRender implements BlockEntityRenderer<ItemShowerTile
         stack.scale(scale, scale, scale);
         stack.mulPose(Axis.YP.rotationDegrees(-Minecraft.getInstance().player.getYRot()));
         stack.mulPose(Axis.ZP.rotationDegrees(180f));
-        font.drawInBatch(text, offset, 0, color, false, matrix, buffer, false, opacity, lightLevel);
+        //font.drawInBatch(text, offset, 0, color, false, matrix, buffer, false, opacity, lightLevel);
         stack.popPose();
     }
 
