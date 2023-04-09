@@ -27,6 +27,20 @@
       "ascent":7,
       "height":7,
       "chars":["这"]
+    },
+    {
+      "type":"bitmap",
+      "file":"minecraft:custom/moderator.png",
+      "ascent":7,
+      "height":7,
+      "chars":["乍"]
+    },
+    {
+      "type":"bitmap",
+      "file":"minecraft:custom/admin.png",
+      "ascent":7,
+      "height":7,
+      "chars":["卂"]
     }
   ]
 }

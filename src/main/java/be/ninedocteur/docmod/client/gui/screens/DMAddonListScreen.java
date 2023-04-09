@@ -43,6 +43,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.ForgeI18n;
 import net.minecraftforge.common.util.Size2i;
@@ -77,6 +79,8 @@ From : Catalogue
 Under GPL3 Liscence
 Github : https://github.com/MrCrayfish/Catalogue/
  */
+
+@OnlyIn(Dist.CLIENT)
 public class DMAddonListScreen { //extends Screen{
 //    private static final Comparator<ModEntry> SORT = Comparator.comparing(o -> o.getInfo().getModName());
 //    private static final ResourceLocation MISSING_BANNER = new ResourceLocation("docmod", "textures/gui/missing_banner.png");

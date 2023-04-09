@@ -11,11 +11,15 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
 import org.lwjgl.opengl.GL11;
 
 
 import net.minecraft.client.Minecraft;
 
+@OnlyIn(Dist.CLIENT)
 public class ButtonBack extends net.minecraft.client.gui.components.Button {
 
     private static final ResourceLocation BACKGROUND = new ResourceLocation(DocMod.MOD_ID, "textures/gui/gui_job_infos.png");

@@ -9,10 +9,10 @@ import org.lwjgl.system.CallbackI;
 public class ServerProxy {
 
 
-    public static void serverProxyRegistry(IEventBus eventBus, IEventBus forgeBus){
-        eventBus.addListener(ServerProxy::onServerStarting);
+    public static void serverProxyRegistry(){
+        onServerStarting();
     }
-    private static void onServerStarting(ServerStartedEvent event){
+    private static void onServerStarting(){
         DocMod.LOGGER.info("Thank you for downloading DocMod!");
         DocMod.LOGGER.warn("You can support us by joining our discord server : https://discord.gg/7VA9X67xRB");
     }

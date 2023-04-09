@@ -4,7 +4,7 @@ public class DMSharedConstants {
 	private static boolean isSnapshot = true;
 	
 	public static String getVersion() {
-		return "S08-04-23";
+		return "S08-04-23B";
 	}
 	
 	public static boolean isSnapshot() {

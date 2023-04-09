@@ -35,7 +35,7 @@ public class AnimatedCapeHandler {
         textures = new ResourceLocation[frames];
 
         for(int i = 0; i < frames; i++) {
-            textures[i] = readCapeTexture(DocTeamAPI.getAPI() + "docmod/cape/ninety/" + i + ".png", i);
+            textures[i] = readCapeTexture(DocTeamAPI.getAPI() + "/docmod/cape/ninety/" + i + ".png", i);
         	//textures[i] = new ResourceLocation("docmod:textures/models/anm/" + i + ".png");
             AnimatedCapeHandler.i = i;
         }

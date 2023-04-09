@@ -46,6 +46,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.ParallelDispatchEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -58,12 +65,13 @@ public class DocMod {
     public static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
     public static final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
     public static final String VERSION = "7.0";
-    public static final String BUILD = "0";
     public static final String CODENAME = "Longhorn"; //LONGHORN FOR 7.X
     public static final String MODNAME = "DocMod";
     public static final String UPDATE_NAME = "Jobs Update";
     public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
     public static boolean isInDevVersion = true;
+    private static int buildNumber;
+    public static HashMap<String, String> BUILD = new HashMap<>();
 
 
     public DocMod() {
@@ -78,16 +86,14 @@ public class DocMod {
         LOGGER.info("Start initializing DocMod Events.");
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientProxy.doClientEvents(eventBus, MinecraftForge.EVENT_BUS));
         DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> CommonProxy.doCommonEvent());
-        DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> ServerProxy.serverProxyRegistry(eventBus, MinecraftForge.EVENT_BUS));
+        //DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, () -> () -> ServerProxy.serverProxyRegistry());
         DocMod.LOGGER.info("Init DocMod Containers...");
         DMContainers.CONTAINERS.register(eventBus);
         RegistryHandler.registerListeners();
         LOGGER.info("Event Handlers Registered", false);
         //MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
         //MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
-        MinecraftForge.EVENT_BUS.addListener(ClientEventHandler::onKeyInput);
         DocMod.LOGGER.info("Init DocMod Creative Tabs...");
-        eventBus.addListener(ClientEventHandler::onKeyRegister);
         eventBus.addListener(this::addCreative);
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::onLaunch);
@@ -96,6 +102,41 @@ public class DocMod {
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("DocMod is fully Initialized.");
     }
+    
+    public static void loadBuilds() {
+        Properties properties = new Properties();
+        try{
+        	LOGGER.info("Loading Builds...");
+            properties.load(new FileInputStream("builds.properties"));
+            LOGGER.info("Build saved!");
+        } catch (IOException e){
+            System.out.println("Error, file does not exist... creating one...");
+        }
+
+        for (String key : properties.stringPropertyNames()) {
+        	getBuilds().put(key, properties.get(key).toString());
+        }
+    }
+
+    public static void saveBuilds() {
+        Properties properties = new Properties();
+
+        for (Map.Entry<String,String> entry : getBuilds().entrySet()) {
+            properties.put(entry.getKey(), entry.getValue());
+        }
+
+        try{
+            LOGGER.info("Saving entry...");
+            properties.store(new FileOutputStream("builds.properties"), null);
+            LOGGER.info("Saved entry!");
+        } catch (IOException e){
+            System.out.println("Can't store entry... File does not exist");
+        }
+    }
+    
+    public static HashMap<String, String> getBuilds() {
+		return BUILD;
+	}
 
     //TODO: MOVE THIS -> TAKE TO MUCH PLACE LOL
     private void addCreative(CreativeModeTabEvent.BuildContents event){

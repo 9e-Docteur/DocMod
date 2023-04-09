@@ -16,8 +16,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
 import org.joml.Quaternionf;
 
+@OnlyIn(Dist.CLIENT)
 public class CosmeticScreen extends Screen {
     private float xMouse;
     private float yMouse;

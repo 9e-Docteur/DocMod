@@ -84,7 +84,7 @@ public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<Abstract
         } else {
             if (IOUtils.getCapeUsers().contains(abstractClientPlayer.getUUID().toString())) {
                 if (CapeHandler.DOWNLOADED_TEXTURES.containsKey("https://api.docteam.tk/docmod/cape/" + abstractClientPlayer.getUUID() + ".png")) {
-                    VertexConsumer vertexconsumer = multiBufferSource.getBuffer(RenderType.entitySolid(CapeHandler.DOWNLOADED_TEXTURES.get("https://api.docteam.tk/docmod/cape/" + abstractClientPlayer.getUUID() + ".png")));
+                    VertexConsumer vertexconsumer = multiBufferSource.getBuffer(RenderType.entitySolid(CapeHandler.DOWNLOADED_TEXTURES.get(DocTeamAPI.API_WEB + "/docmod/cape/" + abstractClientPlayer.getUUID() + ".png")));
                     this.getParentModel().renderCloak(poseStack, vertexconsumer, integer, OverlayTexture.NO_OVERLAY);
                 } else {
                     VertexConsumer vertexconsumer = multiBufferSource.getBuffer(RenderType.entitySolid(CapeHandler.readCapeTexture(getCape(abstractClientPlayer), abstractClientPlayer.getUUID())));
@@ -95,10 +95,10 @@ public class Cape extends RenderLayer<AbstractClientPlayer, PlayerModel<Abstract
     }
 
     private String getCape(AbstractClientPlayer abstractClientPlayer) {
-        return DocTeamAPI.getAPI() + "docmod/cape/" + abstractClientPlayer.getUUID() + ".png";
+        return DocTeamAPI.getAPI() + "/docmod/cape/" + abstractClientPlayer.getUUID() + ".png";
     }
 
     private String getDevCape(AbstractClientPlayer abstractClientPlayer) {
-        return DocTeamAPI.getAPI() + "docmod/dev/cape/" + abstractClientPlayer.getUUID() + ".png";
+        return DocTeamAPI.getAPI() + "/docmod/dev/cape/" + abstractClientPlayer.getUUID() + ".png";
     }
 }

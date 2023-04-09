@@ -7,6 +7,7 @@ import be.ninedocteur.docmod.utils.IOUtils;
 public class DocTeamAPI {
     public static String API_VERSION = "1.0";
     public static String API_NAME = "DocTeamAPI";
+    public static String API_WEB = "http://130.61.39.222";
     
     //private String username;
     //private String password;
@@ -26,12 +27,12 @@ public class DocTeamAPI {
     
 
     public static String getAPI(){
-        return "https://api.docteam.tk/";
+        return API_WEB;
     }
     
     public boolean connect(String username, String password) {
     	DocMod.LOGGER.info("Executing connection...");
-    	String LOGIN_SCRIPT = getAPI() + "scripts/loginCheck.php?user=" + username + "&pass=" + password;
+    	String LOGIN_SCRIPT = getAPI() + "/scripts/loginCheck.php?user=" + username + "&pass=" + password;
     	String script = IOUtils.readURLContent(LOGIN_SCRIPT);
     	API_RESPONSE = script.toString();
     	if(API_RESPONSE.equals("login ok")) {

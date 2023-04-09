@@ -17,9 +17,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ShulkerBoxMenu;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.logging.Level;
 
+@OnlyIn(Dist.CLIENT)
 public class SafeChestScreen /*extends AbstractContainerScreen<SafeChestMenu> */{
 //    private boolean isOnSettingsMenu;
 //    private static final ResourceLocation CONTAINER_TEXTURE = new ResourceLocation(DocMod.MOD_ID, "textures/gui/container/safechest/menu.png");

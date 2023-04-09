@@ -22,7 +22,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class GuiLevelUp extends Screen {
 
     public static final ResourceLocation TEXTURES = new ResourceLocation(DocMod.MOD_ID, "textures/gui/gui_level_up.png");

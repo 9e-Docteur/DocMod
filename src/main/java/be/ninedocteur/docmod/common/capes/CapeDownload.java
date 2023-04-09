@@ -8,6 +8,6 @@ import java.net.URL;
 
 public class CapeDownload {
     public static void downloadCape(){
-        ResourceLocation url = IOUtils.readImage(DocTeamAPI.getAPI() + "docmod/cape/test.png");
+        ResourceLocation url = IOUtils.readImage(DocTeamAPI.getAPI() + "/docmod/cape/test.png");
     }
 }

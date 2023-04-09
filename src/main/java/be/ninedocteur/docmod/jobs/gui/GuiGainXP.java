@@ -13,9 +13,14 @@ import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
+
+@OnlyIn(Dist.CLIENT)
 public class GuiGainXP extends GuiComponent {
 
     public static final ResourceLocation TEXTURE = new ResourceLocation(DocMod.MOD_ID, "textures/gui/gui_gain_xp.png");

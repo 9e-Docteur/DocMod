@@ -13,6 +13,8 @@ import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class DMCosmeticCommand {
 	public DMCosmeticCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -21,6 +23,7 @@ public class DMCosmeticCommand {
         }));
     }
 	
+	@OnlyIn(Dist.CLIENT)
 	 private int exec(CommandSourceStack source) throws CommandSyntaxException {
 //		 String playerName = source.getPlayer().getName().toString();
 //		 Player player = source.getPlayer();

@@ -401,30 +401,30 @@ public class SonicItem extends Item {
         }
     }
 
-    @Override
-    public @Nullable CompoundTag getShareTag(ItemStack stack) {
-    	stack.getTag().putInt("charge", this.getCharge());
-    	stack.getTag().putInt("tozerocount", this.chargeToZeroCount);
-        stack.getTag().putInt("level", this.getSonicLevel());
-        stack.getTag().putInt("xp", this.getXp());
-       
-        return super.getShareTag(stack);
-    }
-
-    @Override
-    public void onCraftedBy(ItemStack p_41447_, Level p_41448_, Player p_41449_) {
-        super.onCraftedBy(p_41447_, p_41448_, p_41449_);
-        this.charge = zeroCountForCharge();
-    }
-
-    @Override
-    public void readShareTag(ItemStack stack, @Nullable CompoundTag nbt) {
-        super.readShareTag(stack, nbt);
-        this.charge = nbt.getInt("charge");
-        this.chargeToZeroCount = nbt.getInt("tozerocount");
-        this.sonicLevel = nbt.getInt("level");
-        this.xp = nbt.getInt("xp");
-    }
+//    @Override
+//    public @Nullable CompoundTag getShareTag(ItemStack stack) {
+//    	stack.getTag().putInt("charge", this.getCharge());
+//    	stack.getTag().putInt("tozerocount", this.chargeToZeroCount);
+//        stack.getTag().putInt("level", this.getSonicLevel());
+//        stack.getTag().putInt("xp", this.getXp());
+//       
+//        return super.getShareTag(stack);
+//    }
+//
+//    @Override
+//    public void onCraftedBy(ItemStack p_41447_, Level p_41448_, Player p_41449_) {
+//        super.onCraftedBy(p_41447_, p_41448_, p_41449_);
+//        this.charge = zeroCountForCharge();
+//    }
+//
+//    @Override
+//    public void readShareTag(ItemStack stack, @Nullable CompoundTag nbt) {
+//        super.readShareTag(stack, nbt);
+//        this.charge = nbt.getInt("charge");
+//        this.chargeToZeroCount = nbt.getInt("tozerocount");
+//        this.sonicLevel = nbt.getInt("level");
+//        this.xp = nbt.getInt("xp");
+//    }
 
     public SoundEvent getDefaultSonicSound(){
         return DMSound.SONIC.get();

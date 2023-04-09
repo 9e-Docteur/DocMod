@@ -33,7 +33,7 @@ public class DMUtils {
 
     //MOD/VERSION
     public static final String VERSION = DocMod.VERSION;
-    public static final String BUILD = DocMod.BUILD;
+    //public static final String BUILD = DocMod.BUILD;
     public static final String CODENAME = DocMod.CODENAME;
     public static final String MODNAME = DocMod.MODNAME;
 

@@ -22,6 +22,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Optional;
 
+@OnlyIn(Dist.CLIENT)
 public class ContainerCraft extends RecipeBookMenu<CraftingContainer> {
 	private final CraftingContainer craftSlots = new CraftingContainer(this, 3, 3);
 	private final ResultContainer resultSlots = new ResultContainer();

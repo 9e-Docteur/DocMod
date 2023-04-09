@@ -15,9 +15,12 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
 import org.lwjgl.opengl.GL11;
 
-
+@OnlyIn(Dist.CLIENT)
 public class ButtonJob extends Button {
 
     private final ResourceLocation texture = new ResourceLocation(DocMod.MOD_ID + ":textures/gui/jobs_icons.png");

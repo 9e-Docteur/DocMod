@@ -15,9 +15,12 @@ import net.minecraft.client.multiplayer.resolver.ServerAddress;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.UUID;
 
+@OnlyIn(Dist.CLIENT)
 public class SafeChestSettingsScreen extends Screen {
     private static final ResourceLocation SETTINGS_TEXTURE = new ResourceLocation(DocMod.MOD_ID, "textures/gui/container/safechest/settings_menu.png");
     private SafeChestTileEntity safeChestTileEntity;

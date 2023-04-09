@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.ConfigScreenHandler;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -40,6 +41,8 @@ public class ClientProxy {
         forgeBus.addListener(DocModDebugOverlay::render);
         forgeBus.addListener(DocModSonicChargeOverlay::render);
         forgeBus.addListener(DMSpaceSuitOverlay::render);
+        forgeBus.addListener(ClientEventHandler::onKeyInput);
+        modBus.addListener(ClientEventHandler::onKeyRegister);
         DocMod.LOGGER.info("Init DocMod Menus...");
         DMMenu.register(modBus);
         //forgeBus.addListener(DMOreFeatures::addFeatures);

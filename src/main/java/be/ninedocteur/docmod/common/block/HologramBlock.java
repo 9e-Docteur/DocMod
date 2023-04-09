@@ -13,6 +13,8 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,6 +23,7 @@ public class HologramBlock extends BaseEntityBlock {
         super(p_49224_);
     }
 
+    @OnlyIn(Dist.CLIENT)
     @Override
     public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
         HologramTileEntity hologramTileEntity = (HologramTileEntity) p_60504_.getBlockEntity(p_60505_);

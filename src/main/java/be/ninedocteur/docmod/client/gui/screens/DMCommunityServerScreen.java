@@ -28,8 +28,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.net.URI;
 import java.net.URISyntaxException;
-@OnlyIn(Dist.CLIENT)
 
+@OnlyIn(Dist.CLIENT)
 public class DMCommunityServerScreen extends Screen {
 
     public static int width2;
