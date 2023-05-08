@@ -101,6 +101,29 @@ public class DMTileEntity {
             TILE_ENTITIES.register("hologram", () -> BlockEntityType.Builder.of(
                     HologramTileEntity::new, DMBlocks.HOLOGRAM.get()).build(null));
 
+    public static RegistryObject<BlockEntityType<HartnellTileEntity>> HARTNELL =
+            TILE_ENTITIES.register("hartnell_rotor_tile", () -> BlockEntityType.Builder.of(
+            		HartnellTileEntity::new, DMBlocks.HARTNELL.get()).build(null));
+    
+    public static RegistryObject<BlockEntityType<ImageTileEntity>> IMAGE =
+            TILE_ENTITIES.register("image_tile", () -> BlockEntityType.Builder.of(
+            		ImageTileEntity::new, DMBlocks.IMAGE_LOADER.get()).build(null));
+    
+    public static RegistryObject<BlockEntityType<EnderPadTile>> ENDER_TILE =
+            TILE_ENTITIES.register("enderpad_tile", () -> BlockEntityType.Builder.of(
+            		EnderPadTile::new, DMBlocks.ENDER_PAD.get()).build(null));
+    
+    public static RegistryObject<BlockEntityType<LightSensorTile>> LIGHT_SENSOR =
+            TILE_ENTITIES.register("light_sensor", () -> BlockEntityType.Builder.of(
+            		LightSensorTile::new, DMBlocks.LIGHT_SENSOR.get()).build(null));
+    
+    public static RegistryObject<BlockEntityType<GrassTile>> GRASS_TILE =
+            TILE_ENTITIES.register("grass_tile", () -> BlockEntityType.Builder.of(
+            		GrassTile::new, DMBlocks.GRASS.get()).build(null));
+    
+    public static RegistryObject<BlockEntityType<GutterTileEntity>> GUTTER_TILE =
+            TILE_ENTITIES.register("gutter_tile", () -> BlockEntityType.Builder.of(
+            		GutterTileEntity::new, DMBlocks.GUTTER_BLOCK.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

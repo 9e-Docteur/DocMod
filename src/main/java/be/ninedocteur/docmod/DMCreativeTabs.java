@@ -21,6 +21,8 @@ public class DMCreativeTabs {
     public static CreativeModeTab ENTITIES;
     public static CreativeModeTab ROUNDELS;
     public static CreativeModeTab ANNIVERSARY;
+    public static CreativeModeTab COMMUNITY;
+
 
     @SubscribeEvent
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event){
@@ -32,6 +34,7 @@ public class DMCreativeTabs {
         ENTITIES = event.registerCreativeModeTab(new ResourceLocation(DocMod.MOD_ID, "entities"), builder -> builder.icon(() -> new ItemStack(DMItems.CYBERBOSS_EGG.get())).title(Component.translatable("Entities Tab")).build());
         ROUNDELS = event.registerCreativeModeTab(new ResourceLocation(DocMod.MOD_ID, "roundels"), builder -> builder.icon(() -> new ItemStack(DMBlocks.ROUNDEL_DARK_2.get())).title(Component.translatable("Roundels Tab")).build());
         ANNIVERSARY = event.registerCreativeModeTab(new ResourceLocation(DocMod.MOD_ID, "anniversary"), builder -> builder.icon(() -> new ItemStack(DMBlocks.CAKE.get())).title(Component.translatable("Anniversary Tab")).build());
+        COMMUNITY = event.registerCreativeModeTab(new ResourceLocation(DocMod.MOD_ID, "community"), builder -> builder.icon(() -> new ItemStack(DMItems.GARATIM_SONIC_SCREWDRIVER.get())).title(Component.translatable("Community Tab")).build());
     }
 }
 

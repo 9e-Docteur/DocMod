@@ -25,6 +25,14 @@ public class ModelRegistry {
     public static final ModelLayerLocation TARDIS_DOOR = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "door"), "door");
 
     public static final ModelLayerLocation SAFE_CHEST = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "safe"), "safe");
+    
+    public static final ModelLayerLocation HARTNELL = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "hartnell"), "hartnell");
+    public static final ModelLayerLocation PAD = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "pad"), "pad");
+    public static final ModelLayerLocation DALEK_LASER = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "laser"), "laser");
+    public static final ModelLayerLocation LIGHT_SENSOR = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "light"), "light");
+    public static final ModelLayerLocation GRASS = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "grass"), "grass");
+
+
 
     //ENTITY
     public static final ModelLayerLocation Zurbion = new ModelLayerLocation(new ResourceLocation(DocMod.MOD_ID, "zurbion"), "zurbion");

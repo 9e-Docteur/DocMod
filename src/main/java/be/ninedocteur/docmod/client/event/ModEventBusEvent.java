@@ -64,6 +64,11 @@ public class ModEventBusEvent {
         registerLayerDefinitions.registerLayerDefinition(ModelRegistry.TARDIS_DOOR, TardisDoorModel::createBodyLayer);
         registerLayerDefinitions.registerLayerDefinition(ModelRegistry.SAFE_CHEST, SafeChestModel::createBodyLayer);
         registerLayerDefinitions.registerLayerDefinition(ModelRegistry.PLAYER, PlayerEntityModel::createBodyLayer);
+        registerLayerDefinitions.registerLayerDefinition(ModelRegistry.HARTNELL, HartnellModel::createBodyLayer);
+        registerLayerDefinitions.registerLayerDefinition(ModelRegistry.PAD, EnderPadModel::createBodyLayer);
+        registerLayerDefinitions.registerLayerDefinition(ModelRegistry.DALEK_LASER, DalekLaserModel::createBodyLayer);
+        registerLayerDefinitions.registerLayerDefinition(ModelRegistry.LIGHT_SENSOR, LightSensorModel::createBodyLayer);
+        registerLayerDefinitions.registerLayerDefinition(ModelRegistry.GRASS, GrassModel::createBodyLayer);
     }
 
     @OnlyIn(Dist.CLIENT)

@@ -8,8 +8,8 @@ public class Servers {
     /*
     DOCMOD PUBLIC SERVER
      */
-    public static final String HOST = "public.docteam.tk";
-    public static final int PORT = 25580;
+    public static final String HOST = "capmine.duckdns.org";
+    public static final int PORT = 25565;
 
     /*
     DOCMOD PRIVATE SERVER

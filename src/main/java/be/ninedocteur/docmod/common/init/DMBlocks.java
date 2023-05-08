@@ -1,6 +1,7 @@
 package be.ninedocteur.docmod.common.init;
 
 import be.ninedocteur.docmod.common.block.*;
+import be.ninedocteur.docmod.common.block.GrassBlock;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.DMCreativeTabs;
 import be.ninedocteur.docmod.common.block.cupdate.*;
@@ -146,14 +147,12 @@ public class DMBlocks {
     /*
     TOOLS/UTILITY
      */
-    public static final RegistryObject<Block> LIGHT_BLOCK = registerBlock("light_block", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).noCollission().lightLevel((p_152686_) -> {
-        return 15;
-    })));
+//    public static final RegistryObject<Block> LIGHT_BLOCK = registerBlock("light_block", () -> new Block(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).noCollission().lightLevel((p_152686_) -> {
+//        return 15;
+//    })));
     public static final RegistryObject<Block> INFUSION_TABLE = registerBlock("infusion_table", () -> new InfusionBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
-    public static final RegistryObject<Block> REDSTONE_LAMP_ON = registerBlock("redstone_lamp_on", () -> new DMRedstoneLampOn(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).lightLevel((p_152686_) -> {
-        return 15;
-    })));
+    public static final RegistryObject<Block> REDSTONE_LAMP_ON = registerBlock("redstone_lamp_on", () -> new DMRedstoneLampOn(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     //public static final RegistryObject<LiquidBlock> GAZOLINE_BLOCK = registerBlock("gazoline_block", () -> new LiquidBlock(DMFluids.SOURCE_GAZOLINE, BlockBehaviour.Properties.copy(Blocks.WATER)));
     public static final RegistryObject<Block> CHAIR = registerBlock("chair", () -> new ChairBlock(BlockBehaviour.Properties.of(Material.STONE)));
 
@@ -163,6 +162,8 @@ public class DMBlocks {
     //public static final RegistryObject<Block> ZINC_CRAFTING_TABLE = registerBlock("zinc_crafting_table", () -> new ZincCraftingTable(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     //public static final RegistryObject<Block> SAFE_CHEST = registerBlock("safe_chest", () -> new SafeChestBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     public static final RegistryObject<Block> HOLOGRAM = registerBlock("hologram", () -> new HologramBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> IMAGE_LOADER = registerBlock("image_loader", () -> new ImageLoaderBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> ENDER_PAD = registerBlock("ender_pad", () -> new EnderPadBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
     /*
     ANNIVERSARY
@@ -180,6 +181,16 @@ public class DMBlocks {
      */
     public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new SolarPanelBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
     public static final RegistryObject<Block> ENERGY_PIPE = registerBlock("energy_pipe", () -> new EnergyPipeBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+
+    
+    //TARDIS
+    public static final RegistryObject<Block> HARTNELL = registerBlock("hartnell_rotor", () -> new HartnellRotorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+
+    
+    //GARDEN UPDATE
+    public static final RegistryObject<Block> LIGHT_SENSOR = registerBlock("light_sensor", () -> new LightSensorBlock(Block.Properties.of(Material.STONE).noOcclusion().requiresCorrectToolForDrops().strength(1f).lightLevel(state -> state.getValue(LightSensorBlock.LIT) ? 15 : 0)));
+    public static final RegistryObject<Block> GRASS = registerBlock("grass", () -> new GrassBlock(Block.Properties.of(Material.GRASS).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
+    public static final RegistryObject<Block> GUTTER_BLOCK = registerBlock("gutter", () -> new GutterBlock(Block.Properties.of(Material.GRASS).noOcclusion().requiresCorrectToolForDrops().strength(1f)));
 
 
 

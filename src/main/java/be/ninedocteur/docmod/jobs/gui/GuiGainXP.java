@@ -3,7 +3,6 @@ package be.ninedocteur.docmod.jobs.gui;
 import java.awt.Color;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.client.gui.screens.compnent.DocModServerList;
 import be.ninedocteur.docmod.jobs.data.ClientInfos;
 import be.ninedocteur.docmod.jobs.util.Constants;
 import com.mojang.blaze3d.systems.RenderSystem;

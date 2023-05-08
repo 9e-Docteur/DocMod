@@ -9,7 +9,7 @@ displayName="DocMod" #mandatory
 logoFile="docmod_logo.png" #optional
 credits="PandaRebel4307, Josia, Killar.exe, Balisto91, Itsaykow, Robainks, Garatim" #optional
 authors="9e_Docteur" #optional
-description='''Mod Created By 9e_Docteur, Textures by 9e_Docteur and PandaRebel4307. Coded by 9e_Docteur, Killar.exe, and Josia. Tardis Exterior by Valox.'''
+description='''Mod Created By 9e_Docteur, Textures by 9e_Docteur, PandaRebel4307, stoneRed, and Plurscraft. Coded by 9e_Docteur, Killar.exe, and Josia. Tardis Exterior by Valox.'''
 [[dependencies.docmod]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory

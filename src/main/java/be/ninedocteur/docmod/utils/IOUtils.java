@@ -7,6 +7,7 @@ import com.google.gson.JsonObject;
 import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.serialization.JsonOps;
 import net.minecraft.ChatFormatting;
+import net.minecraft.ResourceLocationException;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.resources.ResourceLocation;
@@ -123,12 +124,40 @@ public class IOUtils {
             inputStream.close();
             Minecraft.getInstance().getTextureManager().register(resourceLocation, texture);
         }catch (MalformedURLException e) {
-            e.printStackTrace();
+            readTexture("http://130.61.36.120/docteam/default.png", "def");
         } catch (IOException e) {
-            e.printStackTrace();
+        	readTexture("http://130.61.36.120/docteam/default.png", "def");
         }
         return resourceLocation;
     }
+    
+    @OnlyIn(Dist.CLIENT)
+    public static ResourceLocation readServerIcon(final String url, String serverName){
+        if(DOWNLOADED_TEXTURES.containsKey(url)){
+            return DOWNLOADED_TEXTURES.get(url);
+        }
+        String regex = "[^a-z0-9/._-]";
+        String serverFilterName = serverName.toLowerCase().replaceAll(regex, "");
+        ResourceLocation resourceLocation = new ResourceLocation("docmod", "textures/" + serverFilterName);
+        DOWNLOADED_TEXTURES.put(url, resourceLocation);
+        try{
+            InputStream inputStream = new URL(url).openStream();
+            NativeImage image = NativeImage.read(inputStream);
+            DynamicTexture texture = new DynamicTexture(image);
+            inputStream.close();
+            Minecraft.getInstance().getTextureManager().register(resourceLocation, texture);
+        }catch (MalformedURLException e) {
+            readTexture("http://130.61.36.120/docteam/default.png", "def");
+        } catch (FileNotFoundException e) {
+            readTexture("http://130.61.36.120/docteam/default.png", "def");
+        } catch (IOException e) {
+            readTexture("http://130.61.36.120/docteam/default.png", "def");
+        } catch(ResourceLocationException resourcelocationexception) {
+            readTexture("http://130.61.36.120/docteam/default.png", "def");
+        }
+        return resourceLocation;
+    }
+
 
     public static void writeContentToFile(Object object, String filePath, Gson gson) {
         File f = new File(filePath.substring(0, filePath.lastIndexOf("/")));

@@ -5,6 +5,7 @@ import be.ninedocteur.docmod.DMSharedConstants;
 import be.ninedocteur.docmod.api.Addon;
 import be.ninedocteur.docmod.client.gui.screens.*;
 import be.ninedocteur.docmod.utils.*;
+import be.ninedocteur.docteam.PublicServerInfo;
 import be.ninedocteur.docteam.Servers;
 import com.google.common.util.concurrent.Runnables;
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -74,7 +75,7 @@ public class DMTitleScreen extends Screen {
     private String splash;
     private Button resetDemoButton;
     private static final ResourceLocation MINECRAFT_LOGO = new ResourceLocation("textures/gui/title/minecraft.png");
-    private static final ResourceLocation DOCMOD_LOGO = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/docmod_logo.png");
+    private static final ResourceLocation DOCMOD_LOGO = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/docmod_logo_2023.png");
     private static final ResourceLocation INFO = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/info.png");
     private static final ResourceLocation DISCORD = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/discord.png");
     private static final ResourceLocation YOUTUBE = new ResourceLocation(DMUtils.MOD_ID, "textures/gui/title/youtube.png");
@@ -110,6 +111,7 @@ public class DMTitleScreen extends Screen {
     private boolean realmsNotificationsEnabled() {
         return this.realmsNotificationsScreen != null;
     }
+   
 
     public void tick() {
         if (this.realmsNotificationsEnabled()) {
@@ -117,6 +119,8 @@ public class DMTitleScreen extends Screen {
         }
         Minecraft.getInstance().getWindow().setTitle("Minecraft " + SharedConstants.getCurrentVersion().getName() + " | " + DocMod.MODNAME + " " + DocMod.VERSION);
         //LaunchUtils.initWindowIcon(new ResourceLocation(DocMod.MOD_ID, "icons/icon16x16.png"), new ResourceLocation(DocMod.MOD_ID, "icons/icon32x32.png"));
+        
+   
     }
 
     public static CompletableFuture<Void> preloadResources(TextureManager pTexMngr, Executor pBackgroundExecutor) {
@@ -179,7 +183,7 @@ public class DMTitleScreen extends Screen {
             }));
 
             serverButton = new ImageButton(this.width / 2 + 190, this.height / 4 + 48 -106, 16, 16, 0, 0, new ResourceLocation(DocMod.MOD_ID, "textures/gui/server.png"), (button -> {
-                //ScreenUtils.openScreen(new DMCommunityMainScreen(this));
+                ScreenUtils.openScreen(new DMCommunityServer(this));
             }));
 
             infoButton = new ImageButton(this.width / 2 - 150, this.height / 4 + 48 -106, 16, 16, 0, 129, new ResourceLocation(DocMod.MOD_ID, "textures/gui/title/transparent.png"), (button -> {
@@ -203,7 +207,8 @@ public class DMTitleScreen extends Screen {
         }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 2, 200, 20).build();
 
         dmServerButton = Button.builder(Component.translatable("DocMod Servers"), (p_96781_) -> {
-            ConnectScreen.startConnecting(this, this.getMinecraft(), new ServerAddress(Servers.HOST, Servers.PORT), new ServerData("DocMod Server", Servers.HOST, false));
+            //ConnectScreen.startConnecting(this, this.getMinecraft(), new ServerAddress(Servers.HOST, Servers.PORT), new ServerData("DocMod Server", Servers.HOST, false));
+        	this.minecraft.setScreen(new DMServerScreen(this));
         }).bounds(this.width / 2 - 100, p_96764_ + p_96765_ * 1, 100, 20).build();
 
         this.addRenderableWidget(Button.builder(Component.translatable("menu.quit"), (p_96781_) -> {

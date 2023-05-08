@@ -47,10 +47,13 @@ public class DocModVersionOverlay {
             if(LaunchUtils.checkLaunchedVersion()){
                 Minecraft.getInstance().font.draw(event.getPoseStack(), "DocMod " + DMUtils.VERSION + " " + DMUtils.CODENAME, posX, posY, ColorUtils.getWhite());
                 Minecraft.getInstance().getItemRenderer().renderGuiItem(new PoseStack(), itemIcon, 4, 6);
-            } else if(!LaunchUtils.isRunningInDev() && DocMod.isInDevVersion || !LaunchUtils.isRunningInDev() && DMSharedConstants.isSnapshot()) {
-                Minecraft.getInstance().font.draw(event.getPoseStack(), "DocMod 1.19 Development", posX - 10, posY, ColorUtils.getWhite());
             }
         }
+        
+        if(!LaunchUtils.isRunningInDev() && DocMod.isInDevVersion || !LaunchUtils.isRunningInDev() && DMSharedConstants.isSnapshot()) {
+            Minecraft.getInstance().font.draw(event.getPoseStack(), "DocMod 1.19 Development", 0, 0, ColorUtils.getWhite());
+        }
+        
         updateWindowName();
     }
 

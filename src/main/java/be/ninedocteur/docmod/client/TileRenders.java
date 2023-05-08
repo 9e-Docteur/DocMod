@@ -1,9 +1,14 @@
 package be.ninedocteur.docmod.client;
 
+import javax.imageio.ImageReader;
+
 import be.ninedocteur.docmod.client.render.*;
 import be.ninedocteur.docmod.common.init.DMTileEntity;
+import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.entity.DisplayRenderer.ItemDisplayRenderer;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -22,5 +27,10 @@ public class TileRenders {
         BlockEntityRenderers.register(DMTileEntity.CHAIR_TILE_ENTITY.get(), ChairBlockRender::new);
         //BlockEntityRenderers.register(DMTileEntity.SAFECHEST.get(), SafeChestRender::new);
         BlockEntityRenderers.register(DMTileEntity.HOLOGRAM.get(), HologramRender::new);
+        BlockEntityRenderers.register(DMTileEntity.HARTNELL.get(), HartnellRender::new);
+        BlockEntityRenderers.register(DMTileEntity.IMAGE.get(), ImageLoaderRender::new);
+        BlockEntityRenderers.register(DMTileEntity.ENDER_TILE.get(), EnderPadRenderer::new);
+        BlockEntityRenderers.register(DMTileEntity.LIGHT_SENSOR.get(), LightSensorRender::new);
+        BlockEntityRenderers.register(DMTileEntity.GRASS_TILE.get(), GrassRenderer::new);
     }
 }

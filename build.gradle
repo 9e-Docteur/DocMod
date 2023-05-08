@@ -98,7 +98,7 @@ configurations {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:1.19.4-45.0.41"
+    minecraft "net.minecraftforge:forge:1.19.4-45.0.43"
 
     //compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
     //compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))

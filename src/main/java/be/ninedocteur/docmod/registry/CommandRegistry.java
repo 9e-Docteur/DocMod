@@ -21,6 +21,7 @@ public class CommandRegistry {
         new DMSonicChargeCommand(event.getDispatcher());
         new DMSonicXpCommand(event.getDispatcher());
         new DMSonicLevelCommand(event.getDispatcher());
+        new DMEnderTileSetName(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
     }

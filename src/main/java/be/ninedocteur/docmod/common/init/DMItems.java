@@ -120,6 +120,7 @@ public class DMItems {
     public static final RegistryObject<Item> GARATIM_SONIC_SCREWDRIVER_OFF = ITEMS.register("sonic_screwdriver_garatim_off", () -> new SonicItem(new Item.Properties()));
     public static final RegistryObject<Item> POINTER = ITEMS.register("pointer", () -> new PointerItem(new Item.Properties().durability(1)));
     public static final RegistryObject<Item> SMITH_TOOL = ITEMS.register("smith_tool", () -> new SmithItem(new Item.Properties().durability(10)));
+    public static final RegistryObject<Item> ENDER_LINDER = ITEMS.register("ender_linker", () -> new EnderLinker(new Item.Properties()));
 
     //EGG
     public static final RegistryObject<Item> STEVE_EGG = ITEMS.register("steve_spawn", () -> new ForgeSpawnEggItem(DMEntityType.OLD_STEVE, 0xffffff, 0xffffff,new Item.Properties()));
@@ -162,6 +163,8 @@ public class DMItems {
     public static final RegistryObject<Item> GREEN_ROUND_THING_FRAME = ITEMS.register("green_round_thing_frame", () -> new Item((new Item.Properties())));
     public static final RegistryObject<Item> YELLOW_ROUND_THING_FRAME = ITEMS.register("yellow_round_thing_frame", () -> new Item((new Item.Properties())));
     public static final RegistryObject<Item> DARK_ROUND_THING_FRAME = ITEMS.register("dark_round_thing_frame", () -> new Item((new Item.Properties())));
+   
+
 
     // Christmas Update 2022
     public static final RegistryObject<Item> EXPLOSIVE_BALL = ITEMS.register("explosive_ball", () -> new ExplosiveBallItem((new Item.Properties())));

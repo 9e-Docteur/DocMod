@@ -15,7 +15,7 @@ public class CybermanEntityModel<T extends CybermanEntity> extends HumanoidModel
     private final ModelPart hat;
     private final ModelPart body;
     private final ModelPart rightarm;
-    private final ModelPart leftarm;
+    public final ModelPart leftarm;
     private final ModelPart rightleg;
     private final ModelPart leftleg;
     //private final ModelPart body_lightmap;

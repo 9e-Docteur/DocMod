@@ -13,4 +13,17 @@ public class ServerUtils {
     public static boolean isServerUp(String ip){
         return !IOUtils.readURLContent("https://mcapi.xdefcon.com/server/" + ip + "/players/text").equals("Server status: Offline");
     }
+    
+    public static String getServerOnlinePlayers(String ip) {
+    	return IOUtils.readURLContent("https://mcapi.xdefcon.com/server/" + ip +"/players/text");
+    }
+    
+    public static String getServerMaxPlayers(String ip) {
+    	return IOUtils.readURLContent("https://mcapi.xdefcon.com/server/" + ip +"/maxplayers/text");
+    }
+    
+    public static String getServerPing(String ip) {
+    	return IOUtils.readURLContent("https://mcapi.xdefcon.com/server/" + ip +"/ping/text");
+    }
+    
 }

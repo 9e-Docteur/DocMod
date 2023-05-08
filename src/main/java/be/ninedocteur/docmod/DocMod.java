@@ -26,11 +26,18 @@ import com.google.gson.GsonBuilder;
 
 import com.mojang.blaze3d.platform.GlUtil;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.server.ServerStartedEvent;
@@ -38,6 +45,7 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -45,11 +53,15 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.ParallelDispatchEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.resource.PathPackResources;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -72,6 +84,7 @@ public class DocMod {
     public static boolean isInDevVersion = true;
     private static int buildNumber;
     public static HashMap<String, String> BUILD = new HashMap<>();
+    public static List<ItemLike> COMMUNITY_TAB = new ArrayList<>();
 
 
     public DocMod() {
@@ -137,6 +150,11 @@ public class DocMod {
     public static HashMap<String, String> getBuilds() {
 		return BUILD;
 	}
+    
+    public static void addToCommunityTab(ItemLike item) {
+		DocMod.COMMUNITY_TAB.add(item);
+	}
+    
 
     //TODO: MOVE THIS -> TAKE TO MUCH PLACE LOL
     private void addCreative(CreativeModeTabEvent.BuildContents event){
@@ -198,7 +216,7 @@ public class DocMod {
             event.accept(DMBlocks.NINEDOCTEUR);
             event.accept(DMBlocks.PANDAREBEL);
             event.accept(DMBlocks.JOSIA);
-            event.accept(DMBlocks.LIGHT_BLOCK);
+           // event.accept(DMBlocks.LIGHT_BLOCK);
         }
         if(event.getTab() == DMCreativeTabs.MATERIALS){
             event.accept(DMItems.AMETHYST);
@@ -336,6 +354,12 @@ public class DocMod {
         }
         if(event.getTab() == DMCreativeTabs.ANNIVERSARY){
             event.accept(DMBlocks.CAKE);
+        }
+        
+        for(ItemLike item : COMMUNITY_TAB) {
+        	if(event.getTab() == DMCreativeTabs.COMMUNITY) {
+        		event.accept(item);
+        	}
         }
     }
 
