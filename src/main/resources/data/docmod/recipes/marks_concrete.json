@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#*#",
+    "#*#",
+    "#*#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gray_concrete"
+    },
+    "*": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "result": {
+    "item": "docmod:marks_concrete"
+  }
+}

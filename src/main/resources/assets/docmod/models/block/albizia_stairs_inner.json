@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "docmod:block/albizia_planks",
-    "top": "docmod:block/albizia_planks",
-    "side": "docmod:block/albizia_planks"
-  }
-}

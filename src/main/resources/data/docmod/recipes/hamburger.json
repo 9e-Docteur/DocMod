@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "*/*",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:bread"
+    },
+    "/": {
+      "item": "minecraft:steak"
+    },
+    "*": {
+      "item": "minecraft:oak_leaves"
+    }
+  },
+  "result": {
+    "item": "docmod:hamburger"
+  }
+}

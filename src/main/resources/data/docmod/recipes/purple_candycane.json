@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "---",
+    "-*-",
+    "---"
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:snow_block"
+    },
+    "*": {
+      "item": "minecraft:purple_dye"
+    }
+  },
+  "result": {
+    "item": "docmod:purple_candycane"
+  }
+}

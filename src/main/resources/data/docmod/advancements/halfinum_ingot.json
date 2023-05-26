@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "docmod:halfinum_ingot"
+    },
+    "title": "Respect.",
+    "description": "You have smelted an halfinum ore to get an ingot!"
+  },
+  "parent": "docmod:halfinum_ore",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "docmod:halfinum_ingot"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  }
+}

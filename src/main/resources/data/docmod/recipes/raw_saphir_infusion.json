@@ -1,0 +1,11 @@
+{
+  "type": "docmod:infusion_recipe",
+  "ingredients": [
+    {
+      "item": "docmod:raw_saphir"
+    }
+  ],
+  "output": {
+    "item": "docmod:saphir"
+  }
+}

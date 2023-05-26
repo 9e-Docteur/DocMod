@@ -11,7 +11,7 @@
     "repo": "https://github.com/9e-Docteur/DocMod"
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/docmod/docmod_logo.png",
+  "icon": "assets/docmod_logo.png",
   "environment": "*",
   "entrypoints": {
     "client": [

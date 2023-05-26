@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "docmod:dungeons",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 5464623448,
+
+    "spacing": 20,
+
+    "separation": 12,
+
+    "type": "minecraft:random_spread"
+  }
+}

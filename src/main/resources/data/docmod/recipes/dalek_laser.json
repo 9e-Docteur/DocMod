@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "---",
+    "-*-",
+    "---"
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:light_blue_stained_glass"
+    },
+    "*": {
+      "item": "docmod:cyber_laser"
+    }
+  },
+  "result": {
+    "item": "docmod:dalek_laser"
+  }
+}

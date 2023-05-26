@@ -83,8 +83,8 @@ public class DMItems {
     public static final Item HALFINUM_SWORD = add("halfinum_sword", new HalfinumSwordItem(DMToolMaterials.HALFINUM, 0, -1, new Item.Settings()));
     public static final Item HALFINUM_SHOVEL = add("halfinum_shovel", new ShovelItem(DMToolMaterials.HALFINUM, 0, -1, new Item.Settings()));
     public static final Item MASK = add("mask", new ArmorItem(DMArmorMaterials.MASK, EquipmentSlot.HEAD, new Item.Settings()));
-
-
+    public static final Item ORE_FINDER = add("ore_finder", new OreFinderItem(new Item.Settings().rarity(Rarity.RARE).maxDamage(100)));
+    public static final Item ELECTRONIC_CICUIT  = add("amethyst");
 
     public static Item add(String id) {
         return add(id, new Item(new Item.Settings()));

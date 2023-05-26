@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "docmod:zinc_pickaxe"
+    },
+    "title": "Level 400 completed",
+    "description": "The best pickaxe i hope"
+  },
+  "parent": "docmod:zinc_ingot",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "docmod:zinc_pickaxe"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  }
+}

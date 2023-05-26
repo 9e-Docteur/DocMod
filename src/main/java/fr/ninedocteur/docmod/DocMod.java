@@ -11,6 +11,10 @@ public class DocMod implements ModInitializer {
     public static final String MOD_ID = "docmod";
     public static final String MODNAME = "DocMod Fabric";
     public static final String VERSION = "6.2.1-FAB";
+    public static final String CODENAME = "Longhorn"; //LONGHORN FOR 7.X
+
+    public static final String FULLDOCMODVERSION = MODNAME + " " + CODENAME + " " + VERSION;
+
 
     public static final Logger LOGGER = LoggerFactory.getLogger("docmod");
 
@@ -20,5 +24,6 @@ public class DocMod implements ModInitializer {
 
         DMBlocks.register();
         DMItems.register();
+        DMConfig.loadCommon();
     }
 }
