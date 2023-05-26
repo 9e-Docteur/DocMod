@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "docmod:zinc_ore",
+    "docmod:deepslate_zinc_ore",
+    "docmod:deepslate_steel_ore",
+    "docmod:zinc_block",
+    "docmod:crystaline_block",
+    "docmod:cryolite_ore",
+    "docmod:steel_ore",
+    "docmod:crystal_ore",
+    "docmod:xp_ore",
+    "docmod:zinc_block"
+  ]
+}

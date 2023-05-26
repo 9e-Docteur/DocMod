@@ -1,5 +1,6 @@
 package fr.ninedocteur.docmod.client;
 
+import fr.ninedocteur.docmod.DMConfig;
 import fr.ninedocteur.docmod.client.models.GlassTubeModel;
 import fr.ninedocteur.docmod.common.event.DMEvent;
 import fr.ninedocteur.docmod.common.init.DMBlocks;
@@ -17,10 +18,10 @@ public class DocModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockEntityRenders.register();
-
         EntityModelLayerRegistry.registerModelLayer(ModelRegistry.Glass, GlassTubeModel::createBodyLayer);
-
         BlockRenderLayerMap.INSTANCE.putBlock(DMBlocks.CIRCLE_GLASS, RenderLayer.getTranslucent());
+
+        DMConfig.Client.loadClient();
 
         DMRPC.startRPC();
     }

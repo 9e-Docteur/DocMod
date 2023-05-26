@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "docmod:magic_wand"
+    },
+    "title": "You're a witch!",
+    "description": "You have crafted a Magic Wand"
+  },
+  "parent": "docmod:docmod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "docmod:magic_wand"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  }
+}

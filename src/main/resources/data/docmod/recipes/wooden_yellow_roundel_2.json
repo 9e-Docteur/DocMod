@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "docmod:wooden_yellow_roundel"
+    }
+  },
+  "result": {
+    "item": "docmod:wooden_yellow_roundel_2"
+  }
+}
