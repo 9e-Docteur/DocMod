@@ -47,7 +47,7 @@ public class DMBlocks {
     public static final Block ALBIZIA_LOG = add("albizia_log", new Block(AbstractBlock.Settings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).requiresTool().strength(1)));
     public static final Block ALBIZIA_PLANKS = add("albizia_planks", new Block(AbstractBlock.Settings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).requiresTool().strength(1)));
     public static final Block ALBIZIA_STAIRS = add("albizia_stairs", new StairsBlock(ALBIZIA_PLANKS.getDefaultState(), AbstractBlock.Settings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).requiresTool().strength(1)));
-    public static final Block ALBIZIA_DOOR = add("albizia_door", new DoorBlock(AbstractBlock.Settings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).requiresTool().strength(1), SoundEvents.BLOCK_WOODEN_DOOR_CLOSE, SoundEvents.BLOCK_WOODEN_DOOR_OPEN));
+    public static final Block ALBIZIA_DOOR = add("albizia_door", new DoorBlock(AbstractBlock.Settings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).requiresTool().strength(1), BlockSetType.OAK));
     public static final Block ALBIZIA_LEAVES = add("albizia_leaves", new LeavesBlock(AbstractBlock.Settings.of(Material.LEAVES).nonOpaque().requiresTool().strength(5).sounds(BlockSoundGroup.AZALEA_LEAVES).breakInstantly()));
     public static final Block CRYOLITE_ORE = add("cryolite_ore", new Block(AbstractBlock.Settings.of(Material.STONE).nonOpaque().requiresTool().strength(3)));
     public static final Block HALFINUM_ORE = add("halfinum_ore", new Block(AbstractBlock.Settings.of(Material.STONE).nonOpaque().requiresTool().strength(8)));

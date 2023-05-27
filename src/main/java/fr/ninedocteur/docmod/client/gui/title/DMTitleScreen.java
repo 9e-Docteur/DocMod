@@ -11,6 +11,7 @@ import java.util.concurrent.Executor;
 import fr.ninedocteur.docmod.DMConfig;
 import fr.ninedocteur.docmod.DMSharedConstants;
 import fr.ninedocteur.docmod.DocMod;
+import fr.ninedocteur.docmod.client.gui.screens.*;
 import fr.ninedocteur.docmod.utils.DMUtils;
 import fr.ninedocteur.docmod.utils.ScreenUtils;
 import fr.ninedocteur.docmod.utils.URLUtils;
@@ -106,7 +107,7 @@ public class DMTitleScreen extends Screen {
         return CompletableFuture.allOf(pTexMngr.loadTextureAsync(DOCMOD_LOGO, pBackgroundExecutor), pTexMngr.loadTextureAsync(MINECRAFT_EDITION, pBackgroundExecutor), pTexMngr.loadTextureAsync(PANORAMA_OVERLAY, pBackgroundExecutor), CUBE_MAP.loadTexturesAsync(pTexMngr, pBackgroundExecutor));
     }
 
-    public boolean isPauseScreen() {
+    public boolean shouldPause() {
         return false;
     }
 
@@ -148,7 +149,7 @@ public class DMTitleScreen extends Screen {
 
         if (DMConfig.Client.SHOW_WIDGET) {
             configButton = new TexturedButtonWidget(this.width / 2 - 210, this.height / 4 + 48 -106, 16, 16, 0, 96, new Identifier(DocMod.MOD_ID, "textures/gui/title/transparent.png"), (button -> {
-                //this.client.setScreen(new DocModConfigScreen(this));
+                this.client.setScreen(new DocModConfigScreen(this));
             }));
             discordButton = new TexturedButtonWidget(this.width / 2 - 190, this.height / 4 + 48 -106, 16, 16, 0, 0, new Identifier(DocMod.MOD_ID, "textures/gui/title/transparent.png"), (button -> {
                 URLUtils.openLink(DMUtils.getDiscordLink());
@@ -158,15 +159,15 @@ public class DMTitleScreen extends Screen {
             }));
 
             staffButton = new TexturedButtonWidget(this.width / 2 + 170, this.height / 4 + 48 -106, 16, 16, 0, 0, new Identifier(DocMod.MOD_ID, "textures/gui/staff.png"), (button -> {
-                //ScreenUtils.openScreen(new DocModStaffScreen());
+                ScreenUtils.openScreen(new DocModStaffScreen());
             }));
 
             serverButton = new TexturedButtonWidget(this.width / 2 + 190, this.height / 4 + 48 -106, 16, 16, 0, 0, new Identifier(DocMod.MOD_ID, "textures/gui/server.png"), (button -> {
-                //ScreenUtils.openScreen(new DMCommunityServer(this));
+                ScreenUtils.openScreen(new DMCommunityServer(this));
             }));
 
             infoButton = new TexturedButtonWidget(this.width / 2 - 150, this.height / 4 + 48 -106, 16, 16, 0, 129, new Identifier(DocMod.MOD_ID, "textures/gui/title/transparent.png"), (button -> {
-                //this.client.setScreen(new DocModChangelogScreen(this));
+                this.client.setScreen(new DocModChangelogScreen(this));
             }));
 
             this.addDrawableChild(discordButton);
@@ -186,8 +187,7 @@ public class DMTitleScreen extends Screen {
         }).dimensions(this.width / 2 - 100, p_96764_ + p_96765_ * 2, 200, 20).build();
 
         dmServerButton = ButtonWidget.builder(Text.translatable("DocMod Servers"), (p_96781_) -> {
-            //ConnectScreen.startConnecting(this, this.getMinecraft(), new ServerAddress(Servers.HOST, Servers.PORT), new ServerData("DocMod Server", Servers.HOST, false));
-            //this.client.setScreen(new DMServerScreen(this));
+            this.client.setScreen(new DMServerScreen(this));
         }).dimensions(this.width / 2 - 100, p_96764_ + p_96765_ * 1, 100, 20).build();
 
         this.addDrawableChild(ButtonWidget.builder(Text.translatable("menu.quit"), (p_96781_) -> {
@@ -291,7 +291,7 @@ public class DMTitleScreen extends Screen {
         RenderSystem.setShaderTexture(0, PANORAMA_OVERLAY);
         RenderSystem.enableBlend();
         RenderSystem.blendFunc(GlStateManager.SrcFactor.SRC_ALPHA, GlStateManager.DstFactor.ONE_MINUS_SRC_ALPHA);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, (float)Mth.ceil(Mth.clamp(f, 0.0F, 1.0F)));
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, (float)MathHelper.ceil(MathHelper.clamp(f, 0.0F, 1.0F)));
         drawTexture(p_96739_, 0, 0, this.width, this.height, 0.0F, 0.0F, 16, 128, 16, 128);
         int l = MathHelper.ceil(f1 * 255.0F) << 24;
         if ((l & -67108864) != 0) {

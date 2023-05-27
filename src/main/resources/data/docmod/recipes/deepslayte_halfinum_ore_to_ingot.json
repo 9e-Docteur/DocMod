@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "docmod:halfinum_ore"
-  },
-  "result": "docmod:halfinum_ingot",
-  "experience": 4,
-  "cookingtime": 200
-}

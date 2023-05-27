@@ -53,22 +53,22 @@ public class DMItems {
     public static final Item HALFINUM_FLASK = add("halfinum_flask");
 
     //TOOLS
-    public static final Item ZINC_HELMET = add("zinc_helmet", new ArmorItem(DMArmorMaterials.ZINC, EquipmentSlot.HEAD, new Item.Settings()));
-    public static final Item ZINC_CHESTPLATE = add("zinc_chestplate", new ArmorItem(DMArmorMaterials.ZINC, EquipmentSlot.CHEST, new Item.Settings()));
-    public static final Item ZINC_LEGGINGS = add("zinc_leggings", new ArmorItem(DMArmorMaterials.ZINC, EquipmentSlot.LEGS, new Item.Settings()));
-    public static final Item ZINC_BOOTS = add("zinc_boots", new ArmorItem(DMArmorMaterials.ZINC, EquipmentSlot.FEET, new Item.Settings()));
-    public static final Item COPPER_HELMET = add("copper_helmet", new ArmorItem(DMArmorMaterials.COPPER, EquipmentSlot.HEAD, new Item.Settings()));
-    public static final Item COPPER_CHESTPLATE = add("copper_chestplate", new ArmorItem(DMArmorMaterials.COPPER, EquipmentSlot.CHEST, new Item.Settings()));
-    public static final Item COPPER_LEGGINGS = add("copper_leggings", new ArmorItem(DMArmorMaterials.COPPER, EquipmentSlot.LEGS, new Item.Settings()));
-    public static final Item COPPER_BOOTS = add("copper_boots", new ArmorItem(DMArmorMaterials.COPPER, EquipmentSlot.FEET, new Item.Settings()));
-    public static final Item HALFINUM_HELMET = add("halfinum_helmet", new ArmorItem(DMArmorMaterials.HALFINUM, EquipmentSlot.HEAD, new Item.Settings()));
-    public static final Item HALFINUM_CHESTPLATE = add("halfinum_chestplate", new ArmorItem(DMArmorMaterials.HALFINUM, EquipmentSlot.CHEST, new Item.Settings()));
-    public static final Item HALFINUM_LEGGINGS = add("halfinum_leggings", new ArmorItem(DMArmorMaterials.HALFINUM, EquipmentSlot.LEGS, new Item.Settings()));
-    public static final Item HALFINUM_BOOTS = add("halfinum_boots", new ArmorItem(DMArmorMaterials.HALFINUM, EquipmentSlot.FEET, new Item.Settings()));
-    public static final Item SPACE_HELMET = add("space_helmet", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.HEAD, new Item.Settings()));
-    public static final Item SPACE_CHESTPLATE = add("space_chestplate", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.CHEST, new Item.Settings()));
-    public static final Item SPACE_LEGGINGS = add("space_leggings", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.LEGS, new Item.Settings()));
-    public static final Item SPACE_BOOTS = add("space_boots", new ArmorItem(DMArmorMaterials.SPACE_SUIT, EquipmentSlot.FEET, new Item.Settings()));
+    public static final Item ZINC_HELMET = add("zinc_helmet", new ArmorItem(DMArmorMaterials.ZINC, ArmorItem.Type.HELMET, new Item.Settings()));
+    public static final Item ZINC_CHESTPLATE = add("zinc_chestplate", new ArmorItem(DMArmorMaterials.ZINC, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
+    public static final Item ZINC_LEGGINGS = add("zinc_leggings", new ArmorItem(DMArmorMaterials.ZINC, ArmorItem.Type.LEGGINGS, new Item.Settings()));
+    public static final Item ZINC_BOOTS = add("zinc_boots", new ArmorItem(DMArmorMaterials.ZINC, ArmorItem.Type.BOOTS, new Item.Settings()));
+    public static final Item COPPER_HELMET = add("copper_helmet", new ArmorItem(DMArmorMaterials.COPPER, ArmorItem.Type.HELMET, new Item.Settings()));
+    public static final Item COPPER_CHESTPLATE = add("copper_chestplate", new ArmorItem(DMArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
+    public static final Item COPPER_LEGGINGS = add("copper_leggings", new ArmorItem(DMArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS, new Item.Settings()));
+    public static final Item COPPER_BOOTS = add("copper_boots", new ArmorItem(DMArmorMaterials.COPPER, ArmorItem.Type.BOOTS, new Item.Settings()));
+    public static final Item HALFINUM_HELMET = add("halfinum_helmet", new ArmorItem(DMArmorMaterials.HALFINUM, ArmorItem.Type.HELMET, new Item.Settings()));
+    public static final Item HALFINUM_CHESTPLATE = add("halfinum_chestplate", new ArmorItem(DMArmorMaterials.HALFINUM, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
+    public static final Item HALFINUM_LEGGINGS = add("halfinum_leggings", new ArmorItem(DMArmorMaterials.HALFINUM, ArmorItem.Type.LEGGINGS, new Item.Settings()));
+    public static final Item HALFINUM_BOOTS = add("halfinum_boots", new ArmorItem(DMArmorMaterials.HALFINUM, ArmorItem.Type.BOOTS, new Item.Settings()));
+    public static final Item SPACE_HELMET = add("space_helmet", new ArmorItem(DMArmorMaterials.SPACE_SUIT, ArmorItem.Type.HELMET, new Item.Settings()));
+    public static final Item SPACE_CHESTPLATE = add("space_chestplate", new ArmorItem(DMArmorMaterials.SPACE_SUIT, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
+    public static final Item SPACE_LEGGINGS = add("space_leggings", new ArmorItem(DMArmorMaterials.SPACE_SUIT, ArmorItem.Type.LEGGINGS, new Item.Settings()));
+    public static final Item SPACE_BOOTS = add("space_boots", new ArmorItem(DMArmorMaterials.SPACE_SUIT, ArmorItem.Type.BOOTS, new Item.Settings()));
     public static final Item COPPER_SWORD = add("copper_sword", new SwordItem(DMToolMaterials.COPPER, 6, -3, new Item.Settings()));
     public static final Item COPPER_PICKAXE = add("copper_pickaxe", new PickaxeItem(DMToolMaterials.COPPER, 0, -1, new Item.Settings()));
     public static final Item COPPER_AXE = add("copper_axe", new AxeItem(DMToolMaterials.COPPER, 0, -1, new Item.Settings()));
@@ -82,7 +82,7 @@ public class DMItems {
     public static final Item HALFINUM_PICKAXE = add("halfinum_pickaxe", new PickaxeItem(DMToolMaterials.HALFINUM, 0, -1, new Item.Settings()));
     public static final Item HALFINUM_SWORD = add("halfinum_sword", new HalfinumSwordItem(DMToolMaterials.HALFINUM, 0, -1, new Item.Settings()));
     public static final Item HALFINUM_SHOVEL = add("halfinum_shovel", new ShovelItem(DMToolMaterials.HALFINUM, 0, -1, new Item.Settings()));
-    public static final Item MASK = add("mask", new ArmorItem(DMArmorMaterials.MASK, EquipmentSlot.HEAD, new Item.Settings()));
+    public static final Item MASK = add("mask", new ArmorItem(DMArmorMaterials.MASK, ArmorItem.Type.HELMET, new Item.Settings()));
     public static final Item ORE_FINDER = add("ore_finder", new OreFinderItem(new Item.Settings().rarity(Rarity.RARE).maxDamage(100)));
     public static final Item ELECTRONIC_CICUIT  = add("amethyst");
 

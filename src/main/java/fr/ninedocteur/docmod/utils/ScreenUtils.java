@@ -11,11 +11,9 @@ public class ScreenUtils {
     }
 
     public static void openScreen(Screen screen) {
-        MinecraftClient.getInstance()
-                .send(() -> {
-                    MinecraftClient.getInstance()
-                            .setScreen(screen);
-                });
+        MinecraftClient.getInstance().send(() -> {
+            MinecraftClient.getInstance().setScreen(screen);
+        });
     }
 
     public static void fillWithFullTexture(double x, double y, int width, int height)
