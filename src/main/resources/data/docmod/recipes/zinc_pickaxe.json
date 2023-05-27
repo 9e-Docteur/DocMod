@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    " * ",
+    " * "
+  ],
+  "key": {
+    "#": {
+      "item": "docmod:zinc_ingot"
+    },
+    "*": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "docmod:zinc_pickaxe"
+  }
+}

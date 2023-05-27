@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "(-)",
+    "-#-",
+    "+++"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "-": {
+      "item": "docmod:cryolite"
+    },
+    "(": {
+      "item": "minecraft:redstone"
+    },
+    ")": {
+      "item": "minecraft:redstone_torch"
+    },
+    "+": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "docmod:electronic_circuit"
+  }
+}

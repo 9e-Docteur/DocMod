@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "docmod:block/death_log" }
+  }
+}

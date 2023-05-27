@@ -1,0 +1,64 @@
+{
+  "itemGroup.DocModBETA": "DocMod - BETA",
+
+  "block.docmod.killer_block": "Bloc tueur",
+  "block.docmod.amethyst_ore": "Minerai d'Amethyst",
+  "block.docmod.zinc_ore": "Minerai de Zinc",
+  "block.docmod.circle_glass": "Vitre ronde",
+  "block.docmod.copper_ore": "Minerai de cuivre",
+
+
+
+  "item.docmod.amethyst":  "Lingot d'Amethyst",
+  "item.docmod.copper_ingot": "Lingot de cuivre",
+
+
+  "item.docmod.copper_helmet": "Copper Helmet",
+  "item.docmod.copper_chestplate": "Copper Chestplate",
+  "item.docmod.copper_leggings": "Copper Leggings",
+  "item.docmod.copper_boots": "Copper Boots",
+
+  "keys.jobs.category" : "Métiers",
+  "keys.jobs.open_gui" : "Ouvrir le Menu",
+
+  "jobs.hunter" : "Chasseur",
+  "jobs.magician" : "Magicien",
+  "jobs.farmer" : "Fermier",
+  "jobs.miner" : "Mineur",
+
+  "item.jobs.jobs_book" : "Livre des Métiers",
+
+  "text.level" : "niveau",
+  "text.levelup" : "Niveau Supérieur",
+  "text.jobs.title" : "Metiers",
+  "text.level.max" : "Niveau Max",
+  "text.unlocked" : "Items Debloquées",
+  "text.unlock_drop" : "Collecte Debloquée",
+  "text.unlock_lvl" : "Debloqué au niveau",
+  "text.unlock_lvl_craft" : "Craft Debloqué au niveau",
+  "text.unlock_lvl_use" : "Usage Debloqué au niveau",
+  "text.unlock_lvl_weapon" : "Usage de l'arme Debloqué au niveau",
+  "text.unlock_lvl_armor" : "Usage de l'armure Debloqué au niveau",
+  "text.unlock_lvl_collect" : "Collecte Debloquée au niveau",
+  "text.unlock_craft" : "Craft Debloqué",
+  "text.unlock_use" : "Usage Debloqué",
+  "text.unlock_weapon" : "Usage de l'arme Debloqué",
+  "text.unlock_armor" : "Usage de l'armure  Debloqué",
+  "text.unlock_collect" : "Collecte Debloquée",
+
+  "text.rewards" : "Récompenses",
+  "text.total_progression" : "Progression Totale",
+  "text.need_book" : "Vous avez besoin d'un",
+
+  "command.openfile.fail" : "Echec de l'ouverture de ",
+  "command.openfile.warning" : "Les changements prendront effet après le redémarrage du serveur",
+  "command.openfile.fail_console" : "Cette commande ne peut être exéecutée que depuis la machine locale !",
+
+  "category.CRAFTING" : "Fabrication",
+  "category.SMELTING" : "Fonte",
+  "category.BREAKING" : "Minage",
+  "category.KILLING" : "Chasse",
+  "category.HARVESTING" : "Collecte",
+  "category.UNLOCK" : "Items Bloqués",
+  "category.XP" : "Comment XP ?"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#* ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "docmod:round_thing_frame"
+    },
+    "*": {
+      "item": "minecraft:green_dye"
+    }
+  },
+  "result": {
+    "item": "docmod:green_round_thing_frame"
+  }
+}

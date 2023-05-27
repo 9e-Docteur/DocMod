@@ -1,0 +1,15 @@
+S09-04-23 && S10-04-23 && S11-04-23 && S14-04-23:
+New Features :
+- New font for our server
+- Added new assets team
+- Added DocMod Server Screen and working!
+- Old textures from old version of DocMod are available as Resource Pack!
+- Added a new icon for the Minecraft App!
+
+Fix:
+- Fully fixed for server
+- Resource pack of old textures of DocMod now working.
+
+Changes:
+- Temporaily disable sonic NBT
+- Updated DocMod Debug Overlay

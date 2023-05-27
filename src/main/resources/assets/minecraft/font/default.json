@@ -1,0 +1,46 @@
+{
+  "providers": [
+    {
+        "type":"bitmap",
+        "file":"minecraft:custom/zinc.png",
+        "ascent":7,
+        "height":7,
+        "chars":["ꐆ"]
+    },
+    {
+      "type":"bitmap",
+      "file":"minecraft:custom/crystaline.png",
+      "ascent":7,
+      "height":7,
+      "chars":["的"]
+    },
+    {
+      "type":"bitmap",
+      "file":"minecraft:custom/halfinum.png",
+      "ascent":7,
+      "height":7,
+      "chars":["是"]
+    },
+    {
+      "type":"bitmap",
+      "file":"minecraft:custom/steel.png",
+      "ascent":7,
+      "height":7,
+      "chars":["这"]
+    },
+    {
+      "type":"bitmap",
+      "file":"minecraft:custom/moderator.png",
+      "ascent":7,
+      "height":7,
+      "chars":["乍"]
+    },
+    {
+      "type":"bitmap",
+      "file":"minecraft:custom/admin.png",
+      "ascent":7,
+      "height":7,
+      "chars":["卂"]
+    }
+  ]
+}

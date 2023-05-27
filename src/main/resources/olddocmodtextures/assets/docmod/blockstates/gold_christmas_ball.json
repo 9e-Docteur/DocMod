@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "docmod:block/gold_christmas_ball",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "docmod:block/gold_christmas_ball"
+    },
+    "facing=south": {
+      "model": "docmod:block/gold_christmas_ball",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "docmod:block/gold_christmas_ball",
+      "y": 270
+    }
+  }
+}

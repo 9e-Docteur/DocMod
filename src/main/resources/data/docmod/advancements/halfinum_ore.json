@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "docmod:halfinum_ore"
+    },
+    "title": "You've just now... POWERFUL",
+    "description": "Damn you've mined a halfinum ore, you're rich!"
+  },
+  "parent": "docmod:docmod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items":[
+              "docmod:halfinum_ore"
+            ],
+            "count": {
+              "min": 1,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  }
+}
