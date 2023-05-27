@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "roundthingsmod:block/pandarebel4307/lime_roundel_custom"
+  }
+}

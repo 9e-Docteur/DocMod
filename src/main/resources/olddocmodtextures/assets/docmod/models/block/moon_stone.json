@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "docmod:block/dimension/moon_stone"
+  }
+}

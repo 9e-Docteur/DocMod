@@ -1,6 +1,6 @@
 package fr.ninedocteur.docteam.website;
 
-import be.ninedocteur.docmod.utils.IOUtils;
+import fr.ninedocteur.docmod.utils.IOUtils;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

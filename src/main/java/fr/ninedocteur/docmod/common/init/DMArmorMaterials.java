@@ -4,6 +4,7 @@ import fr.ninedocteur.docmod.DocMod;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
@@ -66,15 +67,14 @@ public enum DMArmorMaterials implements ArmorMaterial {
         this.knockbackResistance = knockbackResistance;
         this.repairMaterial = new Lazy<>(repairMaterial);
     }
-
     @Override
-    public int getDurability(EquipmentSlot equipmentSlot) {
-        return MAX_DAMAGE_ARRAY[equipmentSlot.getEntitySlotId()] * this.maxDamageFactor;
+    public int getDurability(ArmorItem.Type type) {
+        return MAX_DAMAGE_ARRAY[type.getEquipmentSlot().getEntitySlotId()] * this.maxDamageFactor;
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot equipmentSlot) {
-        return this.damageReductionAmountArray[equipmentSlot.getEntitySlotId()];
+    public int getProtection(ArmorItem.Type type) {
+        return this.damageReductionAmountArray[type.getEquipmentSlot().getEntitySlotId()];
     }
 
     @Override

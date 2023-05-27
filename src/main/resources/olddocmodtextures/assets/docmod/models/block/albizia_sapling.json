@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "all": "docmod:block/albizia_sapling"
+  }
+}

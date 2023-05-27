@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "docmod:block/albizia_planks",
+    "top": "docmod:block/albizia_planks",
+    "side": "docmod:block/albizia_planks"
+  }
+}

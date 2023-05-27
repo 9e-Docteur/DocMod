@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "docmod:block/tardis_monitor",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "docmod:block/tardis_monitor"
+    },
+    "facing=south": {
+      "model": "docmod:block/tardis_monitor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "docmod:block/tardis_monitor",
+      "y": 270
+    }
+  }
+}

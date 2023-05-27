@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "docmod:block/marks_concrete",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "docmod:block/marks_concrete"
+    },
+    "facing=south": {
+      "model": "docmod:block/marks_concrete",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "docmod:block/marks_concrete",
+      "y": 270
+    }
+  }
+}

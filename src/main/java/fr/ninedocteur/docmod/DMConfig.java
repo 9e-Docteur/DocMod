@@ -2,6 +2,7 @@ package fr.ninedocteur.docmod;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -30,7 +31,6 @@ public class DMConfig {
             } else {
                 try {
                     file.createNewFile();
-                    properties.load(new FileInputStream(file));
                     properties.setProperty("SHOW_VERSION", "true");
                     properties.setProperty("SHOW_VERSION_INGAME", "true");
                     properties.setProperty("CUSTOM_TITLE_SCREEN", "true");
@@ -53,6 +53,30 @@ public class DMConfig {
             RPC = Boolean.parseBoolean(properties.getProperty("RPC"));
             DEV_MODE = Boolean.parseBoolean(properties.getProperty("DEV_MODE"));
             DEV_WARN = Boolean.parseBoolean(properties.getProperty("DEV_WARN"));
+            try{
+                properties.store(new FileOutputStream(file), "DocMod Client Config");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        public static void saveClient() {
+            Properties properties = new Properties();
+            File file = new File("config/docmod-client.properties");
+            properties.setProperty("SHOW_VERSION", String.valueOf(SHOW_VERSION));
+            properties.setProperty("SHOW_VERSION_INGAME", String.valueOf(SHOW_VERSION_INGAME));
+            properties.setProperty("CUSTOM_TITLE_SCREEN", String.valueOf(CUSTOM_TITLE_SCREEN));
+            properties.setProperty("SHOW_WIP_TABS", String.valueOf(SHOW_WIP_TABS));
+            properties.setProperty("SHOW_WIDGET", String.valueOf(SHOW_WIDGET));
+            properties.setProperty("THREE_D_HEAD", String.valueOf(THREE_D_HEAD));
+            properties.setProperty("RPC", String.valueOf(RPC));
+            properties.setProperty("DEV_MODE", String.valueOf(DEV_MODE));
+            properties.setProperty("DEV_WARN", String.valueOf(DEV_WARN));
+            try{
+                properties.store(new FileOutputStream(file), "DocMod Client Config");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -80,5 +104,22 @@ public class DMConfig {
         }
         GUN_EXPLOSION = Boolean.parseBoolean(properties.getProperty("GUN_EXPLOSION"));
         GUN_EXPLOSION_SIZE = Boolean.parseBoolean(properties.getProperty("GUN_EXPLOSION_SIZE"));
+        try{
+            properties.store(new FileOutputStream(file), "DocMod Common Config");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void saveCommon() {
+        Properties properties = new Properties();
+        File file = new File("config/docmod-common.properties");
+        properties.setProperty("GUN_EXPLOSION", String.valueOf(GUN_EXPLOSION));
+        properties.setProperty("GUN_EXPLOSION_SIZE", String.valueOf(GUN_EXPLOSION_SIZE));
+        try{
+            properties.store(new FileOutputStream(file), "DocMod Common Config");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
