@@ -11,6 +11,8 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
@@ -18,24 +20,73 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DMItems {
-    public static Map<String, Item> ITEMS = new HashMap<>();
+    public static Map<String, DMBaseItem> ITEMS = new HashMap<>();
 
-    public static final Item AMETHYST = add("amethyst");
-    public static final Item ZINC_INGOT = add("zinc_ingot");
-    public static final Item CRYSTALINE = add("crystaline");
-    public static final Item CRYSTAL = add("crystal", new Item(new Item.Settings().rarity(Rarity.UNCOMMON)));
-    public static final Item ZINC_NUGGET = add("zinc_nugget");
-    public static final Item HALFINUM_NUGGET = add("halfinum_nugget");
-    public static final Item CRYOLITE = add("cryolite");
-    public static final Item LIGHT_BLUE_BRICKS_INGOT = add("light_blue_bricks_ingot");
-    public static final Item GREEN_BRICKS_INGOT = add("green_bricks_ingot");
-    public static final Item YELLOW_BRICKS_INGOT= add("yellow_bricks_ingot");
-    public static final Item BLUE_BRICKS_INGOT = add("blue_bricks_ingot");
-    public static final Item HALFINUM_INGOT = add("halfinum_ingot", new HalfinumIngotItem(new Item.Settings().rarity(Rarity.RARE)));
-    public static final Item FUEL = add("fuel", new Item(new Item.Settings().rarity(Rarity.RARE)));
-    public static final Item WHITE_POINTED_STAR = add("white_pointed_star", new WhitePointedStarItem(new Item.Settings().rarity(Rarity.RARE)));
-    public static final Item STEEL_INGOT = add("steel_ingot");
-    public static final Item RAW_STEEL_INGOT = add("raw_steel_ingot");
+    public static final Item AMETHYST = add("amethyst", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item ZINC_INGOT = add("zinc_ingot", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item CRYSTALINE = add("crystaline", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item CRYSTAL = add("crystal", new DMBaseItem(
+            new Item.Settings().rarity(Rarity.UNCOMMON),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item ZINC_NUGGET = add("zinc_nugget", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item HALFINUM_NUGGET = add("halfinum_nugget", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item CRYOLITE = add("cryolite", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item LIGHT_BLUE_BRICKS_INGOT = add("light_blue_bricks_ingot", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item GREEN_BRICKS_INGOT = add("green_bricks_ingot", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item YELLOW_BRICKS_INGOT= add("yellow_bricks_ingot", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item BLUE_BRICKS_INGOT = add("blue_bricks_ingot", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item HALFINUM_INGOT = add("halfinum_ingot", new TooltipItem(
+            new Item.Settings().rarity(Rarity.RARE),
+            DMItemGroups.DMItemGroup.MATERIALS,
+            Text.literal(Formatting.OBFUSCATED  + "t" + Formatting.RESET + "OMGGG"+ Formatting.OBFUSCATED  + "t")
+    ));
+    public static final Item FUEL = add("fuel", new DMBaseItem(
+            new Item.Settings().rarity(Rarity.RARE),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item WHITE_POINTED_STAR = add("white_pointed_star", new GlitItem(
+            new Item.Settings().rarity(Rarity.RARE),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item STEEL_INGOT = add("steel_ingot", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item RAW_STEEL_INGOT = add("raw_steel_ingot", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
 
     //FOOD
     public static final Item BELGIUM_FRIES = add("belgium_fries", new BelgiumFriesFoodItem(new Item.Settings().food(new FoodComponent.Builder().statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 2), 0.2f).hunger(2).saturationModifier(1).alwaysEdible().build())));
@@ -47,10 +98,22 @@ public class DMItems {
     public static final Item DOCTEAM_COLA = add("docteam_cola", new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(2).alwaysEdible().build())));
 
     //FLASK
-    public static final Item EMPTY_FLASK = add("empty_flask");
-    public static final Item COPPER_FLASK = add("copper_flask");
-    public static final Item ZINC_FLASK = add("zinc_flask");
-    public static final Item HALFINUM_FLASK = add("halfinum_flask");
+    public static final Item EMPTY_FLASK = add("empty_flask", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item COPPER_FLASK = add("copper_flask", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item ZINC_FLASK = add("zinc_flask", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
+    public static final Item HALFINUM_FLASK = add("halfinum_flask", new DMBaseItem(
+            new Item.Settings(),
+            DMItemGroups.DMItemGroup.MATERIALS
+    ));
 
     //TOOLS
     public static final Item ZINC_HELMET = add("zinc_helmet", new ArmorItem(DMArmorMaterials.ZINC, ArmorItem.Type.HELMET, new Item.Settings()));
@@ -87,10 +150,10 @@ public class DMItems {
     public static final Item ELECTRONIC_CICUIT  = add("amethyst");
 
     public static Item add(String id) {
-        return add(id, new Item(new Item.Settings()));
+        return add(id, new DMBaseItem(new Item.Settings(), null));
     }
 
-    public static Item add(String id, Item item) {
+    public static Item add(String id, DMBaseItem item) {
         ITEMS.put(id, item);
         return item;
     }

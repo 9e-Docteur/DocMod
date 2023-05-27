@@ -1,6 +1,7 @@
 package fr.ninedocteur.docmod;
 
 import fr.ninedocteur.docmod.common.init.DMBlocks;
+import fr.ninedocteur.docmod.common.init.DMItemGroups;
 import fr.ninedocteur.docmod.common.init.DMItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -24,6 +25,7 @@ public class DocMod implements ModInitializer {
 
         DMBlocks.register();
         DMItems.register();
+        DMItemGroups.register();
         DMConfig.loadCommon();
     }
 }
