@@ -1,5 +1,9 @@
 package be.ninedocteur.docmod.common.event;
 
+import be.ninedocteur.docmod.common.tileentity.TardisTileEntity;
+import be.ninedocteur.docmod.common.world.tardis.TardisWorldManager;
+import net.minecraftforge.event.level.LevelEvent;
+
 public class DMEvent {
 /*
     @SubscribeEvent
@@ -37,4 +41,20 @@ public class DMEvent {
 
 
  */
+
+    public static void onWorldEvent(LevelEvent event){
+        if(event.getLevel() != null){
+            for(TardisTileEntity tile : TardisWorldManager.getTardis()){
+                if(tile.isDemating){
+                    tile.demat();
+                }
+                if(tile.isAlreadyDemat){
+                    event.getLevel().removeBlock(tile.getCurrentPosition(), false);
+                }
+                if(tile.isRematting){
+                    tile.remat();
+                }
+            }
+        }
+    }
 }

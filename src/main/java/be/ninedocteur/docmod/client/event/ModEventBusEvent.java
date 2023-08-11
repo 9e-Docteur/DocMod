@@ -1,16 +1,14 @@
 package be.ninedocteur.docmod.client.event;
 
 
+import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.models.*;
 import be.ninedocteur.docmod.client.models.entity.*;
 import be.ninedocteur.docmod.client.render.*;
 import be.ninedocteur.docmod.client.render.entity.*;
 import be.ninedocteur.docmod.common.entity.DMEntityType;
 import be.ninedocteur.docmod.common.entity.mob.*;
-import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.init.DMParticles;
-import be.ninedocteur.docmod.common.particle.ClassicDalekParticles;
-import be.ninedocteur.docmod.common.particle.MagicParticles;
 import be.ninedocteur.docmod.registry.LayerDefinitionsRegistry;
 import be.ninedocteur.docmod.registry.ModelRegistry;
 import net.minecraft.client.Minecraft;
@@ -81,6 +79,7 @@ public class ModEventBusEvent {
         event.registerEntityRenderer(DMEntityType.ADIPOSE.get(), AdiposeRenderer::new);
     }
 
+
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event){
         event.put(DMEntityType.ZURBION.get(), Zurbion.createAttributes().build());
@@ -97,10 +96,4 @@ public class ModEventBusEvent {
         event.put(DMEntityType.ADIPOSE.get(), AdiposeEntity.createAttributes().build());
     }
 
-    @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
-        Minecraft.getInstance().particleEngine.register(DMParticles.MAGIC_PARTICLES.get(), MagicParticles.Provider::new);
-        Minecraft.getInstance().particleEngine.register(DMParticles.CLASSIC_DALEK_PARTICLES.get(), ClassicDalekParticles.Provider::new);
-    }
 }

@@ -1,6 +1,5 @@
 package be.ninedocteur.docmod.client.models.entity;
 
-import be.ninedocteur.docmod.common.entity.mob.CyberHumanEntity;
 import be.ninedocteur.docmod.common.entity.mob.CyberHumanEntityThird;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

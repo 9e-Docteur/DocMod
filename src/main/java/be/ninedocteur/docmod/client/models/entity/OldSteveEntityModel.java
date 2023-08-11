@@ -1,7 +1,6 @@
 package be.ninedocteur.docmod.client.models.entity;
 
 import be.ninedocteur.docmod.common.entity.mob.OldSteve;
-import be.ninedocteur.docmod.common.entity.mob.Zurbitris;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HumanoidModel;

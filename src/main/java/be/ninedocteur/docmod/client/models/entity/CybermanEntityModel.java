@@ -1,8 +1,6 @@
 package be.ninedocteur.docmod.client.models.entity;
 
 import be.ninedocteur.docmod.common.entity.mob.CybermanEntity;
-import be.ninedocteur.docmod.common.entity.mob.OldSteve;
-import be.ninedocteur.docmod.utils.ModelUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HumanoidModel;
@@ -15,7 +13,7 @@ public class CybermanEntityModel<T extends CybermanEntity> extends HumanoidModel
     private final ModelPart hat;
     private final ModelPart body;
     private final ModelPart rightarm;
-    private final ModelPart leftarm;
+    public final ModelPart leftarm;
     private final ModelPart rightleg;
     private final ModelPart leftleg;
     //private final ModelPart body_lightmap;

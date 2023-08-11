@@ -1,6 +1,5 @@
 package be.ninedocteur.docmod.client.models.entity;
 
-import be.ninedocteur.docmod.common.entity.mob.Dalek;
 import be.ninedocteur.docmod.common.entity.mob.SWDalek;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

@@ -3,7 +3,6 @@ package be.ninedocteur.docmod.client.models;// Made with Blockbench 4.1.5
 // Paste this class into your mod and generate all required imports
 
 
-import be.ninedocteur.docmod.common.entity.mob.Dalek;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;

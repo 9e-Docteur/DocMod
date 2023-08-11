@@ -19,9 +19,9 @@ public abstract class DMEyesLayer<T extends Entity, M extends EntityModel<T>> ex
         super(pRenderer);
     }
 
-    public void render(PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+    public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
         VertexConsumer vertexconsumer = pBuffer.getBuffer(this.renderType());
-        this.getParentModel().renderToBuffer(pMatrixStack, vertexconsumer, ModelUtils.getModelGlow(1F), OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.getParentModel().renderToBuffer(pPoseStack, vertexconsumer, ModelUtils.getModelGlow(1F), OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
     }
 
     public abstract RenderType renderType();

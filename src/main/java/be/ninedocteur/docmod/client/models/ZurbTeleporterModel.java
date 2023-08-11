@@ -1,6 +1,5 @@
 package be.ninedocteur.docmod.client.models;
 
-import be.ninedocteur.docmod.utils.DMUtils;
 import be.ninedocteur.docmod.utils.ModelUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

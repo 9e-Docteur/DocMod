@@ -1,9 +1,7 @@
 package be.ninedocteur.docmod.client.render.entity;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.client.models.entity.CyberHumanModel;
 import be.ninedocteur.docmod.client.models.entity.CyberHumanModelThird;
-import be.ninedocteur.docmod.common.entity.mob.CyberHumanEntity;
 import be.ninedocteur.docmod.common.entity.mob.CyberHumanEntityThird;
 import be.ninedocteur.docmod.registry.LayerDefinitionsRegistry;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

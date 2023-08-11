@@ -1,20 +1,15 @@
 package be.ninedocteur.docmod.client.render;
 
-import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.client.models.ZurbTeleporterModel;
 import be.ninedocteur.docmod.common.tileentity.PandaTileEntity;
-import be.ninedocteur.docmod.common.tileentity.ZurbTeleporterTile;
 import be.ninedocteur.docmod.registry.ModelRegistry;
 import be.ninedocteur.docmod.utils.PlayerUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.PandaModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 

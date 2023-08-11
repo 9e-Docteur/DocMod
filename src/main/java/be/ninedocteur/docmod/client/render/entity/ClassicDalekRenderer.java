@@ -2,9 +2,7 @@ package be.ninedocteur.docmod.client.render.entity;
 
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.models.entity.ClassicDalekEntityModel;
-import be.ninedocteur.docmod.client.models.entity.DalekEntityModel;
 import be.ninedocteur.docmod.common.entity.mob.ClassicDalek;
-import be.ninedocteur.docmod.common.entity.mob.Dalek;
 import be.ninedocteur.docmod.registry.LayerDefinitionsRegistry;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

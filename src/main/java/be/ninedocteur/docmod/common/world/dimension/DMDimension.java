@@ -3,13 +3,12 @@ package be.ninedocteur.docmod.common.world.dimension;
 import be.ninedocteur.docmod.DMConfig;
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.world.gen.TardisChunkGenerator;
-import be.ninedocteur.docmod.network.Network;
-import be.ninedocteur.docmod.network.packet.SynchroniseDimensionPacket;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Lifecycle;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.WritableRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -35,12 +34,12 @@ import java.util.concurrent.Executor;
 import java.util.function.BiFunction;
 
 public class DMDimension {
-    public static final ResourceKey<Level> MOON_KEY = ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DocMod.MOD_ID, "moon"));
-    public static final ResourceKey<Level> TARDIS_KEY = ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DocMod.MOD_ID, "tardis"));
-    public static final ResourceKey<Level> SPACE_KEY = ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation(DocMod.MOD_ID, "space"));
-    public static final ResourceKey<DimensionType> MOON_TYPE = ResourceKey.create(Registry.DIMENSION_TYPE_REGISTRY, MOON_KEY.registry());
-    public static final ResourceKey<DimensionType> TARDIS_TYPE = ResourceKey.create(Registry.DIMENSION_TYPE_REGISTRY, TARDIS_KEY.registry());
-    public static final ResourceKey<DimensionType> SPACE_TYPE = ResourceKey.create(Registry.DIMENSION_TYPE_REGISTRY, SPACE_KEY.registry());
+    public static final ResourceKey<Level> MOON_KEY = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(DocMod.MOD_ID, "moon"));
+    public static final ResourceKey<Level> TARDIS_KEY = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(DocMod.MOD_ID, "tardis"));
+    public static final ResourceKey<Level> SPACE_KEY = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(DocMod.MOD_ID, "space"));
+    public static final ResourceKey<DimensionType> MOON_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, MOON_KEY.registry());
+    public static final ResourceKey<DimensionType> TARDIS_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, TARDIS_KEY.registry());
+    public static final ResourceKey<DimensionType> SPACE_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, SPACE_KEY.registry());
 
 
     public static void register(){

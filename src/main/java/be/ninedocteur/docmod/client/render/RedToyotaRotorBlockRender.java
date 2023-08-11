@@ -2,9 +2,7 @@ package be.ninedocteur.docmod.client.render;
 
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.models.RedToyotaRotorModel;
-import be.ninedocteur.docmod.client.models.ToyotaRotorModel;
 import be.ninedocteur.docmod.common.tileentity.RedToyotaRotorTileEntity;
-import be.ninedocteur.docmod.common.tileentity.ToyotaRotorTileEntity;
 import be.ninedocteur.docmod.registry.ModelRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;

@@ -1,18 +1,12 @@
 package be.ninedocteur.docmod.client.models.entity;
 
-import be.ninedocteur.docmod.common.entity.mob.Zurbion;
 import be.ninedocteur.docmod.common.entity.mob.Zurbitris;
-import be.ninedocteur.docmod.utils.DMUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.EquipmentSlot;
 
 public class ZurbitrisEntityModel<T extends Zurbitris> extends HumanoidModel<T> {
     private final ModelPart head;

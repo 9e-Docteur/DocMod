@@ -1,27 +1,23 @@
 package be.ninedocteur.docmod;
 
-import be.ninedocteur.docmod.api.Addon;
-import be.ninedocteur.docmod.client.containers.DMContainers;
-import be.ninedocteur.docmod.client.gui.screens.DMReportBug;
-import be.ninedocteur.docmod.common.capes.AnimatedCapeHandler;
-import be.ninedocteur.docmod.common.init.DMMenu;
-import be.ninedocteur.docmod.common.listeners.DMListeners;
+import be.ninedocteur.docmod.common.DMCapabilities;
+import be.ninedocteur.docmod.common.ITardis;
+import be.ninedocteur.docmod.common.event.DMEvent;
+import be.ninedocteur.docmod.common.world.tardis.TardisData;
 import be.ninedocteur.docmod.proxy.ClientProxy;
 import be.ninedocteur.docmod.common.init.DMWoodTypes;
 import be.ninedocteur.docmod.registry.ClassRegistry;
 import be.ninedocteur.docmod.utils.*;
-import be.ninedocteur.docteam.api.DMLogin;
-import be.ninedocteur.docteam.api.DocTeamAPI;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import com.mojang.blaze3d.platform.GlUtil;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -29,18 +25,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-import java.util.UUID;
-
-import javax.print.Doc;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-
-import net.minecraftforge.fml.loading.moddiscovery.ModAnnotation;
-import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
-import net.minecraftforge.forgespi.language.IModInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -71,16 +57,12 @@ public class DocMod {
         LOGGER.info("Start initializing DocMod Events.");
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientProxy.doClientEvents(eventBus, MinecraftForge.EVENT_BUS));
         DocMod.LOGGER.info("Init DocMod Containers...");
-        DMContainers.CONTAINERS.register(eventBus);
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::onLaunch);
-        //WIP STUFF
-//        Addon addon = new Addon("DocMod", DocMod.MOD_ID, DocMod.VERSION, "no site", "no issue");
-//        Addon test = new Addon("JEI", "jei", "1.0", "no site", "no issue");
-//        Addon.registerModAsAPI(addon);
-//        Addon.registerModAsAPI(test);
+        MinecraftForge.EVENT_BUS.addListener(DMEvent::onWorldEvent);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initMoon);
         MinecraftForge.EVENT_BUS.addListener(PlanetUtils::initSpace);
+        eventBus.addListener(DMCapabilities::register);
         //MinecraftForge.EVENT_BUS.addListener(DMListeners::onPlayerEvent);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("DocMod is fully Initialized.");
@@ -110,21 +92,9 @@ public class DocMod {
         }
         LOGGER.info("Welcome to DocMod " + DMUtils.CODENAME);
     }
-    
-    private void closeGameForBannedPeopleRunningTheMod() {
-    	if(getBannedPeople()) {
-    		System.exit(1);
-    	}
+
+    private void onWordLoad(LevelEvent.Load event){
+        TardisData tardisData = new TardisData();
+        TardisData.registerOldTardises(event.getLevel().getServer(), tardisData.tardisLevelKeys);
     }
-    
-    public static boolean getBannedPeople() {
-    	//TODO: Change to UUID to avoid player changing name are unbanned
-    	UUID playerUUID = Minecraft.getInstance().player.getUUID();
-    	return playerUUID.toString().contains((CharSequence) Component.literal(IOUtils.readURLContent(DocTeamAPI.getAPI() + "docmod/ban/banned_players.txt")));
-    }
-    
-    public static void prepareDownload() {
-    	AnimatedCapeHandler.readCapeTexture(DocTeamAPI.getAPI() + "docmod/cape/ninety/" + AnimatedCapeHandler.i + ".png", AnimatedCapeHandler.i);
-    }
-    
 }

@@ -1,53 +1,39 @@
 package be.ninedocteur.docmod.common.tileentity;
 
-import be.ninedocteur.docmod.DocMod;
+import be.ninedocteur.docmod.common.DMCapabilities;
+import be.ninedocteur.docmod.common.ITardis;
 import be.ninedocteur.docmod.common.init.DMTileEntity;
-import be.ninedocteur.docmod.common.network.DMPackets;
-import be.ninedocteur.docmod.common.network.packets.TardisDematPacket;
-import be.ninedocteur.docmod.common.network.packets.TardisRematPacket;
-import be.ninedocteur.docmod.common.world.dimension.DMDimension;
-import be.ninedocteur.docmod.utils.LevelUtils;
+import be.ninedocteur.docmod.common.world.tardis.TardisWorldManager;
 import be.ninedocteur.docmod.utils.PlayerUtils;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkAccess;
-import net.minecraftforge.network.NetworkDirection;
 
 import java.util.*;
 
-public class TardisTileEntity extends BlockEntity {
+public class TardisTileEntity extends BlockEntity implements ITardis {
 
     private int id;
     public static HashMap<Integer, TardisTileEntity> tardisMap = new HashMap<>();
 
+    public State state = State.STANDING;
     public boolean isLocked = false;
-    public boolean isDemating = false;
-    public boolean isAlreadyDemat = false;
     public boolean isOn = true;
     public BlockPos targetPosition;
     public BlockPos currentPosition;
     public ResourceKey<Level> targetDimension;
     public ResourceKey<Level> currentDimension;
     public UUID ownerUUID;
-    private boolean visible;
+    private UUID tardisID;
 
     public TardisTileEntity(BlockPos pos, BlockState state) {
         super(DMTileEntity.Tardis.get(), pos, state);
-        Level mLevel = Minecraft.getInstance().level;
-        id = -1;
-        ChunkAccess chunk = mLevel.getChunk(this.getCurrentLocation());
-        if(mLevel instanceof ServerLevel serverLevel){
-            serverLevel.setChunkForced(chunk.getPos().x, chunk.getPos().z, true);
-        }
-        mLevel.getChunkSource().updateChunkForced(chunk.getPos(), true);
+        TardisWorldManager.addTardis(this);
+        tardisID = null;
     }
 
     public static TardisTileEntity getOrCreateTardis(BlockPos pos, BlockState state, int id){
@@ -78,67 +64,70 @@ public class TardisTileEntity extends BlockEntity {
     public void generateId(UUID ownerUUID){
         id = tardisMap.size() + 1;
         this.ownerUUID = ownerUUID;
+        this.tardisID = UUID.randomUUID();
         tardisMap.put(id, this);
     }
 
     @Override
-    public CompoundTag serializeNBT() {
-        CompoundTag tag = new CompoundTag();
-        tag.putInt("id", id);
-        return super.serializeNBT();
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+        tag.putUUID("owner", ownerUUID);
+        tag.putUUID("tardisId", tardisID);
+        tag.putString("state", state.toString());
     }
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        id = nbt.getInt("id");
         super.deserializeNBT(nbt);
+        ownerUUID = nbt.getUUID("owner");
+        tardisID = nbt.getUUID("tardisId");
+        state = State.valueOf(nbt.getString("state"));
     }
 
     public UUID getOwnerUUID() {
         return ownerUUID;
     }
 
+    @Override
     public void demat(){
-        if(getTargetPosition() == null){
-            setTargetPosition(getCurrentPosition());
-        }
-        DMPackets.INSTANCE.sendTo(new TardisDematPacket(getId(), getCurrentPosition(), getTargetPosition()), Minecraft.getInstance().player.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+        level.getCapability(DMCapabilities.TARDIS).ifPresent((cap) -> {
+            setState(State.DEMATTING);
+            if(cap.getTargetPosition() == null){
+                setTargetPosition(getCurrentPosition());
+            }
+            if(cap.getCurrentDimension() == null) {
+                setTargetDimension(getCurrentDimension());
+            }
+            setState(State.FLY);
+            cap.getLevel().removeBlock(getBlockPos(), false);
+        });
     }
 
+    @Override
+    public void tick() {
+
+    }
+
+    @Override
     public void remat(){
-        //setTargetPosition(new BlockPos(id * 1000, 0, id * 1000));
-
-        DMPackets.INSTANCE.sendTo(new TardisRematPacket(getId(), getOwnerUUID(), getTargetPosition()), Minecraft.getInstance().player.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
-
-//        Level level1 = Minecraft.getInstance().level;
-//        ChunkAccess chunk = level1.getChunk(this.getCurrentLocation());
-//        if(level1 instanceof ServerLevel serverLevel){
-//            serverLevel.setChunkForced(chunk.getPos().x, chunk.getPos().z, true);
-//        }
-//        level1.getChunkSource().updateChunkForced(chunk.getPos(), true);
-//        DocMod.LOGGER.warn("JE SUIS EN TRAIN DE REMAT");
-//        setTargetDimension(Level.OVERWORLD);
-//
-////        if(level instanceof ServerLevel serverLevel){
-////            level.getServer().getLevel(getTargetDimension()).setBlockEntity(tardisTileEntity);
-////        }
-//        Level mLevel = Minecraft.getInstance().level;
-//        ChunkAccess targetChunk = mLevel.getChunk(this.getTargetPosition());
-//        if(mLevel instanceof ServerLevel serverLevel){
-//            serverLevel.setChunkForced(targetChunk.getPos().x, targetChunk.getPos().z, true);
-//           // serverLevel.getServer().getLevel(getTargetDimension()).setBlockEntity(tardisTileEntity);
-//            setCurrentDimension(getTargetDimension());
-//        }
-//        level1.getChunkSource().updateChunkForced(chunk.getPos(), true);
-//        //level.removeBlockEntity(getBlockPos());
-//        isDemating = false;
-//        //level.setBlockEntity(this);
-//        //Minecraft.getInstance().level.setBlockEntity(this);
-//        isAlreadyDemat = false;
+        level.getCapability(DMCapabilities.TARDIS).ifPresent((cap) -> {
+            setState(State.REMATTING);
+            if(cap.getTargetPosition() == null){
+                setTargetPosition(getCurrentPosition());
+            }
+            if(cap.getCurrentDimension() == null) {
+                setTargetDimension(getCurrentDimension());
+            }
+            cap.getLevel().setBlock(getTargetPosition(), getBlockState(), 1);
+        });
     }
 
     public BlockPos getCurrentLocation(){
         return getBlockPos();
+    }
+
+    public UUID getTardisID() {
+        return tardisID;
     }
 
     public void setOwnerUUID(UUID ownerUUID) {
@@ -153,35 +142,37 @@ public class TardisTileEntity extends BlockEntity {
         this.targetDimension = targetDimension;
     }
 
+    @Override
     public ResourceKey<Level> getTargetDimension() {
         return targetDimension;
     }
 
+
+
+    @Override
+    public State getCurrentState() {
+        return state;
+    }
+
     public void setTargetPosition(BlockPos targetPosition) {
         this.targetPosition = targetPosition;
-        this.visible = false;
     }
 
     public void setCurrentPosition(BlockPos currentPosition) {
         this.currentPosition = currentPosition;
     }
 
+    @Override
     public BlockPos getCurrentPosition() {
         return getBlockPos();
     }
 
-    public boolean isVisible() {
-        return visible;
-    }
-
-    public void setVisible(boolean visible) {
-        this.visible = visible;
-    }
-
+    @Override
     public BlockPos getTargetPosition() {
         return targetPosition;
     }
 
+    @Override
     public ResourceKey<Level> getCurrentDimension() {
         return currentDimension;
     }
@@ -228,5 +219,16 @@ public class TardisTileEntity extends BlockEntity {
 
     public String getOwnerName(){
         return PlayerUtils.getUserNameByUUID(getOwnerUUID());
+    }
+
+    public void setState(State state){
+        this.state = state;
+    }
+
+    public enum State {
+        DEMATTING,
+        REMATTING,
+        FLY,
+        STANDING
     }
 }

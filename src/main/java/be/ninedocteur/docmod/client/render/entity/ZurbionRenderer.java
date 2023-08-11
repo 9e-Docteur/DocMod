@@ -1,10 +1,10 @@
 package be.ninedocteur.docmod.client.render.entity;
 
+import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.client.models.entity.ZurbionEntityModel;
+import be.ninedocteur.docmod.common.entity.mob.Zurbion;
 import be.ninedocteur.docmod.registry.LayerDefinitionsRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
-import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.common.entity.mob.Zurbion;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -28,17 +28,17 @@ public class ZurbionRenderer extends MobRenderer<Zurbion, ZurbionEntityModel<Zur
         return TEXTURE_LOCATION;
     }
 
-    protected void scale(Zurbion pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(0.35F, 0.35F, 0.35F);
+    protected void scale(Zurbion pLivingEntity, PoseStack pPoseStack, float pPartialTickTime) {
+        pPoseStack.scale(0.35F, 0.35F, 0.35F);
     }
 
-    protected void setupRotations(Zurbion pEntityLiving, PoseStack pMatrixStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks) {
+    protected void setupRotations(Zurbion pEntityLiving, PoseStack pPoseStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks) {
         if (pEntityLiving.isResting()) {
-            pMatrixStack.translate(0.0D, -0.1F, 0.0D);
+            pPoseStack.translate(0.0D, -0.1F, 0.0D);
         } else {
-            pMatrixStack.translate(0.0D, Mth.cos(pAgeInTicks * 0.3F) * 0.1F, 0.0D);
+            pPoseStack.translate(0.0D, Mth.cos(pAgeInTicks * 0.3F) * 0.1F, 0.0D);
         }
 
-        super.setupRotations(pEntityLiving, pMatrixStack, pAgeInTicks, pRotationYaw, pPartialTicks);
+        super.setupRotations(pEntityLiving, pPoseStack, pAgeInTicks, pRotationYaw, pPartialTicks);
     }
 }

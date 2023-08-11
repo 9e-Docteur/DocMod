@@ -5,6 +5,7 @@ import be.ninedocteur.docmod.common.world.biome.ClassicBiome;
 import be.ninedocteur.docmod.common.world.biome.MoonBiome;
 import be.ninedocteur.docmod.common.world.biome.SpaceBiome;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -26,7 +27,7 @@ public class DMBiomes {
     public static final ResourceKey<Biome> SPACE_BIOME_KEY = registerBiome("space_biome", 10);
 
     private static ResourceKey<Biome> registerBiome(String name, int weight){
-        ResourceKey<Biome> biome = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DocMod.MOD_ID, name));
+        ResourceKey<Biome> biome = ResourceKey.create(Registries.BIOME, new ResourceLocation(DocMod.MOD_ID, name));
         BiomeManager.addBiome(BiomeManager.BiomeType.ICY, new BiomeManager.BiomeEntry(biome, weight));
         BiomeManager.addAdditionalOverworldBiomes(biome);
         return biome;

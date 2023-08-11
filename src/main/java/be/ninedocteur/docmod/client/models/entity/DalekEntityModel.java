@@ -4,14 +4,12 @@ package be.ninedocteur.docmod.client.models.entity;// Made with Blockbench 4.1.5
 
 
 import be.ninedocteur.docmod.common.entity.mob.Dalek;
-import be.ninedocteur.docmod.utils.ModelUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.world.entity.Entity;
 
 public class DalekEntityModel<T extends Dalek> extends EntityModel<T> {
     private final ModelPart head;

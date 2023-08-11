@@ -1,7 +1,6 @@
 package be.ninedocteur.docmod.client.models.entity;
 
 import be.ninedocteur.docmod.common.entity.mob.CyberBossEntity;
-import be.ninedocteur.docmod.common.entity.mob.CybermanEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HumanoidModel;

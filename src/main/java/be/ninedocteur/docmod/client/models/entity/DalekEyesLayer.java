@@ -2,12 +2,9 @@ package be.ninedocteur.docmod.client.models.entity;
 
 import be.ninedocteur.docmod.DocMod;
 import be.ninedocteur.docmod.common.entity.mob.Dalek;
-import net.minecraft.client.model.EndermanModel;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
-import net.minecraft.client.renderer.entity.layers.EyesLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 

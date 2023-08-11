@@ -1,10 +1,7 @@
 package be.ninedocteur.docmod.common.tileentity;
 
-import be.ninedocteur.docmod.client.gui.menu.InfusionMenu;
 import be.ninedocteur.docmod.common.init.DMItems;
 import be.ninedocteur.docmod.common.init.DMTileEntity;
-import be.ninedocteur.docmod.common.network.DMPackets;
-import be.ninedocteur.docmod.common.network.packets.FluidSyncS2CPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -83,7 +80,6 @@ public class InfusionTableTileEntity extends BlockEntity implements MenuProvider
         protected void onContentsChanged() {
             setChanged();
             if(!level.isClientSide()){
-                DMPackets.sendToClients(new FluidSyncS2CPacket(this.fluid, worldPosition));
             }
         }
 
@@ -102,13 +98,6 @@ public class InfusionTableTileEntity extends BlockEntity implements MenuProvider
     }
 
     private LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.empty();
-
-    @Nullable
-    @OnlyIn(Dist.CLIENT)
-    @Override
-    public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-        return new InfusionMenu(id, inventory, this, this.data);
-    }
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
@@ -251,5 +240,11 @@ public class InfusionTableTileEntity extends BlockEntity implements MenuProvider
     @Override
     public Component getDisplayName() {
         return Component.literal("Infusion Table");
+    }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int p_39954_, Inventory p_39955_, Player p_39956_) {
+        return null;
     }
 }

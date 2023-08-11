@@ -4,7 +4,6 @@ package be.ninedocteur.docmod.client.models.entity;// Made with Blockbench 4.1.5
 
 
 import be.ninedocteur.docmod.common.entity.mob.AdiposeEntity;
-import be.ninedocteur.docmod.common.entity.mob.Dalek;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;

@@ -1,10 +1,9 @@
 package be.ninedocteur.docmod.client.models.entity;
 
-import be.ninedocteur.docmod.utils.DMUtils;
+import be.ninedocteur.docmod.common.entity.mob.Zurbion;
 import be.ninedocteur.docmod.utils.ModelUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import be.ninedocteur.docmod.common.entity.mob.Zurbion;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;

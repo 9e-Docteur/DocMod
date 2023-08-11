@@ -3,7 +3,6 @@ package be.ninedocteur.docmod.client.models;// Made with Blockbench 4.1.3
 // Paste this class into your mod and generate all required imports
 
 
-import be.ninedocteur.docmod.utils.DMUtils;
 import be.ninedocteur.docmod.utils.ModelUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

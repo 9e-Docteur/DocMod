@@ -1,11 +1,8 @@
 package be.ninedocteur.docmod.client.render.entity;
 
 import be.ninedocteur.docmod.DocMod;
-import be.ninedocteur.docmod.client.models.entity.DalekEntityModel;
-import be.ninedocteur.docmod.client.models.entity.DalekEyesLayer;
 import be.ninedocteur.docmod.client.models.entity.SWDEyesLayer;
 import be.ninedocteur.docmod.client.models.entity.SpecialWeaponsDalekEntityModel;
-import be.ninedocteur.docmod.common.entity.mob.Dalek;
 import be.ninedocteur.docmod.common.entity.mob.SWDalek;
 import be.ninedocteur.docmod.registry.LayerDefinitionsRegistry;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
